@@ -17,12 +17,13 @@ driver.implicitly_wait(time_to_wait=5)
 # 상품 div 가져옴
 elements = driver.find_elements(By.CLASS_NAME, 'css-1xyd46f')
 item_list = []
+info_list=[]
 # 크롤링 딜레이시간, 에러가 날 경우 count+=1 헤서 딜레이를 늘려줄것
 count = 2
 error = []
 # 상품의 개수만큼 반복
 #len(elements)
-for i in range(5):
+for i in range(50):
 # 페이지를 이동하면 driver의 elements를 다시 받아줘야한다.
 # 상품 상세보기로 이동했다가 다시 돌아오면 elements사용에 오류가 났다.
 # 그래서 반복문을 시작할 때 elemets를 새로 받아준다.
@@ -42,24 +43,37 @@ for i in range(5):
 
     try:
     #상세정보side
-        side_info = driver.find_elements(By.ID, 'product-atf')
+        side_info = driver.find_element(By.ID, 'product-atf')
+        #print(side_info.text)
+        info_div=side_info.find_elements(By.TAG_NAME, 'div')
+
     #상세정보side의 내용을 차례대로
-        for info in side_info:
-            info_text=info.find_element(By.TAG_NAME, 'div').text
-            #print(info_text)
+        sub_title=side_info.find_element(By.CLASS_NAME, 'css-47pv1l').text
+        price=side_info.find_element(By.CLASS_NAME, 'css-9pf1ze').text
+        delivery_title=side_info.find_element(By.CLASS_NAME, 'css-c02hqi').text
+        delivery_detail=side_info.find_element(By.CLASS_NAME, 'css-uy94b2').text
+        seller=side_info.find_elements(By.CLASS_NAME, 'css-c02hqi')[1].text
+        package_title=side_info.find_elements(By.CLASS_NAME, 'css-c02hqi')[2].text
+        package_detail=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx0')[1].text
+        sell_unit=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx1')[3].text
+        weight=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx1')[4].text
+        origin=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx1')[5].text
+        allergy=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx1')[6].text
+        info=side_info.find_elements(By.CLASS_NAME, 'e6qx2kx1')[7].text
+
+        info_list.append([sub_title,price,delivery_title,delivery_detail,seller,package_title,package_detail,
+        sell_unit,weight,origin,allergy,info])
+
+        print(info_list)
 
     # 상세보기 페이지의 elements가져옴
         details = driver.find_elements(By.ID, 'detail')
-
-    #상품설명 이미지 URL <- find_elements(By.TAG_NAME, 'img')로 수정해서 for문 돌려야함! 따로 만들기
-        description_img = driver.find_elements(By.ID, 'description')[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
-
     # 영양성분표 이미지 URL
         detail_img = details[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
     # 리스트에 넣기
-        item_list.append([item_name, ori_img, description_img, detail_img])
+        item_list.append([item_name, ori_img, detail_img])
     # 확인
-        print(item_list[-1])
+        #print(item_list[-1])
     # 만약 에러가 발생하면
     except:
     # 대기시간 증가 및 확인
@@ -83,5 +97,6 @@ driver.close()
 #print(error)
 
 
-item_list = pd.DataFrame(data=item_list,columns=['Item_Name', 'Ori_img_URL', 'description_img', 'detail_img_URL'])
-item_list.to_csv('C:\sist1226\getMaket\save.csv')
+item_list = pd.DataFrame(data=info_list,columns=['sub_title','price','delivery_title','delivery_detail','seller','package_title',
+'package_detail','sell_unit','weight','origin','allergy','info'])
+item_list.to_csv('C:\sist1226\getMaket\info.csv')

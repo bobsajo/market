@@ -17,6 +17,7 @@ driver.implicitly_wait(time_to_wait=5)
 # 상품 div 가져옴
 elements = driver.find_elements(By.CLASS_NAME, 'css-1xyd46f')
 item_list = []
+img_list=[]
 # 크롤링 딜레이시간, 에러가 날 경우 count+=1 헤서 딜레이를 늘려줄것
 count = 2
 error = []
@@ -41,25 +42,28 @@ for i in range(5):
     time.sleep(count)
 
     try:
-    #상세정보side
-        side_info = driver.find_elements(By.ID, 'product-atf')
-    #상세정보side의 내용을 차례대로
-        for info in side_info:
-            info_text=info.find_element(By.TAG_NAME, 'div').text
-            #print(info_text)
+    #상품설명 이미지 URL <- find_elements(By.TAG_NAME, 'img')로 수정해서 for문 돌려야함! 따로 만들기 get_attribute('src')
+        description_img = driver.find_elements(By.ID, 'description')[0].find_elements(By.TAG_NAME, 'img')
+        detail_img = driver.find_elements(By.ID, 'detail')[0].find_elements(By.TAG_NAME, 'img')
+        im=[]
+        im2=[]
+        tx=[]
+        tx2=[]
+        tx.append(driver.find_elements(By.ID, 'description')[0].text)
+        tx2.append(driver.find_elements(By.ID, 'detail')[0].text)
 
-    # 상세보기 페이지의 elements가져옴
-        details = driver.find_elements(By.ID, 'detail')
+        for img in description_img:
+            im.append(img.get_attribute('src')+",")
 
-    #상품설명 이미지 URL <- find_elements(By.TAG_NAME, 'img')로 수정해서 for문 돌려야함! 따로 만들기
-        description_img = driver.find_elements(By.ID, 'description')[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
+        for img in detail_img:
+            im2.append(img.get_attribute('src')+",")
 
-    # 영양성분표 이미지 URL
-        detail_img = details[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
+        img_list.append([im,im2,tx,tx2])
+
     # 리스트에 넣기
-        item_list.append([item_name, ori_img, description_img, detail_img])
+        #item_list.append([description_img])
     # 확인
-        print(item_list[-1])
+        #print(item_list[-1])
     # 만약 에러가 발생하면
     except:
     # 대기시간 증가 및 확인
@@ -82,6 +86,5 @@ for i in range(5):
 driver.close()
 #print(error)
 
-
-item_list = pd.DataFrame(data=item_list,columns=['Item_Name', 'Ori_img_URL', 'description_img', 'detail_img_URL'])
-item_list.to_csv('C:\sist1226\getMaket\save.csv')
+item_list = pd.DataFrame(data=img_list,columns=['description_img','detail_img','content_text1','content_text2'])
+item_list.to_csv('C:\sist1226\getMaket\detail_img.csv')

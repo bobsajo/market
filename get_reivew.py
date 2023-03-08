@@ -17,6 +17,7 @@ driver.implicitly_wait(time_to_wait=5)
 # 상품 div 가져옴
 elements = driver.find_elements(By.CLASS_NAME, 'css-1xyd46f')
 item_list = []
+rivew_list=[]
 # 크롤링 딜레이시간, 에러가 날 경우 count+=1 헤서 딜레이를 늘려줄것
 count = 2
 error = []
@@ -33,33 +34,22 @@ for i in range(5):
 	# 제품 이름, 이미지 URL 가져오기
     item_name = element.find_element(By.CLASS_NAME, 'e1c07x488').text
     #print(item_name)
-    ori_img = element.find_element(By.TAG_NAME, 'img').get_attribute('src')
-    #print(ori_img)
 
 # 상품 클릭
     element.click()
     time.sleep(count)
 
     try:
-    #상세정보side
-        side_info = driver.find_elements(By.ID, 'product-atf')
-    #상세정보side의 내용을 차례대로
-        for info in side_info:
-            info_text=info.find_element(By.TAG_NAME, 'div').text
-            #print(info_text)
+    #id: review의 class: e36z05c0의 tag_nae: p => 리뷰 내용
+        rivew = driver.find_elements(By.ID, 'review')[0]
+        rivew = rivew.find_elements(By.CLASS_NAME, 'e36z05c0')
 
-    # 상세보기 페이지의 elements가져옴
-        details = driver.find_elements(By.ID, 'detail')
-
-    #상품설명 이미지 URL <- find_elements(By.TAG_NAME, 'img')로 수정해서 for문 돌려야함! 따로 만들기
-        description_img = driver.find_elements(By.ID, 'description')[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
-
-    # 영양성분표 이미지 URL
-        detail_img = details[0].find_element(By.TAG_NAME, 'img').get_attribute('src')
-    # 리스트에 넣기
-        item_list.append([item_name, ori_img, description_img, detail_img])
+        for r in rivew:
+            rivew_text = r.find_element(By.TAG_NAME,'p').text
+            # 리스트에 넣기
+            item_list.append([item_name,rivew_text])
     # 확인
-        print(item_list[-1])
+        #print(item_list[-1])
     # 만약 에러가 발생하면
     except:
     # 대기시간 증가 및 확인
@@ -82,6 +72,5 @@ for i in range(5):
 driver.close()
 #print(error)
 
-
-item_list = pd.DataFrame(data=item_list,columns=['Item_Name', 'Ori_img_URL', 'description_img', 'detail_img_URL'])
-item_list.to_csv('C:\sist1226\getMaket\save.csv')
+item_list = pd.DataFrame(data=item_list,columns=['item_name','rivew'])
+item_list.to_csv('C:\sist1226\getMaket\sang_rivew.csv')
