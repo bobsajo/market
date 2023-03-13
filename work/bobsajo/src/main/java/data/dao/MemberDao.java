@@ -48,15 +48,15 @@ DbConnect db=new DbConnect();
 	}
 
 	//id중복체크
-	public boolean checkId(String id) 
+	public int checkId(String id) 
 	{
-		boolean idok=true;
+		int idok=0;
 		
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from member where member_id=?";
+		String sql="select count(*) from member where member_id=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -64,9 +64,9 @@ DbConnect db=new DbConnect();
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
 			
-			//같은 아이디가 있으면 false
+			//같은 아이디 개수
 			if(rs.next()){
-				idok=false;
+				idok=rs.getInt(1);
 			}
 			
 		} catch (SQLException e) {
@@ -76,6 +76,36 @@ DbConnect db=new DbConnect();
 		
 		return idok;
 	}
+	
+	//email중복체크
+		public int checkEmail(String email) 
+		{
+			int emailok=0;
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select count(*) from member where member_email=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, email);
+				rs=pstmt.executeQuery();
+				
+				//같은 아이디 개수
+				if(rs.next()){
+					emailok=rs.getInt(1);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return emailok;
+		}
 	
 	//insert
 	public void insertMember(MemberDto dto)
@@ -88,13 +118,13 @@ DbConnect db=new DbConnect();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			
-			pstmt.setString(0,dto.getMember_name());
-			pstmt.setString(1, dto.getMember_addr());
-			pstmt.setString(2, dto.getMember_hp());
-			pstmt.setString(3, dto.getMember_pass());
-			pstmt.setString(4, dto.getMember_id());
-			pstmt.setString(5, dto.getMember_email());
-			pstmt.setString(6, dto.getMember_birth());
+			pstmt.setString(1,dto.getMember_name());
+			pstmt.setString(2, dto.getMember_addr());
+			pstmt.setString(3, dto.getMember_hp());
+			pstmt.setString(4, dto.getMember_pass());
+			pstmt.setString(5, dto.getMember_id());
+			pstmt.setString(6, dto.getMember_email());
+			pstmt.setString(7, dto.getMember_birth());
 			
 			pstmt.execute();
 			

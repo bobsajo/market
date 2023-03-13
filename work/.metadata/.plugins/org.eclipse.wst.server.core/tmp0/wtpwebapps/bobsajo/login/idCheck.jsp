@@ -11,7 +11,7 @@ String id=request.getParameter("id");
 MemberDao dao=new MemberDao();
 
 //아이디 중복체크
-boolean idok=dao.checkId(id);
+int idok=dao.checkId(id);
 
 //json
 JSONObject ob=new JSONObject();

@@ -185,6 +185,9 @@ MemberDao dao=new MemberDao();
 <script>
 
 $(function(){
+	idCheck=false;
+	emailCheck=false;
+	
 	$(".addr_show").hide();
 	
 	//회원가입 버튼을 눌렀을 때 주소를 입력 안했다면 주소를 입력하게 한다
@@ -192,8 +195,47 @@ $(function(){
 		//hide상태라면
 		if($(".addr_show").is(":visible")==false){
 			alert("주소를 입력해주세요.");
+		//아이디 중복체크를 안했다면
+		}else if(idCheck==false){
+			alert("아이디 중복체크를 해주세요.");
+		}else if(emailCheck==false){
+			alert("이메일 중복체크를 해주세요.");
+		}else if($("#pass").val()!=$("#pass_check").val()){
+			alert("비밀번호를 잘못 입력했습니다.");
+			$("#pass").val("");
+			$("#pass_check").val("");
 		}else{
-			location.href="joinAction.jsp";
+			var birth=$("#year").val()+"/"+$("#month").val()+"/"+$("#day").val();
+			
+			$.ajax({
+				type:"get",
+				dataType:"json",
+				url:"birthCheck.jsp",
+				data:{"birth":birth},
+				success:function(res){
+					if(res.isbirth==0){
+						alert("올바른 생년월일을 입력해주세요.");
+						$("#year").val("");
+						$("#month").val("");
+						$("#day").val("");
+						return;
+					}else{
+						//location.href="joinAction.jsp";
+						var data=$(".join_form").serialize();
+						alert(data);
+						$.ajax({
+							type:"post",
+							dataType:"html",
+							url:"joinAction.jsp",
+							data:data,
+							success:function(res){
+								alert("회원가입을 환영합니다!")
+								location.href="loginForm.jsp";
+							}
+						})
+					}
+				}
+			})
 		}
 	});
 	
@@ -208,7 +250,66 @@ $(function(){
 	
 	//아이디 중복 체크
 	$("#id_check").click(function(){
-		var id=$("#id").val();
+		var id=$("#id").val().trim();
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			url:"idCheck.jsp",
+			data:{"id":id},
+			success:function(res){
+				//아이디가 중복됐다면
+				if(res.idok>0){
+					$("#id_retry").html("<br>중복 아이디입니다.");
+					$("#id").val("");
+					idCheck=false;
+				}else if(id==""){
+					$("#id_retry").html("<br>아이디를 입력하세요.");
+					idCheck=false;
+				}else{
+					$("#id_retry").html("<br>사용 가능한 아이디입니다.");
+					idCheck=true;
+				}
+			}
+		});
+	});
+	
+	//이메일 중복 체크
+	$("#email_check").click(function(){
+		var email=$("#email").val().trim();
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			url:"emailCheck.jsp",
+			data:{"email":email},
+			success:function(res){
+				//이메일이 중복됐다면
+				if(res.emailok>0){
+					$("#email_retry").html("<br>중복 이메일입니다.");
+					$("#email").val("");
+					emailCheck=false;
+				}else if(email==""){
+					$("#email_retry").html("<br>이메일을 입력하세요.");
+					emailCheck=false;
+				}else{
+					$("#email_retry").html("<br>사용 가능한 이메일입니다.");
+					emailCheck=true;
+				}
+			}
+		});
+	});
+	
+	//아이디란을 바꾸면 아이디 중복 검사를 다시 실행
+	$("#id").change(function(){
+		$("#id_retry").html("");
+		idCheck=false;
+	})
+	
+	//이메일란을 바꾸면 아이디 중복 검사를 다시 실행
+	$("#email").change(function(){
+		$("#email_retry").html("");
+		emailCheck=false;
 	});
 	
 });
@@ -286,6 +387,7 @@ function sample6_execDaumPostcode() {
 					<div class="info_input">
 						<input type="text" name="id" placeholder="아이디를 입력해주세요" 
 						required="required" id="id">
+						<span style="font-size: 8pt;" id="id_retry"></span>
 					</div>
 					<div class="info_btn">
 						<button type="button" id="id_check">중복확인</button>
@@ -300,7 +402,7 @@ function sample6_execDaumPostcode() {
 					</div>
 					<div class="info_input">
 						<input type="text" name="pass" placeholder="비밀번호를 입력해주세요" 
-						required="required">
+						required="required" id="pass">
 					</div>
 				</div>
 				
@@ -311,7 +413,7 @@ function sample6_execDaumPostcode() {
 						<b>비밀번호확인<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="text" name="pass_check" placeholder="비밀번호를 입력해주세요" 
+						<input type="text" name="pass_check" placeholder="비밀번호를 한번 더 입력해주세요" 
 						required="required" id="pass_check">
 					</div>
 				</div>
@@ -335,8 +437,9 @@ function sample6_execDaumPostcode() {
 						<b>이메일<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="email" name="eamil" placeholder="예: dawnmarket@dawn.com" 
-						required="required">
+						<input type="email" name="email" placeholder="예: dawnmarket@dawn.com" 
+						required="required" id="email">
+						<span style="font-size: 8pt;" id="email_retry"></span>
 					</div>
 					<div class="info_btn">
 						<button type="button" id="email_check">중복확인</button>
@@ -390,17 +493,17 @@ function sample6_execDaumPostcode() {
 						<div id="birth_div">
 							<div>
 								<input type="text" name="year" placeholder="YYYY" 
-								pattern="[0-9]{4,4}$">
+								pattern="^[0-9]{4,4}$" id="year">
 								<span>/</span>
 							</div>
 							<div>
 								<input type="text" name="month" placeholder="MM" 
-								pattern="[0-9]{2,2}$">
+								pattern="^[0-9]{2,2}$" id="month">
 								<span>/</span>
 							</div>
 							<div>
 								<input type="text" name="day" placeholder="DD" 
-								pattern="[0-9]{2,2}$">
+								pattern="^[0-9{2,2}]$" id="day">
 							</div>
 						</div>
 					</div>
