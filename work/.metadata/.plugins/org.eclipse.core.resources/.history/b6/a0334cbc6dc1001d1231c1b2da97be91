@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+
+//id받기
+String id=request.getParameter("id");
+
+//로그인 있는지 확인
+
+%>

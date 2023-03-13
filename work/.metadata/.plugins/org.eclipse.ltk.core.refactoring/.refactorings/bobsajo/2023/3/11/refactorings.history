@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;bobsajo/src/main/webapp/login/joinIdCheck.jsp&apos; to &apos;idCheck.jsp&apos;" description="Rename resource &apos;joinIdCheck.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/login/joinIdCheck.jsp" name="idCheck.jsp" stamp="1678691162759" updateReferences="true"/>
+</session>

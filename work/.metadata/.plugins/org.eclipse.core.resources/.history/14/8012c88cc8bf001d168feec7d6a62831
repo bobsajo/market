@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>메인 페이지</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <style type="text/css">
+    	.category{
+    		background-color: white;
+    	}
+    	
+    	..main3>li{
+    		background-color: lightgray;
+    		width: 400px;
+    	}
+    	
+    	..main3>li:hover{
+    	}
+    </style>
+    
+    <script type="text/javascript">
+       $(function(){
+          $(".sub").hide();
+          
+          $(".category").click(function(){
+        	  //alert("클릭")
+        	  $(".sub").toggle();
+          });
+          
+          $("ul.main3 li").mouseover(function(){
+        	  $("ul.main3 li").
+          });
+          
+       });
+    </script>
+</head>
+<body>
+   <!--카테고리바-->
+         <div class="">
+            <ul class="">
+               <li class="category"><a href="#"><b><img
+                        src="image/ico_gnb_all_off.png" alt="카테고리 아이콘">&ensp;&ensp;전체
+                        카테고리</b></a>
+                  <ul class="sub">
+                     <li><a href="">&ensp;&ensp;과일·견과·쌀
+                           <ul class="main3">
+                              <li><a href="">&ensp;&ensp;친환경</a></li>
+                              <li><a href="">&ensp;&ensp;제철과일</a></li>
+                              <li><a href="">&ensp;&ensp;국산과일</a></li>
+                              <li><a href="">&ensp;&ensp;수입과일</a></li>
+                              <li><a href="">&ensp;&ensp;간편과일</a></li>
+                              <li><a href="">&ensp;&ensp;냉동·건과일</a></li>
+                              <li><a href="">&ensp;&ensp;견과류</a></li>
+                              <li><a href="">&ensp;&ensp;쌀·잡곡</a></li>
+                           </ul>
+                     </a></li>
+                     <li><a href="">&ensp;&ensp;수산·해산·건어물
+                           <ul class="main3">
+                              <li><a href="">&ensp;&ensp;제철수산</a></li>
+                              <li><a href="">&ensp;&ensp;생선류</a></li>
+                              <li><a href="">&ensp;&ensp;굴비·반건류</a></li>
+                              <li><a href="">&ensp;&ensp;오징어·낙지·문어</a></li>
+                              <li><a href="">&ensp;&ensp;새우·게·랍스터</a></li>
+                              <li><a href="">&ensp;&ensp;해산물·조개류</a></li>
+                              <li><a href="">&ensp;&ensp;수산가공품</a></li>
+                              <li><a href="">&ensp;&ensp;김·미역·해조류</a></li>
+                              <li><a href="">&ensp;&ensp;건어물·다시팩</a></li>
+                           </ul>
+                     </a></li>
+                     <li><a href="">&ensp;&ensp;정육·계란
+                           <ul class="main3">
+                              <li><a href="">&ensp;&ensp;국내산 소고기</a></li>
+                              <li><a href="">&ensp;&ensp;수입산 소고기</a></li>
+                              <li><a href="">&ensp;&ensp;돼지고기</a></li>
+                              <li><a href="">&ensp;&ensp;계란류</a></li>
+                              <li><a href="">&ensp;&ensp;닭·오리고기</a></li>
+                              <li><a href="">&ensp;&ensp;양념육·돈까스</a></li>
+                              <li><a href="">&ensp;&ensp;양고기</a></li>
+                           </ul>
+                     </a></li>
+                     <li><a href="#">&ensp;&ensp;간식·과자·떡
+                           <ul class="main3">
+                              <li><a href="#">&ensp;&ensp;과자·스낵·쿠키</a></li>
+                              <li><a href="#">&ensp;&ensp;초콜릿·젤리·캔디</a></li>
+                              <li><a href="#">&ensp;&ensp;떡·한과</a></li>
+                              <li><a href="#">&ensp;&ensp;아이스크림</a></li>
+                           </ul>
+                     </a></li>
+                  </ul>
+             	</li>
+             </ul>
+          </div>    
+               
+
+               
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

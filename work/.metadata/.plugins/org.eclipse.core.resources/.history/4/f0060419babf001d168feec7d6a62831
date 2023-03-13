@@ -1,0 +1,12 @@
+package data.dto;
+
+import mysql.db.DbConnect;
+
+public class MemberDto {
+	DbConnect db=new DbConnect();
+	
+	public void insertMember(MemberDto)
+	{
+		
+	}
+}
