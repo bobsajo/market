@@ -72,7 +72,8 @@ public class ReviewDao {
     }
 
     //페이징처리_#2_List(start,perpage) //페이지를 어떻게 줄 건지:perpage
-    public List<ReviewDto> getList(String item_num, int start,int perpage) {
+    //추천순으로 정렬
+    public List<ReviewDto> getListLike(String item_num, int start,int perpage) {
         List<ReviewDto> list=new Vector<>();
 
         Connection conn=db.getConnection();
@@ -81,6 +82,51 @@ public class ReviewDao {
 
         //많이 쓰는 코드, limit 0,5하면 0~5개를 보여주는 것
         String sql="select * from review where item_num=? order by review_like desc limit ?,?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+
+            //바인딩
+            pstmt.setString(1,item_num);
+            pstmt.setInt(2,start);
+            pstmt.setInt(3,perpage);
+
+            rs=pstmt.executeQuery();
+
+            //몇 번째부터 몇 번째까지라는 제한만 있을 뿐, 그 사이에서 전체 데이터를 불러 오는 건 똑같음
+            //그래서 이 부분은 getAllData()와 코드가 일치
+            while(rs.next()) {
+                ReviewDto dto=new ReviewDto();
+
+                dto.setItem_num(rs.getString("item_num"));
+                dto.setReview_num(rs.getString("review_num"));
+                dto.setMember_num(rs.getString("member_num"));
+                dto.setReview_img(rs.getString("review_img"));
+                dto.setReview_content(rs.getString("review_content"));
+                dto.setReview_date(rs.getString("review_date"));
+                dto.setReview_like(rs.getInt("review_like"));
+
+                //리스트에 추가
+                list.add(dto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            db.dbClose(rs,pstmt,conn);
+        }
+        return list;
+    }
+
+    //최신순으로 정렬
+    public List<ReviewDto> getListNew(String item_num, int start,int perpage) {
+        List<ReviewDto> list=new Vector<>();
+
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+
+        //많이 쓰는 코드, limit 0,5하면 0~5개를 보여주는 것
+        String sql="select * from review where item_num=? order by review_num desc limit ?,?";
 
         try {
             pstmt=conn.prepareStatement(sql);
@@ -155,6 +201,25 @@ public class ReviewDao {
         PreparedStatement pstmt=null;
 
         String sql="update review set review_like=review_like+1 where review_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+
+            pstmt.setString(1,review_num);
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(pstmt,conn);
+        }
+    }
+
+    //추천 취소(ajax)
+    public void deleteLike(String review_num) {
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+
+        String sql="update review set review_like=review_like-1 where review_num=?";
 
         try {
             pstmt=conn.prepareStatement(sql);

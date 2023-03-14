@@ -14,7 +14,7 @@
     ReviewDao dao=new ReviewDao();
 
     //num에 해당하는 like 1증가
-    dao.updateLike(review_num);
+    dao.deleteLike(review_num);
 //    System.out.println(dao.getData(review_num));
 
     //num에 해당하는 chu값 json 형식으로 반환

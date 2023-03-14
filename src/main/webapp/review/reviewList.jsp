@@ -67,10 +67,18 @@
     start=(currentPage-1)*perPage;
 
     //각 페이지에서 필요한 게시글 가져오기
-    List<ReviewDto> list=db.getList(item_num,start,perPage);
+    List<ReviewDto> list;
+    list=db.getListLike(item_num,start,perPage);
+    %>
+    <script type="text/javascript">
+        $(function() {
 
-//--------복사 끝-----------
-%>
+           $("span.orderByNew").click(function() {
+
+           });
+        });
+    </script>
+
 <body>
 
 <div>
@@ -96,7 +104,9 @@
             String photo=list.get(i).getReview_img();
     %>
 
-    <a itemNum="<%=dto.getItem_num()%>"><img src="reviewImg/<%=photo%>" class="reviewFlexImg"></a>
+    <button type="button" review_num="<%=list.get(i).getReview_num()%>" data-toggle="modal" data-target="#exampleModalLong" class="modalImg">
+        <img review_num="<%=list.get(i).getReview_num()%>" src="reviewImg/<%=photo%>" class="reviewFlexImg">
+    </button>
     <%
             if((i+1)%7==0) {
                 break;
@@ -111,10 +121,12 @@
     <span class="orderByNew"> 최근등록순</span>
     <hr style="width: 1000px; height: 10px;" align="left">
     <%
+        boolean like=false;
         for(int i=0; i<list.size(); i++) {
             String reviewDate=list.get(i).getReview_date();
             Date newdt = input.parse(reviewDate);			//date 자료형으로 변환
             String newdt2 = output.format(newdt);	//date 타입을 string 으로 변환
+
     %>
     <div class="eachReview"> <!--개개인 리뷰 칸 나오는 곳-->
         <div class="reviewSideBar">
@@ -133,11 +145,11 @@
             <p><%=list.get(i).getReview_content().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
                     .replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></p>
             <br>
-            <img class="reviewFlexImg" src="reviewImg/<%=list.get(i).getReview_img()%>">
+            <img class="reviewFlexImg" review_num="<%=list.get(i).getReview_num()%>" src="reviewImg/<%=list.get(i).getReview_img()%>" data-toggle="modal" data-target="#exampleModalLong">
             <br><br>
             <span class="reviewDate"><%=newdt2%></span>
-            <button type="button" class="likeBtn" review_num="<%=list.get(i).getReview_num()%>"><span class="likeSpan glyphicon glyphicon-thumbs-up
-"></span>&ensp;도움돼요&ensp;<%=list.get(i).getReview_like()%></button>
+            <button type="button" class="likeBtn" review_num="<%=list.get(i).getReview_num()%>"><span class="likeSpan glyphicon glyphicon-thumbs-up">
+            </span>&ensp;도움돼요&ensp;<%=list.get(i).getReview_like()%></button>
         </article>
         </div>
     </div>
@@ -145,43 +157,111 @@
     <% } %>
 </div>
     <script type="text/javascript">
+        like=false;
         //도움돼요 버튼을 클릭하면
         $("button.likeBtn").click(function() {
 
-<%--            <%--%>
-<%--                if(loginok==null) { %>--%>
-<%--            var goLogin=confirm("회원 전용 서비스입니다. 로그인 페이지로 이동하시겠습니까?");--%>
-<%--            if(goLogin) {--%>
-<%--                //메인페이지로 이동하기--%>
-<%--            }--%>
-<%--            <% } else { %>--%>
-            var review_num=$(this).attr("review_num");
-            var tag=$(this);
-            // alert(review_num);
+            <%
+                if(loginok==null) { %>
+            var goLogin=confirm("회원 전용 서비스입니다. 로그인 페이지로 이동하시겠습니까?");
+            if(goLogin) {
+                //로그인 페이지로 이동하기
+                location.href="../login/loginForm.jsp";
+            }
+            <% } else { %>
 
-            $.ajax({
-                type:"get",
-                dataType:"json",
-                url:"reviewLike.jsp",
-                data:{"review_num":review_num},
-                success:function(res) {
-                    tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
-                    tag.css({
-                        "color":"#4B62D3"
-                    });
-                },statusCode:{
-                    404:function() {
-                        alert("json 파일이 없어요");
-                    },
-                    500:function() {
-                        alert("서버 오류... 코드를 다시 한 번 확인하세요");
+            if(!like) {
+                review_num=$(this).attr("review_num");
+                var tag=$(this);
+                // alert(review_num);
+
+                alert(tag.css("color"));
+
+                $.ajax({
+                    type:"get",
+                    dataType:"json",
+                    url:"reviewLike.jsp",
+                    data:{"review_num":review_num},
+                    success:function(res) {
+                        tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
+                        tag.css({
+                            "color":"#4B62D3"
+                        });
+                        like=true;
+
+                    },statusCode:{
+                        404:function() {
+                            alert("json 파일이 없어요");
+                        },
+                        500:function() {
+                            alert("서버 오류... 코드를 다시 한 번 확인하세요");
+                        }
                     }
-                }
+                });
+            } else {
+                var tag=$(this);
+                // alert(review_num);
 
+                // alert(tag.css("color"));
 
-            });
-<%--            <% }--%>
-<%--        %>--%>
+                $.ajax({
+                    type:"get",
+                    dataType:"json",
+                    url:"reviewLikeDelete.jsp",
+                    data:{"review_num":review_num},
+                    success:function(res) {
+                        tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
+                        tag.css({
+                            "color":"gray"
+                        });
+                        like=false;
+
+                    },statusCode:{
+                        404:function() {
+                            alert("json 파일이 없어요");
+                        },
+                        500:function() {
+                            alert("서버 오류... 코드를 다시 한 번 확인하세요");
+                        }
+                    }
+                });
+            }
+            // review_num=$(this).attr("review_num");
+            // var tag=$(this);
+            // // alert(review_num);
+            //
+            // alert(tag.css("color"));
+            //
+            // $.ajax({
+            //     type:"get",
+            //     dataType:"json",
+            //     url:"reviewLike.jsp",
+            //     data:{"review_num":review_num},
+            //     success:function(res) {
+            //         tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
+            //         tag.css({
+            //             "color":"#4B62D3"
+            //         });
+            //
+            //     },statusCode:{
+            //         404:function() {
+            //             alert("json 파일이 없어요");
+            //         },
+            //         500:function() {
+            //             alert("서버 오류... 코드를 다시 한 번 확인하세요");
+            //         }
+            //     }
+            //
+            //
+            // });
+            <% }
+        %>
+        });
+
+        $("img").on('shown.bs.modal',function() {
+           // $("#myInput").trigger('focus');
+
+           console.log(review_num);
         });
     </script>
 
@@ -207,6 +287,32 @@
                 <a href="reviewList.jsp?currentPage=<%=endPage+1%>">&raquo;</a>
             <% }
             %>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
