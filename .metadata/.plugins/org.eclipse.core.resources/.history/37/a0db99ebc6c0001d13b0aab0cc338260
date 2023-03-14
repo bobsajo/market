@@ -1,0 +1,118 @@
+<!--<%@ page language="java" contentType="text/html; charset=utf-8"-->
+<!--    pageEncoding="utf-8"%>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css" media="all"/>
+    <link rel="stylesheet" href="../css/footer.css" media="all"/>
+
+</head>
+<body>
+<div id="footer">
+    <div class="section inquiry">
+        <div class="secContents">
+            <h3>고객행복센터</h3>
+            <div class="inquiryCon">
+                <ul>
+                    <li>&nbsp;</li>
+                    <li>
+                        <div class="inquiryHalf">
+                            <h2>1644 - 1107</h2>
+                        </div>
+                        <div class="inquiryLine1">
+                            <p class="day">평일 오전 7시 - 오후 6시</p>
+                        </div>
+                        <div class="inquiryLine2">
+                            <p class="day">토요일, 일요일 &amp; 공휴일 오전 8시 - 오후 12시</p>
+                        </div>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li style="margin-top: 30px;">&nbsp;</li>
+                    <li>
+                        <div class="inquiryHalf">
+                            <a href="">카카오톡 문의</a>
+                        </div>
+                        <div class="inquiryLine1">
+                            <p class="day">평일 오전 8시 - 오후 4시</p>
+                        </div>
+                        <div class="inquiryLine2">
+                            <p class="day">토요일, 일요일 &amp; 공휴일 오전 8시 - 오후 12시</p>
+                        </div>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li style="margin-top: 30px;">
+                        <div class="inquiryHalf">
+                            <a href="">&nbsp;&nbsp;&nbsp;&nbsp;1:1 문의&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        </div>
+                        <div class="inquiryLine1">
+                            <p class="day">365일</p>
+                        </div>
+                        <div class="inquiryLine2">
+                            <p class="day1">고객센터 운영시간에 순차적으로 답변드리겠습니다.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section last">
+        <div class="secContents">
+            <div class="lastLeft">
+                <ul>
+                    <li><a href="#">컬리소개</a></li>
+                    <li><a href="#">컬리영상소개</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                </ul>
+            </div>
+            <div class="lastCenter">
+                <ul>
+                    <li>
+                        <p class="line1">
+                            법인명 (상호) : 주식회사 컬리 | 사업자등록번호 : 261-81-23567 <a href="#">사업자정보 확인</a><br>
+                            통신판매업: 제 2018-서울강남-01646호 | 개인정보보호책임자 : 이원준<br>
+                            주소: 서울특별시 강남구 테헤란로 133, 18층(역삼동) | 대표이사 : 김슬아<br>
+                            입점문의 : <a href="#">입점문의하기</a> | 제휴문의 : <a href="#">marketing@kurlycorp.com</a><br>
+                            채용문의 : <a href="#">recruit@kurlycorp.com</a><br> 팩스 : 02-3482-4636<br>
+<!--                            주소 : 서울특별시 강남구 테헤란로 132(역삼동) 한독약품빌딩 8층 쌍용교육센터-->
+                        </p>
+                    </li>
+<!--                    <li><img src="img/saebyuk.png" alt="로고">-->
+<!--                        <p>KURLY ALL RIGHT RESERVED</p></li>-->
+                </ul>
+            </div>
+            <div class="lastRight">
+                <ul>
+                    <li>
+                        <img src="../img/instagram_logo.png" alt="인스타그램" width="30" class="snsLogo"
+                             onclick="window.open('https://www.instagram.com/marketkurly')"/>
+                    </li>
+                    <li>
+                        <img src="../img/facebook_logo.png" alt="페이스북" width="30" class="snsLogo"
+                             onclick="window.open('https://www.facebook.com/marketkurly')"/>
+                    </li>
+                    <li>
+                        <img src="../img/blog_logo.png" alt="블로그" width="30" class="snsLogo"
+                             onclick="window.open('https://blog.naver.com/marketkurly')"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footerT">
+        <div class="fContents">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+#footer {
+	width: 1015px;
+	height: 380px;
+	margin: 0 auto;
+}
+
+.section .secContents {
+	width: 1015px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.section.inquiry .secContents {
+	width: 1015px;
+	height: 190px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.section.inquiry .secContents h2 {
+	margin-top: 10px;
+	line-height: 50px;
+	color: #484848;
+}
+
+.secContents .inquiryCon>ul>li {
+	width: 331px;
+	height: auto;
+	float: left;
+	box-sizing: border-box;
+}
+
+.secContents .inquiryCon>ul>li:nth-child(2) {
+	margin: 0 11px;
+}
+
+.secContents .inquiryCon>ul>li h4 {
+	color: #512772;
+	margin: 13px 0;
+}
+
+.secContents .inquiryCon>ul>li p {
+	font-size: 13px;
+}
+
+.secContents .inquiryCon>ul>li p.day {
+	font-weight: bold;
+	float: left;
+}
+
+.secContents .inquiryCon>ul>li p.serviceTime {
+	float: left;
+	margin: 0 5px;
+}
+
+.secContents .inquiryCon>ul>li .line2 {
+	float: left;
+	margin-top: 2px;
+}
+
+.secContents .inquiryCon>ul>li .line1 p.lunchtime {
+	font-size: 12px;
+	float: left;
+}
+
+.secContents .inquiryCon>ul>li:nth-child(3) p.line1 {
+	margin-bottom: 2px;
+}
+
+.section.last .secContents {
+	width: 1015px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.section.last .secContents .lastLeft {
+	float: left;
+	height: 80px;
+	margin-top: 10px;
+}
+
+.section.last .secContents .lastLeft>ul>li {
+	float: left;
+	margin-right: 40px;
+	line-height: 80px;
+}
+
+.section.last .secContents .lastLeft>ul>li a {
+	color: #514859;
+	font-size: 13px;
+}
+
+.section.last .secContents .lastRight {
+	float: right;
+	height: 80px;
+	margin-top: 10px;
+}
+
+.section.last .secContents .lastRight>ul>li {
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+
+.section.last .secContents .lastRight>ul>li img {
+	width:100%;
+	cursor: pointer;
+}
+
+/* footer 시작 */
+.footerT {
+	width: 1015px;
+	height: 110px;
+	margin: 20px auto;
+	margin-bottom: 70px;
+}
+
+.fContents>ul>li {
+	width: 331px;
+	height: 110px;
+	float: left;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.fContents>ul>li .n p {
+	float: left;
+	margin-right: 5px;
+}
+
+.fContents>ul>li:nth-child(2) {
+	margin: 0 10.5px;
+}
+
+.fContents>ul>li:nth-child(3) {
+	float: right;
+}
+
+.fContents>ul>li p {
+	color: #9492a3;
+	font-size: 12px;
+}
+
+.fContents>ul>li a {
+	color: #512772;
+	font-size: 12px;
+}
+
+.fContents>ul>li:nth-child(3) img {
+	float: right;
+}
+
+.fContents>ul>li:nth-child(3) p {
+	float: right;
+}
+
+.fContents>ul>li p.line1 {
+	margin-top: 6px;
+}

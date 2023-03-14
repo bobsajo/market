@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class = "menubar">
+		<ul class = "main1">
+			<li><a href = "#"><b><img src = "img/ico_gnb_all_off.png">전체 카테고리</b></a>
+			<ul class="main2">
+				<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;채소
+					<ul class="main3">
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;친환경</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;고구마·감자·당근</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;시금치·쌈채소·나물</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;브로콜리·파프리카·양배추</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;양파·대파·마늘·배추</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;오이·호박·고추</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;냉동·이색·간편채소</a></li>
+					<li><a href="/SAZO/market/list_cate.do?category=veg">&ensp;&ensp;콩나물·버섯</a></li>
+					</ul></a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
