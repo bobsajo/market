@@ -17,9 +17,11 @@ String loginok=(String)session.getAttribute("loginok");
 
 //만약 로그인 상태라면
 if(loginok!=null){
-	//loginForm을 include
+	//이미 로그인한 상태라면 메인페이지로
 }else{
-	//이미 로그인한 상태임을 알림
+	//loginForm을 include%>
+	<jsp:include page="loginForm.jsp"></jsp:include>
+<%	
 }
 
 %>

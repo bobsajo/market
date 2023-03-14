@@ -174,6 +174,60 @@
 		font-weight: bold;
 	}
 	
+	
+	/*체크박스모양 바꾸기*/
+	
+
+	input[type="checkbox"] {
+	
+	
+	    display:none;
+	    appearance: none;
+	
+	
+	}
+	
+	
+	input[type="checkbox"] {
+	
+	
+	    display: inline-block;
+	
+	
+	    width: 40px;
+	
+	
+	    height: 40px;
+	
+		margin: -2px 10px 0 0;
+	
+	
+	    vertical-align: middle;
+	
+	
+	    cursor: pointer;
+	
+	    background-size: cover;
+	    
+	    background: url(checkbox.svg) left top no-repeat;
+	
+	
+	}
+	
+	
+	
+	
+	
+	input[type="checkbox"]:checked {
+	
+	
+	     background-size: cover;
+	     
+	     background: url(checkbox.svg) -41px top no-repeat;
+	
+	
+	}
+	
 </style>
 
 <%
@@ -193,7 +247,17 @@ $(function(){
 	//회원가입 버튼을 눌렀을 때 주소를 입력 안했다면 주소를 입력하게 한다
 	$("#submit_btn").click(function(){
 		//hide상태라면
-		if($(".addr_show").is(":visible")==false){
+		if($("#pass").val()==""){
+			alert("비밀번호를 입력해주세요.");
+		}else if($("#pass_check").val()==""){
+			alert("비밀번호를 확인해주세요.");
+		}else if($("#name").val()==""){
+			alert("이름을 입력해주세요.");
+		}else if($("#email").val()==""){
+			alert("이메일을 입력해주세요.");
+		}else if($("#hp").val()==""){
+			alert("휴대폰 번호를 입력해주세요.");
+		}else if($(".addr_show").is(":visible")==false){
 			alert("주소를 입력해주세요.");
 		//아이디 중복체크를 안했다면
 		}else if(idCheck==false){
@@ -205,37 +269,59 @@ $(function(){
 			$("#pass").val("");
 			$("#pass_check").val("");
 		}else{
-			var birth=$("#year").val()+"/"+$("#month").val()+"/"+$("#day").val();
+
+			var year=$("#year").val();
+			var month=$("#month").val();
+			var day=$("#day").val();
 			
-			$.ajax({
-				type:"get",
-				dataType:"json",
-				url:"birthCheck.jsp",
-				data:{"birth":birth},
-				success:function(res){
-					if(res.isbirth==0){
-						alert("올바른 생년월일을 입력해주세요.");
-						$("#year").val("");
-						$("#month").val("");
-						$("#day").val("");
-						return;
-					}else{
-						//location.href="joinAction.jsp";
-						var data=$(".join_form").serialize();
-						alert(data);
-						$.ajax({
-							type:"post",
-							dataType:"html",
-							url:"joinAction.jsp",
-							data:data,
-							success:function(res){
-								alert("회원가입을 환영합니다!")
-								location.href="loginForm.jsp";
-							}
-						})
+			if(year=="" && month=="" && day==""){
+				
+			}else{
+				
+				var birth=year+"/"+month+"/"+day;
+				
+				$.ajax({
+					type:"get",
+					dataType:"json",
+					url:"birthCheck.jsp",
+					data:{"birth":birth,"year":year,"month":month,"day":day},
+					success:function(res){
+						if(res.isbirth==2){
+							alert("만 14세 이상만 가입이 가능합니다.");
+							$("#year").val("");
+							$("#month").val("");
+							$("#day").val("");
+							return;
+						}else if(res.isbirth==0){
+							alert("올바른 생년월일을 입력해주세요.");
+							$("#year").val("");
+							$("#month").val("");
+							$("#day").val("");
+							return;
+						}
+						
 					}
-				}
-			})
+				})
+			}
+			
+			if($("#req_check1").is(":checked")==false||$("#req_check2").is(":checked")==false||$("#req_check3").is(":checked")==false){
+				alert("필수 항목을 체크해주세요.")
+				return;
+			}else{
+				//location.href="joinAction.jsp";
+				var data=$(".join_form").serialize();
+				//alert(data);
+				$.ajax({
+					type:"post",
+					dataType:"html",
+					url:"joinAction.jsp",
+					data:data,
+					success:function(res){
+						alert("회원가입을 환영합니다!")
+						location.href="loginForm.jsp";
+					}
+				})
+			}
 		}
 	});
 	
@@ -401,7 +487,7 @@ function sample6_execDaumPostcode() {
 						<b>비밀번호<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="text" name="pass" placeholder="비밀번호를 입력해주세요" 
+						<input type="password" name="pass" placeholder="비밀번호를 입력해주세요" 
 						required="required" id="pass">
 					</div>
 				</div>
@@ -413,7 +499,7 @@ function sample6_execDaumPostcode() {
 						<b>비밀번호확인<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="text" name="pass_check" placeholder="비밀번호를 한번 더 입력해주세요" 
+						<input type="password"" name="pass_check" placeholder="비밀번호를 한번 더 입력해주세요" 
 						required="required" id="pass_check">
 					</div>
 				</div>
@@ -425,7 +511,7 @@ function sample6_execDaumPostcode() {
 						<b>이름<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="text" name="name" placeholder="이름을 입력해주세요" 
+						<input type="text" name="name" placeholder="이름을 입력해주세요" id="name"
 						required="required">
 					</div>
 				</div>
@@ -453,7 +539,7 @@ function sample6_execDaumPostcode() {
 						<b>휴대폰<span class="req_mark">*</span></b>
 					</div>
 					<div class="info_input">
-						<input type="text" name="hp" placeholder="예: 숫자만 입력해주세요" 
+						<input type="text" name="hp" placeholder="예: 숫자만 입력해주세요"  id="hp"
 						required="required" pattern="[0-9]+">
 					</div>
 					<div class="info_btn">
@@ -529,31 +615,31 @@ function sample6_execDaumPostcode() {
 					</div>
 					
 					<div class="sub_content">
-						<h5><input type="checkbox" id="agreeAll" 
+						<h5><input type="checkbox" id="req_check1"
 						required="required">&nbsp;이용약관 동의&nbsp;<span class="req_gray">(필수)</span></h5>
 					</div>
 					
 					<div class="sub_content">
-						<h5><input type="checkbox" id="agreeAll" 
+						<h5><input type="checkbox" id="req_check2"
 						required="required">&nbsp;개인정보 수집·이용 동의&nbsp;<span class="req_gray">(필수)</span></h5>
 					</div>
 					
 					<div class="sub_content">
-						<h5><input type="checkbox" id="agreeAll">&nbsp;개인정보 수집·이용 동의&nbsp;<span class="req_gray">(선택)</span></h5>
+						<h5><input type="checkbox">&nbsp;개인정보 수집·이용 동의&nbsp;<span class="req_gray">(선택)</span></h5>
 					</div>
 					
 					<div class="sub_content">
-						<h5><input type="checkbox" id="agreeAll">&nbsp;무료배송, 할인쿠폰 등 혜택/정보 수신 동의&nbsp;<span class="req_gray">(선택)</span></h5>
+						<h5><input type="checkbox">&nbsp;무료배송, 할인쿠폰 등 혜택/정보 수신 동의&nbsp;<span class="req_gray">(선택)</span></h5>
 						<div class="sub_deatail">
-							<h5><input type="checkbox" id="agreeAll">&nbsp;SMS</h5>
-							<h5><input type="checkbox" id="agreeAll">&nbsp;이메일</h5>
+							<h5><input type="checkbox">&nbsp;SMS</h5>
+							<h5><input type="checkbox">&nbsp;이메일</h5>
 							<div class="nextline"></div>
 							<h6 style="color: #4B62D3; margin-left: 20px"><span class="req_gray">└</span>&nbsp;동의 시 한 달간[5%적립]+[2만원 이상 무료배송]첫 주문 후 안내</h6>
 						</div>
 					</div>
 					
 					<div class="sub_content">
-						<h5><input type="checkbox" id="agreeAll" 
+						<h5><input type="checkbox" id="req_check3"
 						required="required">&nbsp;본인은 만 14세 이상입니다.&nbsp;<span class="req_gray">(필수)</span></h5>
 					</div>
 				</div>

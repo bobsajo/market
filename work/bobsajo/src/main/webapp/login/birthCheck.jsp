@@ -5,6 +5,8 @@
 <%
 
 String birth=request.getParameter("birth");
+int year=Integer.parseInt(request.getParameter("year"));
+
 int isbirth=0;
 
 try {
@@ -12,6 +14,17 @@ try {
     dateFormatParser.setLenient(false); //false일경우 처리시 입력한 값이 잘못된 형식일 시 오류가 발생
     dateFormatParser.parse(birth); //대상 값 포맷에 적용되는지 확인
     isbirth=1;
+    
+    if(year>2009){
+    	isbirth=2;
+    }else if(request.getParameter("year")==""){
+    	isbirth=0;
+    }else if(request.getParameter("month")==""){
+    	isbirth=0;
+    }else if(request.getParameter("day")==""){
+    	isbirth=0;
+    }
+    
 } catch (Exception e) {
 	isbirth=0;
 }
