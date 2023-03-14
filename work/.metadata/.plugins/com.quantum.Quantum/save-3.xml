@@ -1,0 +1,370 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="C:/Users/karung/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="MySQL Connector/J" type="MYSQL" version="mysql-connector-j-8.0.32 (Revision: fa4912a849140828e48162a2c396c8df0091bed7)">
+			<jar fileName="C:\sist1226\util\mysql-connector-j-8.0.32.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/karung/.p2/pool/plugins/com.quantum.derby_3.3.10/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/karung/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>mysql_root</name>
+			<username>root</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.cj.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist1226\util\mysql-connector-j-8.0.32.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>test</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>insert into student values(null,'권예지','010-1111-2222',90,60)</queryString>
+				</query>
+				<query>
+					<queryString>insert into student values(null,'홍길동','010-4444-2332',50,80)</queryString>
+				</query>
+				<query>
+					<queryString>insert into student values(null,'김주민','010-4555-1882',60,70)</queryString>
+				</query>
+				<query>
+					<queryString>insert into student values(null,'과수원','010-1789-2152',100,90)</queryString>
+				</query>
+				<query>
+					<queryString>insert into Food values(null,'샌드위치','../Food/1.jpg',8000,5)</queryString>
+				</query>
+				<query>
+					<queryString>insert into Food values(null,'꼬치','../Food/2.jpg',2000,15)</queryString>
+				</query>
+				<query>
+					<queryString>insert into Food values(null,'김치우동','../Food/3.jpg',10000,10)</queryString>
+				</query>
+				<query>
+					<queryString>insert into Food values(null,'소갈비','../Food/4.jpg',1600,2)</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo='../연예인사진/5.jpg' where num=1</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo='../연예인사진/6.jpg' where num=2</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo='../연예인사진/7.jpg' where num=3</queryString>
+				</query>
+				<query>
+					<queryString>update student set photo='../연예인사진/8.jpg' where num=4</queryString>
+				</query>
+				<query>
+					<queryString>create table jshop(
+num int auto_increment primary key,
+sangpum varchar(20),
+color varchar(20),
+price int,
+imagename varchar(50))</queryString>
+				</query>
+				<query>
+					<queryString>insert into jshop values(null,'마우스','pink',15000,'../image/01.png')</queryString>
+				</query>
+				<query>
+					<queryString>insert into jshop values(null,'키보드','gray',50000,'../image/02.png')</queryString>
+				</query>
+				<query>
+					<queryString>insert into jshop values(null,'외장하드','black',86000,'../image/03.png')</queryString>
+				</query>
+				<query>
+					<queryString>insert into jshop values(null,'손목쿠션','yellow',8000,'../image/04.png')</queryString>
+				</query>
+				<query>
+					<queryString>insert into jshop values(null,'방석','skyblue',10000,'../image/05.png')</queryString>
+				</query>
+				<query>
+					<queryString>select * from simpleboard order by num asc</queryString>
+				</query>
+				<query>
+					<queryString>select * from simpleboard order by num desc</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>root</name>
+			<username>root</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.cj.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist1226\util\mysql-connector-j-8.0.32.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>test</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>rollback</queryString>
+				</query>
+				<query>
+					<queryString>create table smartanswer(
+idx int primary key auto_increment,
+num int,
+nickname varchar(30),
+content varchar(1000),
+writeday datetime,
+foreign key(num) references smartboard(num) on delete cascade)</queryString>
+				</query>
+				<query>
+					<queryString>create table shop(
+shopnum smallint auto_increment primary key,
+category varchar(30),
+sangpum varchar(30),
+photo varchar(50),
+price int,
+ipgoday varchar(20))</queryString>
+				</query>
+				<query>
+					<queryString>create table cart(
+idx smallint auto_increment primary key,
+shopnum smallint,
+num smallint,
+cnt int,
+cartday datetime,
+foreign key(shopnum) references shop(shopnum) on delete cascade,
+foreign key(num) references member(num) on delete cascade)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM shop WHERE (shopnum = 1)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM shop WHERE (shopnum = 2)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM shop WHERE (shopnum = 3) AND (category = '악세사리') AND (sangpum = '스카프') AND (photo = 'acc02.png') AND (price = 0) AND (ipgoday = '&lt;NULL&gt;')</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM shop WHERE (shopnum = 3)</queryString>
+				</query>
+				<query>
+					<queryString>delete from shop</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (idx = 1)</queryString>
+				</query>
+				<query>
+					<queryString>select c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum</queryString>
+				</query>
+				<query>
+					<queryString>select c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member
+where c.shopnum=s.shopnum
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s
+where c.shopnum=s.shopnum
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select m.name 구매자,c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum and c.num=m.num
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select m.name '구매자',c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum and c.num=m.num
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select m.name,c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum and c.num=m.num
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select m.num,m.name,c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum and c.num=m.num
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>select c.idx,s.sangpum,s.shopnum,s.photo,s.price,c.cnt,c.cartday
+from cart c,shop s,member m
+where c.shopnum=s.shopnum and c.num=m.num
+order by idx</queryString>
+				</query>
+				<query>
+					<queryString>commit</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>bobsajo</name>
+			<username>bobsajo</username>
+			<password>a4Pff4JorngVDyd</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://bobsajo.cjbatwltjkt8.ap-northeast-2.rds.amazonaws.com:3306/bobsajo?serverTimezone=Asia/Seoul</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.cj.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist1226\util\mysql-connector-j-8.0.32.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bobsajo</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>create table cart(
+cart_num smallint auto_increment primary key,
+member_num smallint,
+item_num smallint,
+cart_cnt int,
+foreign key(member_num) references member(member_num) on delete cascade,
+foreign key(item_num) references item(item_num) on delete cascade)</queryString>
+				</query>
+				<query>
+					<queryString>create table jjim(
+jjim_num smallint auto_increment primary key,
+member_num smallint,
+item_num smallint,
+foreign key(member_num) references member(member_num) on delete cascade,
+foreign key(item_num) references item(item_num) on delete cascade)</queryString>
+				</query>
+				<query>
+					<queryString>delete from item where item_num&gt;9</queryString>
+				</query>
+				<query>
+					<queryString>delete from item where item_num&gt;33</queryString>
+				</query>
+				<query>
+					<queryString>select count(*) from item</queryString>
+				</query>
+				<query>
+					<queryString>select i.item_name,r.review_content
+from review r,item i
+where r.item_num=i.item_num</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item
+where item_name like '%달%'</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item
+where item_name like '%달'</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item
+where item_name like '%고%'</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item
+where item_name like '%계%'</queryString>
+				</query>
+				<query>
+					<queryString>select item_num, item_name
+from item
+where item_name like '%란%'</queryString>
+				</query>
+				<query>
+					<queryString>select i.item_num,i.item_name,r.review_content
+from review r,item i
+where r.item_num=i.item_num</queryString>
+				</query>
+				<query>
+					<queryString>select i.item_num,i.item_name,r.review_content
+from review r,item i
+where r.item_num=i.item_num and i.item_category='meat'</queryString>
+				</query>
+				<query>
+					<queryString>select * from member where member_id='dragon' and member_pass='1111'</queryString>
+				</query>
+				<query>
+					<queryString>update item set item_img='0.jpg' where item_num=1</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM member WHERE (member_num = 2)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM member WHERE (member_num = 10)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM member WHERE (member_num = 9)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM member WHERE (member_num = 12)</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>
