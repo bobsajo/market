@@ -117,11 +117,11 @@ vertical-align: middle;
 
 .product_list{
 	display: flex;
-  	float:left;
-  	text-align:"center";
+	float:left;
+	text-align:"center";
     margin-left: 500px;
-    margin-right: 500px;
-  	margin: 5px;
+    margin-right: 500px
+
   	
 }
 
