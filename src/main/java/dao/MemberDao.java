@@ -38,7 +38,6 @@ DbConnect db=new DbConnect();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			db.dbClose(rs,pstmt,conn);
@@ -70,7 +69,6 @@ DbConnect db=new DbConnect();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -100,7 +98,6 @@ DbConnect db=new DbConnect();
 				}
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -129,10 +126,104 @@ DbConnect db=new DbConnect();
 			pstmt.execute();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			db.dbClose(pstmt,conn);
 		}
 	}
+
+	//id에 해당하는 dto가져오기
+	public MemberDto getMemberById(String id)
+	{
+		MemberDto dto=new MemberDto();
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select * from member where member_id=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+
+			if(rs.next())
+			{
+				dto.setMember_num(rs.getString("member_num"));
+				dto.setMember_id(rs.getString("member_id"));
+				dto.setMember_pass(rs.getString("member_pass"));
+				dto.setMember_name(rs.getString("member_name"));
+				dto.setMember_hp(rs.getString("member_hp"));
+				dto.setMember_email(rs.getString("member_email"));
+				dto.setMember_birth(rs.getString("member_brith"));
+				dto.setMember_addr(rs.getString("member_addr"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
+
+	//id에 해당하는 멤버 num가져오기
+	public String getMemNumById(String id)
+	{
+		String member_num="";
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select member_num from member where member_id=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+
+			if(rs.next())
+			{
+				member_num=rs.getString("member_num");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return member_num;
+	}
+
+	public String getName(String member_num) {
+		String member_name="";
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select member_name from member where member_num=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1,member_num);
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				member_name=rs.getString("member_name");
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			db.dbClose(rs,pstmt,conn);
+		}
+
+		return member_name;
+	}
+
 }

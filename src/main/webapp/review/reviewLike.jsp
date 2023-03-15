@@ -8,13 +8,19 @@
     response.setCharacterEncoding("utf-8");
 
     String review_num=request.getParameter("review_num");
+    String item_num=request.getParameter("item_num");
+    String member_num=request.getParameter("member_num");
 
-//    System.out.println(review_num);
+    System.out.println(review_num);
+    System.out.println(item_num);
+    System.out.println(member_num);
 
     ReviewDao dao=new ReviewDao();
 
     //num에 해당하는 like 1증가
     dao.updateLike(review_num);
+    dao.insertReviewLike(member_num,item_num,review_num);
+
 //    System.out.println(dao.getData(review_num));
 
     //num에 해당하는 chu값 json 형식으로 반환

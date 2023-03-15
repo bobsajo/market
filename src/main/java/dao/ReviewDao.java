@@ -1,6 +1,7 @@
 package dao;
 
 import dto.ReviewDto;
+import dto.ReviewLikeDto;
 import mysql.db.DbConnect;
 
 import java.sql.*;
@@ -232,5 +233,61 @@ public class ReviewDao {
             db.dbClose(pstmt,conn);
         }
     }
+
+    //member_num,item_num,review_num 넘겨주면 reviewlike에 저장하기
+    //insert
+    public void insertReviewLike(String member_num, String item_num, String review_num) {
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+
+        String sql="insert into reviewlike values(?,?,?)";
+
+        try {
+            pstmt= conn.prepareStatement(sql);
+            pstmt.setString(1,member_num);
+            pstmt.setString(2,item_num);
+            pstmt.setString(3,review_num);
+
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.getMessage();
+        } finally {
+            db.dbClose(pstmt,conn);
+        }
+    }
+
+    //reviewlike getData
+    public ReviewLikeDto getReviewLike(String member_num) {
+        ReviewLikeDto dto=new ReviewLikeDto();
+
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+
+        String sql="select * from reviewlike where member_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,member_num);
+            pstmt.executeQuery();
+
+            if(rs.next()) {
+                dto.setMember_num(rs.getString("member_num"));
+                dto.setItem_num(rs.getString("item_num"));
+                dto.setItem_num(rs.getString("review_num"));
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+        } finally {
+            db.dbClose(rs,pstmt,conn);
+        }
+        return dto;
+    }
+
+    //삭제
+    public void deleteReviewLike(String member_num, String item_num, String review_num) {
+
+    }
+
 
 }
