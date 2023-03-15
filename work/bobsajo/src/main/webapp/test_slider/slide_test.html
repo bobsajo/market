@@ -17,9 +17,11 @@
     .slide_wrap { position: relative; width: 820px; margin:0 auto; padding-bottom: 30px;}
     .slide_box { width: 100%; margin:auto; overflow-x: hidden; text-align: center;}
     .slide_content { display: table; float: left; width: 205px; height: 200px;}
+    
     .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; }
     .slide_btn_box > .slide_btn_prev { left: -100px; }
     .slide_btn_box > .slide_btn_next { right: -100px; }
+    
     .slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
     .slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
     .slide_pagination .dot.dot_active { background: #333; }
@@ -101,7 +103,7 @@
       const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
       const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
       const slideLen = slideContents.length;  // slide length
-      const slideWidth = 800+20; // slide width
+      const slideWidth = 820; // slide width
       const slideSpeed = 300; // slide speed
       const startNum = 0; // initial slide index (0 ~ 4)
       
@@ -128,14 +130,18 @@
 
       /** Next Button Event */
       slideBtnNext.addEventListener('click', function() {
-        if (curIndex < slideLen) {
+        if (curIndex < slideLen-4) {
           slideList.style.transition = slideSpeed + "ms";
           slideList.style.transform = "translate3d(-" + (slideWidth * (next + 1)) + "px, 0px, 0px)";
+
+          if(curIndex<0){
+        	  curIndex=0;
+          }
           curIndex=curIndex+4;
           next=next+1;
           console.log(curIndex);
         }
-        if (curIndex == slideLen) {
+        else if (curIndex >= slideLen-4) {
           setTimeout(function() {
             slideList.style.transition = "1000ms";
             slideList.style.transform = "translate3d(-" + (slideWidth)*0 + "px, 0px, 0px)";
@@ -160,12 +166,12 @@
           
           console.log(curIndex);
         }
-        if (curIndex <= 0) {
+        else if (curIndex <= 0) {
           setTimeout(function() {
             slideList.style.transition = "1000ms";
             slideList.style.transform = "translate3d(-" + slideWidth*2 + "px, 0px, 0px)";
           }, slideSpeed);
-          curIndex = slideLen;
+          curIndex = slideLen-4;
           next=2;
           console.log(curIndex);
         }

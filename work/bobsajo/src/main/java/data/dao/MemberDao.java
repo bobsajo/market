@@ -72,13 +72,15 @@ DbConnect db=new DbConnect();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			db.Dbclose(conn, pstmt, rs);
 		}
 		
 		return idok;
 	}
 	
 	//email중복체크
-		public int checkEmail(String email) 
+	public int checkEmail(String email) 
 		{
 			int emailok=0;
 			
@@ -102,6 +104,8 @@ DbConnect db=new DbConnect();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} finally {
+				db.Dbclose(conn, pstmt, rs);
 			}
 			
 			return emailok;
@@ -135,4 +139,55 @@ DbConnect db=new DbConnect();
 			db.Dbclose(conn, pstmt);
 		}
 	}
+
+	//id에 해당하는 dto가져오기
+	public MemberDto getMemberById(String id)
+	{
+		MemberDto dto=new MemberDto();
+	
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from member where member_id=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) 
+			{
+				dto.setMember_num(rs.getString("member_num"));
+				dto.setMember_id(rs.getString("member_id"));
+				dto.setMember_pass(rs.getString("member_pass"));
+				dto.setMember_name(rs.getString("member_name"));
+				dto.setMember_hp(rs.getString("member_hp"));
+				dto.setMember_email(rs.getString("member_email"));
+				dto.setMember_birth(rs.getString("member_brith"));
+				dto.setMember_addr(rs.getString("member_addr"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.Dbclose(conn, pstmt, rs);
+		}
+	
+		return dto;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

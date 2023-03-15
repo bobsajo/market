@@ -1,0 +1,19 @@
+<CSS>
+.slide_content
+-> 각 사진을 담는 하나의 div, 띄우고 싶은 만큼 width를 조정해준다.(사진크기보다 커야 남은 너비만큼 공백임 생김)
+
+.slide_wrap
+-> 사진 4개를 감싼 div(보여줄 크기만큼 width를 지정)
+-> 위의 .slide_content의 width*4만큼 width를 지정해줘야함
+ex) .slide_content의 width가 205라면 205*4=820
+
+<script>
+const slideWidth
+-> 한꺼번에 사진 4개를 이동시켜야하기 때문에 사진 4개의 크기만큼 이동해야한다.
+-> 즉, 사진 4개를 감싸고 있는 .slide_wrap의 width와 같은 크기만큼 이동
+-> .slide_wrap의 width를 변경하면 같이 변경해줘야함
+
+(요약)
+-사진간의 거리를 띄우고 싶을 땐 .slide_wrap의 width를 조정
+-.slide_content의 width는 slide_content의 width*4
+-.slide_content의 width를 바꿨으면 아래 script의 const slideWidth의 값도 똑같으 크기로 변경

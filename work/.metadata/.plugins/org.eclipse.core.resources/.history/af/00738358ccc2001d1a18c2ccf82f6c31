@@ -1,0 +1,83 @@
+package data.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+
+import data.dto.CartDto;
+import mysql.db.DbConnect;
+
+public class CartDao {
+	DbConnect db=new DbConnect();
+	
+	//insert
+	public void insertCart(CartDto dto)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="insert into cart values(null,?,?,?)";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getMember_num());
+			pstmt.setString(2, dto.getItem_num());
+			pstmt.setInt(3, dto.getCart_cnt());
+			
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.Dbclose(conn, pstmt);
+		}
+	}
+	
+	//getAllData-유저에 따라
+	public List<HashMap<String, String>> getAllUserCart(String member_num)
+	{
+		List<HashMap<String, String>> list=new List<HashMap<String, String>>();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from cart where member_num=? order by cart_num";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member_num);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
