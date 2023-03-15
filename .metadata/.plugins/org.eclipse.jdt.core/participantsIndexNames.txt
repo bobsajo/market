@@ -7,3 +7,5 @@ C:\sist1226\semiProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\19
 \SemiProject\src\main\java
 C:\sist1226\semiProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\568963562.index
 \JspSemiProject\src\main\java
+C:\sist1226\semiProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1288489033.index
+\SemiProject\src\main\java

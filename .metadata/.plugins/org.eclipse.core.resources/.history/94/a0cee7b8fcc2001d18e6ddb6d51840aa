@@ -1,0 +1,16 @@
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="data.dto.MemberDto"%>
+<%@page import="java.util.List"%>
+<%@page import="data.dao.MemberDao"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+	int startNum = (int)((Math.random()*29)); // 0 ~ 28
+	
+	MemberDao dao = new MemberDao();
+	List<MemberDto> list = dao.getList(startNum, 12);
+	
+	
+	JSONArray arr = new JSONArray();
+
+%>

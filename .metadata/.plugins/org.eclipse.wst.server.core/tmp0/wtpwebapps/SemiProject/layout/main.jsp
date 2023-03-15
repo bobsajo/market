@@ -1,391 +1,172 @@
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="data.dto.ItemDto"%>
+<%@page import="java.util.List"%>
+<%@page import="data.dao.ItemDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="utf-8">
-<title>메인 페이지</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-.container{
-width: 100%;
-}
-
-.visual {
-   display: block;
-    justify-content: center;
-    float:left;
-    margin: 0 auto;
-   text-align: center;
-}
-
-.visual > .slide{
-    height: 370px;
-    /*margin-left: 300px;*/
-    margin-bottom: 40px;
-    width: 100%;
-     display: none;
-}
-.visual > img {
-vertical-align: middle;
-}
-.visual > .slideshow-container {
- 
-  height: 500px;
-  margin-left:100px;
-  margin-right:100px;
-}
-
-.visual > .slide.active {
-  opacity: 1;
-}
-/* GOODS */
-.goods{
-
-}
-.goods > .inner{
-   
-}
-.goods .goods-top{
-   text-align: center;
-   margin: 0 auto;
-    display: block;/* 
-    justify-content: center; */
-    /* align-items: center; */
-    padding-top: 40px ;
-    margin-bottom: 27px;
-/*       margin-right:80px; */
-}
-.goods .goods-top span{
-    color: rgb(51, 51, 51);
-    font-size: 28px;
-    line-height: 1.15;
-    letter-spacing: -0.26px;
-    font-weight: 500;
-    padding: 8px 0;
-    margin-left: 10px;
-    margin-right: 50px;
-}
-.goods .goods-list{
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 40px;
-    float:left;
-    text-align:"center";
-    margin-left: 500px;
-    margin-right: 500px;
-    }
-.goods .goods-list .goods-card{
-    margin-right: 18px;
-   
-}
-.goods .goods-list .goods-card .img-container{
-   
-    height: 320px;
-    position: relative;
-   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slide Project</title>
+  
+  <style>
+    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center; }
+    *, *:before, *:after { box-sizing: inherit; }
+    .clearfix:after { content: ''; display: block; clear: both; float: none; }
+    .title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
+    .link, .link:visited { display: inline-block; margin: 20px 0; color: #555; text-decoration: none; font-weight: bold; }
+    .link:hover, .link:focus { color: #9fd6c2; }
+    /* container - body */
+    #container { width: 1300px; margin: auto; }
+    .slide_wrap { position: relative; width: 1220px; margin:0 auto; padding-bottom: 30px;}
+    .slide_box { width: 100%; margin:auto; overflow-x: hidden; text-align: center;}
+    .slide_content { display: table; float: left; width: 305px; height: 300px;}
     
-}
-.goods .goods-list .goods-card .img-container img{
-    height: 100%;
+    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px;  background: none; border: 0px; cursor: pointer; }
+    .slide_btn_box > .slide_btn_prev { top:190px; left: -30px; }
+    .slide_btn_box > .slide_btn_next { top:190px; right: -10px; }
     
+    .slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
+    .slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
+    .slide_pagination .dot.dot_active { background: #333; }
+    .slide_pagination .dot a { display: block; width: 100%; height: 100%; }
     
-}
-
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 3.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-.main_1>h1{
-  	text-align : center;
-}
-
-.product_list{
-	display: flex;
-	float:left;
-	text-align:"center";
-    margin-left: 500px;
-    margin-right: 500px
-
-  	
-}
-
-
-</style>
-<script>
-   $(function(){
-      
-      var slideIndex = 0;
-      showSlides();
-
-      function showSlides() {
-          var i;
-          var slides = document.getElementsByClassName("slide");
-          for (i = 0; i < slides.length; i++) {
-             slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}
-          slides[slideIndex-1].style.display = "block";  
-          setTimeout(showSlides, 3000); // Change image every 2 seconds
-      }
-   });
-</script>
+    .a{
+  	text-decoration: none;
+	}
+  </style>
+  
 </head>
 <body>
-
-<div class="container">
-   
-    <section class="visual">
-       <div class = "slideshow-container">
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner1.jpg">
-        </div>
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner2.jpg">
-        </div>
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner3.jpg">
-        </div>
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner4.jpg">
-        </div>
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner5.jpg">
-        </div>
-        </div>
-    </section>
-</div>    
-    <div style="clear: both;"></div>
+  <h1 class="title">이 상품 어때요 ?</h1>
+  <a href="#" class="link" target="_blank"></a>
   
-    <section class="goods">
-         <div class="main_type1">
-                <div class="main_1">
-                    <h1>이 상품 어때요?</h1>
-                </div>
-                <div class="product_list">
-                    <a href = "#">
-                    	<img src="../itemImg/0.jpg"
-                    	 width="200px" height="300px">
-                        <p>블루베리</p>
-                        <p>5600원</p>
-                    </a>
-                    <a href = "#">
-                        <img src="../itemImg/1.jpg"
-                         width="200px" height="300px">
-                        <p>바나나</p>
-                        <p>8000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/2.jpg"
-                        width="200px" height="300px">
-                        <p>딸기</p>
-                        <p>10150원</p>
-                    </a>
-                    <a class="list"><img src="../itemImg/3.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/4.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/5.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/6.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/7.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/8.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/9.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/10.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/11.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/12.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/13.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/14.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/15.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/16.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/17.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/18.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/19.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/20.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                     <a href = "#"><img src="../itemImg/21.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/22.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/23.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/24.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/25.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/26.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/27.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/28.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/29.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/30.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/31.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/32.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/33.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/34.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/35.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/36.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/37.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/38.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                    <a href = "#"><img src="../itemImg/39.jpg"
-                            width="200px" height="300px">
-                        <p>사과</p>
-                        <p>15000원</p>
-                    </a>
-                </div>
-            </div>
-            
-    </section>
-    
+  <div id="container">
+    <div class="slide_wrap">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+       	int startNum = (int)((Math.random()*29)); // 0 ~ 28
+    	
+    	ItemDao dao = new ItemDao();
+    	List<ItemDto> list = dao.getList(startNum, 12);
+    	
+    	for(ItemDto dto: list){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "#" class = "a">
+          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<p><%=dto.getItem_name()%></p>
+          	<p><%=dto.getPrice() %></p>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+    <!-- // .slide_wrap -->
+  </div>
+  <!-- // .container -->
 
+  <script>
+    (function () {
+      const slideList = document.querySelector('.slide_list');  // Slide parent dom
+      const slideContents = document.querySelectorAll('.slide_content');  // each slide dom
+      const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
+      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
+      const slideLen = slideContents.length;  // slide length
+      const slideWidth = 1220; // slide width
+      const slideSpeed = 300; // slide speed
+      const startNum = 0; // initial slide index (0 ~ 4)
+      
+      slideList.style.width = slideWidth * (slideLen + 2) + "px";
+      
+      // Copy first and last slide
+      let firstChild = slideList.firstElementChild;
+      let lastChild = slideList.lastElementChild;
+      let clonedFirst = firstChild.cloneNode(true);
+      let clonedLast = lastChild.cloneNode(true);
+
+      // Add copied Slides
+      slideList.appendChild(clonedFirst);
+      slideList.insertBefore(clonedLast, slideList.firstElementChild);
+
+      // Add pagination dynamically
+
+      slideList.style.transform = "translate3d(-" + (slideWidth)*0 + "px, 0px, 0px)";
+
+      let curIndex = startNum; // current slide index (except copied slide)
+      let curSlide = slideContents[curIndex]; // current slide dom
+      
+      var next=0;
+
+      /** Next Button Event */
+      slideBtnNext.addEventListener('click', function() {
+        if (curIndex < slideLen-4) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (next + 1)) + "px, 0px, 0px)";
+
+          if(curIndex<0){
+        	  curIndex=0;
+          }
+          curIndex=curIndex+4;
+          next=next+1;
+          console.log(curIndex);
+        }
+        else if (curIndex >= slideLen-4) {
+          setTimeout(function() {
+            slideList.style.transition = "1000ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth)*0 + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = 0;
+          next=0;
+          console.log(curIndex);
+        }
+        
+        curSlide = slideContents[curIndex];
+      });
+
+      /** Prev Button Event */
+      slideBtnPrev.addEventListener('click', function() {
+        if (curIndex > 0) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + slideWidth*(next-1) + "px, 0px, 0px)";
+          
+          curIndex=curIndex-4;
+          
+          next=next-1;
+          
+          console.log(curIndex);
+        }
+        else if (curIndex <= 0) {
+          setTimeout(function() {
+            slideList.style.transition = "1000ms";
+            slideList.style.transform = "translate3d(-" + slideWidth*(slideLen/4-1) + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = slideLen-4;
+          next= slideLen/4-1;
+          console.log(curIndex);
+        }
+        
+        curSlide = slideContents[curIndex];
+      });
+
+    })();
+  </script>
 </body>
 </html>

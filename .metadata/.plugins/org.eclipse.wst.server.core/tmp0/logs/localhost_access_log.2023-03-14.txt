@@ -364,3 +364,14 @@
 0:0:0:0:0:0:0:1 - - [14/Mar/2023:14:54:52 +0900] "GET /SemiProject/itemImg/38.jpg HTTP/1.1" 200 39515
 0:0:0:0:0:0:0:1 - - [14/Mar/2023:14:54:52 +0900] "GET /SemiProject/itemImg/39.jpg HTTP/1.1" 200 72218
 0:0:0:0:0:0:0:1 - - [14/Mar/2023:14:54:53 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:15:38:46 +0900] "GET /SemiProject/layout/main.jsp HTTP/1.1" 200 13414
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:15:38:46 +0900] "GET /SemiProject/image/arrow_left.png HTTP/1.1" 200 8919
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:15:38:46 +0900] "GET /SemiProject/image/arrow_right.png HTTP/1.1" 200 8893
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:15:39:56 +0900] "GET /SemiProject/layout/main.jsp HTTP/1.1" 200 13562
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:16:46:39 +0900] "GET /SemiProject/layout/main.jsp HTTP/1.1" 200 13580
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:16:52:54 +0900] "GET /SemiProject/layout/main.jsp HTTP/1.1" 200 13580
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:17:26:32 +0900] "GET /SemiProject/slide_test.html HTTP/1.1" 200 7922
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:17:29:09 +0900] "GET /SemiProject/slide_test.html HTTP/1.1" 200 7951
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:17:29:09 +0900] "GET /itemImg/0.jpg HTTP/1.1" 404 824
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:17:54:13 +0900] "GET /SemiProject/slide_test.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Mar/2023:17:54:13 +0900] "GET /itemImg/0.jpg HTTP/1.1" 404 824
