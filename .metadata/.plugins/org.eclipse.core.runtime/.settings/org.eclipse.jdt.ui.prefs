@@ -1,3 +1,4 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="mysql.db.DbConnect"><rhs name\="mysql.db.DbConnect"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.Vector"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.Vector"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.Vector"/></lhs><lhs name\="data.dto.MemberDto"><rhs name\="data.dto.MemberDto"/></lhs><lhs name\="data.dto.ItemDto"><rhs name\="data.dto.ItemDto"/></lhs></history>
 content_assist_number_of_computers=17
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0

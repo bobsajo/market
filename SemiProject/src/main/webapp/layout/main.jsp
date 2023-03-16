@@ -36,8 +36,10 @@
     .slide_pagination .dot a { display: block; width: 100%; height: 100%; }
     
     .a{
-  	text-decoration: none;
+  	text-decoration : none;
+  	color:black;
 	}
+	
   </style>
   
 </head>
@@ -46,7 +48,7 @@
   <a href="#" class="link" target="_blank"></a>
   
   <div id="container">
-    <div class="slide_wrap">
+    <div class="slide_wrap slide1">
       <div class="slide_box">
         <div class="slide_list clearfix">
        	<% 
@@ -61,8 +63,8 @@
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
           	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
-          	<p><%=dto.getItem_name()%></p>
-          	<p><%=dto.getPrice() %></p>
+          	<p>상품명 : <%=dto.getItem_name()%></p>
+          	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
           </div>
          <% 
@@ -79,16 +81,168 @@
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
     </div>
-    <!-- // .slide_wrap -->
+   	<h2>카테고리별 상품 미리보기</h2>
+    <h1 class="title">육류</h1>
+    <a href="#" class="link" target="_blank"></a>
+   	<div class="slide_wrap slide2">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+    	ItemDao dao2 = new ItemDao();
+    	List<ItemDto> list2 = dao.getListCategory("meat", 0, 8);
+    	
+    	for(ItemDto dto: list2){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "#" class = "a">
+          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<p>상품명 : <%=dto.getItem_name()%></p>
+          	<p>가격 : <%=dto.getItem_price()%>원</p>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+    
+  </div>
+  <!-- // .container -->
+  
+    <h1 class="title">해산물</h1>
+    <a href="#" class="link" target="_blank"></a>
+   	<div class="slide_wrap slide3">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+    	ItemDao dao3 = new ItemDao();
+    	List<ItemDto> list3 = dao.getListCategory("seafood", 0, 8);
+    	
+    	for(ItemDto dto: list3){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "#" class = "a">
+          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<p>상품명 : <%=dto.getItem_name()%></p>
+          	<p>가격 : <%=dto.getItem_price() %>원</p>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+    
+  </div>
+  <!-- // .container -->
+  
+  <h1 class="title">과일</h1>
+    <a href="#" class="link" target="_blank"></a>
+   	<div class="slide_wrap slide4">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+    	ItemDao dao4 = new ItemDao();
+    	List<ItemDto> list4 = dao.getListCategory("fruit", 0, 8);
+    	
+    	for(ItemDto dto: list4){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "#" class = "a">
+          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<p>상품명 : <%=dto.getItem_name()%></p>
+          	<p>가격 : <%=dto.getItem_price() %>원</p>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+    
+  </div>
+  <!-- // .container -->
+  
+  <h1 class="title">베이커리</h1>
+    <a href="#" class="link" target="_blank"></a>
+   	<div class="slide_wrap slide5">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+    	ItemDao dao5 = new ItemDao();
+    	List<ItemDto> list5 = dao.getListCategory("bakery", 0, 8);
+    	
+    	for(ItemDto dto: list5){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "#" class = "a">
+          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<p>상품명 : <%=dto.getItem_name()%></p>
+          	<p>가격 : <%=dto.getItem_price() %>원</p>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+    
   </div>
   <!-- // .container -->
 
-  <script>
-    (function () {
-      const slideList = document.querySelector('.slide_list');  // Slide parent dom
-      const slideContents = document.querySelectorAll('.slide_content');  // each slide dom
-      const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
-      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
+  <script> 
+  	slide('.slide1');
+  	slide('.slide2');
+  	slide('.slide3');
+  	slide('.slide4');
+  	slide('.slide5');
+  	
+    function slide(root_name) {
+      const root = document.querySelector(root_name);
+      const slideList = root.querySelector('.slide_list');  // Slide parent dom
+      const slideContents = root.querySelectorAll('.slide_content');  // each slide dom
+      const slideBtnNext = root.querySelector('.slide_btn_next'); // next button
+      const slideBtnPrev = root.querySelector('.slide_btn_prev'); // prev button
       const slideLen = slideContents.length;  // slide length
       const slideWidth = 1220; // slide width
       const slideSpeed = 300; // slide speed
@@ -166,7 +320,7 @@
         curSlide = slideContents[curIndex];
       });
 
-    })();
+    };
   </script>
 </body>
 </html>

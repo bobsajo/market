@@ -135,6 +135,10 @@ vertical-align: middle;
   margin: 0 10px;
 }
 
+.ban{
+	margin-left: 600px;
+	margin-right: 500px;
+}
 </style>
 <script>
    $(function(){
@@ -162,27 +166,39 @@ vertical-align: middle;
    
     <section class="visual">
     <div class = "slideshow-container">
+        
         <div class="slide fade">
+        <a href = "https://www.kurly.com/categories/825">
         <img alt = "" src = "../image3/banner1.jpg">
+        </a>
         </div>
         <div class="slide fade">
+        <a href = "https://www.kurly.com/shop/main/html.php?htmid=event/kurly.htm&name=friend">
         <img alt = "" src = "../image3/banner2.jpg">
+        </a>
         </div>
         <div class="slide fade">
+        <a href = "https://www.kurly.com/categories/139001">
         <img alt = "" src = "../image3/banner3.jpg">
+        </a>
         </div>
         <div class="slide fade">
+        <a href = "https://www.kurly.com/categories/863">
         <img alt = "" src = "../image3/banner4.jpg">
-        </div>
-        <div class="slide fade">
-        <img alt = "" src = "../image3/banner5.jpg">
+        </a>
         </div>
    </div>
    </section>
    </div>
+   
+   <div>
+   		<section>
+			<div class = "ban">
+				<img src = "../image3/그림1.jpg" width = 1000px>
+			</div>   		
+   		</section>	
+   </div>
+   
     
-    
-    
-
 </body>
 </html>

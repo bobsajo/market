@@ -3,7 +3,7 @@ package data.dto;
 public class ItemDto {
 	private String item_num;
 	private String item_name;
-	private int price;
+	private int item_price;
 	private String item_img;
 	private String item_sub_title;
 	private String item_info_img;
@@ -18,7 +18,6 @@ public class ItemDto {
 	private String item_detail;
 	private String item_category;
 	
-	
 	public String getItem_num() {
 		return item_num;
 	}
@@ -31,11 +30,11 @@ public class ItemDto {
 	public void setItem_name(String item_name) {
 		this.item_name = item_name;
 	}
-	public int getPrice() {
-		return price;
+	public int getItem_price() {
+		return item_price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setItem_price(int item_price) {
+		this.item_price = item_price;
 	}
 	public String getItem_img() {
 		return item_img;
@@ -115,6 +114,8 @@ public class ItemDto {
 	public void setItem_category(String item_category) {
 		this.item_category = item_category;
 	}
+	
+	
 	
 	
 	
