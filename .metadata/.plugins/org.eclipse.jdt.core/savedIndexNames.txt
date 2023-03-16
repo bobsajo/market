@@ -12,7 +12,6 @@ INDEX VERSION 1.131+C:\sist1226\semiProject\.metadata\.plugins\org.eclipse.jdt.c
 950039785.index
 2586164685.index
 3857174811.index
-2346471068.index
 1188030579.index
 3424603217.index
 546123508.index
