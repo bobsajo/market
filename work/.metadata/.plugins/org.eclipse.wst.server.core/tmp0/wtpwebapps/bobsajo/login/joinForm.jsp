@@ -234,6 +234,8 @@ MemberDao dao=new MemberDao();
 $(function(){
 	idCheck=false;
 	emailCheck=false;
+	//이메일 중복체크
+	var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/; 
 	
 	$(".addr_show").hide();
 	
@@ -261,6 +263,8 @@ $(function(){
 			alert("비밀번호를 잘못 입력했습니다.");
 			$("#pass").val("");
 			$("#pass_check").val("");
+		}else if(regex.test($("#email").val()) === false){
+			alert("잘못된 이메일 형식입니다.");  
 		}else{
 
 			var year=$("#year").val();

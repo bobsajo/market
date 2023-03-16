@@ -82,6 +82,18 @@ if(loginok!=null){
 		outline:none;
 	}
 	
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  	-webkit-appearance: none;
+	  	margin: 0;
+	}
+	
+	/* Firefox */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+	
 	
 	div.container{
 		width: 100%;
@@ -147,9 +159,10 @@ if(loginok!=null){
 		width: 100%;
 	}
 	
+	/*
 	.list_content>div{
 		float: left;
-	}
+	}*/
 	
 	.item_check{
 		width: 5%;
@@ -164,8 +177,11 @@ if(loginok!=null){
 	}
 	
 	.item_cnt{
-		width: 14%;
+		width: 100px;
 		text-align: right;
+		float: left;
+		height: 50px;
+		padding: 10px;
 	}
 	
 	.item_price{
@@ -189,18 +205,22 @@ if(loginok!=null){
 		border-radius: 5px;
 	}
 	
-	button.cart_cnt{
-		width: 20%;
-		cursor: default;
-	}
-	
 	button:focus{
 		outline: none;
 	}
 	
 	.cnt_btn{
-		width: 30%;
 		text-align: center;
+		font-size: 13pt;
+		font-weight: bold;
+		padding: 0px 5px 0px 5px;
+	}
+	
+	#cart_cnt{
+		width: 20%;
+	  	text-align: center;
+	  	background: none;
+	  	font-size: 13pt;
 	}
 	
 	
@@ -222,7 +242,9 @@ $(function(){
 });
 
 function cartList(){
-	
+	$(".cnt_plus").click(function(){
+		$("#cart_cnt").trigger("click");
+	})
 }
 
 </script>
@@ -250,32 +272,36 @@ function cartList(){
 						</div>
 						<!-- 장바구니에 담긴 냉장 상품 -->
 							<div class="list_content">
-								<div class="item_check">
-									<input type="checkbox" class="">
-								</div>
-								<div class="item_img">
-									<img alt="" src="">
-								</div>
-								<div class="item_name">
-									<span>상품명</span>
-								</div>
-								<div class="item_cnt">
-									<div class="cnt_btn_wrapper">
-										<button class="cnt_btn cnt_minus">
-											-
-										</button>
-										<button class="cart_cnt">01</button>
-										<button class="cnt_btn cnt_plus">
-											+
-										</button>
-									</div>
-								</div>
-								<div class="item_price">
-									<span>10,000원</span>
-								</div>
-								<div class="itemDel">
-									<button type="button">X</button>
-								</div>
+								<table style="width: 100%">
+									<tr>
+										<td class="item_check">
+											<input type="checkbox" class="">
+										</td>
+										<td class="item_img">
+											<img alt="" src="">
+										</td>
+										<td class="item_name">
+											<span>상품명</span>
+										</td>
+										<td class="item_cnt">
+											<div class="cnt_btn_wrapper">
+												<button class="cnt_btn cnt_minus">
+													-
+												</button>
+												<input type="number" id="cart_cnt" value="1" min="1">
+												<button class="cnt_btn cnt_plus">
+													+
+												</button>
+											</div>
+										</td>
+										<td class="item_price">
+											<span>10,000원</span>
+										</td>
+										<td class="itemDel">
+											<button type="button">X</button>
+										</td>
+									</tr>
+								</table>
 							</div>
 							<div class="nextline"></div>
 					</div>
