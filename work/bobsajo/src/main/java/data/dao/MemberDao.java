@@ -41,7 +41,7 @@ DbConnect db=new DbConnect();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt, rs);
+			db.dbClose(conn, pstmt, rs);
 		}
 		
 		return check;
@@ -73,7 +73,7 @@ DbConnect db=new DbConnect();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt, rs);
+			db.dbClose(conn, pstmt, rs);
 		}
 		
 		return idok;
@@ -105,7 +105,7 @@ DbConnect db=new DbConnect();
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
-				db.Dbclose(conn, pstmt, rs);
+				db.dbClose(conn, pstmt, rs);
 			}
 			
 			return emailok;
@@ -136,7 +136,7 @@ DbConnect db=new DbConnect();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt);
+			db.dbClose(conn, pstmt);
 		}
 	}
 
@@ -173,7 +173,7 @@ DbConnect db=new DbConnect();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt, rs);
+			db.dbClose(conn, pstmt, rs);
 		}
 	
 		return dto;

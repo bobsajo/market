@@ -194,38 +194,31 @@
 	    display: inline-block;
 	
 	
-	    width: 40px;
-	
-	
-	    height: 40px;
+	    width: 25px;
+	    height: 25px;
 	
 		margin: -2px 10px 0 0;
 	
-	
 	    vertical-align: middle;
-	
-	
-	    cursor: pointer;
 	
 	    background-size: cover;
 	    
-	    background: url(checkbox.svg) left top no-repeat;
+	    background: url(../imgsource/checkbox_default.png) no-repeat;
 	
 	
 	}
-	
-	
-	
-	
 	
 	input[type="checkbox"]:checked {
 	
 	
 	     background-size: cover;
 	     
-	     background: url(checkbox.svg) -41px top no-repeat;
+	     background: url(../imgsource/checkbox_checked.png) no-repeat;
+	     
+	}
 	
-	
+	input[type="checkbox"]:focus {
+		outline:none;
 	}
 	
 </style>

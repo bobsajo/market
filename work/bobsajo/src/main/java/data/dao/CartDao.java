@@ -35,7 +35,7 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt);
+			db.dbClose(conn, pstmt);
 		}
 	}
 	
@@ -78,11 +78,89 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.Dbclose(conn, pstmt, rs);
+			db.dbClose(conn, pstmt, rs);
 		}
 		
 		return list;
 	}
+
+	//getData-해당 카트항목에 해당하는 item_num을 가져오기(상품 상세페이지로 이동)
+	public String getItemNum(String cart_num)
+	{
+		String item_num="";
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from cart where cart_num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, cart_num);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				item_num=rs.getString("item_num");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(conn, pstmt, rs);
+		}
+		
+		return item_num;
+	}
+	
+	//카드 수량 수정(update)
+	public void updateCartCnt(String cart_num,int cart_cnt)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="update cart set cart_cnt=? where cart_num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, cart_cnt);
+			pstmt.setString(2, cart_num);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(conn, pstmt);
+		}
+	}
+	
+	//delete
+	public void deleteCart(String cart_num)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="delete from cart where cart_num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, cart_num);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(conn, pstmt);
+		}
+	}
+
 }
 
 

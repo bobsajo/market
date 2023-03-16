@@ -18,7 +18,7 @@
     .slide_box { width: 100%; margin:auto; overflow-x: hidden; text-align: center;}
     .slide_content { display: table; float: left; width: 205px; height: 200px;}
     
-    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; }
+    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 0px solid #ddd; cursor: pointer; }
     .slide_btn_box > .slide_btn_prev { left: -100px; }
     .slide_btn_box > .slide_btn_next { right: -100px; }
     
@@ -65,16 +65,40 @@
           	<img src="../image/16.jpg" width="200">9
           </div>
           
-          
+          <div class="slide_content slide01">
+          	<img src="../image/26.jpg" width="200">10
+          </div>
+          <div class="slide_content slide01">
+          	<img src="../image/27.jpg" width="200">11
+          </div>
+          <div class="slide_content slide01">
+          	<img src="../image/28.jpg" width="200">12
+          </div>
+          <div class="slide_content slide01">
+          	<img src="../image/29.jpg" width="200">13
+          </div>
           
           <div class="slide_content slide01">
-          	<img src="../image/19.jpg" width="200">10
+          	<img src="../image/30.jpg" width="200">14
           </div>
           <div class="slide_content slide02">
-          	<img src="../image/20.jpg" width="200">12
+          	<img src="../image/31.jpg" width="200">15
           </div>
           <div class="slide_content slide02">
-          	<img src="../image/24.jpg" width="200">13
+          	<img src="../image/32.jpg" width="200">16
+          </div>
+          <div class="slide_content slide02">
+          	<img src="../image/33.jpg" width="200">17
+          </div>
+          
+          <div class="slide_content slide01">
+          	<img src="../image/19.jpg" width="200">18
+          </div>
+          <div class="slide_content slide02">
+          	<img src="../image/20.jpg" width="200">19
+          </div>
+          <div class="slide_content slide02">
+          	<img src="../image/24.jpg" width="200">20
           </div>
           <div class="slide_content slide02">
           	<img src="../image/25.jpg" width="200">1
@@ -95,6 +119,10 @@
     <!-- // .slide_wrap -->
   </div>
   <!-- // .container -->
+  
+  
+  
+  
 
   <script>
     (function () {
@@ -169,10 +197,10 @@
         else if (curIndex <= 0) {
           setTimeout(function() {
             slideList.style.transition = "1000ms";
-            slideList.style.transform = "translate3d(-" + slideWidth*2 + "px, 0px, 0px)";
+            slideList.style.transform = "translate3d(-" + slideWidth*(slideLen/4-1) + "px, 0px, 0px)";
           }, slideSpeed);
           curIndex = slideLen-4;
-          next=2;
+          next=slideLen/4-1;
           console.log(curIndex);
         }
         

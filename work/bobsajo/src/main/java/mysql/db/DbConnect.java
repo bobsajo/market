@@ -38,7 +38,7 @@ public class DbConnect {
 		return conn;
 	}
 	
-	public void Dbclose(Connection conn,Statement stmt)
+	public void dbClose(Connection conn,Statement stmt)
 	{
 			try {
 				if(stmt!=null)
@@ -52,7 +52,7 @@ public class DbConnect {
 			}
 	}
 
-	public void Dbclose(Connection conn,PreparedStatement pstmt)
+	public void dbClose(Connection conn,PreparedStatement pstmt)
 	{
 			try {
 				if(pstmt!=null)
@@ -66,7 +66,7 @@ public class DbConnect {
 			}
 	}
 	
-	public void Dbclose(Connection conn,Statement stmt,ResultSet rs)
+	public void dbClose(Connection conn,Statement stmt,ResultSet rs)
 	{
 			try {
 				if(rs!=null)
@@ -82,7 +82,7 @@ public class DbConnect {
 			}
 	}
 	
-	public void Dbclose(Connection conn,PreparedStatement pstmt,ResultSet rs)
+	public void dbClose(Connection conn,PreparedStatement pstmt,ResultSet rs)
 	{
 			try {
 				if(rs!=null)
