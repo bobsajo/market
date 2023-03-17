@@ -1295,6 +1295,8 @@ table.extra-information th {
     width: 100%;
 
 
+
+
 </style>
 
 </head>
@@ -1315,9 +1317,10 @@ table.extra-information th {
                 <div class="section_view">
                     <div id="sectionView">
                         <div class="inner_view">
-                            <div class="thumb" style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
-                                <img src="<%=dto.getItem_info_img() %>" alt="상품 대표 이미지" class="bg">
-
+                            <div class="thumb" >
+                                <img src="../save-info_img/<%=dto.getItem_info_img()%>" alt="" class="bg">
+										
+										
                             </div>
                             <p class="goods_name">
                                
@@ -1327,8 +1330,10 @@ table.extra-information th {
                             <p class="goods_price">
                                 <span class="position">
                                     <span class="dc">
+                                      
                                         <span class="dc_price">
-                                             <%=dto.getItem_price() %>
+                                          
+                                             <%=dto.getItem_price()%>
                                             <input type="hidden" value=0>  <!-- 여기 벨류에다가 가격데이터 넣어줘야댐-->
                                             
                                         </span>
@@ -1444,7 +1449,7 @@ table.extra-information th {
                             <div class="goods_wrap">
                                 <div class="goods_intro">
                                     <div class="pic">
-                                        <img src="https://res.kurly.com/mobile/img/1808/img_none_x2.png" style="width:1010px; height:671px;">
+                                        <img src="../save-img/<%=dto.getItem_img()%>" style="width:1010px; height:671px;">
                                     </div>
                                     <div class="context last">
                                         <h3>
