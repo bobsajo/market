@@ -1,0 +1,142 @@
+<%@page import="data.Dao.MemberDao"%>
+<%@page import="data.Dao.itemDao"%>
+
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+   div.cart{
+      float: right;
+      cursor: pointer;
+      
+   }
+   
+ 
+   
+   div.count{
+      color: white;
+      width: 15px;
+      height: 15px;
+      float: right;
+      border-radius: 100px;
+      line-height: 15px;
+      text-align: center;
+      background-color: #4B62D3;
+      font-weight: bold;
+      z-index: 10;
+      position: relative;
+      left: -10px;
+      top: 10px;
+      font-size: 0.7em;
+        margin-top: 3px;
+   }
+   
+   div.heart{
+   	 float: right;
+      cursor: pointer;
+      margin-right: -200px;
+       margin-top: 3px;
+       
+      
+
+
+       
+   }
+   
+  
+  
+ 
+</style>
+
+</head>
+<%
+ //프로젝트 경로구하기
+ String root=request.getContextPath();
+%>
+<body>
+<div >
+<a class="logo" onclick="#" >
+	<img alt="" src="image/uselogo.png" style="width:200px; margin: 0 auto; margin-top: 60px; text-align: center; float:left; margin-left:20%; cursor: pointer; " ></a></div>
+	<form action="../search/searchItem.jsp" method="post" name="search">
+	<div class="search" style=" position: relative;" >
+	
+	<input type="text" placeholder="검색어 입력" name="searchText" style=" width: 400px ; 
+	float:left;
+  border: 1px solid ;
+  border-radius: 8px;
+  font-size: 15px; 
+  margin-left: 30px;
+   height: 50px;
+  margin-top: 60px;
+  padding-left:20px; "
+   >
+   <button type="submit" style="border: 0px; background-color: white;" >
+  <img  src="image/searchicon.png" style="position: absolute; width: 25px; margin-top: 60px; left: 59%;" >
+  </button>
+  
+  </div>
+</form>
+
+
+<div  style="margin-right: 23%; margin-top: 50px;" >
+<div   style="float: right; top: 50px; " >
+   <img class="heart" alt="" src="image/heart.png" style="width: 20px; cursor: pointer; " onclick="#">
+   <%
+     //로그인세션얻기
+     String loginok=(String)session.getAttribute("loginok");
+     //아이디얻기
+     String myid=(String)session.getAttribute("myid");
+     MemberDao dao=new MemberDao();
+     String name=dao.getName(myid);
+     
+     if(loginok==null){%>
+    	 
+    	 <button type="button" class="btn btn-primary btn-link"
+    	 style="width: 30px;    "  onclick="location.href='index.jsp?main=login/loginmain.jsp'">로그인</button>
+     <%}else{%>
+    	 
+    	 <b style="font-size: 12pt;"><%=name %>님 로그인중...</b>
+    	 <button type="button" class="btn btn-primary btn-link"
+    	 style="width: 30px; " onclick="location.href='login/logoutaction.jsp'">로그아웃</button>
+     <%}
+   %>
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   <button type="button" class="btn btn-primary btn-link"  onclick="#">회원가입</button>
+   
+  
+</div>
+
+<!-- 카트 -->
+   <div class="cart"  style="float: right; margin-right: 1750px; top:300px;  margin-top: -30px;">
+     <%
+     itemDao sdao=new itemDao();
+    /*  int cartSize=sdao.getCartList(myid).size(); */
+     %>
+     
+     &nbsp;&nbsp;&nbsp;&nbsp; 
+  
+     <img alt="장바구니 " src="image/cartlogo.png"   style="width: 20px;  " onclick="#">
+    <%--  <div class="count"><%=cartSize %></div> --%>
+     
+   </div>
+
+</div>
+
+  	
+  
+  
+
+
+</body>
+</html>

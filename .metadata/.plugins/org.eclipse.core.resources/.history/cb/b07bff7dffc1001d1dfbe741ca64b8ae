@@ -1,0 +1,21 @@
+package data.dto;
+
+public class itemDto {
+
+	private String item_num;
+	private String item_name;
+	private int item_price;
+	private String item_sub_title;
+	private String item_info_img;
+	private String item_seller;
+	private String item_package_type;
+	private String item_package_detail;
+	private String item_sell_unit;
+	private String item_weight;
+	private String item_origin;
+	private String item_allergy;
+	private String item_warning;
+	private String item_detail;
+	private String item_category;
+	
+}

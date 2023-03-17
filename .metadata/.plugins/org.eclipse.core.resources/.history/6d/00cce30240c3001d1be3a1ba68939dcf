@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+
+</head>
+<body>
+  <div class="list_order">
+                    <ul class="manual_list">
+                        <li>
+                            <h2 class="manual_product_title">1.상품명</h2>
+                                <div class="manual_product_name">
+                                    <img src="./img/main상품명.png">
+                                    <img src="./img/main상품명2.png">
+                                </div>
+                        </li>
+
+
+                        <li>
+                            <h2 class="manual_product_title">2.한줄 소개</h2>
+                                <div class="manual_product_name">
+                                    <img src="./img/introduction1.png">
+                                    <img src="./img/introduction2.png">
+                                </div>
+                        </li>
+
+                        <li>
+                            <h2 class="manual_product_title">3.기타 값</h2>
+                                <div class="manual_product_name">
+                                    <img src="./img/all.png">
+                                </div>
+                        </li>
+
+                        
+                    </ul>
+                  </div>
+
+
+
+
+      
+                  
+                </div>
+      
+              </div>
+      
+            </div>
+      
+        </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+
+</head>
+<body>
+    <div id="main">
+            <div id="content" style="opacity: 1;">
+                <div class="section_view">
+                    <div id="sectionView">
+                        <div class="inner_view">
+                            <div class="thumb" style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAHnCAQAAADpr9U2AAABeUlEQVR42u3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALg0lPQAATTM2xoAAAAASUVORK5CYII=" alt="상품 대표 이미지" class="bg">
+
+                            </div>
+                            <p class="goods_name">
+                                <span class="btn_share">
+                                    <button id="btnShare">공유하기</button>
+                                </span>
+                                <strong class="name">[상품명] 데이터 넣는곳</strong>
+                                <span class="short_desc">[한줄소개] 데이터 넣는곳</span>
+                            </p>
+                            <p class="goods_price">
+                                <span class="position">
+                                    <span class="dc">
+                                        <span class="dc_price">
+                                            [가격]데이터 넣는곳
+                                            <input type="hidden" value=0>  <!-- 여기 벨류에다가 가격데이터 넣어줘야댐-->
+                                            
+                                        </span>
+                                        <span class="won">원</span>
+                                    </span>
+                                    
+                                </span>
+                                <span>
+                                    <span class="txt_benefit">
+                                        <span class="ico_grade grade6">웰컴 5%</span>
+                                        <span class="point">
+                                            개당
+                                            <strong class="emphh">65원 적립(여긴 건들지마세요 제가 계산식 js에 넣어뒀어요)</strong>
+                                        </span>
+                                    </span>
+                                </span>
+                            </p>
+                            <div class="goods_info">
+                                <dl class="list fst">
+                                    <dt class="tit">판매단위</dt>
+                                    <dd class="desc">판매단위 데이터 넣는곳</dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">중량/용량</dt>
+                                    <dd class="desc">중량/용량 데이터 넣는곳</dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">배송구분</dt>
+                                    <dd class="desc">배송구분 데이터 넣는곳</dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">원산지</dt>
+                                    <dd class="desc">원산지 데이터 넣는곳</dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">포장타입</dt>
+                                    <dd class="desc">
+                                        포장타입 데이터 넣는곳
+                                        <strong class="emphd">택배배송은 에코포장이 스티로폼으로 대체됩니다.</strong>
+                                    </dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">알레르기정보</dt>
+                                    <dd class="desc">알레르기 정보 데이터 넣는곳</dd>
+                                </dl>
+                                <dl class="list">
+                                    <dt class="tit">유통기한</dt>
+                                    <dd class="desc">유통기한 데이터 넣는곳</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cartPut">
+                        <div class="cart_option cart_type2">
+                            <form action="">
+                                <div class="inner_option">
+                                    <div class="in_option">
+                                        <div class="list_goods">
+                                            <ul class="list list_nopackage">
+                                                <li class="on">
+                                                    <span class="tit_item">구매수량</span>
+                                                    <div class="option">
+                                                        <span class="count">
+                                                            <button type="button" class="btn down on">수량내리기</button>
+                                                            <input type="number" readonly="readonly" value = 1 class="inp">
+                                                            <button  type="button" class="btn up on">수량올리기</button>
+                                                        </span>
+                                                    
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="total">
+                                            <div class="price">
+                                                <strong class="tit">총 상품금액 :</strong>
+                                                <span class="sum">
+                                                    <span class="num">1,300</span>
+                                                    <span class="won">원</span>
+                                                </span>
+                                            </div>
+                                            <p class="txt_point">
+                                                <span class="ico">적립</span>
+                                                <span class="point">
+                                                    구매 시
+                                                    <strong class="emph">65원 적립</strong>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="group_btn off">
+                                        <div class="view_function">
+                                            <button type="button" class="btn btn_save">늘 사는 것</button>
+                                        </div>
+                                        <span class="btn_type1">
+                                            <button type="submit" class="txt_type">장바구니 담기</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+  
+  
+  </div>
+</body>
+</html>

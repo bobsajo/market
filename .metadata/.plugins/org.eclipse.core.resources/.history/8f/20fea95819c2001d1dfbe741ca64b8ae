@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+ul {
+    list-style: none;
+ }
+
+#header {
+	width: 90%;
+	height: 205px;
+	margin: 0 auto;
+}
+#header .cart{
+	float: right;
+      cursor: pointer;
+    margin-top: -150px;
+	margin-right: -49px;
+}
+#header .heart{
+	float: right;
+      cursor: pointer;
+        margin-top: -150px;
+    
+	
+}
+
+h2 {
+	line-height: 50px;
+	color: #484848;
+}
+
+.headerAd {
+	width: 90%;
+	height: 40px;
+	background: #541f76 url(../img/joinNow.jpg) no-repeat 50%;
+}
+
+.headerAd img {
+	margin-top: 12px;
+	margin-left: 80%;
+}
+
+span.headerline {
+	position: absolute;
+	top: 170px;
+	width: 100%;
+	height: 1px;
+	background: #ddd;
+	display: block;
+}
+
+span.headerShadow {
+	position: absolute;
+	top: 220px;
+	width: 100%;
+	height: 1px;
+	background: #fff;
+	display: block;
+	box-shadow: 1px 3px 5px #ddd;
+}
+
+/*header 시작*/
+#header .topHeader {
+	width: 100%;
+	height: 160px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*header .topHeader 시작*/
+#header .topHeader .topMenu {
+	width: 100%;
+	height: 160px;
+	margin: 0 auto;
+}
+
+
+
+#header .topHeader .topMenu .topGnb {
+	width: 200px;
+	height: 25px;
+	float: right;
+	margin-top:10px;
+	
+}
+
+#header .topHeader .topMenu .topGnb>ul>li {
+	width: 63px;
+	height: 25px;
+	box-sizing: border-box;
+	float: left;
+	
+}
+
+#header .topHeader .topMenu .topGnb>ul>li span.topvline {
+	width: 1px;
+	height: 10px;
+	position: absolute;
+	display: block;
+	z-index: 2;
+	background: #ddd;
+	margin-top: 10px;
+}
+
+#header .topHeader .topMenu .topGnb>ul>li a {
+	color: #4B62D3;
+	font-size: 11px;
+	display: block;
+	text-align: center;
+	line-height: 25px;
+}
+
+#header .topHeader .topMenu .topGnb>ul>li.sId{
+	width:76px;
+}
+
+#header .topHeader .topMenu .topGnb>ul>li span.sId{
+	background: #52495a;
+	color:#fff;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight:bold;
+	display: block;
+	text-align: center;
+	line-height: 25px;	
+	width:78px;
+	z-index:999;
+	position:relative;
+}
+
+#header .topHeader .topMenu .topGnb>ul>li.loc a {
+	width: 91px;
+	border-right: 0;
+}
+
+
+
+
+#header .topHeader .topMenu .logo {
+	margin-left:220px; 
+	margin-bottom: 200px;
+	cursor: pointer;
+	padding-bottom: 8px;
+	clear: both;
+	  margin-top: -150px;
+	margin-right: -49px;
+}
+
+/*header .bottomHeader 시작*/
+#header .bottomHeader .mainGnb {
+	width: 100%;
+	height: 50px;
+	top: 200px;
+	margin-left:200px; 
+	
+}
+
+#header .bottomHeader .mainGnb>ul>li {
+	width: 160px;
+	height: 50px;
+	float: left;
+	box-sizing: border-box;
+}
+
+#header .bottomHeader .mainGnb>ul>li a {
+	color: #222;
+	display: block;
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+}
+
+#header .bottomHeader .mainGnb>ul>li a:hover {
+	text-decoration: underline;
+	font-weight: bold;
+color: #222;
+}
+
+#header .bottomHeader .mainGnb>ul>li a p {
+	border-right: 1px solid #ddd;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first {
+	width: 150px;
+	background: #4B62D3;
+	position: relative;
+	border-right: 0px;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first a {
+	display: block;
+	color: #fff;
+	text-indent: 20px;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first span.line {
+	width: 15px;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	left: 20px;
+	display: block;
+	z-index: 2;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first span.line.l1 {
+	top: 19px;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first span.line.l2 {
+	top: 25px;
+}
+
+#header .bottomHeader .mainGnb>ul>li.first span.line.l3 {
+	top: 31px;
+}
+
+#header .bottomHeader .mainGnb>ul>li span.vline {
+	width: 1px;
+	height: 14px;
+	position: absolute;
+	display: block;
+	z-index: 2;
+	background: #ddd;
+	margin-top: 18px;
+}
+#header .bottomHeader .mainGnb>ul>li.search {
+	position: relative;
+    text-align: center;
+    margin:auto;
+    
+    
+   
+    
+}
+#header .bottomHeader .mainGnb>ul>li.search input {
+	display: block;
+	width: 250%;
+	height: 50px;
+	margin: 2px auto;
+	background: #fafafa;
+	border: 1px solid #ddd;
+	
+	
+}
+
+
+

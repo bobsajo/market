@@ -1,0 +1,16 @@
+package data.dto;
+
+public class MemberDto {
+
+	private String member_num;
+	private String member_name;
+	private String member_addr; 
+	private String member_hp; 
+	private String member_pass; 
+	
+	
+	private String member_id; 
+	private int member_email;
+	private String member_birth; 
+	
+}
