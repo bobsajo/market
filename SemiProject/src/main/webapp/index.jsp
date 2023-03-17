@@ -12,12 +12,24 @@
 div.includewrap{
 	width:100%;
 	/* margin:0 auto; */
+	
 }
 
 
-div.mainbanner{
-/* 	text-align:center; */
-}
+/* div.mainbanner{
+/* 	text-align:center; 
+	position:absolute;
+	top:20%;
+}*/
+
+
+/* div.layout{
+	border: 0px solid gray;
+	position: absolute;
+	display:inline-flex;
+} */
+
+
 </style>
 </head>
 <%
@@ -31,9 +43,14 @@ div.mainbanner{
 %>
 <body>
 <div class = "includewrap">
-	<div class="layout mainbanner">
- 	<jsp:include page = "layout/mainBanner.jsp"/>
+
+	<div class="layout title">
+  	<jsp:include page="layout/title2.jsp"/>
 	</div>
+
+	<div class="layout menu">
+  	<jsp:include page="layout/menu.jsp"/>
+	</div> 
 
 	<div class="layout main">
   	<jsp:include page = "layout/main.jsp"/>
@@ -42,6 +59,8 @@ div.mainbanner{
 	<div class="layout footer">
     <jsp:include page = "layout/footer.jsp"/>
 	</div>
+	
+
 </div>
 </body>
 </html>

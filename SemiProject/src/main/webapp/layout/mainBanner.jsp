@@ -204,7 +204,7 @@ vertical-align: middle;
    <div>
    		<section>
 			<div class = "ban">
-				<img src = "image3/그림1.jpg" width = "1200px;">
+				<img src = "../image3/그림1.jpg" width = "1200px;">
 			</div>   		
    		</section>	
    </div>
