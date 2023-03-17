@@ -1,8 +1,0 @@
-package data.dto;
-
-public class CartDto {
-	String cart_num;
-	String member_num;
-	String item_num;
-	int cart_cnt;
-}
