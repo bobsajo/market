@@ -14,11 +14,7 @@ width: 100%;
 }
 
 .visual {
-   display: block;
-    justify-content: center;
-    float:left;
-    margin: 0 auto;
-   text-align: center;
+
 }
 
 .visual > .slide{
@@ -30,17 +26,20 @@ width: 100%;
 }
 .visual > img {
 vertical-align: middle;
+
 }
 .visual > .slideshow-container {
  
   height: 500px;
-  margin-left:100px;
-  margin-right:100px;
+  /* margin-left:500px;
+  margin-right:500px; */
+ /*  margin:0 auto; */
+ margin-left:-33%;
 }
 
 .visual > .slide.active {
   opacity: 1;
-}
+},
 /* GOODS */
 .goods{
 
@@ -98,16 +97,16 @@ vertical-align: middle;
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
-  animation-duration: 3.5s;
+  animation-duration: 2.0s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {opacity: .1} 
+  to {opacity: 2}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .2} 
   to {opacity: 1}
 }
 
@@ -136,8 +135,8 @@ vertical-align: middle;
 }
 
 .ban{
-	margin-left: 600px;
-	margin-right: 500px;
+	margin-left: 10px;
+	
 }
 </style>
 <script>
@@ -148,14 +147,25 @@ vertical-align: middle;
 
       function showSlides() {
           var i;
+          
           var slides = document.getElementsByClassName("slide");
           for (i = 0; i < slides.length; i++) {
              slides[i].style.display = "none";  
           }
           slideIndex++;
           if (slideIndex > slides.length) {slideIndex = 1}
-          slides[slideIndex-1].style.display = "block";  
-          setTimeout(showSlides, 3000); // Change image every 2 seconds
+          slides[slideIndex-1].style.display = "block"; 
+          
+          /*
+          var slides = $(".slide");
+          slides.each(function(i,ele){
+        	  $(ele).hide();
+          });
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides.eq(slideIndex-1).fadeIn('fast');*/
+          
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
    });
 </script>
@@ -169,22 +179,22 @@ vertical-align: middle;
         
         <div class="slide fade">
         <a href = "https://www.kurly.com/categories/825">
-        <img alt = "" src = "../image3/banner1.jpg">
+        <img alt = "" src = "image3/banner1.jpg">
         </a>
         </div>
         <div class="slide fade">
         <a href = "https://www.kurly.com/shop/main/html.php?htmid=event/kurly.htm&name=friend">
-        <img alt = "" src = "../image3/banner2.jpg">
+        <img alt = "" src = "image3/banner2.jpg">
         </a>
         </div>
         <div class="slide fade">
         <a href = "https://www.kurly.com/categories/139001">
-        <img alt = "" src = "../image3/banner3.jpg">
+        <img alt = "" src = "image3/banner3.jpg">
         </a>
         </div>
         <div class="slide fade">
         <a href = "https://www.kurly.com/categories/863">
-        <img alt = "" src = "../image3/banner4.jpg">
+        <img alt = "" src = "image3/banner4.jpg">
         </a>
         </div>
    </div>
@@ -194,11 +204,13 @@ vertical-align: middle;
    <div>
    		<section>
 			<div class = "ban">
-				<img src = "../image3/그림1.jpg" width = 1000px>
+				<img src = "image3/그림1.jpg" width = "1200px;">
 			</div>   		
    		</section>	
    </div>
-   
+   <div>
+   	<a href ="#"></a>
+   </div>
     
 </body>
 </html>

@@ -62,7 +62,7 @@
        	%>
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
-          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -75,8 +75,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -96,7 +96,7 @@
        	%>
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
-          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
@@ -109,8 +109,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -133,7 +133,7 @@
        	%>
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
-          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -146,8 +146,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -170,7 +170,7 @@
        	%>
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
-          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -183,8 +183,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -207,7 +207,7 @@
        	%>
           <div class="slide_content slide01">
           	<a href = "#" class = "a">
-          	<img src="../itemImg/<%=dto.getItem_img() %>" width="275">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -220,8 +220,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="../image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="../image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->

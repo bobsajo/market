@@ -27,10 +27,10 @@
 <body>
 	<div class = "container">
 		<div class = "title">
-    	<a href="" ></a>
-    	<a href="" ></a>
-    	<a href="" ></a>
-    	<a href="" ></a></div>
+    	<li><a href="categoryList.jsp?category=fruit" id="fruit">과일</a></li>
+    	<li><a href="categoryList.jsp?category=bakery" id="bakery">빵</a></li>
+    	<li><a href="categoryList.jsp?category=seafood" id="seafood">해산물</a></li>
+    	<li><a href="categoryList.jsp?category=meat" id="meat">육류</a></li></div>
     <div class = "tab-content">
      	<div id = "tabs-1" class = "tab-pane fade in active">
 		<p>
@@ -52,7 +52,7 @@
 						
 						%>
 	                	<td>
-	                	<div style="margin:0px 30px 20px 0px; height: 500px;">
+	                	<div style="margin:0px 30px 30px 0px; height: 500px;">
 	                      <a item_num="<%=dto.getItem_num()%>" style="cursor: pointer;" class="godetail">
 	                      <img src="../itemImg/<%=dto.getItem_img()%>" class="photo" style="width: 300px;">
 	                      <br>
