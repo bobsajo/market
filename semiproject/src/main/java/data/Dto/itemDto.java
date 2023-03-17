@@ -5,6 +5,7 @@ public class itemDto {
 	private String item_num;
 	private String item_name;
 	private int item_price;
+	private String item_img;
 	private String item_sub_title;
 	private String item_info_img;
 	private String item_seller;
@@ -17,7 +18,7 @@ public class itemDto {
 	private String item_warning;
 	private String item_detail;
 	private String item_category;
-
+	
 	
 	public String getItem_num() {
 		return item_num; 
@@ -36,6 +37,12 @@ public class itemDto {
 	}
 	public void setItem_price(int item_price) {
 		this.item_price = item_price;
+	}
+	public String getItem_img() {
+		return item_img;
+	}
+	public void setItem_img(String item_img) {
+		this.item_img = item_img;
 	}
 	public String getItem_sub_title() {
 		return item_sub_title;
