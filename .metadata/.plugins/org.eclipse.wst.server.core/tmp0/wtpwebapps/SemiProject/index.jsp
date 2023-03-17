@@ -15,6 +15,14 @@ div.includewrap{
 	
 }
 
+div.menu{
+	z-index:100;
+}
+
+div.main{
+	z-index:-1;
+}
+
 
 /* div.mainbanner{
 /* 	text-align:center; 

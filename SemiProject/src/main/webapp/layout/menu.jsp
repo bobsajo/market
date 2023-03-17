@@ -57,8 +57,6 @@
 	list-style: none;
 }
 
-
-
 .main1>li:hover .main2 {
 
     left: 0;
@@ -159,7 +157,7 @@
 
 .main3>li a:hover {
 
-    background: ;
+    background: white;
 
     color: black;
 
@@ -181,18 +179,15 @@
 
         <li><a href=""><img alt="카데고리 아이콘" src="image/menuicon.png" style="width: 30px; margin-bottom: 5px;">카테고리</a>
 
-            <ul class="main2">
+            <ul class="main2" style="z-index: 100; background: white; text-align: left;">
 
-                <li><a href="#">과일·견과·쌀</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-grain" style="font-size: 1.5em; margin-right: 5px"></span>과일·견과·쌀</a></li>
                 
                 <li><a href="#">수산·해산·건어물</a></li>
                 
                 <li><a href="#">정육·계란</a></li>
                 
                 <li><a href="#">베이커리·치즈·델리</a> </li>
-
-               
-
             </ul>
 
         </li>
