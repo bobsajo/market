@@ -1,5 +1,5 @@
-<%@ page import="dao.SearchDao" %>
-<%@ page import="dto.SearchDto" %>
+<%@ page import="data.dao.SearchDao" %>
+<%@ page import="data.dto.SearchDto" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>

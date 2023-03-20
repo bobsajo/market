@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.NumberFormat" %>
-<%@ page import="dto.ReviewDto" %>
-<%@ page import="dao.ReviewDao" %>
+<%@ page import="data.dto.ReviewDto" %>
+<%@ page import="data.dao.ReviewDao" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%
     request.setCharacterEncoding("utf-8");
@@ -22,6 +22,8 @@
     //로그인 상태와 아이디 불러오기
     String loginok=(String)session.getAttribute("loginok");
     String myid=(String)session.getAttribute("myid");
+//    System.out.println(loginok);
+//    System.out.println(myid);
 
     //dao 선언
     ReviewDao db=new ReviewDao();
@@ -69,16 +71,6 @@
     List<ReviewDto> list;
     list=db.getListLike(item_num,start,perPage);
     %>
-<%--    <script type="text/javascript">--%>
-<%--        $(function() {--%>
-<%--            $("#main").load("review/reviewOrderByLike.jsp");--%>
-
-<%--           $("span.orderByNew").click(function() {--%>
-<%--                $("#main").load("review/reviewOrderByNew.jsp");--%>
-<%--           });--%>
-<%--        });--%>
-<%--    </script>--%>
-
 <body>
 
 <div>

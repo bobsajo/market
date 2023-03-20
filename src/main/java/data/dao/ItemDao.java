@@ -1,4 +1,4 @@
-package dao;
+package data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
-import dto.ItemDto;
+import data.dto.ItemDto;
 import mysql.db.DbConnect;
 
 public class ItemDao {

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="dto.ReviewDto" %>
-<%@ page import="dao.ReviewDao" %>
+<%@ page import="data.dto.ReviewDto" %>
+<%@ page import="data.dao.ReviewDao" %>
 <%@ page import="org.json.simple.JSONObject" %>
 <%
     request.setCharacterEncoding("utf-8");
@@ -17,8 +17,8 @@
 
     //num에 해당하는 like 1증가
     dao.deleteLike(review_num);
-    dao.insertReviewLike(member_num,item_num,review_num);
-//    System.out.println(dao.getData(review_num));
+    dao.deleteReviewLike(member_num,item_num,review_num);
+//    System.out.println(member_num+" "+item_num+" "+review_num);
 
     //num에 해당하는 chu값 json 형식으로 반환
     int review_like=dao.getData(review_num).getReview_like();

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="dao.ReviewDao" %>
-<%@ page import="dto.ReviewDto" %>
+<%@ page import="data.dao.ReviewDao" %>
+<%@ page import="data.dto.ReviewDto" %>
 <%@ page import="org.json.simple.JSONArray" %>
 <%@ page import="org.json.simple.JSONObject" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="dao.MemberDao" %>
-<%@ page import="dao.ItemDao" %>
+<%@ page import="data.dao.MemberDao" %>
+<%@ page import="data.dao.ItemDao" %>
 <%
     request.setCharacterEncoding("utf-8");
     response.setCharacterEncoding("utf-8");

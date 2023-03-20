@@ -1,7 +1,7 @@
-package dao;
+package data.dao;
 
-import dto.ReviewDto;
-import dto.ReviewLikeDto;
+import data.dto.ReviewDto;
+import data.dto.ReviewLikeDto;
 import mysql.db.DbConnect;
 
 import java.sql.*;
@@ -286,7 +286,108 @@ public class ReviewDao {
 
     //삭제
     public void deleteReviewLike(String member_num, String item_num, String review_num) {
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
 
+        String sql="delete from reviewlike where member_num=? and item_num=? and review_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+
+            pstmt.setString(1,member_num);
+            pstmt.setString(2,item_num);
+            pstmt.setString(3,review_num);
+
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(pstmt,conn);
+        }
+    }
+
+    //reviewlike 조회
+    public ReviewLikeDto getReviewLike(String member_num, String item_num) {
+        ReviewLikeDto dto=new ReviewLikeDto();
+
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+
+        String sql="select * from reviewlike where member_num=? and item_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,member_num);
+            pstmt.setString(2,item_num);
+
+            rs=pstmt.executeQuery();
+
+            if(rs.next()) {
+                dto.setMember_num(rs.getString("member_num"));
+                dto.setItem_num(rs.getString("item_num"));
+                dto.setReview_num(rs.getString("review_num"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(rs,pstmt,conn);
+        }
+        return dto;
+    }
+
+    public boolean hasReviewLike(String member_num, String item_num, String review_num) {
+        boolean has=false;
+
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+
+        String sql="select count(*) from reviewlike where member_num=? and item_num=? and review_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,member_num);
+            pstmt.setString(2,item_num);
+            pstmt.setString(3,review_num);
+            rs=pstmt.executeQuery();
+
+            if(rs.next()) {
+                has=true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(rs,pstmt,conn);
+        }
+        return has;
+    }
+
+    public List<String> selectReviewNum(String member_num, String item_num) {
+        List<String> reviewArr=new ArrayList<>();
+
+        Connection conn=db.getConnection();
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+
+        String sql="select review_num from reviewlike where member_num=? and item_num=?";
+
+        try {
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,member_num);
+            pstmt.setString(2,item_num);
+            rs=pstmt.executeQuery();
+
+            while(rs.next()) {
+                reviewArr.add(rs.getString("review_num"));
+//                reviewArr.add("1");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.dbClose(rs,pstmt,conn);
+        }
+        return reviewArr;
     }
 
 

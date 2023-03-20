@@ -1,6 +1,6 @@
-package dao;
+package data.dao;
 
-import dto.SearchDto;
+import data.dto.SearchDto;
 import mysql.db.DbConnect;
 
 import java.sql.Connection;

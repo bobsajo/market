@@ -1,4 +1,4 @@
-package dto;
+package data.dto;
 
 public class ReviewDto {
 private String review_num;

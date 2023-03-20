@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="dto.ReviewDto" %>
-<%@ page import="dao.ReviewDao" %>
+<%@ page import="data.dto.ReviewDto" %>
+<%@ page import="data.dao.ReviewDao" %>
 <%@ page import="org.json.simple.JSONObject" %>
 <%
     request.setCharacterEncoding("utf-8");

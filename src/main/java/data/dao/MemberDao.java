@@ -1,11 +1,11 @@
-package dao;
+package data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.MemberDto;
+import data.dto.MemberDto;
 import mysql.db.DbConnect;
 
 public class MemberDao {
@@ -224,6 +224,32 @@ DbConnect db=new DbConnect();
 		}
 
 		return member_name;
+	}
+
+	//id에 따른 member_num 가져오기
+	public String getMemberNum(String myid) {
+		String memberNum="";
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select member_num from member where member_id=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,myid);
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				memberNum=rs.getString("member_num");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs,pstmt,conn);
+		}
+		return memberNum;
 	}
 
 }

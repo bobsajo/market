@@ -1,4 +1,4 @@
-package dto;
+package data.dto;
 
 public class ReviewLikeDto {
     private String member_num;
