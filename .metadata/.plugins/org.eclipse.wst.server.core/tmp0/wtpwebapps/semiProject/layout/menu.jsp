@@ -182,26 +182,20 @@
 
             <ul class="main2" style="z-index: 100; background: white; text-align: left;">
 
-                <li><a href="layout/categoryList.jsp?category=fruit"><i class="fa-solid fa-lemon"></i>&nbsp;&nbsp;과일·견과·쌀</a></li>
+                <li><a href="index.jsp?main=layout/categoryList.jsp?category=fruit"><i class="fa-solid fa-lemon"></i>&nbsp;&nbsp;과일·견과·쌀</a></li>
                 
-                <li><a href="layout/categoryList.jsp?category=seafood"><i class="fa-solid fa-fish"></i>&nbsp;&nbsp;수산·해산·건어물</a></li>
+                <li><a href="index.jsp?main=layout/categoryList.jsp?category=seafood"><i class="fa-solid fa-fish"></i>&nbsp;&nbsp;수산·해산·건어물</a></li>
                 
-                <li><a href="layout/categoryList.jsp?category=meat"><i class="fa-solid fa-drumstick-bite"></i>&nbsp;&nbsp;정육·계란</a></li>
+                <li><a href="index.jsp?main=layout/categoryList.jsp?category=meat"><i class="fa-solid fa-drumstick-bite"></i>&nbsp;&nbsp;정육·계란</a></li>
                 
-                <li><a href="layout/categoryList.jsp?category=bakery"><i class="fa-solid fa-cake-candles"></i>&nbsp;&nbsp;베이커리·치즈·델리</a> </li>
+                <li><a href="index.jsp?main=layout/categoryList.jsp?category=bakery"><i class="fa-solid fa-cake-candles"></i>&nbsp;&nbsp;베이커리·치즈·델리</a> </li>
             </ul>
 
         </li>
 
-        <li><a href="#">신상품</a>
+        <li><a href="index.jsp?main=layout/sinSang.jsp">신상품</a>
 
             <ul class="main2">
-
-                
-
-               
-
-               
 
             </ul>
 

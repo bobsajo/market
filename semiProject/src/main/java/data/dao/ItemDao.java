@@ -16,7 +16,7 @@ public class ItemDao {
 	private String item_num;
 	
 	//insert
-	public void MemberInsert(ItemDto dto)
+	public void insertitem(ItemDto dto)
 	{
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -121,6 +121,7 @@ public class ItemDao {
 				{
 					dto.setItem_num(rs.getString("item_num"));
 	 				dto.setItem_name(rs.getString("item_name"));
+	 				dto.setItem_img(rs.getString("item_img"));
 	 				dto.setItem_price(rs.getInt("item_price"));
 	 				dto.setItem_sub_title(rs.getString("item_sub_title"));
 	 				dto.setItem_seller(rs.getString("item_seller"));
@@ -239,7 +240,7 @@ public class ItemDao {
 	
 	//카테고리 신상품 클릭 시 이동
 	
-	public List<ItemDto> getAllSinsang(String item_category)
+	public List<ItemDto> getAllSinsang()
 	{
 		List<ItemDto> list = new Vector<>();
 		
@@ -247,17 +248,17 @@ public class ItemDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from item where item_num=? order by item_num asc";
+		String sql = "select * from item order by item_num desc limit 0,16";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, item_num);
 			
 			rs=pstmt.executeQuery();
 			
 			while(rs.next())
 			{
 				ItemDto dto = new ItemDto();
+				
 				
 				dto.setItem_num(rs.getString("item_num"));
 				dto.setItem_category(rs.getString("item_category"));
@@ -275,4 +276,154 @@ public class ItemDao {
 		}
 		return list;
 	}
+	
+	//////////////////////////////
+	
+	//전체목록
+	 	public List<ItemDto> getAllItem()
+	 	{
+	 		List<ItemDto> list=new Vector<>();
+	 		
+	 		Connection conn=db.getConnection();
+	 		PreparedStatement pstmt=null;
+	 		ResultSet rs=null;
+	 		
+	 		String sql="select * from item order by item_num desc";
+	 		
+	 		try {
+	 			pstmt=conn.prepareStatement(sql);
+	 			rs=pstmt.executeQuery();
+	 			
+	 			while(rs.next())
+	 			{
+	 				ItemDto dto=new ItemDto();
+	 				dto.setItem_num(rs.getString("item_num"));
+	 				dto.setItem_name(rs.getString("item_name"));
+	 				dto.setItem_price(rs.getInt("item_price"));
+	 				dto.setItem_img(rs.getString("item_img"));
+	 				dto.setItem_sub_title(rs.getString("item_sub_title"));
+	 				dto.setItem_seller(rs.getString("item_seller"));
+	 				dto.setItem_package_type(rs.getString("item_package_type"));
+	 				dto.setItem_package_detail(rs.getString("item_package_detail"));
+	 				dto.setItem_sell_unit(rs.getString("item_sell_unit"));
+	 				dto.setItem_weight(rs.getString("item_weight"));
+	 				dto.setItem_origin(rs.getString("item_origin"));
+	 				dto.setItem_allergy(rs.getString("item_allergy"));
+	 				dto.setItem_warning(rs.getString("item_warning"));
+	 				dto.setItem_detail(rs.getString("item_detail"));
+	 				dto.setItem_category(rs.getString("item_category"));
+
+	 				list.add(dto);
+	 				
+	 			}
+	 		} catch (SQLException e) {
+	 			// TODO Auto-generated catch block
+	 			e.printStackTrace();
+	 		}finally {
+	 			
+	 		}
+	 		
+	 		return list;
+	 	}
+	 	
+		/*
+		 * //장바구니 추가 public void insertCart(CartDto dto) { Connection
+		 * conn=db.getConnection(); PreparedStatement pstmt=null;
+		 * 
+		 * String sql="insert into cart values(null,?,?,?,now())";
+		 * 
+		 * try { pstmt=conn.prepareStatement(sql);
+		 * 
+		 * 
+		 * pstmt.setInt(1, dto.getMember_num()); pstmt.setInt(2, dto.getItem_num());
+		 * pstmt.setInt(3, dto.getCart_cnt());
+		 * 
+		 * 
+		 * 
+		 * pstmt.execute();
+		 * 
+		 * } catch (SQLException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }finally { db.dbClose(pstmt, conn); }
+		 * 
+		 * }
+		 */
+   
+   
+ 		//장바구니 출력
+//// 		public List<HashMap<String, String>> getCartList(String id)
+//// 		{
+//// 			List<HashMap<String, String>> list=new ArrayList<>();
+//// 			
+//// 			Connection conn=db.getConnection();
+//// 			PreparedStatement pstmt=null;
+//// 			ResultSet rs=null;
+//// 			
+//// 			String sql="select c.cart_num,i.item_name,i.item_num,i.item_info_img,i.item_weight,i.item_price,c.cart_cnt"
+//// 					+ " from cart c,item i,member m"
+//// 					+ " where c.item_num=i.item_num and c.member_num=m.member_num and m.member_id=?";
+//// 			
+//// 			try {
+//// 				pstmt=conn.prepareStatement(sql);
+//// 				
+//// 				pstmt.setString(1, id);
+//// 				rs=pstmt.executeQuery();
+//// 				
+//// 				while(rs.next())
+//// 				{
+//// 					HashMap<String, String> map=new HashMap<>();
+//// 					
+//// 					map.put("cart_num", rs.getString("cart_num"));
+//// 					map.put("item_name", rs.getString("item_name"));
+//// 					map.put("item_num", rs.getString("item_num"));
+//// 					map.put("item_num", rs.getString("item_num"));
+//// 					map.put("item_info_img", rs.getString("item_info_img"));
+//// 					map.put("item_weight", rs.getString("item_weight"));
+//// 					map.put("item_price", rs.getString("item_price"));
+//// 					map.put("cart_cnt", rs.getString("cart_cnt"));
+//// 					
+//// 					
+//// 					list.add(map);
+//// 				}
+//// 				
+//// 			} catch (SQLException e) {
+//// 				// TODO Auto-generated catch block
+//// 				e.printStackTrace();
+//// 			}finally {
+//// 				db.dbClose(rs, pstmt, conn);
+//// 			}
+// 			
+// 			
+// 			
+// 			
+//// 			return list;
+//// 		}
+ 		
+
+	 	//상품명 가져오기
+		public String getItemName(String item_num) {
+			String item_name="";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+
+			String sql="select item_name from item where item_num=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+
+				pstmt.setString(1,item_num);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()) {
+					item_name=rs.getString("item_name");
+				}
+			} catch (SQLException e) {
+				e.getMessage();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+
+			return item_name;
+		}
 }

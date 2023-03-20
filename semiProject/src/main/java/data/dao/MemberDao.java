@@ -77,7 +77,7 @@ public class MemberDao {
 			db.dbClose(rs, pstmt, conn);
 		}
 		
-		
+	
 		return name;
 	}
 	
@@ -240,5 +240,94 @@ public class MemberDao {
 			
 			return num;
 		}
-	
+		
+		//id에 따른 member_num 가져오기
+		public String getMemberNum(String myid) {
+			String memberNum="";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+
+			String sql="select member_num from member where member_id=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1,myid);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()) {
+					memberNum=rs.getString("member_num");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+			return memberNum;
+		}
+		
+		//회원정보 일치 검사
+		public boolean checkLogin(String id,String pass)
+		{
+			boolean check=false;
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			//아이디와 비밀번호가 일치하는 데이터가 존재하는지
+			String sql="select * from member where member_id=? and member_pass=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, id);
+				pstmt.setString(2, pass);
+				
+				rs=pstmt.executeQuery();
+				
+				//일치하는 데이터가 존재한다면
+				if(rs.next())
+				{
+					check=true;
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+			
+			return check;
+		}
+		
+		public String getReviewName(String member_num) {
+			String member_name="";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+
+			String sql="select member_name from member where member_num=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+
+				pstmt.setString(1,member_num);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()) {
+					member_name=rs.getString("member_name");
+				}
+			} catch (SQLException e) {
+				e.getMessage();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+
+			return member_name;
+		}
+		
+		
 }

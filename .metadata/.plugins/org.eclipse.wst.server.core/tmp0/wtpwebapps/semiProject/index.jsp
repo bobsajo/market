@@ -86,7 +86,8 @@ div.main{
    </div> 
 
    <div class="layout main">
-     <jsp:include page = "layout/main.jsp"/>
+    <%--  <jsp:include page = "layout/main.jsp"/> --%>
+    <jsp:include page = "<%=mainPage %>"/>
    </div>
 
    <div class="layout footer">
