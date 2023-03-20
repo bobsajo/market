@@ -86,12 +86,12 @@
             $(document).ready(function(){
                 <%
                     for(String arr:reviewArr) { %>
-                    var arr= //arr가 선언이 안되어 있어서 그랬다. reviewArr를 넣어주자
-                    $(".likeBtn").each(arr,function(idx, item) {
-                        var reviewNum=$(item).attr("review_num"); //string형
-                        reviewNum *=1; //number형으로 변환
+                    //arr가 선언이 안되어 있어서 그랬다. reviewArr를 넣어주자
+                    $.each($(".likeBtn"),function(idx, item) {
+                        var reviewNum=$(item).attr("review_num");
                         if(reviewNum==<%=arr%>) { //만약 review_num과 arr에 저장된 review_num이 같다면
-                           var re=$(item).attr("review_num");
+                       //      console.log(reviewNum);
+                            $(item).addClass("likeBtnActive");
                        }
                     });
                 <% }
@@ -159,19 +159,16 @@
                 }
                 <% } else {
                 %>
-                var check=$(this).hasClass("likeBtnActive");
-                alert(check);
+                //클래스 체크용
+                // var check=$(this).hasClass("likeBtnActive");
+                // console.log(check);
 
-                // review_num=$(this).attr("review_num");
-                // console.log(review_num);
-                // console.log($("button.likeBtn").hasClass("likeBtnActive"));
-                /* if($("button").hasClass("likeBtnActive")===true) {
-                    review_num=$(this).attr("review_num");
-                    console.log(review_num);
-                    console.log($("button.likeBtn").hasClass("likeBtnActive"));
+                review_num=$(this).attr("review_num");
+                if($(this).hasClass("likeBtnActive")===true) {
+                    // review_num=$(this).attr("review_num");
+                    // console.log(review_num);
                     item_num=$(this).attr("item_num");
                     var tag=$(this);
-                    $(this).removeClass("likeBtnActive");
 
                     $.ajax({
                         type:"get",
@@ -179,7 +176,7 @@
                         url:"reviewLikeDelete.jsp",
                         data:{"review_num":review_num,"item_num":item_num,"member_num":member_num},
                         success:function(res) {
-                            tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
+                            tag.html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요&ensp;"+res.review_like);
                             tag.removeClass("likeBtnActive");
                         },statusCode:{
                             404:function() {
@@ -192,14 +189,17 @@
                     });
 
                 } else {
+                    var tag=$(this);
                     $.ajax({
                         type:"get",
                         dataType:"json",
                         url:"reviewLike.jsp",
                         data:{"review_num":review_num,"item_num":item_num,"member_num":member_num},
                         success:function(res) {
-                            tag.after().html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
-                            $(this).addClass("likeBtnActive");
+                            tag.html("<span class='likeSpan glyphicon glyphicon-thumbs-up'></span> 도움돼요 "+res.review_like);
+                            tag.addClass("likeBtnActive");
+                            // location.reload();
+                            // location.href="reviewList.jsp?item_num="+item_num+"review_num="+review_num;
                         },statusCode:{
                             404:function() {
                                 alert("json 파일이 없어요");
@@ -209,7 +209,7 @@
                             }
                         }
                     });
-                } */
+                }
                 <% }
             %>
             });
