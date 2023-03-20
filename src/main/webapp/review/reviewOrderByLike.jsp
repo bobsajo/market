@@ -132,7 +132,7 @@
                     <br>
                     <%
                         if(list.get(i).getReview_img()!=null) { %>
-                            <img class="reviewFlexImg" review_num="<%=list.get(i).getReview_num()%>" src="reviewImg/<%=list.get(i).getReview_img()%>" data-toggle="modal" data-target="#exampleModalLong">
+                            <img class="reviewFlexImg" review_num="<%=list.get(i).getReview_num()%>" src="../reviewImg/<%=list.get(i).getReview_img()%>" data-toggle="modal" data-target="#exampleModalLong">
                     <br><br>
                       <%  } %>
 
@@ -270,7 +270,7 @@
                                         var review_date=res.review_date;
                                         // new Date(review_date);
 
-                                            $(".modal-img").html("<img src='reviewImg/"+res.review_img+"' style='width: 300px; height: 400px; border-radius: 10px; float: left; margin-right: 20px; margin-top: 20px; margin-bottom: 30px;'>");
+                                            $(".modal-img").html("<img src='../reviewImg/"+res.review_img+"' style='width: 300px; height: 400px; border-radius: 10px; float: left; margin-right: 20px; margin-top: 20px; margin-bottom: 30px;'>");
                                             $(".modal-text").html("<span style='font-weight: bold'>"+res.member_name+"</span><br><span style='font-size: 9pt; color: gray;'><b>"+item_name+"</b></span><br><br><span>"+review_content+"</span><br><br><span style='color: gray'>"+review_date+"</span>");
                                     }
                                 });

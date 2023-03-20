@@ -99,7 +99,7 @@
         %>
 
         <button type="button" review_num="<%=list.get(i).getReview_num()%>" data-toggle="modal" data-target="#exampleModalLong" class="modalImg">
-            <img review_num="<%=list.get(i).getReview_num()%>" src="reviewImg/<%=photo%>" class="reviewFlexImg">
+            <img review_num="<%=list.get(i).getReview_num()%>" src="../reviewImg/<%=photo%>" class="reviewFlexImg">
         </button>
         <%
                 if((i+1)%7==0) {
