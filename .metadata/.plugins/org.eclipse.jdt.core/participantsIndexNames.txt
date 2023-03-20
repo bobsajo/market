@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\sist1226\SP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2950477157.index
+\semiProject\src\main\java
+C:\sist1226\SP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3462122986.index
+\semiProject\src\main\java
+C:\sist1226\SP\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\555091232.index
+\semiProject\src\main\java
