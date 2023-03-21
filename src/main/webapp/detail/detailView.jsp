@@ -1,6 +1,7 @@
 <%@page import="data.dto.ItemDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.ItemDao"%>
+<%@ page import="data.dao.ReviewDao" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -17,18 +18,62 @@
 <link rel="stylesheet" href="../review/review.css">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script src="../js/detail.js"></script>
-	
-
-
 </head>
 <%
 	String item_num=request.getParameter("item_num");
     ItemDao dao=new ItemDao();
-     ItemDto dto=dao.getItemData(item_num); 
-    
+    ItemDto dto=dao.getItemData(item_num);
+    ReviewDao rdao=new ReviewDao();
+    int reviewSize=rdao.getTotalCount(item_num);
 
 %>
 <body>
+    <script type="text/javascript">
+        $(function() {
+
+            $.ajax({
+                url:"/detail/detail_img_encdoing_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        // console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 <!-- 시작 -->
 <div id="container" class="container">
         
@@ -149,8 +194,8 @@
                 <div class="layout-wrapper goods-view-area"> <!-- $$$$$ -->
                    
 
-                    <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation">
-                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%;" >
+                    <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation" style="margin-left: 10%;">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; margin-bottom: 5%;">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
                             </li>
@@ -161,7 +206,7 @@
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                          
@@ -170,17 +215,15 @@
                             <div class="goods_wrap">
                                 <div class="goods_intro">
                                     <div class="pic">
-                                        <img src="../save-img/<%=dto.getItem_img()%>" style="width:1010px; height:671px;">
+                                        <img src="" style="width:1010px; height:671px;" class="desImg">
                                     </div>
                                     <div class="context last">
-                                        <h3>
+                                        <h3 class="itemName">
                                             <small>
-                                                제목 부연설명
+                                                <%=dto.getItem_sub_title()%>
                                             </small>
-                                            제목
                                         </h3>
                                         <p class="words">
-                                            샬라샬라 설명
                                         </p>
 
                                     </div>
@@ -190,8 +233,8 @@
                                         <span>새벽마켓's Check Point</span>
                                     </h3>
                                     <div class="context last">
-                                        <div class="pic">
-                                            <img src="">
+                                        <div class="picChk"><%--
+                                            <img src="" class="checkImg">--%>
                                         </div>
                                     </div>
                                 </div>
@@ -202,17 +245,17 @@
                                     <div class="tip_box">
                                         <div class="context last">
                                             <div class="pic">
-                                                <img src="">
+                                                <img src="" class="tipImg">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="goods_pick">
+                              <%--  <div class="goods_pick">
                                     <h3>
-                                        <span>새벽마켓`s Pick</span>
+                                        <span>새벽마켓`s Tip</span>
                                     </h3>
 
-                                    <div class="context last">
+                                    <div class="context last" style="background-color: yellow;">
                                         <p class="words">
                                             <strong class="sub_tit">
                                                 <span class="option_tit">상품명</span>
@@ -230,65 +273,18 @@
                                             : 조리법샬라샬라
                                         </p>
                                     </div>
-                                </div>
-                                <div class="goods_tip">
-                                    <h3>
-                                        <span>Kurly's Tip</span>
-                                    </h3>
-                                    <div class="tip_box">
-                                        <div class="context">
-                                            <div class="pic">
-                                                <img src="">
-                                            </div>
-                                            <p class="words">
-                                                <strong>요리 어떻게하는지 적는칸</strong>
-                                                
-                                                자세한설명 적는칸
-                                                
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="about_brand">
-                                    <h3>
-                                        <span>About Brand</span>
-                                    </h3>
+                                </div>--%>
+                                <div class="goods_tip detailSize">
                                     <div class="context last">
                                         <div class="context_about">
                                             <div class="pic">
-                                                <img src="">
+                                                <img src="" class="detailSizeImg">
                                             </div>
-                                            <p class="words">
-                                                
-                                              브랜드 설명 적는칸
-                                            </p>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
-                            </li>
-                            
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-infomation" class="goods-view-infomation-tab-anchor">상세정보</a>
-                            </li>
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-review" class="goods-view-infomation-tab-anchor">
-                                    고객후기
-                                    <span class="count_review">(0)</span>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                        <div class="goods-view-infomation-content" id="goods-image">
-                            <div id="goods_pi">
-                                <p class="pic">
-                                    <img src="">
-                                </p>
-                            </div>
+
                         </div>
                         <ul class="goods-view-infomation-tab-group">
                             <li class="goods-view-infomation-tab">
@@ -301,7 +297,7 @@
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                             
@@ -533,7 +529,7 @@
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor __active">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                             
@@ -574,6 +570,6 @@
 
 
     </div>
-
+</div>
 </body>
 </html>

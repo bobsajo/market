@@ -609,6 +609,7 @@ h3 {
     border-bottom: 1px solid #bfbfbf;
     float:left;
     list-style: none;
+    width: 100%;
 }
 
 .goods-view-infomation-tab {
