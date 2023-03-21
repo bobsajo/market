@@ -446,10 +446,25 @@ $(function(){
 				type:"get",
 				dataType:"html",
 				url:"deleteCart.jsp",
-				data:{"cart_num",cart_num},
+				data:{"cart_num":cart_num},
 				success:function(){}
 			})
 			
+		});
+	});
+	
+	//전체삭제
+	$("#selDel").click(function(){
+		$("input.one_check:checked").each(function(i,ele){
+			var cart_num=$(ele).val();
+			
+			$.ajax({
+				type:"get",
+				dataType:"html",
+				url:"deleteCart.jsp",
+				data:{"cart_num":cart_num},
+				success:function(){}
+			});
 		});
 	});
 	
@@ -532,7 +547,7 @@ function cartList(){
 									<table style="width: 100%">
 										<tr>
 											<td class="item_check">
-												<input type="checkbox" class="one_check">
+												<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
 											</td>
 											<td class="item_img">
 												<img src="../itemImg/<%=item.get("item_img") %>">
@@ -598,7 +613,7 @@ function cartList(){
 								<table style="width: 100%">
 									<tr>
 										<td class="item_check">
-											<input type="checkbox" class="one_check">
+											<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
 										</td>
 										<td class="item_img">
 											<img src="../itemImg/<%=item.get("item_img") %>">
@@ -662,7 +677,7 @@ function cartList(){
 								<table style="width: 100%">
 									<tr>
 										<td class="item_check">
-											<input type="checkbox" class="one_check">
+											<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
 										</td>
 										<td class="item_img">
 											<img src="../itemImg/<%=item.get("item_img") %>">
