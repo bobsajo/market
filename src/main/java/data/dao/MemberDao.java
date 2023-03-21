@@ -165,7 +165,7 @@ DbConnect db=new DbConnect();
 				dto.setMember_name(rs.getString("member_name"));
 				dto.setMember_hp(rs.getString("member_hp"));
 				dto.setMember_email(rs.getString("member_email"));
-				dto.setMember_birth(rs.getString("member_brith"));
+				dto.setMember_birth(rs.getString("member_birth"));
 				dto.setMember_addr(rs.getString("member_addr"));
 			}
 			

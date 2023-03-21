@@ -75,7 +75,10 @@
              		신상품
              	</li>
              </ul>
-          </div>    
+          </div>   
+          
+          
+          <img src="https://img-cf.kurly.com/shop/data/goodsview/20220429/gv00000309008_1.jpg"> 
                
 
                

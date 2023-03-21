@@ -48,9 +48,9 @@ public class CartDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select m.member_num,c.cart_num,i.item_num,i.item_name,i.item_img,i.item_price,c.cart_cnt "
+		String sql="select m.member_num,c.cart_num,i.item_num,i.item_name,i.item_package_type,i.item_img,i.item_price,c.cart_cnt "
 				+ "from cart c,item i,member m "
-				+ "where c.member_num=1 and m.member_num=c.member_num and i.item_num=c.item_num "
+				+ "where c.member_num=? and m.member_num=c.member_num and i.item_num=c.item_num "
 				+ "order by cart_num";
 		
 		try {
@@ -67,6 +67,7 @@ public class CartDao {
 				map.put("cart_num", rs.getString("cart_num"));
 				map.put("item_num", rs.getString("item_num"));
 				map.put("item_name", rs.getString("item_name"));
+				map.put("item_package_type", rs.getString("item_package_type"));
 				map.put("item_img", rs.getString("item_img"));
 				map.put("item_price", rs.getString("item_price"));
 				map.put("cart_cnt", rs.getString("cart_cnt"));
@@ -160,6 +161,7 @@ public class CartDao {
 			db.dbClose(conn, pstmt);
 		}
 	}
+
 
 }
 
