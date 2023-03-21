@@ -185,7 +185,13 @@
 		margin-left: 10px;
 		
 	}
-	
+	.cartbtn{
+		background-color:transparent;
+		border: 0;
+		position: relative;
+		top:-70px;
+		left:100px;
+	}
   </style>
   
   <script>
@@ -282,12 +288,15 @@
     		
        	%>
           <div class="slide_content slide01">
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
           	<a href = "#" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
           	<p>상품명 : <%=dto.getItem_name()%></p>
-          	<p>가격 : <%=dto.getItem_price() %>원</p>
+          	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
           </div>
+         
          <% 
     	}
           %>
@@ -317,8 +326,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "#" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
@@ -350,8 +361,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "#" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -383,8 +396,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "#" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -418,8 +433,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "#" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275">
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -533,6 +550,141 @@
       });
 
     };
+  </script>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+          <br><br><br>
+        </div>
+        <div class="modal-body">
+         <div class="pricewrapper">
+
+		<button class="cnt_btn cnt_minus">
+
+		<i class="fa-solid fa-minus"></i>
+	
+		</button>
+
+		<span class="cart_cnt">1</span>
+
+		<button class="cnt_btn cnt_plus">
+
+		<i class="fa-solid fa-plus"></i>
+
+		</button>
+		<h3 class = "total_price" total = ""></h3>
+		</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default cancel" data-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-default add" data-dismiss="modal">장바구니 담기</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+  $(".cnt_plus").each(function(i,ele){
+
+	  $(ele).click(function(){
+
+	  var cnt=Number($(".cart_cnt").eq(i).text());
+
+	  //해당 상품의 하나의 값
+
+	  var one_price=$(".total_price").eq(i).attr("total")/cnt;
+
+	  $(".cart_cnt").eq(i).text(cnt+1);
+
+	  $(".cnt_minus").eq(i).css("color","black");
+
+	  $(".cnt_minus").eq(i).css("cursor","pointer");
+
+	  //가격 하나 더한 가격
+
+	  var total_price=one_price*(cnt+1);
+
+	  $(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+
+	  var one_price=$(".total_price").eq(i).attr("total",total_price);
+
+	  });
+
+	  });
+
+	  //-버튼
+
+	  $(".cnt_minus").each(function(i,ele){
+
+	  $(ele).click(function(){
+
+	  var cnt=Number($(".cart_cnt").eq(i).text());
+
+	  if(cnt!=1){
+
+	  //해당 상품의 하나의 값
+
+	  var one_price=$(".total_price").eq(i).attr("total")/cnt;
+
+	  //console.log(one_price)
+
+	  //개수 -1, 가격도 하나 뺀  가격으로
+
+	  $(".cart_cnt").eq(i).text(cnt-1);
+
+	  var total_price=one_price*(cnt-1);
+
+	  $(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+
+	  var one_price=$(".total_price").eq(i).attr("total",total_price);
+
+	  }
+
+	  if(cnt==1){
+
+	  //1이라면
+
+	  $(".cnt_minus").eq(i).css("color","lightgray");
+
+	  $(".cnt_minus").eq(i).css("cursor","default");
+
+	  }
+
+	  });
+
+	  });
+  
+  	$(".cartbtn").each(function(i,ele){
+  		$(ele).click(function(){
+  			$('#myModal').modal(); //열기 
+  			var item_num = $(ele).val();
+  			$.ajax({
+  				type:"get",
+  				dataType:"json",
+  				data:{"item_num":item_num},
+  				url:"common/itemInfo.jsp",
+  				success:function(res){
+  					$('.modal-header').html(res.item_name);
+  					
+  					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
+  					$('.total_price').attr("total", res.item_price);
+  				}
+  			});
+  			
+  		});
+  	});
+  	$(".cancel").click(function(){
+  		$('#myModal').modal("hide"); //닫기 
+  	});
+  
   </script>
 </body>
 </html>

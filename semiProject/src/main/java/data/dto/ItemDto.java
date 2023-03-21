@@ -16,6 +16,9 @@ public class ItemDto {
 	private String item_warning;
 	private String item_detail;
 	private String item_category;
+	private String jjim_num;
+	private String member_num;
+	
 	
 	public String getItem_num() {
 		return item_num;
@@ -107,7 +110,18 @@ public class ItemDto {
 	public void setItem_category(String item_category) {
 		this.item_category = item_category;
 	}
-	
+	public String getJjim_num() {
+		return jjim_num;
+	}
+	public void setJjim_num(String jjim_num) {
+		this.jjim_num = jjim_num;
+	}
+	public String getMember_num() {
+		return member_num;
+	}
+	public void setMember_num(String member_num) {
+		this.member_num = member_num;
+	}
 	
 	
 	

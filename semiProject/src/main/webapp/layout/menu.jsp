@@ -21,40 +21,26 @@
 #menu {
 
     height: 50px;
-
     background: white;
-
 	text-align: center;
 	
-	
 }
-
-
 
 .main1 {
 
     width: 800px;
-
     height: 100%;
-
     margin: 0 auto;
 
 }
 
-
-
 .main1>li {
 
     float: left;
-
     width: 25%;
-
     line-height: 50px;
-
     text-align: center;
-
     position: relative;
-	
 	list-style: none;
 }
 
@@ -64,57 +50,34 @@
 
 }
 
-
-
 .main1>li a {
 
     display: block;
-	
 	color: black;
+	
 }
-
-
 
 .main1>li a:hover {
 
     background: white;
-
     color: #4B62D3;
-
- 
-
-
 }
-
-
 
 .main2 {
 
     position: absolute;
-
     top: 50px;
-
     left: -9999px;
-
- 
-
     width: 120%;
     
-    
-
 }
-
-
 
 .main2>li {
 
     position: relative;
     list-style: none;
-    
 
 }
-
-
 
 .main2>li:hover .main3 {
 
@@ -122,58 +85,36 @@
 
 }
 
-
-
 .main2>li a, .main3>li a {
 
     border-radius: 10px;
-
     margin: 10px;
     
-    
-
 }
-
-
 
 .main3 {
 
     position: absolute;
-
     top: 0;
-
     background: ;
-
     width: 80%;
-
     left: -9999px;
-
     /*left: 100%;*/
-
     /*display: none;*/
 
 }
 
-
-
 .main3>li a:hover {
 
     background: white;
-
     color: black;
 
 }
-
 </style>
 </head>
 
 <body>
-
  
-  
-  
-
-		
 	<div id="menu">
 
     <ul class="main1">
@@ -201,22 +142,16 @@
 
         </li>
 
-        <li><a href="#">베스트</a>
+        <li><a href="index.jsp?main=layout/best.jsp">베스트</a>
 
             <ul class="main2">
-
-                
-              
 
             </ul>
 
         </li>
-
         
-
     </ul>
 
 </div>
- 
 </body>
 </html>

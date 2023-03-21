@@ -128,7 +128,7 @@
 	
 <div class="search-wrap">
 	<div class="header-search">
-		<a class="logo" onclick="#"> <img alt="" src="image/uselogo.png"></a>
+		<a class="logo" onclick="location.href='index.jsp'"> <img alt="" src="image/uselogo.png"></a>
 		<form action="search/searchItem.jsp" method="post" name="search">
 			<div class="search">
 				<input type="text" placeholder="검색어 입력" name="searchText">

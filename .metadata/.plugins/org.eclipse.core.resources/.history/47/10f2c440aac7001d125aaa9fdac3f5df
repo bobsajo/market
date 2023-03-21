@@ -1,0 +1,77 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <style type="text/css">
+    .modal-title{
+ font-size: 17px;
+ text-align:left;
+ font-weight: bold;
+}
+.modal_table{
+  width:100%;
+}
+#modal_userImg{
+  width:50px;
+  height:50px;
+  border-radius: 75%;
+}
+#modal_userId{
+  width:200px;
+}
+#modal_userFollow{
+  margin:10px;
+  text-align: right;
+}
+[출처] [JQuery] 화면 위에 모달창 띄우기(feat. Bootstrap)|작성자 Ohsanrim
+
+    
+    
+    </style>
+</head>
+<body>
+    <!------------- Modal --------------->
+  <div class="modal fade" id="followModal" role="dialog">   //이곳에 적어준 id 값을 토대로 모달을 호출하게 된다. 
+    <div class="modal-dialog">
+
+      <!-- Modal content-->   
+      <div class="modal-content">
+        <div class="modal-header">
+          //모달창의 header 부분에 해당한다. 
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+
+        </div>
+        <div class="modal-body">
+          //모달창의 가운데 내용이 들어가는 곳이다. 
+          <table class="modal_table">
+            <tr>
+              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/safe.png"></td>
+              <td id="modal_userID">USER_ID</td>
+              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
+            </tr>
+            <tr>
+              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/cake.png"></td>
+              <td id="modal_userID">USER_ID</td>
+              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
+            </tr>
+            <tr>
+              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/paris.jpg"></td>
+              <td id="modal_userID">USER_ID</td>
+              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
+            </tr>
+          </table>
+        </div>
+        <div id="count" value="1"></div>
+      </div>
+    </div>
+  </div>
+[출처] [JQuery] 화면 위에 모달창 띄우기(feat. Bootstrap)|작성자 Ohsanrim
+</body>
+</html>

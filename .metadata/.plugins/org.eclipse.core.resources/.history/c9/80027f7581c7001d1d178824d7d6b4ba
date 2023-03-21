@@ -1,0 +1,10 @@
+package data.dao;
+
+import mysql.db.DbConnect;
+
+public class JjimDao {
+	DbConnect db = new DbConnect();
+	private String item_num;
+	
+	//카테고리 베스트 클릭 시 이동
+}

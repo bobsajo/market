@@ -1,0 +1,54 @@
+package data.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+
+import data.dto.ItemDto;
+import mysql.db.DbConnect;
+
+public class JjimDao {
+	DbConnect db = new DbConnect();
+	private String item_num;
+	
+	//카테고리 베스트 클릭 시 이동
+	public List<ItemDto> getAllBest()
+	{
+		List<ItemDto> list = new Vector<>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select item_num count(item_num) from jjim group by item_num order by item_num desc";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				ItemDto dto = new ItemDto();
+				
+				
+				dto.setItem_num(rs.getString("item_num"));
+				dto.setItem_category(rs.getString("item_category"));
+				dto.setItem_name(rs.getString("item_name"));
+				dto.setItem_img(rs.getString("item_img"));
+				dto.setItem_price(rs.getInt("item_price"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+}

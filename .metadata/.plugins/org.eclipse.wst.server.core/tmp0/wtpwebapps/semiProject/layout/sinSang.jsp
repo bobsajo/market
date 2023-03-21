@@ -43,7 +43,7 @@
      	<div id = "tabs-1" class = "tab-pane fade in active">
 		<p>
 			<table class = "tb1">
-			<caption><b>전체상품목록</b></caption>
+			<caption><b>신상품 목록</b></caption>
 				<tr>
 					<%
 					
@@ -61,7 +61,7 @@
 						%>
 	                	<td>
 	                	<div style="margin:0px 30px 30px 0px; height: 500px;">
-	                      <a item_num="<%=dto.getItem_num()%>" style="cursor: pointer;" class="godetail">
+	                      <a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
 	                      <img src="itemImg/<%=dto.getItem_img()%>" class="photo" style="width: 300px;">
 	                      <br>
 	                    

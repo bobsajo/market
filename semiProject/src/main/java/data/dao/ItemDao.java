@@ -277,6 +277,43 @@ public class ItemDao {
 		return list;
 	}
 	
+	//카테고리 베스트 클릭 시 이동
+		public List<ItemDto> getAllBest()
+		{
+			List<ItemDto> list = new Vector<>();
+			
+			Connection conn = db.getConnection();
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select item_num, count(item_num) from jjim group by item_num order by item_num desc";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rs=pstmt.executeQuery();
+				
+				while(rs.next())
+				{
+					ItemDto dto = new ItemDto();
+					ItemDao dao = new ItemDao();
+					
+					String item_num = rs.getString("item_num");
+					dto = dao.getItemData(item_num);
+					
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			return list;
+		}
+	
+	
+	
 	//////////////////////////////
 	
 	//전체목록

@@ -1,3 +1,12 @@
 1679274181957	Delete elements
 1679282917632	Delete elements
 1679297239599	Delete element
+1679359089434	Move 'JjimDao.jsp' to 'dao'
+1679359097105	Move 'JjimDto.jsp' to 'dto'
+1679359178778	Delete element
+1679359181987	Delete element
+1679362829595	Rename resource 'jjim.jsp'
+1679363021430	Delete element
+1679363117603	Delete element
+1679377935175	Delete element
+1679386100240	Move 'itemInfo.jsp' to 'common'
