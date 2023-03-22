@@ -50,10 +50,10 @@
                             } else {
                                 var checkPointImg=item.check_point_img;
                                 var chkImg=checkPointImg.split(",");
-                                /*console.log(chkImg.length);*/
+                                // console.log(chkImg.length);
                                 for(var i=0; i<chkImg.length; i++) {
-                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
-                                    /*console.log(chkImg[i]);*/
+                                    $(".picChk").after("<img src='"+chkImg[i]+"' style='width: 100%'><br><br><br>");
+                                    // console.log(chkImg[i]);
                                 }
                             }
                             if(item.detail_img==="") {
@@ -67,7 +67,37 @@
                                     /*console.log(chkImg[i]);*/
                                 }
                             }
+                            if(item.tip_img==="") {
+                                $(".tipImg").hide();
+                            } else {
+                                var tipImg=item.tip_img;
+                                var rTipImg=tipImg.split(",");
+                                for(var i=0; i<rTipImg.length; i++) {
+                                    $(".tip_box .context").append("<img src='" + rTipImg[i] + "' class='tipImg'><br><br><br>");
+                                    $(".tipImg").css("width", "100%");
+                                }
+                                    // console.log(chkImg[i]);
+                                }
+                            /*$(".tipImg").attr("src",item.tip_img);*/
 
+                            /*console.log(item.tip);*/
+                            var str=item.tip;
+
+                            /* var br=/\\n/gi;
+                            str=str.replace(dot,"- ");
+                            str=str.replace(br,"<br>");
+                            $(".tip_box").append(str); */
+
+                            var dot=/[?]/gi;
+                            str=str.split("\\n");
+                            // console.log(str);
+                            for(var i=0; i<str.length; i++) {
+                                if(str[i].startsWith("?",0)) {
+                                    $(".tip_box .context").append("<ul>"+str[i].substr(1)+"</ul>");
+                                } else {
+                                    $(".tip_box .context").append("<h4>"+str[i]+"</h4>");
+                                }
+                            }
                         }
                     });
                 }
@@ -194,7 +224,7 @@
                 <div class="layout-wrapper goods-view-area"> <!-- $$$$$ -->
                    
 
-                    <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation" style="margin-left: 10%;">
+                    <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation" style="margin-left: 2%;">
                         <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; margin-bottom: 5%;">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
@@ -245,7 +275,6 @@
                                     <div class="tip_box">
                                         <div class="context last">
                                             <div class="pic">
-                                                <img src="" class="tipImg">
                                             </div>
                                         </div>
                                     </div>
