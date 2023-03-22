@@ -18,6 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="../iconsource/all.min.css">
 <script src="../iconsource/all.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <title>cart</title>
 
@@ -106,16 +107,20 @@ if(loginok!=null){
 	  -moz-appearance: textfield;
 	}
 	
-	
-	div.container{
+	div.cart_container{
 		width: 100%;
-		margin: 10px;
+	}
+	
+	.cart_inner{
+		margin: 10px auto;
+		width: 1100px;
 	}
 	
 	div.cartwrapper{
-		margin: 0 auto;
-		width: 1000px;
+		width: 70%;
+		margin-right: 4%;
 		height: 100%;
+		float: left;
 	}
 	
 	div.cartwrapper>div{
@@ -123,13 +128,14 @@ if(loginok!=null){
 	}
 	
 	div.cartlist_div{
-		width: 70%;
+		width: 100%;
 	}
 	
 	div.cartlist_header{
 		border-bottom: 1px solid black;
 		padding-bottom: 10px;
 		margin-left: 10px;
+		height: 35px;
 	}
 	
 	span.line{
@@ -142,14 +148,14 @@ if(loginok!=null){
 		margin-bottom: 10px;
 	}
 	
-	.title{
+	.cart_title{
 		margin-left: 10px;
 		height: 35px;
 		line-height: 35px;
 		margin-bottom: 25px;
 	}
 	
-	.title>span{
+	.cart_title>span{
 		float: left;
 		margin-right: 10px;
 	}
@@ -260,8 +266,116 @@ if(loginok!=null){
 		width: 100%;
 	}
 	
+	#selDel{
+		cursor: pointer;
+	}
+	
+	.cartClose, .cartOpen{
+		width: 100%;
+		text-align: right;
+		cursor: pointer;
+	}
+	
+	.cart_header_title{
+		margin-top: 10px;
+		margin-bottom: 70px;
+		width: 100%;
+		text-align: center;
+		font-size: 21pt;
+	}
 	
 </style>
+
+<style type="text/css">
+	.buyingwrapper{
+		width: 26%;
+		height: 550px;
+		float: left;
+		margin-top: 35px;
+	}
+	
+	.buyingwrapper span{
+		display: inline-block;
+	}
+	
+	.buying_div{
+		width: 100%;
+		height: 78%;
+		border: 1px solid #EFEFEF;
+		background-color: #EFEFEF;
+	}
+	
+	.delivery_div{
+		text-align: center;
+		width: 100%;
+		height: 12%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	
+	.buying_title{
+		width: 50%; 
+		margin-right: 5%; 
+		text-align: left; 
+		float: left
+	}
+	
+	.buying_content{
+		width: 45%; 
+		text-align: right; 
+		float: left
+	}
+	
+	.buying_addr{
+		width: 100%;
+		height: 40%;
+		font-size: 11pt;
+		font-weight: bold;
+		padding: 20px;
+		background-color: white;
+	}
+	
+	#find_bying_addr{
+		width: 100%;
+		padding: 8px;
+		font-size: 8.5pt;
+		color: #4B62D3;
+		border: 1px solid #4B62D3;
+		border-radius: 5px;
+		margin-top: 20px;
+		margin-bottom: 25px;
+	}
+	
+	.buying_amount{
+		width: 100%;
+		height: 60%;
+		padding: 20px;
+		font-size: 12pt;
+	}
+	
+	.buying_amount div{
+		margin-bottom: 15px;
+	}
+	
+	#delivery_btn{
+		width: 100%;
+		height: 100%;
+		background-color: #4B62D3;
+		color: white;
+		font-size: 13pt;
+		border-radius: 5px;
+	}
+</style>
+
+<%
+
+//사용자의 장바구니에 세일 아이템이 있는지 확인
+
+if(){
+	
+}
+
+%>
 
 <script>
 
@@ -279,6 +393,13 @@ $(function(){
 	td.itemDel>button (삭제버튼)
 
 	*/
+	
+	$(".cartOpen").hide();
+	$("input.allCheck").attr("checked",true);
+	$("input.one_check").attr("checked",true);
+	$(".chk_cnt").text($("input.one_check").length);
+	
+	amount();
 	
 	//체크박스 옆 글자선택해도 체크박스 선택되게
 	$("b.allCheck").click(function(){
@@ -302,17 +423,26 @@ $(function(){
 	$(".cnt_plus").each(function(i,ele){
 		$(ele).click(function(){
 			var cnt=Number($(".cart_cnt").eq(i).text());
-			//해당 상품의 하나의 값
-			var one_price=$(".total_price").eq(i).attr("total")/cnt;
 			
-			$(".cart_cnt").eq(i).text(cnt+1);
-			$(".cnt_minus").eq(i).css("color","black");
-			$(".cnt_minus").eq(i).css("cursor","pointer");
-			
-			//가격 하나 더한 가격
-			var total_price=one_price*(cnt+1);
-			$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-			var one_price=$(".total_price").eq(i).attr("total",total_price);
+			//ajax로 cart테이블 수량 변경
+			$.ajax({
+				type:"get",
+				dataType:"html",
+				url:"cartCntChange.jsp",
+				data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt+1},
+				success:function(){
+					$(".cart_cnt").eq(i).text(cnt+1);
+					$(".cnt_minus").eq(i).css("color","black");
+					$(".cnt_minus").eq(i).css("cursor","pointer");
+					
+					//해당 상품의 하나의 값
+					var one_price=$(".total_price").eq(i).attr("total")/cnt;
+					//가격 하나 더한 가격
+					var total_price=one_price*(cnt+1);
+					$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+					var one_price=$(".total_price").eq(i).attr("total",total_price);
+				}
+			});
 		});
 	});
 	
@@ -322,16 +452,26 @@ $(function(){
 			var cnt=Number($(".cart_cnt").eq(i).text());
 			
 			if(cnt!=1){
-				//해당 상품의 하나의 값
-				var one_price=$(".total_price").eq(i).attr("total")/cnt;
-				//console.log(one_price)
-				
-				//개수 -1, 가격도 하나 뺀  가격으로
-				$(".cart_cnt").eq(i).text(cnt-1);
-				
-				var total_price=one_price*(cnt-1);
-				$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-				var one_price=$(".total_price").eq(i).attr("total",total_price);
+				//ajax로 cart테이블 수량 변경
+				$.ajax({
+					type:"get",
+					dataType:"html",
+					url:"cartCntChange.jsp",
+					data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt-1},
+					success:function(){
+						//개수 -1, 가격도 하나 뺀  가격으로
+						$(".cart_cnt").eq(i).text(cnt-1);
+						$(".cnt_minus").eq(i).css("color","black");
+						$(".cnt_minus").eq(i).css("cursor","pointer");
+						
+						//해당 상품의 하나의 값
+						var one_price=$(".total_price").eq(i).attr("total")/cnt;
+						//가격 하나 더한 가격
+						var total_price=one_price*(cnt-1);
+						$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+						var one_price=$(".total_price").eq(i).attr("total",total_price);
+					}
+				});
 			}
 			if(cnt==1){
 				//1이라면
@@ -367,87 +507,90 @@ $(function(){
 	$(".itemDel button").each(function(i,ele){
 		$(ele).click(function(){
 			//삭제 액션 실행후
-			//console.log($("input.one_check").eq(i).is(":checked"));
-			//삭제한 상품 숨기기(hide)
-			
-			$(".list_content").eq(i).css("display","none");
-			
-			//만약 삭제한 상품이 체크된 상태라면 체크값 해제+체크개수에서 빼주기
-			
-			if($("input.one_check").eq(i).is(":checked")==true){
-				var cnt=Number($(".chk_cnt").text());
-				console.log(cnt);
-				$(".chk_cnt").text(--cnt);
-				//삭제한 상품 체크 해제
-				$("input.one_check").eq(i).attr("checked",false);
-			}
-			
-			var cold_null=false;
-			var freeze_null=false;
-			var room_null=false;
-			
-			//냉장 상품이 전부 비었는지 확인
-			$(".cartlist_cold .list_content").each(function(i,ele){
-				if($(ele).css("display")=="none"){
-					cold_null=true;
-				}else{
-					cold_null=false;
-					return false;
-				}
-			});
-			
-			//냉장 상품이 전부 비었다면 냉장 상품란 지우기
-			if(cold_null){
-				$(".cold_title").hide();
-				$(".cold_title").removeClass("title");
-				$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
-			}
-			
-			//냉동 상품이 전부 비었는지 확인
-			$(".cartlist_freeze .list_content").each(function(i,ele){
-				if($(ele).css("display")=="none"){
-					freeze_null=true;
-				}else{
-					freeze_null=false;
-					return false;
-				}
-			});
-			
-			//상온 상품이 전부 비었다면 상온 상품란 지우기
-			if(freeze_null){
-				$(".freeze_title").hide();
-				$(".freeze_title").removeClass("title");
-				$(".cartlist_freeze").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
-			}
-			
-			//상온 상품이 전부 비었는지 확인
-			$(".cartlist_room .list_content").each(function(i,ele){
-				if($(ele).css("display")=="none"){
-					room_null=true;
-				}else{
-					room_null=false;
-					return false;
-				}
-			});
-			
-			//냉동 상품이 전부 비었다면 냉동 상품란 지우기
-			if(room_null){
-				$(".room_title").hide();
-				$(".room_title").removeClass("title");
-			}
-			
-			//총 개수 수정
-			var total_cnt=Number($(".total_cnt").text());
-			$(".total_cnt").text(--total_cnt);
-			
 			var cart_num=$(ele).val();
-			
 			$.ajax({
 				type:"get",
 				dataType:"html",
 				url:"deleteCart.jsp",
 				data:{"cart_num":cart_num},
-				success:function(){}
+				success:function(){
+					//console.log($("input.one_check").eq(i).is(":checked"));
+					//삭제한 상품 숨기기(hide)
+					
+					$(".list_content").eq(i).css("display","none");
+					
+					//만약 삭제한 상품이 체크된 상태라면 체크값 해제+체크개수에서 빼주기
+					
+					if($("input.one_check").eq(i).is(":checked")==true){
+						var cnt=Number($(".chk_cnt").text());
+						console.log(cnt);
+						$(".chk_cnt").text(--cnt);
+						//삭제한 상품 체크 해제
+						$("input.one_check").eq(i).attr("checked",false);
+					}
+					
+					var cold_null=false;
+					var freeze_null=false;
+					var room_null=false;
+					
+					//냉장 상품이 전부 비었는지 확인
+					$(".cartlist_cold .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							cold_null=true;
+						}else{
+							cold_null=false;
+							return false;
+						}
+					});
+					
+					//냉장 상품이 전부 비었다면 냉장 상품란 지우기
+					if(cold_null){
+						$(".cold_title").hide();
+						$(".cold_title").removeClass("cart_title");
+						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+					}
+					
+					//냉동 상품이 전부 비었는지 확인
+					$(".cartlist_freeze .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							freeze_null=true;
+						}else{
+							freeze_null=false;
+							return false;
+						}
+					});
+					
+					//냉동 상품이 전부 비었다면 상온 상품란 지우기
+					if(freeze_null){
+						$(".freeze_title").hide();
+						$(".freeze_title").removeClass("cart_title");
+						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						if(cold_null){
+							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						}
+					}
+					
+					//상온 상품이 전부 비었는지 확인
+					$(".cartlist_room .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							room_null=true;
+						}else{
+							room_null=false;
+							return false;
+						}
+					});
+					
+					//상온 상품이 전부 비었다면 냉동 상품란 지우기
+					if(room_null){
+						$(".room_title").hide();
+						$(".room_title").removeClass("cart_title");
+						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+					}
+					
+					//총 개수 수정
+					var total_cnt=Number($(".total_cnt").text());
+					$(".total_cnt").text(--total_cnt);
+				}
 			})
 			
 		});
@@ -455,6 +598,12 @@ $(function(){
 	
 	//전체삭제
 	$("#selDel").click(function(){
+		if($(".chk_cnt").text()==0){
+			alert("삭제할 상품을 선택해주세요.");
+			return false;
+		}
+		
+		
 		$("input.one_check:checked").each(function(i,ele){
 			var cart_num=$(ele).val();
 			
@@ -463,84 +612,345 @@ $(function(){
 				dataType:"html",
 				url:"deleteCart.jsp",
 				data:{"cart_num":cart_num},
-				success:function(){}
+				success:function(){
+					var list_content=$(ele).parents(".list_content");
+					
+					list_content.css("display","none");
+					
+					//만약 삭제한 상품이 체크된 상태라면 체크값 해제+체크개수에서 빼주기
+					if($(ele).is(":checked")==true){
+						var cnt=Number($(".chk_cnt").text());
+						console.log(cnt);
+						$(".chk_cnt").text(--cnt);
+						//삭제한 상품 체크 해제
+						$(ele).attr("checked",false);
+					}
+					
+					var cold_null=false;
+					var freeze_null=false;
+					var room_null=false;
+					
+					//냉장 상품이 전부 비었는지 확인
+					$(".cartlist_cold .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							cold_null=true;
+						}else{
+							cold_null=false;
+							return false;
+						}
+					});
+					
+					//냉장 상품이 전부 비었다면 냉장 상품란 지우기
+					if(cold_null){
+						$(".cold_title").hide();
+						$(".cold_title").removeClass("cart_title");
+						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+					}
+					
+					//냉동 상품이 전부 비었는지 확인
+					$(".cartlist_freeze .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							freeze_null=true;
+						}else{
+							freeze_null=false;
+							return false;
+						}
+					});
+					
+					//냉동 상품이 전부 비었다면 상온 상품란 지우기
+					if(freeze_null){
+						$(".freeze_title").hide();
+						$(".freeze_title").removeClass("cart_title");
+						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						if(cold_null){
+							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						}
+					}
+					
+					//상온 상품이 전부 비었는지 확인
+					$(".cartlist_room .list_content").each(function(i,ele){
+						if($(ele).css("display")=="none"){
+							room_null=true;
+						}else{
+							room_null=false;
+							return false;
+						}
+					});
+					
+					//상온 상품이 전부 비었다면 냉동 상품란 지우기
+					if(room_null){
+						$(".room_title").hide();
+						$(".room_title").removeClass("cart_title");
+						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+					}
+					
+					//총 개수 수정
+					var total_cnt=Number($(".total_cnt").text());
+					$(".total_cnt").text(--total_cnt);
+				}
+			});
+		});
+	});
+	
+	// 각 상품 목록 닫기
+	$(".cartClose").each(function(i,ele){
+		$(ele).click(function(){
+			$(ele).hide();
+			$(".cartOpen").eq(i).show();
+			//margin-bottom
+			$(".cart_title").eq(i).css("margin-bottom","0px");
+			$(".content").eq(i).find(".list_content").each(function(idx,elt){
+				$(elt).hide();
+			});
+		});
+	});
+	
+	//각 상품 목록 열기
+	$(".cartOpen").each(function(i,ele){
+		$(ele).click(function(){
+			$(ele).hide();
+			$(".cartClose").eq(i).show();
+			//margin-bottom
+			$(".cart_title").eq(i).css("margin-bottom","25px");
+			$(".content").eq(i).find(".list_content").each(function(idx,elt){
+				$(elt).show();
 			});
 		});
 	});
 	
 });
 
-function cartList(){
+function amount(){
+	var item_amount=0;
+		
+	$("input.one_check:checked").each(function(i,ele){
+		item_amount+=Number($(".total_price").eq(i).attr("total"));
+	});
+	
+	$(".item_amount").attr("item_amount",item_amount);
+	$(".item_amount").text(item_amount.toLocaleString('ko-KR')+"원");
+	
+	var off=1000;
+	$(".off").attr("off",1000);
+	$(".off").text(off.toLocaleString('ko-KR')+"원");
+	
+	var delivery=2500;
+	$(".delivery").attr("delivery",2500);
+	$(".delivery").text(delivery.toLocaleString('ko-KR')+"원");
+	
+	var amount=item_amount-off+delivery;
+	$(".buying_amount").attr("buying_amount",amount);
+	$(".buying_amount b").text(amount.toLocaleString('ko-KR'));
+	
+}
+
+//주소찾기 api
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+            
+            } else {
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            $("#bying_addr").text(addr);
+            var popup=window.open( "detailAddrWindow.jsp", "detailAddr", "width=400, height=300, top=50, left=50" );
+            
+            //팜업창 닫았을 때 사용자 주소(멤버테이블)변경
+            popup.onbeforeunload = function() {
+            	$.ajax({
+                	type:"get",
+                	dataType:"html",
+                	url:"memberChangeAddr.jsp",
+                	data:{"member_addr":$("#bying_addr").text()},
+                	success:function(){
+                		console.log("success");
+                	}
+                });
+            };
+            // 커서를 상세주소 필드로 이동한다.
+            //document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
 }
 
 </script>
 
 </head>
 <body>
-	<div class="container">
-		<div class="cartwrapper">
-			<!-- 왼쪽 장바구니 목록창 -->
-			
-			
-			<% 
-				String member_num=mdto.getMember_num();
-				//System.out.println(member_num);
-				List<HashMap<String,String>> list=cdao.getAllUserCart(member_num);
-				NumberFormat nf=NumberFormat.getNumberInstance();
+	<div class="cart_container">
+		<div class="cart_inner">
+			<div class="cart_header_title">
+				<b>장바구니</b>
+			</div>
+		
+			<!-- (왼쪽)장바구니 목록 -->
+			<div class="cartwrapper">
+				<!-- 왼쪽 장바구니 목록창 -->
 				
-				List<HashMap<String,String>> cold=new ArrayList<HashMap<String,String>>();
-				List<HashMap<String,String>> freeze=new ArrayList<HashMap<String,String>>();
-				List<HashMap<String,String>> room=new ArrayList<HashMap<String,String>>();
 				
-				for(HashMap<String,String> c:list){
+				<% 
+					String member_num=mdto.getMember_num();
+					//System.out.println(member_num);
+					List<HashMap<String,String>> list=cdao.getAllUserCart(member_num);
+					NumberFormat nf=NumberFormat.getNumberInstance();
 					
-					//냉장 리스트
-					if(c.get("item_package_type").contains("냉장")){
-						cold.add(c);
+					List<HashMap<String,String>> cold=new ArrayList<HashMap<String,String>>();
+					List<HashMap<String,String>> freeze=new ArrayList<HashMap<String,String>>();
+					List<HashMap<String,String>> room=new ArrayList<HashMap<String,String>>();
+					
+					for(HashMap<String,String> c:list){
+						
+						//냉장 리스트
+						if(c.get("item_package_type").contains("냉장")){
+							cold.add(c);
+						}
+						
+						//냉동 리스트
+						if(c.get("item_package_type").contains("냉동")){
+							freeze.add(c);
+						}
+						
+						//상온 리스트
+						if(c.get("item_package_type").contains("상온")){
+							room.add(c);
+						}
+						
 					}
 					
-					//냉동 리스트
-					if(c.get("item_package_type").contains("냉동")){
-						freeze.add(c);
-					}
-					
-					//상온 리스트
-					if(c.get("item_package_type").contains("상온")){
-						room.add(c);
-					}
-					
-				}
+					int total_cnt=cold.size()+freeze.size()+room.size();
+						
+						//다시 아래에 냉장 리스트 for문, 냉동 리스트 for문, 상온 리스트 for문 돌리기
+						
+				%>
 				
-				int total_cnt=cold.size()+freeze.size()+room.size();
+				<div class="cartlist_div">
+					<div class="cartlist_header">
+						<b class="allCheck"><input type="checkbox" class="allCheck">&nbsp;전체선택(<span class="chk_cnt">0</span>/<span class="total_cnt"><%=total_cnt %></span>)</b>
+						<span class="line">|</span>
+						<span id="selDel"><b>선택삭제</b></span>
+					</div>
 					
-					//다시 아래에 냉장 리스트 for문, 냉동 리스트 for문, 상온 리스트 for문 돌리기
-					
-			%>
-			
-			<div class="cartlist_div">
-				<div class="cartlist_header">
-					<b class="allCheck"><input type="checkbox" class="allCheck">&nbsp;전체선택(<span class="chk_cnt">0</span>/<span class="total_cnt"><%=total_cnt %></span>)</b>
-					<span class="line">|</span>
-					<span id="selDel">선택삭제</span>
-				</div>
-				
-					<div class="cartlist_content">
-					<%
-					//냉장
-					if(cold.size()!=0){%>
-						<div class="cartlist_cold content">
-						<div class="cold_title title">
-							<!-- 폰트어썸 -->
-							<span class="icon"><i class="fa-solid fa-droplet fa-xl"
-							 style="color: green;"></i></span>
-							<span class="categoryTitle"><b>냉장 상품</b></span>
+						<div class="cartlist_content">
+						<%
+						//냉장
+						if(cold.size()!=0){%>
+							<div class="cartlist_cold content">
+							<div class="cold_title cart_title">
+								<!-- 폰트어썸 -->
+								<span class="icon"><i class="fa-solid fa-droplet fa-xl"
+								 style="color: green;"></i></span>
+								<span class="categoryTitle"><b>냉장 상품</b></span>
+								<div class="cartClose"><i class="fa-solid fa-chevron-up"></i></div>
+								<div class="cartOpen"><i class="fa-solid fa-chevron-down"></i></div>
+								<div class="nextline"></div>
+							</div>
+						<%
+							int isfirst=0;
+							for(HashMap<String,String> item:cold){ 
+								isfirst++;
+								int total_price=(Integer.parseInt(item.get("item_price")))*(Integer.parseInt(item.get("cart_cnt")));
+						%>
+								<!-- 장바구니에 담긴 냉장 상품 -->
+									<div class="list_content">
+										<table style="width: 100%">
+											<tr>
+												<td class="item_check">
+													<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
+												</td>
+												<td class="item_img">
+													<img src="../itemImg/<%=item.get("item_img") %>">
+												</td>
+												<td class="item_name">
+													<span><%=item.get("item_name") %></span>
+												</td>
+												<td class="item_cnt">
+													<div class="cnt_btn_wrapper">
+														<button class="cnt_btn cnt_minus">
+															<i class="fa-solid fa-minus"></i>
+														</button>
+														<span class="cart_cnt"><%=item.get("cart_cnt") %></span>
+														<button class="cnt_btn cnt_plus">
+															<i class="fa-solid fa-plus"></i>
+														</button>
+													</div>
+												</td>
+												<td class="item_price">
+													<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
+													<br><strike class="total_price2" total2=<%=total_price %>>취소할 값</strike>
+												</td>
+												<td class="itemDel">
+													<button type="button" value=<%=item.get("cart_num") %>>
+														<i class="fa-solid fa-x" style="color: lightgray"></i>
+													</button>
+												</td>
+											</tr>
+										</table>
+										<% 
+										if(isfirst!=cold.size()){%>
+										<div class="subline"></div>
+										<%} %>
+									</div>
+							
+						<%
+						
+							}
+						%>
 							<div class="nextline"></div>
+							<div class="nextitem_line"></div>
+						</div>
+						<%}
+						
+						///냉동
+						
+						if(freeze.size()!=0 && cold.size()!=0){%>
+						<div class="cartlist_header"></div>
+						<% }
+						
+						if(freeze.size()!=0){%>
+						<div class="cartlist_freeze content">
+						<div class="freeze_title cart_title">
+							<!-- 폰트어썸 -->
+							<span class="icon"><i class="fa-regular fa-snowflake fa-xl"
+							 style="color: skyblue;"></i></span>
+							<span class="categoryTitle"><b>냉동 상품</b></span>
+							<div class="cartClose"><i class="fa-solid fa-chevron-up"></i></div>
+							<div class="cartOpen"><i class="fa-solid fa-chevron-down"></i></div>
 						</div>
 					<%
 						int isfirst=0;
-						for(HashMap<String,String> item:cold){ 
+						for(HashMap<String,String> item:freeze){ 
 							isfirst++;
-							int total_price=(Integer.parseInt(item.get("item_price")))*(Integer.parseInt(item.get("cart_cnt")));
+							int total_price=Integer.parseInt(item.get("item_price"))*Integer.parseInt(item.get("cart_cnt"));
 					%>
 							<!-- 장바구니에 담긴 냉장 상품 -->
 								<div class="list_content">
@@ -577,155 +987,146 @@ function cartList(){
 										</tr>
 									</table>
 									<% 
-									if(isfirst!=cold.size()){%>
+									if(isfirst!=freeze.size()){%>
 									<div class="subline"></div>
 									<%} %>
 								</div>
 						
 					<%
-					
 						}
 					%>
 						<div class="nextline"></div>
 						<div class="nextitem_line"></div>
 					</div>
 					<%}
-					
-					///냉동
-					
-					if(freeze.size()!=0){%>
-					<div class="cartlist_header"></div>
-					<div class="cartlist_freeze content">
-					<div class="freeze_title title">
-						<!-- 폰트어썸 -->
-						<span class="icon"><i class="fa-regular fa-snowflake fa-xl"
-						 style="color: skyblue;"></i></span>
-						<span class="categoryTitle"><b>냉동 상품</b></span>
+						///상온
+						if(freeze.size()!=0 && room.size()!=0 || cold.size()!=0 && room.size()!=0){%>
+						<div class="cartlist_header"></div>
+						<% }
+						if(room.size()!=0){%>
+						<div class="cartlist_room content">
+						<div class="room_title cart_title">
+							<!-- 폰트어썸 -->
+							<span class="icon"><i class="fa-regular fa-sun fa-xl" 
+							style="color: #fea034;"></i></span>
+							<span class="categoryTitle"><b>상온 상품</b></span>
+							<div class="cartClose"><i class="fa-solid fa-chevron-up"></i></div>
+							<div class="cartOpen"><i class="fa-solid fa-chevron-down"></i></div>
+						</div>
+					<%
+						int isfirst=0;
+						for(HashMap<String,String> item:room){ 
+							isfirst++;
+							int total_price=Integer.parseInt(item.get("item_price"))*Integer.parseInt(item.get("cart_cnt"));
+					%>
+							<!-- 장바구니에 담긴 상온 상품 -->
+								<div class="list_content">
+									<table style="width: 100%">
+										<tr>
+											<td class="item_check">
+												<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
+											</td>
+											<td class="item_img">
+												<img src="../itemImg/<%=item.get("item_img") %>">
+											</td>
+											<td class="item_name">
+												<span><%=item.get("item_name") %></span>
+											</td>
+											<td class="item_cnt">
+												<div class="cnt_btn_wrapper">
+													<button class="cnt_btn cnt_minus">
+														<i class="fa-solid fa-minus"></i>
+													</button>
+													<span class="cart_cnt"><%=item.get("cart_cnt") %></span>
+													<button class="cnt_btn cnt_plus">
+														<i class="fa-solid fa-plus"></i>
+													</button>
+												</div>
+											</td>
+											<td class="item_price">
+												<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
+											</td>
+											<td class="itemDel">
+												<button type="button" value=<%=item.get("cart_num") %>>
+													<i class="fa-solid fa-x" style="color: lightgray"></i>
+												</button>
+											</td>
+										</tr>
+									</table>
+									<% 
+									if(isfirst!=room.size()){%>
+									<div class="subline"></div>
+									<%} %>
+								</div>
+						
+					<%
+						}
+					%>
+						<div class="nextline"></div>
+						<div class="nextitem_line"></div>
 					</div>
-				<%
-					int isfirst=0;
-					for(HashMap<String,String> item:freeze){ 
-						isfirst++;
-						int total_price=Integer.parseInt(item.get("item_price"))*Integer.parseInt(item.get("cart_cnt"));
-				%>
-						<!-- 장바구니에 담긴 냉장 상품 -->
-							<div class="list_content">
-								<table style="width: 100%">
-									<tr>
-										<td class="item_check">
-											<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
-										</td>
-										<td class="item_img">
-											<img src="../itemImg/<%=item.get("item_img") %>">
-										</td>
-										<td class="item_name">
-											<span><%=item.get("item_name") %></span>
-										</td>
-										<td class="item_cnt">
-											<div class="cnt_btn_wrapper">
-												<button class="cnt_btn cnt_minus">
-													<i class="fa-solid fa-minus"></i>
-												</button>
-												<span class="cart_cnt"><%=item.get("cart_cnt") %></span>
-												<button class="cnt_btn cnt_plus">
-													<i class="fa-solid fa-plus"></i>
-												</button>
-											</div>
-										</td>
-										<td class="item_price">
-											<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
-										</td>
-										<td class="itemDel">
-											<button type="button" value=<%=item.get("cart_num") %>>
-												<i class="fa-solid fa-x" style="color: lightgray"></i>
-											</button>
-										</td>
-									</tr>
-								</table>
-								<% 
-								if(isfirst!=freeze.size()){%>
-								<div class="subline"></div>
-								<%} %>
-							</div>
-					
-				<%
-					}
-				%>
-					<div class="nextline"></div>
-					<div class="nextitem_line"></div>
+					<%}
+					%>
+						</div>
 				</div>
-				<%}
-					///상온
+				
+				<!-- 오른쪽 배송지/금액/주문창  -->
+				<div class="order_div">
 					
-					if(room.size()!=0){%>
-					<div class="cartlist_header"></div>
-					<div class="cartlist_room content">
-					<div class="room_title title">
-						<!-- 폰트어썸 -->
-						<span class="icon"><i class="fa-regular fa-sun fa-xl" 
-						style="color: #fea034;"></i></span>
-						<span class="categoryTitle"><b>상온 상품</b></span>
-					</div>
-				<%
-					int isfirst=0;
-					for(HashMap<String,String> item:room){ 
-						isfirst++;
-						int total_price=Integer.parseInt(item.get("item_price"))*Integer.parseInt(item.get("cart_cnt"));
-				%>
-						<!-- 장바구니에 담긴 상온 상품 -->
-							<div class="list_content">
-								<table style="width: 100%">
-									<tr>
-										<td class="item_check">
-											<input type="checkbox" class="one_check" value="<%=item.get("cart_num") %>">
-										</td>
-										<td class="item_img">
-											<img src="../itemImg/<%=item.get("item_img") %>">
-										</td>
-										<td class="item_name">
-											<span><%=item.get("item_name") %></span>
-										</td>
-										<td class="item_cnt">
-											<div class="cnt_btn_wrapper">
-												<button class="cnt_btn cnt_minus">
-													<i class="fa-solid fa-minus"></i>
-												</button>
-												<span class="cart_cnt"><%=item.get("cart_cnt") %></span>
-												<button class="cnt_btn cnt_plus">
-													<i class="fa-solid fa-plus"></i>
-												</button>
-											</div>
-										</td>
-										<td class="item_price">
-											<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
-										</td>
-										<td class="itemDel">
-											<button type="button" value=<%=item.get("cart_num") %>>
-												<i class="fa-solid fa-x" style="color: lightgray"></i>
-											</button>
-										</td>
-									</tr>
-								</table>
-								<% 
-								if(isfirst!=room.size()){%>
-								<div class="subline"></div>
-								<%} %>
-							</div>
-					
-				<%
-					}
-				%>
-					<div class="nextline"></div>
-					<div class="nextitem_line"></div>
 				</div>
-				<%}
-				%>
-					</div>
 			</div>
 			
-			<!-- 오른쪽 배송지/금액/주문창  -->
-			<div class="order_div">
+			<!-- (오른쪽)결제 정보 -->
+			<div class="buyingwrapper">	
+				<div class="buying_div" style="width: 100%;">
+					<div class="buying_addr">
+						<i class="fa-solid fa-location-dot fa-lg"></i>
+						<span style="margin-bottom: 15px;">배송지</span>
+						<br>
+						<span id="bying_addr"><%=mdto.getMember_addr() %></span>
+						<br>
+						<button id="find_bying_addr" onclick="sample6_execDaumPostcode()">
+							<i class="fa-solid fa-magnifying-glass"></i>&nbsp;배송지 변경</button>
+					</div>
+					
+					<div class="buying_amount">
+						<div>
+							<span class="buying_title">상품 금액</span>
+							<span item_amount=0 class="buying_content item_amount">원</span>
+						</div>
+						
+						<div class="nextline"></div>
+						
+						<div>
+							<span class="buying_title">상품 할인 금액</span>
+							<span off=0 class="buying_content off">원</span>
+						</div>
+						
+						<div class="nextline"></div>
+						
+						<div>
+							<span class="buying_title">배송비</span>
+							<span delivery=0 class="buying_content delivery">원</span>
+						</div>
+						
+						<div class="nextline"></div>
+						
+						<div>
+							<hr style="border-style: inset;">
+						</div>
+						
+						<div>
+							<span class="buying_title">결제예정금액</span>
+							<span buying_amount=0 class="buying_content buying_amount"><b style="font-size: 17pt;">1000</b>원</span>
+						</div>
+						
+						<div class="nextline"></div>
+					</div>
+				</div>
 				
+				<div class="delivery_div">
+					<button id="delivery_btn">주문하기</button>
+				</div>
 			</div>
 		</div>
 	</div>

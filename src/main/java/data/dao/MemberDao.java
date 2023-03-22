@@ -178,6 +178,29 @@ DbConnect db=new DbConnect();
 	
 		return dto;
 	}
+	
+	//주소 변경(장바구니에서)
+	public void updateAddr(String member_num,String member_addr)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="update member set member_addr=? where member_num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member_addr);
+			pstmt.setString(2, member_num);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(conn, pstmt);
+		}
+	}
 
 }
 
