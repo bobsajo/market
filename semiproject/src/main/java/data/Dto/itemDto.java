@@ -7,7 +7,6 @@ public class itemDto {
 	private int item_price;
 	private String item_img;
 	private String item_sub_title;
-	private String item_info_img;
 	private String item_seller;
 	private String item_package_type;
 	private String item_package_detail;
@@ -50,12 +49,8 @@ public class itemDto {
 	public void setItem_sub_title(String item_sub_title) {
 		this.item_sub_title = item_sub_title;
 	}
-	public String getItem_info_img() {
-		return item_info_img;
-	}
-	public void setItem_info_img(String item_info_img) {
-		this.item_info_img = item_info_img;
-	}
+
+	
 	public String getItem_seller() {
 		return item_seller;
 	}

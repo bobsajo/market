@@ -1,0 +1,74 @@
+<%@page import="data.Dao.ReviewDao"%>
+<%@page import="data.Dto.itemDto"%>
+<%@page import="data.Dao.itemDao"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<%
+	String item_num=request.getParameter("item_num");
+    itemDao dao=new itemDao();
+    itemDto dto=dao.getItemData(item_num);
+    ReviewDao rdao=new ReviewDao();
+    int reviewSize=rdao.getTotalCount(item_num);
+
+%>
+
+</head>
+<body>
+<script type="text/javascript">
+        $(function() {
+
+            $.ajax({
+                url:"/detail/detail_img_encdoing_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        // console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                // console.log(chkImg.length);
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    // console.log(chkImg[i]);
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                            console.log(item.tip);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

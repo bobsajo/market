@@ -24,7 +24,7 @@ public class itemDao {
 	   Connection conn=db.getConnection();
 	   PreparedStatement pstmt=null;
 	   
-	   String sql="insert into item values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	   String sql="insert into item values(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	   
 	   try {
@@ -34,7 +34,6 @@ public class itemDao {
 		pstmt.setInt(2, dto.getItem_price());
 		pstmt.setString(3, dto.getItem_img());
 		pstmt.setString(4, dto.getItem_sub_title());
-		pstmt.setString(5, dto.getItem_info_img());
 		pstmt.setString(6, dto.getItem_seller());
 		pstmt.setString(7, dto.getItem_package_type());
 		pstmt.setString(8, dto.getItem_package_detail());
@@ -79,9 +78,8 @@ public class itemDao {
  				dto.setItem_num(rs.getString("item_num"));
  				dto.setItem_name(rs.getString("item_name"));
  				dto.setItem_price(rs.getInt("item_price"));
- 				dto.setItem_name(rs.getString("item_img"));
+ 				dto.setItem_img(rs.getString("item_img"));
  				dto.setItem_sub_title(rs.getString("item_sub_title"));
- 				dto.setItem_info_img(rs.getString("info_img"));
  				dto.setItem_seller(rs.getString("item_seller"));
  				dto.setItem_package_type(rs.getString("item_package_type"));
  				dto.setItem_package_detail(rs.getString("item_package_detail"));
@@ -128,9 +126,8 @@ public class itemDao {
  					dto.setItem_num(rs.getString("item_num"));
  	 				dto.setItem_name(rs.getString("item_name"));
  	 				dto.setItem_price(rs.getInt("item_price"));
- 	 				dto.setItem_name(rs.getString("item_img"));
+ 	 				dto.setItem_img(rs.getString("item_img"));
  	 				dto.setItem_sub_title(rs.getString("item_sub_title"));
- 	 				dto.setItem_info_img(rs.getString("item_info_img"));
  	 				dto.setItem_seller(rs.getString("item_seller"));
  	 				dto.setItem_package_type(rs.getString("item_package_type"));
  	 				dto.setItem_package_detail(rs.getString("item_package_detail"));

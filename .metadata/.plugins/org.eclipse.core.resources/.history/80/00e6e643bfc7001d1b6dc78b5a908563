@@ -1,0 +1,32 @@
+@charset "EUC-KR";
+
+#jjim-main{
+	width: 1050px;
+}
+#jjim-main .jline{
+	border: 1px solid black;
+}
+#jjim-main hr{
+	width:1050px;
+	border: solid 1px black; 
+	margin-left: 10%;
+}
+
+#jjim-main .h4{
+	font-size: 100px;
+}
+hr{ float:left;
+	width: 700px;
+}
+
+.jjim-img{
+	float:left;
+	margin-left: 100px;
+	
+}
+.jitem{
+	
+}
+.jbtn{
+	float: right;
+}
