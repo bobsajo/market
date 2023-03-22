@@ -151,9 +151,8 @@
     		/*  int cartSize=sdao.getCartList(myid).size(); */
      		%>
 
-				<img alt="장바구니 " src="image/cartlogo.png"
+				<img alt="장바구니 " src="image/cartlogo1.png"
 					onclick="#">
-				<%--  <div class="count"><%=cartSize %></div> --%>
 
 			</div>
 	</div>

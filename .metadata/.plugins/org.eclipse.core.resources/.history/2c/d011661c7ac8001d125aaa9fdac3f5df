@@ -1,0 +1,23 @@
+<%@page import="data.dao.CartDao"%>
+<%@page import="data.dao.MemberDao"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+	String id = (String)session.getAttribute("myid");
+
+	CartDao cdao = new CartDao();
+	
+	MemberDao mdao = new MemberDao();
+	
+	String item_num = request.getParameter("item_num");
+	
+	String member_num = mdao.getMemberNum(id);
+	
+	String cart_num = cdao.cartSearchItem(member_num, item_num);
+	
+	if(cart_num.equals("")) //중복된 아이템이 없음
+	{
+		
+	}
+
+%>

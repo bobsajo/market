@@ -29,13 +29,11 @@
     	display:flex;
     	z-index:-1;
     }
-    .slide_wrap { width: 1220px; padding-bottom: 40px;
-     margin-left: 14.5%;}
+    .slide_wrap { width: 1220px; padding-bottom: 40px; margin-left: 14.5%;}
     .slide_box { width: 1220px; margin:auto; overflow-x: hidden; text-align: center; }
     .slide_content { display: table; float: left; width: 305px; height: 300px;}
     
-    .slide_btn_box {background:none; width:100%; height:100%; z-index:1; 
-     position: relative; top: -300px;}
+    .slide_btn_box {background:none; width:100%; height:100%; z-index:1; position: relative; top: -300px;}
     .slide_btn_box > button { position:relative; width: 60px; height: 60px; font-size: 16px;  background: none; border: 0px; cursor: pointer; }
     .slide_btn_box > .slide_btn_prev {left:-47%;}
     .slide_btn_box > .slide_btn_next {left:45%;}
@@ -186,8 +184,10 @@
 		
 	}
 	.cartbtn{
-		background-color:transparent;
-		border: 0;
+	 	background-color:#4B62D3;
+		opacity : 0.8;
+		border-radius: 100px;
+		border: 0px;
 		position: relative;
 		top:-70px;
 		left:100px;
@@ -288,10 +288,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
-          	<a href = "#" class = "a">
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "#" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
@@ -306,8 +306,8 @@
      </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70";></button>
+        <button type="button" class="slide_btn_next" style = "top:-40px;"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -326,10 +326,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
@@ -342,8 +342,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next" style = "top:-4opx;"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -363,8 +363,8 @@
           <div class="slide_content slide01">
           	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -377,8 +377,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next" style = "top:-40px;"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -396,10 +396,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -412,8 +412,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next" style = "top:-40px;"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -433,10 +433,10 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart_purple.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -449,8 +449,8 @@
       </div>
       <!-- // .slide_box -->
       <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next"><img src="image/arrow_right14.png" width="70"></button>
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next" style = "top:-40px;"><img src="image/arrow_right14.png" width="70"></button>
       </div>
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
@@ -583,8 +583,8 @@
 		</div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default cancel" data-dismiss="modal">취소</button>
-          <button type="button" class="btn btn-default add" data-dismiss="modal">장바구니 담기</button>
+          <button type="button" class="btn btn-default cancel" data-dismiss="modal" style = "width: 278px; height: 50px; font-weight: bold; ">취소</button>
+          <button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold;">장바구니 담기</button>
         </div>
       </div>
       
@@ -593,74 +593,47 @@
   
   <script type="text/javascript">
   $(".cnt_plus").each(function(i,ele){
-
 	  $(ele).click(function(){
-
 	  var cnt=Number($(".cart_cnt").eq(i).text());
 
 	  //해당 상품의 하나의 값
 
 	  var one_price=$(".total_price").eq(i).attr("total")/cnt;
-
 	  $(".cart_cnt").eq(i).text(cnt+1);
-
 	  $(".cnt_minus").eq(i).css("color","black");
-
 	  $(".cnt_minus").eq(i).css("cursor","pointer");
 
 	  //가격 하나 더한 가격
 
 	  var total_price=one_price*(cnt+1);
-
 	  $(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-
 	  var one_price=$(".total_price").eq(i).attr("total",total_price);
-
 	  });
-
 	  });
-
 	  //-버튼
 
 	  $(".cnt_minus").each(function(i,ele){
-
 	  $(ele).click(function(){
-
 	  var cnt=Number($(".cart_cnt").eq(i).text());
-
 	  if(cnt!=1){
-
 	  //해당 상품의 하나의 값
-
 	  var one_price=$(".total_price").eq(i).attr("total")/cnt;
 
 	  //console.log(one_price)
-
 	  //개수 -1, 가격도 하나 뺀  가격으로
-
 	  $(".cart_cnt").eq(i).text(cnt-1);
-
 	  var total_price=one_price*(cnt-1);
-
 	  $(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-
 	  var one_price=$(".total_price").eq(i).attr("total",total_price);
-
 	  }
 
 	  if(cnt==1){
-
 	  //1이라면
-
 	  $(".cnt_minus").eq(i).css("color","lightgray");
-
 	  $(".cnt_minus").eq(i).css("cursor","default");
-
 	  }
-
 	  });
-
-	  });
+	});
   
   	$(".cartbtn").each(function(i,ele){
   		$(ele).click(function(){
@@ -672,6 +645,7 @@
   				data:{"item_num":item_num},
   				url:"common/itemInfo.jsp",
   				success:function(res){
+  					$(".add").val(item_num);
   					$('.modal-header').html(res.item_name);
   					
   					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
@@ -685,6 +659,24 @@
   		$('#myModal').modal("hide"); //닫기 
   	});
   
+  	$()
+  	$(".add").click(function(){
+  		//임시로그인
+  		<%
+  		session.setAttribute("myid", "yezi");
+  		%>
+  		var item_num = $(".add").val();
+  		var cart_cnt = $(".cart_cnt").text();
+  		$.ajax({
+  			type:"get",
+  			dataType:"html",
+  			data:{"item_num":item_num, "cart_cnt":cart_cnt},
+  			url:"cart/cartSearchItem.jsp",
+  			success:function(res){
+  				
+  			}
+  		});
+  	});
   </script>
 </body>
 </html>

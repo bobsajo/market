@@ -9,30 +9,23 @@
 <meta charset="utf-8">
 <title>Insert title here</title>
 	  
-    <link rel="stylesheet" href="../css/good_view.css">
-<link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
-        rel="stylesheet">
+<link rel="stylesheet" href="../css/good_view.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../review/review.css">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-    <script src="../js/detail.js"></script>
+<script src="../js/detail.js"></script>
 	
-
-
 </head>
 <%
 	String item_num=request.getParameter("item_num");
     ItemDao dao=new ItemDao();
-     ItemDto dto=dao.getItemData(item_num); 
-    
-
+    ItemDto dto=dao.getItemData(item_num); 
 %>
 <body>
 <!-- 시작 -->
 <div id="container" class="container">
-        
-
+		
         <div id="main">
             <div id="content" style="opacity: 1;">
                 <div class="section_view">
@@ -40,8 +33,6 @@
                         <div class="inner_view">
                             <div class="thumb" >
                                 <img src="../save-info-img/<%=dto.getItem_img()%>" alt="" class="bg">
-										
-										
                             </div>
                             <p class="goods_name">
                                
@@ -53,21 +44,15 @@
                                     <span class="dc">
                                       
                                         <span class="dc_price">
-                                          
-                                         
-                                            <input type="hidden" value=0>    <%=dto.getItem_price()%>
-                                            
+                                            <input type="hidden" value=0><%=dto.getItem_price()%>
                                         </span>
                                         <span class="won">원</span>
                                     </span>
-                                    
                                 </span>
-                                
                             </p>
                             <div class="goods_info">
                            
                                 <dl class="list fst">
-                                
                                     <dt class="tit">판매단위</dt>
                                     <dd class="desc"><%=dto.getItem_sell_unit() %></dd>
                                 </dl>
@@ -549,31 +534,6 @@
 
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
     </div>
-
 </body>
 </html>
