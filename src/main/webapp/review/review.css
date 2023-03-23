@@ -146,12 +146,6 @@ span.active {
     display: flex;
     justify-content: center;
 }
-button.modalImg {
-    background: none;
-    border:0px solid gray;
-    margin:0px;
-    padding: 0px;
-}
 
 .pagination1 a {
     color: black;
@@ -168,12 +162,3 @@ button.modalImg {
 }
 
 .pagination1 a:hover:not(.active) {background-color: #ddd;}
-
-.modal-lg-h {
-    margin-bottom: 300px;
-}
-
-.modal-text {
-    margin-top: 40px;
-    padding-right: 30px;
-}

@@ -1,0 +1,70 @@
+@charset "EUC-KR";
+
+#jjim-main{
+	width: 100%;
+	margin-top: 3%;
+}
+#jjim-main .jline{
+	border: 1px solid black;
+}
+#jjim-main .jbold{
+	width:90%;
+	border: solid 1px black; 
+	margin-left: 5%;
+
+}
+#jjim-main h4{
+	font-size: 2em;
+	margin-left: 10%;	
+}
+
+.jjim-img{
+	float:left;
+	margin-right: 30px;
+	
+}
+
+button.jbtn{
+	width: 100px;
+ 	height: 30px;
+	line-height: 30px;
+ 	background-color: #4B62D3;
+ 	border: 0;
+	border-radius: 30px;
+ 	font-size: 10px;
+ 	font-weight: bold;
+ 	color: white;
+}
+/*.jdel{
+	margin-bottom: 5px;
+}*/
+.jitem {
+	width: 100%;
+}
+.jitem-wrap {
+}
+
+/* ********∆‰¿Ã¬°******** */
+
+.pagination1 {
+	display: inline-block;
+	display: flex;
+	justify-content: center;
+}
+
+.pagination1 a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.pagination1 a.active {
+	background-color: #4B62D3;
+	color: white;
+	border-radius: 5px;
+}
+
+.pagination1 a:hover:not(.active) {background-color: #ddd;}
+
