@@ -35,7 +35,7 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(conn, pstmt);
+			db.dbClose(pstmt, conn);
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(conn, pstmt, rs);
+			db.dbClose(rs, pstmt, conn);
 		}
 		
 		return list;
@@ -111,7 +111,7 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(conn, pstmt, rs);
+			db.dbClose(rs, pstmt, conn);
 		}
 		
 		return item_num;
@@ -136,7 +136,7 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(conn, pstmt);
+			db.dbClose(pstmt, conn);
 		}
 	}
 	
@@ -158,10 +158,42 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(conn, pstmt);
+			db.dbClose(pstmt, conn);
 		}
 	}
-
+	
+	//selectAll
+	public CartDto getCart(String cart_num) {
+		CartDto dto=new CartDto();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from cart where cart_num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, cart_num);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setCart_num(rs.getString("cart_num"));
+				dto.setItem_num(rs.getString("item_num"));
+				dto.setCart_cnt(rs.getInt("cart_cnt"));
+				dto.setMember_num(rs.getString("member_num"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return dto;
+	}
 
 }
 

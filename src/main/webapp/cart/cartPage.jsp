@@ -1,3 +1,4 @@
+<%@page import="data.dao.ItemDao"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
@@ -39,6 +40,7 @@ CartDto cdto=new CartDto();
 CartDao cdao=new CartDao();
 MemberDao mdao=new MemberDao();
 MemberDto mdto=new MemberDto();
+ItemDao idao=new ItemDao();
 //로그인 상태라면 아이디 가져오기
 if(loginok!=null){
 	myid=(String)session.getAttribute("myid");
@@ -365,17 +367,11 @@ if(loginok!=null){
 		font-size: 13pt;
 		border-radius: 5px;
 	}
-</style>
-
-<%
-
-//사용자의 장바구니에 세일 아이템이 있는지 확인
-
-if(){
 	
-}
-
-%>
+	.total_price2{
+		font-size: 10pt;
+	}
+</style>
 
 <script>
 
@@ -422,62 +418,87 @@ $(function(){
 	//+버튼
 	$(".cnt_plus").each(function(i,ele){
 		$(ele).click(function(){
-			var cnt=Number($(".cart_cnt").eq(i).text());
 			
-			//ajax로 cart테이블 수량 변경
-			$.ajax({
-				type:"get",
-				dataType:"html",
-				url:"cartCntChange.jsp",
-				data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt+1},
-				success:function(){
-					$(".cart_cnt").eq(i).text(cnt+1);
-					$(".cnt_minus").eq(i).css("color","black");
-					$(".cnt_minus").eq(i).css("cursor","pointer");
-					
-					//해당 상품의 하나의 값
-					var one_price=$(".total_price").eq(i).attr("total")/cnt;
-					//가격 하나 더한 가격
-					var total_price=one_price*(cnt+1);
-					$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-					var one_price=$(".total_price").eq(i).attr("total",total_price);
-				}
-			});
+				var cnt=Number($(".cart_cnt").eq(i).text());
+				
+				//ajax로 cart테이블 수량 변경
+				$.ajax({
+					type:"get",
+					dataType:"html",
+					url:"cartCntChange.jsp",
+					data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt+1},
+					success:function(res){
+						$(".cart_cnt").eq(i).text(cnt+1);
+						$(".cnt_minus").eq(i).css("color","black");
+						$(".cnt_minus").eq(i).css("cursor","pointer");
+						
+						//해당 상품의 하나의 값
+						var one_price=$(".total_price").eq(i).attr("one_price");
+						var one_price2=$(".total_price").eq(i).siblings(".total_price2").attr("one_price2");
+						
+						//가격 하나 더한 가격
+						var total_price=one_price*(cnt+1);
+						var total_price2=one_price2*(cnt+1);
+						$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR',{maximumFractionDigits: 0})+"원");
+						$(".total_price").eq(i).siblings(".total_price2").text(total_price2.toLocaleString('ko-KR',{maximumFractionDigits: 0})+"원");
+						
+						$(".total_price").eq(i).attr("total",total_price);
+						$(".total_price").eq(i).siblings(".total_price2").attr("total2",total_price2);
+						
+						amount();
+					}
+				});
+			
 		});
 	});
 	
 	//-버튼
 	$(".cnt_minus").each(function(i,ele){
 		$(ele).click(function(){
-			var cnt=Number($(".cart_cnt").eq(i).text());
 			
-			if(cnt!=1){
-				//ajax로 cart테이블 수량 변경
-				$.ajax({
-					type:"get",
-					dataType:"html",
-					url:"cartCntChange.jsp",
-					data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt-1},
-					success:function(){
-						//개수 -1, 가격도 하나 뺀  가격으로
-						$(".cart_cnt").eq(i).text(cnt-1);
-						$(".cnt_minus").eq(i).css("color","black");
-						$(".cnt_minus").eq(i).css("cursor","pointer");
-						
-						//해당 상품의 하나의 값
-						var one_price=$(".total_price").eq(i).attr("total")/cnt;
-						//가격 하나 더한 가격
-						var total_price=one_price*(cnt-1);
-						$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-						var one_price=$(".total_price").eq(i).attr("total",total_price);
-					}
-				});
-			}
-			if(cnt==1){
-				//1이라면
-				$(".cnt_minus").eq(i).css("color","lightgray");
-				$(".cnt_minus").eq(i).css("cursor","default");
-			}
+				var cnt=Number($(".cart_cnt").eq(i).text());
+				
+				if(cnt!=1){
+					//ajax로 cart테이블 수량 변경
+					$.ajax({
+						type:"get",
+						dataType:"html",
+						url:"cartCntChange.jsp",
+						data:{"cart_num":$(".one_check").eq(i).val(),"cart_cnt":cnt-1},
+						success:function(res){
+							$(".cart_cnt").eq(i).text(cnt-1);
+							$(".cnt_minus").eq(i).css("color","black");
+							$(".cnt_minus").eq(i).css("cursor","pointer");
+							
+							//해당 상품의 하나의 값
+							var one_price=$(".total_price").eq(i).attr("one_price");
+							var one_price2=$(".total_price").eq(i).siblings(".total_price2").attr("one_price2");
+							
+							//가격 하나 더한 가격
+							var total_price=one_price*(cnt-1);
+							var total_price2=one_price2*(cnt-1);
+							$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR',{maximumFractionDigits: 0})+"원");
+							$(".total_price").eq(i).siblings(".total_price2").text(total_price2.toLocaleString('ko-KR',{maximumFractionDigits: 0})+"원");
+							
+							$(".total_price").eq(i).attr("total",total_price);
+							$(".total_price").eq(i).siblings(".total_price2").attr("total2",total_price2);
+							
+							amount();
+							
+							if(cnt==2){
+								//1이라면
+								$(".cnt_minus").eq(i).css("color","lightgray");
+								$(".cnt_minus").eq(i).css("cursor","default");
+							}
+						}
+					});
+				}
+				if(cnt==1){
+					//1이라면
+					$(".cnt_minus").eq(i).css("color","lightgray");
+					$(".cnt_minus").eq(i).css("cursor","default");
+				}
+			
 		});
 	});
 	
@@ -547,7 +568,7 @@ $(function(){
 					if(cold_null){
 						$(".cold_title").hide();
 						$(".cold_title").removeClass("cart_title");
-						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 					}
 					
 					//냉동 상품이 전부 비었는지 확인
@@ -564,9 +585,9 @@ $(function(){
 					if(freeze_null){
 						$(".freeze_title").hide();
 						$(".freeze_title").removeClass("cart_title");
-						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 						if(cold_null){
-							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 						}
 					}
 					
@@ -584,7 +605,7 @@ $(function(){
 					if(room_null){
 						$(".room_title").hide();
 						$(".room_title").removeClass("cart_title");
-						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 					}
 					
 					//총 개수 수정
@@ -644,7 +665,7 @@ $(function(){
 					if(cold_null){
 						$(".cold_title").hide();
 						$(".cold_title").removeClass("cart_title");
-						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_cold").next(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 					}
 					
 					//냉동 상품이 전부 비었는지 확인
@@ -661,9 +682,9 @@ $(function(){
 					if(freeze_null){
 						$(".freeze_title").hide();
 						$(".freeze_title").removeClass("cart_title");
-						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_freeze").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 						if(cold_null){
-							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+							$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 						}
 					}
 					
@@ -681,7 +702,7 @@ $(function(){
 					if(room_null){
 						$(".room_title").hide();
 						$(".room_title").removeClass("cart_title");
-						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px");
+						$(".cartlist_room").prev(".cartlist_header").css("border","0px").css("padding-bottom","0px").css("height","0px");
 					}
 					
 					//총 개수 수정
@@ -731,7 +752,19 @@ function amount(){
 	$(".item_amount").text(item_amount.toLocaleString('ko-KR')+"원");
 	
 	var off=1000;
-	$(".off").attr("off",1000);
+	
+	//할인된 총 가격 가져오기
+	$(".total_price2").each(function(i,ele){
+		//total_price2=할인되기 전 원가
+		//total_price=할인된 가격<-total_price2가 존재할 때 한정
+		
+		var total2=(Number)($(ele).attr("total2"));
+		var total=(Number)($(ele).siblings(".total_price").attr("total"));
+		
+		off=total2-total;
+	});
+	
+	$(".off").attr("off",off);
 	$(".off").text(off.toLocaleString('ko-KR')+"원");
 	
 	var delivery=2500;
@@ -882,6 +915,10 @@ function sample6_execDaumPostcode() {
 						%>
 								<!-- 장바구니에 담긴 냉장 상품 -->
 									<div class="list_content">
+										<% 
+										if(isfirst!=1){%>
+										<div class="subline"></div>
+										<%} %>
 										<table style="width: 100%">
 											<tr>
 												<td class="item_check">
@@ -905,8 +942,22 @@ function sample6_execDaumPostcode() {
 													</div>
 												</td>
 												<td class="item_price">
-													<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
-													<br><strike class="total_price2" total2=<%=total_price %>>취소할 값</strike>
+												<%
+												String item_num=item.get("item_num");
+												//할인하는 상품이라면(아이템이라면)
+												if(idao.itemIsSale(item_num)){
+													int total_price2=(idao.getSalePrice(item_num))*(Integer.parseInt(item.get("cart_cnt")));
+												%>
+													<span class="total_price" total=<%=total_price2 %> 
+													one_price="<%=idao.getSalePrice(item_num) %>"><%=nf.format(total_price2) %>원</span>			
+													<br><strike class="total_price2" total2=<%=total_price %> 
+													one_price2="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</strike>
+												<%}
+												//할인하는 상품이(아이템이) 아니라면
+												else{%>
+													<span class="total_price" total=<%=total_price %> 
+													one_price="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</span>
+												<%} %>
 												</td>
 												<td class="itemDel">
 													<button type="button" value=<%=item.get("cart_num") %>>
@@ -915,10 +966,6 @@ function sample6_execDaumPostcode() {
 												</td>
 											</tr>
 										</table>
-										<% 
-										if(isfirst!=cold.size()){%>
-										<div class="subline"></div>
-										<%} %>
 									</div>
 							
 						<%
@@ -954,6 +1001,10 @@ function sample6_execDaumPostcode() {
 					%>
 							<!-- 장바구니에 담긴 냉장 상품 -->
 								<div class="list_content">
+									<% 
+									if(isfirst!=1){%>
+									<div class="subline"></div>
+									<%} %>
 									<table style="width: 100%">
 										<tr>
 											<td class="item_check">
@@ -977,7 +1028,22 @@ function sample6_execDaumPostcode() {
 												</div>
 											</td>
 											<td class="item_price">
-												<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
+												<%
+												String item_num=item.get("item_num");
+												//할인하는 상품이라면(아이템이라면)
+												if(idao.itemIsSale(item_num)){
+													int total_price2=(idao.getSalePrice(item_num))*(Integer.parseInt(item.get("cart_cnt")));
+												%>
+													<span class="total_price" total=<%=total_price2 %> 
+													one_price="<%=idao.getSalePrice(item_num) %>"><%=nf.format(total_price2) %>원</span>			
+													<br><strike class="total_price2" total2=<%=total_price %> 
+													one_price2="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</strike>
+												<%}
+												//할인하는 상품이(아이템이) 아니라면
+												else{%>
+													<span class="total_price" total=<%=total_price %> 
+													one_price="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</span>
+												<%} %>
 											</td>
 											<td class="itemDel">
 												<button type="button" value=<%=item.get("cart_num") %>>
@@ -986,10 +1052,6 @@ function sample6_execDaumPostcode() {
 											</td>
 										</tr>
 									</table>
-									<% 
-									if(isfirst!=freeze.size()){%>
-									<div class="subline"></div>
-									<%} %>
 								</div>
 						
 					<%
@@ -1021,6 +1083,10 @@ function sample6_execDaumPostcode() {
 					%>
 							<!-- 장바구니에 담긴 상온 상품 -->
 								<div class="list_content">
+									<% 
+									if(isfirst!=1){%>
+									<div class="subline"></div>
+									<%} %>
 									<table style="width: 100%">
 										<tr>
 											<td class="item_check">
@@ -1044,7 +1110,22 @@ function sample6_execDaumPostcode() {
 												</div>
 											</td>
 											<td class="item_price">
-												<span class="total_price" total=<%=total_price %>><%=nf.format(total_price) %>원</span>
+												<%
+												String item_num=item.get("item_num");
+												//할인하는 상품이라면(아이템이라면)
+												if(idao.itemIsSale(item_num)){
+													int total_price2=(idao.getSalePrice(item_num))*(Integer.parseInt(item.get("cart_cnt")));
+												%>
+													<span class="total_price" total=<%=total_price2 %> 
+													one_price="<%=idao.getSalePrice(item_num) %>"><%=nf.format(total_price2) %>원</span>			
+													<br><strike class="total_price2" total2=<%=total_price %> 
+													one_price2="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</strike>
+												<%}
+												//할인하는 상품이(아이템이) 아니라면
+												else{%>
+													<span class="total_price" total=<%=total_price %> 
+													one_price="<%=idao.getItemData(item_num).getItem_price() %>"><%=nf.format(total_price) %>원</span>
+												<%} %>
 											</td>
 											<td class="itemDel">
 												<button type="button" value=<%=item.get("cart_num") %>>
@@ -1053,10 +1134,6 @@ function sample6_execDaumPostcode() {
 											</td>
 										</tr>
 									</table>
-									<% 
-									if(isfirst!=room.size()){%>
-									<div class="subline"></div>
-									<%} %>
 								</div>
 						
 					<%
