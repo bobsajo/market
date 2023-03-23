@@ -1,6 +1,8 @@
 @charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
 
 #header, #container, #content {
+    font-family: 'Gothic A1', sans-serif;
     position: relative;
     margin-left: 10%;
 }

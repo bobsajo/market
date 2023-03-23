@@ -250,4 +250,30 @@ public class ItemDao {
 
 			return item_name;
 		}
+
+	//item_price만 불러오는 메소드
+	public int getItemPrice(String item_num) {
+		int item_price=0;
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select item_price from item where item_num=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,item_num);
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				item_price=rs.getInt("item_price");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs,pstmt,conn);
+		}
+		return item_price;
+	}
 }

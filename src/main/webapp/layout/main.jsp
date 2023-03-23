@@ -1,6 +1,10 @@
 <%@page import="data.dto.ItemDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.ItemDao"%>
+<%@ page import="data.dao.TimeSaleDao" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="data.dto.TimeSaleDto" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -16,7 +20,7 @@
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
 
-    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center;  min-height: 100vh; font-family: 'Gothic A1', sans-serif}
+    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center;  min-height: 100vh; font-family: 'Gothic A1', sans-serif;}
     *, *:before, *:after { box-sizing: inherit; }
     .clearfix:after { content: ''; display: block; clear: both; float: none; }
     .title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
@@ -185,10 +189,26 @@
 		margin-left: 10px;
 		
 	}
+    .timeSale-wrap {
+        display: inline-flex;
+    }
+    .saleItem {
+        margin-right: 18px;
+    }
+
+  #the-final-countdown {
+      font-family: 'Gothic A1', sans-serif;
+      text-align: center;
+      color: dimgrey;
+      font-size: 3rem;
+      display: inline-flex;
+      height: 50%;
+      width: 40%;
+  }
 	
   </style>
   
-  <script>
+  <script type="text/javascript">
    $(function(){
       
       var slideIndex = 0;
@@ -217,6 +237,26 @@
           setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
    });
+
+   function randSale() {
+       var randSale=Math.floor(Math.random()*16)+10;
+       return randSale;
+   }
+   setInterval(function time(){
+       var d = new Date();
+       var hours = 24 - d.getHours();
+       var min = 60 - d.getMinutes();
+       if((min + '').length == 1){
+           min = '0' + min;
+       }
+       var sec = 60 - d.getSeconds();
+       if((sec + '').length == 1){
+           sec = '0' + sec;
+       }
+       jQuery('#the-final-countdown p').html(hours+':'+min+':'+sec)
+   }, 1000);
+
+
 </script>
   
 </head>
@@ -303,6 +343,42 @@
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
     </div>
+
+      <!-- 특가 아이템 창 -->
+        <div>
+            <div>
+            <h2>일일특가</h2>
+            <h5 style="color: gray;">24시간 한정 특가</h5>
+            </div>
+
+            <div id="the-final-countdown">
+                <i class="fa-solid fa-clock" style="color: #4c62d3; white-space: nowrap; margin-right: 10px;"></i>
+                <p></p>
+            </div>
+
+            <div class="timeSale-wrap">
+                <%
+                    TimeSaleDao tdao=new TimeSaleDao();
+                    List<String> random=tdao.randomItem();
+                    NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
+
+                    for(String arr:random) {
+//                        System.out.println(arr);
+                        ItemDto idto=tdao.selectItem(arr);
+                        int randomPercent=(int)(Math.floor(Math.random()*25)+10);
+                        int price= dao.getItemPrice(arr)*(100-randomPercent)/100;
+                        tdao.updateSalePrice(price,arr);
+                %>
+                <div class="saleItem">
+                    <img src="../save-info-img/<%=idto.getItem_img()%>" width="300">
+                    <h5><%=idto.getItem_name()%></h5>
+                    <h6><%=randomPercent%>%할인</h6>
+                    <h4><%=nf.format(tdao.getPrice(arr))%>원</h4>
+                </div>
+                <% }  %>
+            </div>
+        </div>
+
    	<h2>카테고리별 상품 미리보기</h2>
     <h1 class="title">육류</h1>
     <a href="#" class="link" target="_blank"></a>
@@ -310,7 +386,6 @@
       <div class="slide_box">
         <div class="slide_list clearfix">
        	<% 
-    	ItemDao dao2 = new ItemDao();
     	List<ItemDto> list2 = dao.getListCategory("meat", 0, 8);
     	
     	for(ItemDto dto: list2){
@@ -343,7 +418,6 @@
       <div class="slide_box">
         <div class="slide_list clearfix">
        	<% 
-    	ItemDao dao3 = new ItemDao();
     	List<ItemDto> list3 = dao.getListCategory("seafood", 0, 8);
     	
     	for(ItemDto dto: list3){
@@ -376,7 +450,6 @@
       <div class="slide_box">
         <div class="slide_list clearfix">
        	<% 
-    	ItemDao dao4 = new ItemDao();
     	List<ItemDto> list4 = dao.getListCategory("fruit", 0, 8);
     	
     	for(ItemDto dto: list4){
@@ -411,7 +484,6 @@
       <div class="slide_box">
         <div class="slide_list clearfix">
        	<% 
-    	ItemDao dao5 = new ItemDao();
     	List<ItemDto> list5 = dao.getListCategory("bakery", 0, 8);
     	
     	for(ItemDto dto: list5){
@@ -532,7 +604,7 @@
         curSlide = slideContents[curIndex];
       });
 
-    };
+    }
   </script>
 </body>
 </html>

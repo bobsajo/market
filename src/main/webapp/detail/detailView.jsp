@@ -41,21 +41,35 @@
                     $.each(res,function(idx,item) {
                         var resNum=item.num;
                         // console.log(resNum);
+
+                        //json 파일에 있는 num이랑 받아 온 item_num이랑 같을 경우에만 출력
                         if(resNum==<%=item_num%>) {
+                            //상품설명의 첫 사진 설정
                             $(".desImg").attr("src",item.description_img);
+                            //item이름과 title설명 부분
                             $(".itemName").append(item.item_name);
                             $(".words").text(item.title);
+
+                            //체크 포인트 이미지 불러오기
+                            //만약 체크포인트 이미지가 없으면 이미지 엑박 안 뜨게 숨겨주기
                             if(item.check_point_img==="") {
                                 $(".goods_point").hide();
+
+                                //만약 이미지가 있다면, 이미지가 여러 개일 수도 있으니 split으로 잘라주기
                             } else {
+                                //배열에 넣어주기
                                 var checkPointImg=item.check_point_img;
+                                //split으로 잘라주기
                                 var chkImg=checkPointImg.split(",");
                                 // console.log(chkImg.length);
+
+                                //배열 for문으로 돌려서 이미지 src에 맞춰서 넣어주기
                                 for(var i=0; i<chkImg.length; i++) {
                                     $(".picChk").after("<img src='"+chkImg[i]+"' style='width: 100%'><br><br><br>");
                                     // console.log(chkImg[i]);
                                 }
                             }
+
                             if(item.detail_img==="") {
                                 $(".detailSize").hide();
                             } else {
@@ -81,20 +95,27 @@
                             /*$(".tipImg").attr("src",item.tip_img);*/
 
                             /*console.log(item.tip);*/
-                            var str=item.tip;
-
-                            /* var br=/\\n/gi;
+                            /*var dot=/[?]/gi;
+                             var br=/\\n/gi;
                             str=str.replace(dot,"- ");
                             str=str.replace(br,"<br>");
                             $(".tip_box").append(str); */
 
-                            var dot=/[?]/gi;
+                            //item.tip 내용을 불러와서 str에 넣는다.
+                            var str=item.tip;
+
+                            //str에 저장된 내용을 불러와서 \\n을 기준으로 다 잘라서 다시 str에 넣어준다.(이 때 배열이 됨)
                             str=str.split("\\n");
                             // console.log(str);
+
+                            //배열이 된 str을 for문을 돌려 출력한다.
                             for(var i=0; i<str.length; i++) {
+                                //만약 str[i]번 째 문자열의 첫 번째 문자를 검사했을 때, ?으로 시작하면
                                 if(str[i].startsWith("?",0)) {
+                                    //substr(문자열의 몇 번째부터 잘라주는 함수)를 사용해서 1 번째 부터 잘라서 출력해준다.(0 번째가 ?니까 1부터 출력하면 ?빼고 전부 출력됨)
                                     $(".tip_box .context").append("<ul>"+str[i].substr(1)+"</ul>");
                                 } else {
+                                    //만약 ?로 시작 안하면 제목이니까, 제목 태그에 넣어서 출력해준다.
                                     $(".tip_box .context").append("<h4>"+str[i]+"</h4>");
                                 }
                             }
