@@ -23,8 +23,8 @@
 	}
 
 	.title2_container{
+		margin: 0 auto;
 		width: 1200px;
-		margin-left: 15%;
 	}
 
 	.header-login{
@@ -89,6 +89,10 @@
 		width: 30px;
 		height: 30px;
 	}
+	
+	.title2_inner{
+		margin: 0 auto;
+	}
 </style>
 
 </head>
@@ -99,7 +103,7 @@
 <body>
 <div class="title2">
 <div class="title2_container">
-
+<div class="title2_inner">
 	<div class="header-login">
 
 	<button type="button" class="btn btn-primary btn-link" onclick="#">회원가입</button>
@@ -155,13 +159,12 @@
 					onclick="#">
 
 			</div>
+		</div>
 	</div>
 </div>
-
 </div>
 
 </div>
-
 
 </body>
 </html>

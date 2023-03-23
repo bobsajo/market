@@ -82,13 +82,16 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style = "text-align:left;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"></h4>
           <br><br><br>
         </div>
-        <div class="modal-body">
+         
+        <div class="modal-body" style = "text-align:right; margin-right:20px;">
          <div class="pricewrapper">
+         
+        <span style = "font-size:20px;float:left;">수량:</span>
 
 		<button class="cnt_btn cnt_minus">
 
@@ -103,12 +106,17 @@
 		<i class="fa-solid fa-plus"></i>
 
 		</button>
-		<h3 class = "total_price" total = ""></h3>
+			<br><br><br>
+			<span style = "font-size: 20px; float:left;">합계: </span>
+			<span class = "total_price" total = "" style = "font-size: 20px;"></span>
+			<br><br>
+			<span style = "width:80px; height:40px; margin-right:10px; border-radius: 10px; background-color: rgb(255, 191, 0); font-size: 15px; font-weight:600; line-height:20px; color: rgb(255, 255, 255); text-align:center;">적립 &nbsp;&nbsp;</span>
+			<span>로그인 후, 회원할인가와 적립혜택 제공</span>
 		</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default cancel" data-dismiss="modal" style = "width: 278px; height: 50px; font-weight: bold; ">취소</button>
-          <button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold;">장바구니 담기</button>
+          <button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold; color: white;">장바구니 담기</button>
         </div>
       </div>
       

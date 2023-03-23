@@ -29,7 +29,7 @@
     	display:flex;
     	z-index:-1;
     }
-    .slide_wrap { width: 1220px; padding-bottom: 40px; margin-left: 14.5%;}
+    .slide_wrap { width: 1220px; padding-bottom: 40px; margin: 0 auto;;}
     .slide_box { width: 1220px; margin:auto; overflow-x: hidden; text-align: center; }
     .slide_content { display: table; float: left; width: 305px; height: 300px;}
     
@@ -138,7 +138,7 @@
 	    
 	}
 	
-	.fade {
+	.s_fade {
 	  -webkit-animation-name: fade;
 	  -webkit-animation-duration: 1.5s;
 	  animation-name: fade;
@@ -192,6 +192,15 @@
 		top:-70px;
 		left:100px;
 	}
+	
+	div.slide_show{
+		visibility: visible;
+		width: 305px;
+	}
+	
+	div.slide_hide{
+		visibility: hidden;
+	}
   </style>
   
   <script>
@@ -233,22 +242,22 @@
     <section class="visual">
     <div class = "slideshow-container">
         
-        <div class="slide fade">
+        <div class="slide s_fade">
         <a href = "https://www.kurly.com/categories/825">
         <img alt = "" src = "image3/banner1.jpg">
         </a>
         </div>
-        <div class="slide fade">
+        <div class="slide s_fade">
         <a href = "https://www.kurly.com/shop/main/html.php?htmid=event/kurly.htm&name=friend">
         <img alt = "" src = "image3/banner2.jpg">
         </a>
         </div>
-        <div class="slide fade">
+        <div class="slide s_fade">
         <a href = "https://www.kurly.com/categories/139001" >
         <img alt = "" src = "image3/banner3.jpg">
         </a>
         </div>
-        <div class="slide fade">
+        <div class="slide s_fade">
         <a href = "https://www.kurly.com/categories/863">
         <img alt = "" src = "image3/banner4.jpg">
         </a>
@@ -296,10 +305,14 @@
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
           </div>
-         
          <% 
     	}
           %>
+          
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
         </div>
         <!-- // .slide_list -->
       </div>
@@ -337,6 +350,10 @@
          <% 
     	}
           %>
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
         </div>
         <!-- // .slide_list -->
       </div>
@@ -372,6 +389,10 @@
          <% 
     	}
           %>
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
         </div>
         <!-- // .slide_list -->
       </div>
@@ -407,6 +428,10 @@
          <% 
     	}
           %>
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
         </div>
         <!-- // .slide_list -->
       </div>
@@ -444,6 +469,10 @@
          <% 
     	}
           %>
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
         </div>
         <!-- // .slide_list -->
       </div>
@@ -472,9 +501,9 @@
       const slideContents = root.querySelectorAll('.slide_content');  // each slide dom
       const slideBtnNext = root.querySelector('.slide_btn_next'); // next button
       const slideBtnPrev = root.querySelector('.slide_btn_prev'); // prev button
-      const slideLen = slideContents.length;  // slide length
+      const slideLen = slideContents.length-2;  // slide length
       const slideWidth = 1220; // slide width
-      const slideSpeed = 300; // slide speed
+      const slideSpeed = 500; // slide speed
       const startNum = 0; // initial slide index (0 ~ 4)
       
       slideList.style.width = slideWidth * (slideLen + 2) + "px";
@@ -496,29 +525,60 @@
       let curIndex = startNum; // current slide index (except copied slide)
       let curSlide = slideContents[curIndex]; // current slide dom
       
+      for(var i=0;i<slideLen;i++){
+    	  if(i<4){
+    		  slideContents[i].classList.add('slide_show');
+    	  }else{
+    		  slideContents[i].classList.add('slide_hide');
+    	  }
+      }
+      
       var next=0;
 
       /** Next Button Event */
       slideBtnNext.addEventListener('click', function() {
         if (curIndex < slideLen-4) {
+        	if(curIndex<0){
+          	  curIndex=0;
+            }
+            curIndex=curIndex+4;
+
+            for(var n=curIndex-4;n<curIndex;n++){
+          	  slideContents[n].classList.remove('slide_show');
+          	  slideContents[n].classList.add('slide_hide');
+            }
+            
           slideList.style.transition = slideSpeed + "ms";
           slideList.style.transform = "translate3d(-" + (slideWidth * (next + 1)) + "px, 0px, 0px)";
 
-          if(curIndex<0){
-        	  curIndex=0;
-          }
-          curIndex=curIndex+4;
           next=next+1;
           console.log(curIndex);
+          
+          for(var n=curIndex;n<curIndex+4;n++){
+        	  slideContents[n].classList.remove('slide_hide');
+        	  slideContents[n].classList.add('slide_show');
+          }
         }
         else if (curIndex >= slideLen-4) {
+        	curIndex = 0;
+        	
+            for(var n=slideLen-4;n<slideLen;n++){
+            	  slideContents[n].classList.remove('slide_show');
+            	  slideContents[n].classList.add('slide_hide');
+            }
+            
           setTimeout(function() {
-            slideList.style.transition = "1000ms";
+            slideList.style.transition = "200ms";
             slideList.style.transform = "translate3d(-" + (slideWidth)*0 + "px, 0px, 0px)";
           }, slideSpeed);
-          curIndex = 0;
+          
           next=0;
           console.log(curIndex);
+          
+          for(var n=curIndex;n<curIndex+4;n++){
+        	  slideContents[n].classList.remove('slide_hide');
+        	  slideContents[n].classList.add('slide_show');
+          }
         }
         
         curSlide = slideContents[curIndex];
@@ -527,23 +587,51 @@
       /** Prev Button Event */
       slideBtnPrev.addEventListener('click', function() {
         if (curIndex > 0) {
+            curIndex=curIndex-4;
+
+            for(var n=curIndex;n<curIndex+4;n++){
+          	  slideContents[n].classList.remove('slide_show');
+          	  slideContents[n].classList.add('slide_hide');
+            }
+            
           slideList.style.transition = slideSpeed + "ms";
           slideList.style.transform = "translate3d(-" + slideWidth*(next-1) + "px, 0px, 0px)";
-          
-          curIndex=curIndex-4;
           
           next=next-1;
           
           console.log(curIndex);
+          
+          if(curIndex!=0){
+	          for(var n=curIndex-4;n<curIndex+4;n++){
+	        	  slideContents[n].classList.remove('slide_hide');
+	        	  slideContents[n].classList.add('slide_show');
+	          }
+          }else{
+        	  for(var n=0;n<4;n++){
+            	  slideContents[n].classList.remove('slide_hide');
+            	  slideContents[n].classList.add('slide_show');
+              }
+          }
         }
         else if (curIndex <= 0) {
+            curIndex = slideLen-4;
+
+            for(var n=0;n<4;n++){
+          	  slideContents[n].classList.remove('slide_show');
+          	  slideContents[n].classList.add('slide_hide');
+            }
+            
           setTimeout(function() {
-            slideList.style.transition = "1000ms";
+            slideList.style.transition = "200ms";
             slideList.style.transform = "translate3d(-" + slideWidth*(slideLen/4-1) + "px, 0px, 0px)";
           }, slideSpeed);
-          curIndex = slideLen-4;
           next= slideLen/4-1;
           console.log(curIndex);
+          
+          for(var n=curIndex;n<curIndex+4;n++){
+        	  slideContents[n].classList.remove('slide_hide');
+        	  slideContents[n].classList.add('slide_show');
+          }
         }
         
         curSlide = slideContents[curIndex];
@@ -558,13 +646,16 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style = "text-align:left;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"></h4>
           <br><br><br>
         </div>
-        <div class="modal-body">
+         
+        <div class="modal-body" style = "text-align:right; margin-right:20px;">
          <div class="pricewrapper">
+         
+        <span style = "font-size:20px;float:left;">수량:</span>
 
 		<button class="cnt_btn cnt_minus">
 
@@ -579,12 +670,17 @@
 		<i class="fa-solid fa-plus"></i>
 
 		</button>
-		<h3 class = "total_price" total = ""></h3>
+			<br><br><br>
+			<span style = "font-size: 20px; float:left;">합계: </span>
+			<span class = "total_price" total = "" style = "font-size: 20px;"></span>
+			<br><br>
+			<span style = "width:80px; height:40px; margin-right:10px; border-radius: 10px; background-color: rgb(255, 191, 0); font-size: 15px; font-weight:600; line-height:20px; color: rgb(255, 255, 255); text-align:center;">적립 &nbsp;&nbsp;</span>
+			<span>로그인 후, 회원할인가와 적립혜택 제공</span>
 		</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default cancel" data-dismiss="modal" style = "width: 278px; height: 50px; font-weight: bold; ">취소</button>
-          <button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold;">장바구니 담기</button>
+          <button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold; color: white;">장바구니 담기</button>
         </div>
       </div>
       
