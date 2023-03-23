@@ -73,7 +73,9 @@ div.main{
       mainPage = request.getParameter("main");
    }
    String root = request.getContextPath();
+   
 %>
+
 <body>
 <div class = "includewrap">
 
@@ -107,5 +109,7 @@ div.main{
 	window.scrollTo({ top: 0, behavior: "smooth" });  
 	}
 </script>
+
+
 </body>
 </html>

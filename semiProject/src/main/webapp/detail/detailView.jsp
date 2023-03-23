@@ -20,8 +20,11 @@
 <%
 	String item_num=request.getParameter("item_num");
     ItemDao dao=new ItemDao();
-    ItemDto dto=dao.getItemData(item_num); 
+    ItemDto dto=dao.getItemData(item_num);
+   
 %>
+
+
 <body>
 <!-- 시작 -->
 <div id="container" class="container">

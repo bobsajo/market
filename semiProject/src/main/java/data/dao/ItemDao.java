@@ -44,6 +44,7 @@ public class ItemDao {
 			pstmt.setString(14, dto.getItem_category());
 			
 			pstmt.execute();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
