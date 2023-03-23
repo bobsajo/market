@@ -18,6 +18,138 @@ public class itemDao {
 	
    dbConnect db=new dbConnect();
    
+ //페이징처리 카테고리별 리스트
+ 		public List<itemDto> getListCategory(String category, int start, int perpage)
+ 		{
+ 			List<itemDto> list = new Vector<>();
+ 			Connection conn = db.getConnection();
+ 			PreparedStatement pstmt = null;
+ 			ResultSet rs = null;
+ 			
+ 			String sql = "select * from item where item_category = ? order by item_num asc limit ?,?";
+ 			
+ 			try {
+ 				pstmt = conn.prepareStatement(sql);
+ 				pstmt.setString(1, category);
+ 				pstmt.setInt(2, start);
+ 				pstmt.setInt(3, perpage);
+ 				rs = pstmt.executeQuery();
+ 				
+ 				while(rs.next())
+ 				{
+ 					itemDto dto = new itemDto();
+ 					dto.setItem_num(rs.getString("item_num"));
+ 					dto.setItem_name(rs.getString("item_name"));
+ 					dto.setItem_price(rs.getInt("item_price"));
+ 					dto.setItem_img(rs.getString("item_img"));
+ 					dto.setItem_sub_title(rs.getString("item_sub_title"));
+ 					dto.setItem_seller(rs.getString("item_seller"));
+ 					dto.setItem_package_type(rs.getString("item_package_type"));
+ 					dto.setItem_package_detail(rs.getString("item_package_detail"));
+ 					dto.setItem_sell_unit(rs.getString("item_sell_unit"));
+ 					dto.setItem_weight(rs.getString("item_weight"));
+ 					dto.setItem_origin(rs.getString("item_origin"));
+ 					dto.setItem_allergy(rs.getString("item_allergy"));
+ 					dto.setItem_warning(rs.getString("item_warning"));
+ 					dto.setItem_detail(rs.getString("item_detail"));
+ 					dto.setItem_category(rs.getString("item_category"));
+ 					
+ 					list.add(dto);
+ 				}
+ 			} catch (SQLException e) {
+ 				e.printStackTrace();
+ 			}finally {
+ 				db.dbClose(rs, pstmt, conn);
+ 			}
+ 			return list;
+ 		}
+ 	
+   
+   
+   
+   
+   
+   
+ //item_price만 불러오는 메소드
+ 	public int getItemPrice(String item_num) {
+ 		int item_price=0;
+
+ 		Connection conn=db.getConnection();
+ 		PreparedStatement pstmt=null;
+ 		ResultSet rs=null;
+
+ 		String sql="select item_price from item where item_num=?";
+
+ 		try {
+ 			pstmt=conn.prepareStatement(sql);
+ 			pstmt.setString(1,item_num);
+ 			rs=pstmt.executeQuery();
+
+ 			if(rs.next()) {
+ 				item_price=rs.getInt("item_price");
+ 			}
+ 		} catch (SQLException e) {
+ 			e.printStackTrace();
+ 		} finally {
+ 			db.dbClose(rs,pstmt,conn);
+ 		}
+ 		return item_price;
+ 	}
+   
+   
+   
+   
+   
+   
+   public List<itemDto> getList(int start, int perpage)
+	{
+		List<itemDto> list = new Vector<>();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from item order by item_num asc limit ?,?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, perpage);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				itemDto dto = new itemDto();
+				dto.setItem_num(rs.getString("item_num"));
+				dto.setItem_name(rs.getString("item_name"));
+				dto.setItem_price(rs.getInt("item_price"));
+				dto.setItem_img(rs.getString("item_img"));
+				dto.setItem_sub_title(rs.getString("item_sub_title"));
+				dto.setItem_seller(rs.getString("item_seller"));
+				dto.setItem_package_type(rs.getString("item_package_type"));
+				dto.setItem_package_detail(rs.getString("item_package_detail"));
+				dto.setItem_sell_unit(rs.getString("item_sell_unit"));
+				dto.setItem_weight(rs.getString("item_weight"));
+				dto.setItem_origin(rs.getString("item_origin"));
+				dto.setItem_allergy(rs.getString("item_allergy"));
+				dto.setItem_warning(rs.getString("item_warning"));
+				dto.setItem_detail(rs.getString("item_detail"));
+				dto.setItem_category(rs.getString("item_category"));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+   
+   
+   
+   
+   
    //insert
    public void insertitem(itemDto dto)
    {
@@ -255,7 +387,25 @@ public class itemDao {
  		}
  		
  		
-   
+		/*
+		 * public String getItemImg(String item_num) { String item_img="";
+		 * 
+		 * Connection conn=db.getConnection(); PreparedStatement pstmt=null; ResultSet
+		 * rs=null;
+		 * 
+		 * String sql="select item_img from item where item_num=? ";
+		 * 
+		 * try { pstmt=conn.prepareStatement(sql); pstmt.setString(1, item_num);
+		 * rs=pstmt.executeQuery();
+		 * 
+		 * if(rs.next()) { item_img=rs.getString("item_img"); }
+		 * 
+		 * } catch (SQLException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }finally { db.dbClose(rs,pstmt,conn);
+		 * 
+		 * 
+		 * } return item_img; }
+		 */
 	
 }
 

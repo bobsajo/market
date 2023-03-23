@@ -1,3 +1,4 @@
+<%@page import="java.util.Locale"%>
 <%@page import="data.Dao.ReviewDao"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="data.Dto.itemDto"%>
@@ -27,6 +28,7 @@ itemDao dao = new itemDao();
 itemDto dto = dao.getItemData(item_num);
 ReviewDao rdao=new ReviewDao();
 int reviewSize=rdao.getTotalCount(item_num);
+NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
 %>
 
 <body>
@@ -388,7 +390,7 @@ int reviewSize=rdao.getTotalCount(item_num);
                                           
                                          
                                             <input type="hidden" value="<%=dto.getItem_price()%>" class="price1">
-                                               <%=dto.getItem_price()%>
+                                               <%=nf.format(dto.getItem_price()) %>
                                             
                                         </span>
                                         <span class="won">원</span>
@@ -459,8 +461,8 @@ int reviewSize=rdao.getTotalCount(item_num);
                                             <div class="price">
                                                 <strong class="tit">총 상품금액 :</strong>
                                                 <span class="sum">
-                                                    <span class="num"><%=dto.getItem_price() %></span>
-                                                    <span class="won">원</span>
+                                                    <span class="num"><%=nf.format(dto.getItem_price()) %></span>
+                                                    <span class="won"></span>
                                                 </span>
                                             </div>
                                             
@@ -468,10 +470,10 @@ int reviewSize=rdao.getTotalCount(item_num);
                                     </div>
                                     <div class="group_btn off">
                                         <div class="view_function" >
-                                            <button type="button" class="btn btn_save"><img alt="찜 목록" src="/image/heart.png " style="width: 30px; margin-bottom: 10px ;"  ></button>
+                                            <button  type="button" class="btn btn_save"><img alt="찜 목록" src="/image/heart.png " style="width: 30px; margin-bottom: 10px ;"  ></button>
                                         </div>
                                         <span class="btn_type1">
-                                            <button type="submit" class="txt_type" style="background-color: #4B62D3;">장바구니 담기</button>
+                                            <button type="submit" class="txt_type" style="background-color: #4B62D3;" onclick="">장바구니 담기</button>
                                         </span>
                                     </div>
                                 </div>

@@ -1,0 +1,48 @@
+@charset "EUC-KR";
+
+#jjim-main{
+	width: 100%;
+	margin-top: 3%;
+}
+#jjim-main .jline{
+	border: 1px solid black;
+}
+#jjim-main hr{
+	width:90%;
+	border: solid 1px black; 
+	margin-left: 5%;
+
+}
+#jjim-main h4{
+	font-size: 2em;
+	margin-left: 10%;	
+}
+
+.jjim-img{
+	float:left;
+	margin-left: 100px;
+	
+}
+
+#jjim-main .jbtn{
+	float: right;
+	margin-right: 20%;
+	margin-bottom: 100px;
+}
+.jbtn button{
+	width: 200px;
+ 	height: 50px;
+ 	background-color: #4B62D3;
+ 	border: 0;
+ 	font-size: 20px; 
+ 	font-weight: bold;
+ 	color: white;
+}
+.jbtn .jdel{
+	margin-bottom: 5px;
+}
+.jitem {
+	margin-left: 40px;
+	font-size: 1.5em;
+	width: 100px;
+}

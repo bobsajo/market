@@ -7,7 +7,7 @@
 #jjim-main .jline{
 	border: 1px solid black;
 }
-#jjim-main hr{
+#jjim-main .jbold{
 	width:90%;
 	border: solid 1px black; 
 	margin-left: 5%;
@@ -23,16 +23,29 @@
 	margin-left: 100px;
 	
 }
-
-#jjim-main .jbtn{
+.d
+ .jbtn{
 	float: right;
-	margin-right: 20%;
+	margin-right: 10%;
+	margin-top:-100px;
+	
+
 }
 .jbtn button{
 	width: 200px;
  	height: 50px;
+ 	background-color: #4B62D3;
+ 	border: 0;
+ 	font-size: 20px; 
+ 	font-weight: bold;
+ 	color: white;
 }
-.jitem strong{
-	margin-left: 40px;
+.jbtn .jdel{
+	margin-bottom: 5px;
+}
+.jitem {
+	margin-left: 300px;
 	font-size: 1.5em;
+	width: 100%;
+	line-height: 40px;
 }

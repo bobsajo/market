@@ -1,3 +1,5 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="data.Dao.itemDao"%>
 <%@page import="data.Dto.itemDto"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -19,9 +21,10 @@
 
 </head>
 <%
-String item_num = request.getParameter("item_num");
+String item_num = request.getParameter("member_num");
 itemDao dao = new itemDao();
 itemDto dto = dao.getItemData(item_num);
+NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 %>
 <body>
 
@@ -30,27 +33,34 @@ itemDto dto = dao.getItemData(item_num);
 
 	<div id="jjim-main">
 		<h4 class="jtitle">찜한 상품</h4>
-		<hr>
+		<hr class="jbold">
 		<br>
 
 
+		<div class="jjim-view">
+			<div class="jjim-img">
+				<img src="../save-info-img/<%=dto.getItem_img()%>"
+					style="width: 150px;">
+			</div>
+			<div class="jitem">
+				<strong class="jname"><%=dto.getItem_name()%></strong> <br> 
+				<strong class="jprice"><%=nf.format(dto.getItem_price())%>원</strong> <br>
 
-		<div class="jjim-img">
-			<img src="../save-info-img/<%=dto.getItem_img()%>"
-				style="width: 150px;">
-		</div>
-		<div class="jitem">
-			<strong class="jname"><%=dto.getItem_name()%></strong> <br> 
-			<strong class="jprice"><%=dto.getItem_price()%>원</strong>
-		</div>
-		<div class="jbtn">
-			<button class="jdel" type="button">삭제</button>
-			<br>
+				<strong class="junit"><%=dto.getItem_sell_unit()%></strong> <br>
+				<strong class="jorigin"><%=dto.getItem_origin()%></strong> <br>
 
-			<button class="jcart">
-				담기 <img alt="" src="/image/cartlogo.png" style="width: 20px;">
-			</button>
+			</div>
+			<span class="jbtn">
+				<button class="jdel" type="button">삭제</button> <br>
+
+				<button class="jcart">장바구니 담기</button>
+			</span>
+
 		</div>
+		<br>
+		<hr class="jhr">
+
+
 	</div>
 </body>
 </html>

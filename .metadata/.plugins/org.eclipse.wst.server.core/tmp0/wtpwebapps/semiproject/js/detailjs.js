@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded',function(){
              else if(number > 0){             //0 이하면 false 반환
               return false;
             }
-    		        $(".num").text(parseInt(number*cost)+"원")-cost;
+    		        $(".num").text(new Intl.NumberFormat('ko-KR').format(parseInt(number*cost))+"원")-cost;
             
             
         });
@@ -44,10 +44,10 @@ window.addEventListener('DOMContentLoaded',function(){
             number++;// 수량을 1 올려줌
             $(".inp").val(number);  // 올렸으니 수량클래스(.inp)의 값을 바꿔줌
          
-            $(".num").text((parseInt(number*cost))+"원");
+            $(".num").text(new Intl.NumberFormat('ko-KR').format(parseInt(number*cost))+"원");
     
     
-    
+    i
             
            
             

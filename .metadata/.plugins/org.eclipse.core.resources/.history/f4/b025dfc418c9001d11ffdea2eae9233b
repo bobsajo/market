@@ -1,0 +1,8 @@
+package data.Dto;
+
+public class JjimDto {
+ private String jjim_num;
+ private String	member_num;		
+ private String	 item_num;		
+
+}
