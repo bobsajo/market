@@ -10,12 +10,9 @@ import java.util.*;
 public class JjimDao {
     DbConnect db = new DbConnect();
 
-    public JjimDao() {
-    }
-
     public int getTotalCount(String member_num) {
         int n = 0;
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String sql = "select count(*) from jjim where member_num=?";
@@ -27,27 +24,25 @@ public class JjimDao {
             if (rs.next()) {
                 n = rs.getInt(1);
             }
-        } catch (SQLException var11) {
-            var11.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
 
         return n;
     }
 
-    public List<JjimDto> getJjimLike(String member_num, int start, int perpage) {
+    public List<JjimDto> getJjimLike(String member_num) {
         List<JjimDto> list = new Vector();
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "select * from jjim where member_num=? order by jjim_num desc limit ?,?";
+        String sql = "select * from jjim where member_num=? order by jjim_num desc";
 
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, member_num);
-            pstmt.setInt(2, start);
-            pstmt.setInt(3, perpage);
             rs = pstmt.executeQuery();
 
             while(rs.next()) {
@@ -57,10 +52,10 @@ public class JjimDao {
                 dto.setItem_num(rs.getString("item_num"));
                 list.add(dto);
             }
-        } catch (SQLException var13) {
-            var13.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
 
         return list;
@@ -68,7 +63,7 @@ public class JjimDao {
 
     public JjimDto getData(String jjim_num) {
         JjimDto dto = new JjimDto();
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String sql = "select * from jjim where jjim_num=?";
@@ -82,17 +77,17 @@ public class JjimDao {
                 dto.setMember_num(rs.getString("member_num"));
                 dto.setItem_num(rs.getString("item_num"));
             }
-        } catch (SQLException var11) {
-            var11.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
 
         return dto;
     }
 
     public void insertJjim(String jjim_num, String member_num, String item_num) {
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         String sql = "insert into jjim values(?,?,?)";
 
@@ -102,35 +97,34 @@ public class JjimDao {
             pstmt.setString(2, member_num);
             pstmt.setString(3, item_num);
             pstmt.execute();
-        } catch (SQLException var11) {
-            var11.getMessage();
+        } catch (SQLException e) {
+            e.getMessage();
         } finally {
-            this.db.dbClose(pstmt, conn);
+            db.dbClose(pstmt, conn);
         }
 
     }
 
-    public void deleteJjim(String member_num, String item_num) {
-        Connection conn = this.db.getConnection();
+    public void deleteJjim(String jjim_num) {
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
-        String sql = "delete from jjim where member_num=? and item_num=?";
+        String sql = "delete from jjim where jjim_num=?";
 
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, member_num);
-            pstmt.setString(2, item_num);
+            pstmt.setString(1, jjim_num);
             pstmt.execute();
-        } catch (SQLException var10) {
-            var10.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(pstmt, conn);
+            db.dbClose(pstmt, conn);
         }
 
     }
 
     public boolean hasJjim(String member_num, String item_num) {
         boolean has = false;
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String sql = "select count(*) from jjim where member_num=? and item_num=?";
@@ -143,18 +137,17 @@ public class JjimDao {
             if (rs.next()) {
                 has = true;
             }
-        } catch (SQLException var12) {
-            var12.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
-
         return has;
     }
 
     public List<String> selectJjimNum(String member_num, String item_num) {
         List<String> jjimArr = new ArrayList();
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String sql = "select jjim_num from jjim where member_num=? and item_num=?";
@@ -168,10 +161,10 @@ public class JjimDao {
             while(rs.next()) {
                 jjimArr.add(rs.getString(" jjim_num"));
             }
-        } catch (SQLException var12) {
-            var12.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
 
         return jjimArr;
@@ -179,7 +172,7 @@ public class JjimDao {
 
     public String getItemImg(String item_num) {
         String item_img = "";
-        Connection conn = this.db.getConnection();
+        Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String sql = "select item_img from item where item_num=? ";
@@ -191,28 +184,30 @@ public class JjimDao {
             if (rs.next()) {
                 item_img = rs.getString("item_img");
             }
-        } catch (SQLException var11) {
-            var11.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            this.db.dbClose(rs, pstmt, conn);
+            db.dbClose(rs, pstmt, conn);
         }
 
         return item_img;
     }
 
     //member_num이 찜한 상품들의 item_num, item_name, item_img, item_price를 받아온다(서브쿼리 적용)
-    public List<ItemDto> getJjimItem(String member_num) {
+    public List<ItemDto> getJjimItem(String member_num, int start, int perpage) {
         List<ItemDto> list=new ArrayList<>();
 
         Connection conn=db.getConnection();
         PreparedStatement pstmt=null;
         ResultSet rs=null;
 
-        String sql="select item_num, item_img, item_price, item_name from item where item_num in(select item_num from jjim where member_num=?)";
+        String sql="select item_num, item_img, item_price, item_name from item where item_num in(select item_num from jjim where member_num=?) order by item_num limit ?,?";
 
         try {
             pstmt=conn.prepareStatement(sql);
             pstmt.setString(1,member_num);
+            pstmt.setInt(2,start);
+            pstmt.setInt(3,perpage);
             rs=pstmt.executeQuery();
 
             while(rs.next()) {

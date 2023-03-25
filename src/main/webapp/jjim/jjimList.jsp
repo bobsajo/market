@@ -29,7 +29,6 @@ String myid=(String)session.getAttribute("myid");
 //dao 선언
 JjimDao db= new JjimDao();
 ItemDao idao=new ItemDao();
-List<ItemDto> ilist=db.getJjimItem(member_num);
 
 NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 
@@ -73,7 +72,8 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
     start=(currentPage-1)*perPage;
     
     List<JjimDto> list;
-    list=db.getJjimLike(member_num, start, perPage);
+    list=db.getJjimLike(member_num);
+	List<ItemDto> ilist=db.getJjimItem(member_num,start,perPage);
 %>
 <body>
 	<div><b> 찜한 목록 (<%=list.size()%>)</b></div>
@@ -89,8 +89,8 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 				<span><%=nf.format(ilist.get(i).getItem_price())%></span>
 			</div>
 			<div>
-				<button class="jdel jbtn" type="button">삭제</button> <br>
-				<button class="jcart jbtn">장바구니 담기</button>
+				<button class="jdel jbtn" type="button" jjim_num="<%=list.get(i).getJjim_num()%>" member_num="<%=list.get(i).getMember_num()%>">삭제</button> <br>
+				<button class="jcart jbtn" value="<%=ilist.get(i).getItem_num()%>">장바구니 담기</button>
 			</div>
 		<br>
 		<hr class="jhr">
@@ -103,23 +103,176 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 		<%
 			//블록 이전 버튼
 			if(startPage>1) { %>
-		<a href="jjimList.jsp?currentPage=<%=startPage-1%>" class="p-left">&laquo;</a>
+		<a href="jjimList.jsp?currentPage=<%=startPage-1%>&member_num=<%=member_num%>" class="p-left">&laquo;</a>
 		<% }
 
 			//밑에 블럭 설정
 			for(int pp=startPage; pp<=endPage; pp++) {
 				if(pp==currentPage) { %>
-		<a href="jjimList.jsp?currentPage=<%=pp%>" class="active"><%=pp%></a>
+		<a href="jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>" class="active"><%=pp%></a>
 		<% } else { %>
-		<a href="jjimList.jsp?currentPage=<%=pp%>"><%=pp%></a>
+		<a href="jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>"><%=pp%></a>
 		<% }
 		}
 
 			//블록 다음 버튼
 			if(endPage<totalPage) { %>
-		<a href="jjimList.jsp?currentPage=<%=endPage+1%>">&raquo;</a>
+		<a href="jjimList.jsp?currentPage=<%=endPage+1%>&member_num=<%=member_num%>">&raquo;</a>
 		<% }
 		%>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style = "text-align:left;">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"></h4>
+					<br><br><br>
+				</div>
+
+				<div class="modal-body" style = "text-align:right; margin-right:20px;">
+					<div class="pricewrapper">
+
+						<span style = "font-size:20px;float:left;">수량:</span>
+
+						<button class="cnt_btn cnt_minus">
+
+							<i class="fa-solid fa-minus"></i>
+
+						</button>
+
+						<span class="cart_cnt">1</span>
+
+						<button class="cnt_btn cnt_plus">
+
+							<i class="fa-solid fa-plus"></i>
+
+						</button>
+						<br><br><br>
+						<span style = "font-size: 20px; float:left;">합계: </span>
+						<span class = "total_price" total = "" style = "font-size: 20px;"></span>
+						<br><br>
+						<span style = "width:80px; height:40px; margin-right:10px; border-radius: 10px; background-color: rgb(255, 191, 0); font-size: 15px; font-weight:600; line-height:20px; color: rgb(255, 255, 255); text-align:center;">적립 &nbsp;&nbsp;</span>
+						<span>로그인 후, 회원할인가와 적립혜택 제공</span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default cancel" data-dismiss="modal" style = "width: 278px; height: 50px; font-weight: bold; ">취소</button>
+					<button type="button" class="btn btn-default add" data-dismiss="modal" style = "width: 278px; height: 50px; background-color: #4B62D3; font-weight: bold; color: white;">장바구니 담기</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(".cnt_plus").each(function(i,ele){
+			$(ele).click(function(){
+				var cnt=Number($(".cart_cnt").eq(i).text());
+				//해당 상품의 하나의 값
+				var one_price=$(".total_price").eq(i).attr("total")/cnt;
+				$(".cart_cnt").eq(i).text(cnt+1);
+				$(".cnt_minus").eq(i).css("color","black");
+				$(".cnt_minus").eq(i).css("cursor","pointer");
+				//가격 하나 더한 가격
+				var total_price=one_price*(cnt+1);
+				$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+				var one_price=$(".total_price").eq(i).attr("total",total_price);
+			});
+		});
+		//-버튼
+		$(".cnt_minus").each(function(i,ele){
+			$(ele).click(function(){
+				var cnt=Number($(".cart_cnt").eq(i).text());
+				if(cnt!=1){
+					//해당 상품의 하나의 값
+					var one_price=$(".total_price").eq(i).attr("total")/cnt;
+					//console.log(one_price)
+					//개수 -1, 가격도 하나 뺀  가격으로
+					$(".cart_cnt").eq(i).text(cnt-1);
+					var total_price=one_price*(cnt-1);
+					$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
+					var one_price=$(".total_price").eq(i).attr("total",total_price);
+				}
+				if(cnt==1){
+					//1이라면
+					$(".cnt_minus").eq(i).css("color","lightgray");
+					$(".cnt_minus").eq(i).css("cursor","default");
+				}
+			});
+		});
+
+		$(".jcart").each(function(i,ele){
+			$(ele).click(function(){
+				$("#myModal").modal(); //열기
+				var item_num = $(ele).val();
+				// console.log(item_num);
+				$.ajax({
+					type:"get",
+					dataType:"json",
+					data:{"item_num":item_num},
+					url:"common/itemInfo.jsp",
+					success:function(res){
+						$(".add").val(item_num);
+						$('.modal-header').html(res.item_name);
+
+						$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
+						$('.total_price').attr("total", res.item_price);
+					}
+				});
+
+			});
+		});
+		$(".cancel").click(function(){
+			$('#myModal').modal("hide"); //닫기
+		});
+
+		$(".add").click(function(){
+			//임시로그인
+			<%
+            session.setAttribute("myid", "yezi");
+            %>
+			var item_num = $(".add").val();
+			var cart_cnt = $(".cart_cnt").text();
+			$.ajax({
+				type:"get",
+				dataType:"html",
+				data:{"item_num":item_num, "cart_cnt":cart_cnt},
+				url:"cart/cartSearchItem.jsp",
+				success:function(res){
+
+				}
+			});
+		});
+
+		$(".jdel").click(function() {
+
+			var jjim_num=$(this).attr("jjim_num");
+			var member_num=$(this).attr("member_num")
+			// console.log(jjim_num);
+			$.ajax({
+				url:"jjimDelete.jsp",
+				data:{"jjim_num":jjim_num,"member_num":member_num},
+				dataType:"json",
+				type:"get",
+				success:function(res) {
+					location.reload();
+					alert("찜이 취소되었습니다.");
+				},
+				statusCode:{
+					404:function() {
+						alert("json 파일이 없어요");
+					},
+					500:function() {
+						alert("서버 오류... 코드를 다시 한 번 확인하세요");
+					}
+				}
+			});
+		});
+	</script>
 </body>
 </html>

@@ -96,7 +96,7 @@
 				class="input-lg login_input" required="required">
 			</div>
 			<div id="login_search">
-				<h6><span class="searchLogin search_id">아이디 찾기</span> | <span class="searchLogin search_pass">비밀번호 찾기</span></h6>
+				<a href="index.jsp?main=login/searchIdForm.jsp"><span class="searchLogin search_id">아이디 찾기</span></a> | <a href="index.jsp?main=login/searchPassForm.jsp"><span class="searchLogin search_pass">비밀번호 찾기</span></a></h6>
 			</div>
 			<div id="btn_div">
 				<button type="submit" class="login_btn" id="submit_btn">로그인</button><br>
