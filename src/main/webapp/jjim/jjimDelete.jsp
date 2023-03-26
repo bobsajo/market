@@ -5,13 +5,12 @@
     request.setCharacterEncoding("utf-8");
     response.setCharacterEncoding("utf-8");
 
-    String jjim_num=request.getParameter("jjim_num");
+    String item_num=request.getParameter("item_num");
     String member_num=request.getParameter("member_num");
     JjimDao dao=new JjimDao();
 
-    dao.deleteJjim(jjim_num);
+    dao.deleteJjim(item_num,member_num);
 
     response.sendRedirect("../index.jsp?main=jjim/jjimList.jsp?member_num="+member_num);
 %>
-
     

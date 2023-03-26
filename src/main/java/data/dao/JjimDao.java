@@ -105,14 +105,15 @@ public class JjimDao {
 
     }
 
-    public void deleteJjim(String jjim_num) {
+    public void deleteJjim(String item_num, String member_num) {
         Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
-        String sql = "delete from jjim where jjim_num=?";
+        String sql = "delete from jjim where item_num=? and member_num=?";
 
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, jjim_num);
+            pstmt.setString(1, item_num);
+            pstmt.setString(2, member_num);
             pstmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();

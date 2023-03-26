@@ -6,6 +6,7 @@
 <%@page import="java.util.List"%>
 <%@page import="data.dao.JjimDao"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="data.dao.MemberDao" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 </head>
 
 <%
-//로그인 상태와 아이디 가져오기 
+//로그인 상태와 아이디 가져오기
 String loginok=(String)session.getAttribute("loginok");
 String myid=(String)session.getAttribute("myid");
 
@@ -89,7 +90,7 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 				<span><%=nf.format(ilist.get(i).getItem_price())%></span>
 			</div>
 			<div>
-				<button class="jdel jbtn" type="button" jjim_num="<%=list.get(i).getJjim_num()%>" member_num="<%=list.get(i).getMember_num()%>">삭제</button> <br>
+				<button class="jdel jbtn" type="button" item_num="<%=ilist.get(i).getItem_num()%>" member_num="<%=list.get(i).getMember_num()%>">삭제</button> <br>
 				<button class="jcart jbtn" value="<%=ilist.get(i).getItem_num()%>">장바구니 담기</button>
 			</div>
 		<br>
@@ -196,7 +197,7 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 					$(".cart_cnt").eq(i).text(cnt-1);
 					var total_price=one_price*(cnt-1);
 					$(".total_price").eq(i).text(total_price.toLocaleString('ko-KR')+"원");
-					var one_price=$(".total_price").eq(i).attr("total",total_price);
+					one_price=$(".total_price").eq(i).attr("total",total_price);
 				}
 				if(cnt==1){
 					//1이라면
@@ -233,9 +234,9 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 
 		$(".add").click(function(){
 			//임시로그인
-			<%
+			<%--<%
             session.setAttribute("myid", "yezi");
-            %>
+            %>--%>
 			var item_num = $(".add").val();
 			var cart_cnt = $(".cart_cnt").text();
 			$.ajax({
@@ -251,27 +252,10 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 
 		$(".jdel").click(function() {
 
-			var jjim_num=$(this).attr("jjim_num");
-			var member_num=$(this).attr("member_num")
-			// console.log(jjim_num);
-			$.ajax({
-				url:"jjimDelete.jsp",
-				data:{"jjim_num":jjim_num,"member_num":member_num},
-				dataType:"json",
-				type:"get",
-				success:function(res) {
-					location.reload();
-					alert("찜이 취소되었습니다.");
-				},
-				statusCode:{
-					404:function() {
-						alert("json 파일이 없어요");
-					},
-					500:function() {
-						alert("서버 오류... 코드를 다시 한 번 확인하세요");
-					}
-				}
-			});
+			var item_num=$(this).attr("item_num");
+			var member_num=$(this).attr("member_num");
+
+			location.href="jjim/jjimDelete.jsp?item_num="+item_num+"&member_num="+member_num;
 		});
 	</script>
 </body>

@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/detail/detailView.jsp" value="file://$PROJECT_DIR$/src/main/webapp/detail" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jjim/jjimDelete.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jjim" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/jjim/jjimList.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jjim" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/layout/logo.jsp" value="file://$PROJECT_DIR$/src/main/webapp/layout" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/layout/main.jsp" value="file://$PROJECT_DIR$/src/main/webapp/layout" />
