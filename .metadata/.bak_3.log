@@ -1,4 +1,4 @@
-!SESSION 2023-03-23 22:23:19.136 -----------------------------------------------
+!SESSION 2023-03-24 08:54:48.337 -----------------------------------------------
 eclipse.buildId=4.25.0.I20220831-1800
 java.version=17.0.5
 java.vendor=Eclipse Adoptium
@@ -7,14 +7,14 @@ Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
 This is a continuation of log file C:\sist1226\SP\.metadata\.bak_2.log
-Created Time: 2023-03-23 22:24:32.089
+Created Time: 2023-03-24 18:10:09.391
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.090
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.392
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -238,12 +238,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.093
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.395
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -467,12 +467,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.094
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.398
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -696,12 +696,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.097
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.401
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -925,241 +925,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.099
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.412
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
-	at org.apache.felix.scr.impl.inject.BaseMethod.access$500(BaseMethod.java:39)
-	at org.apache.felix.scr.impl.inject.BaseMethod$Resolved.invoke(BaseMethod.java:650)
-	at org.apache.felix.scr.impl.inject.BaseMethod.invoke(BaseMethod.java:506)
-	at org.apache.felix.scr.impl.inject.BindMethod.invoke(BindMethod.java:658)
-	at org.apache.felix.scr.impl.manager.DependencyManager.doInvokeBindMethod(DependencyManager.java:1727)
-	at org.apache.felix.scr.impl.manager.DependencyManager.open(DependencyManager.java:1556)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.createImplementationObject(SingleComponentManager.java:261)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.createComponent(SingleComponentManager.java:109)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:907)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:880)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:824)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:218)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:215)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:568)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:542)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:660)
-	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:72)
-	at org.apache.felix.scr.impl.inject.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:990)
-	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2206)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.prebind(DependencyManager.java:1118)
-	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1520)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1022)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:860)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:824)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:218)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:215)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:568)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:542)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:660)
-	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:72)
-	at org.apache.felix.scr.impl.inject.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:990)
-	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2206)
-	at org.apache.felix.scr.impl.manager.DependencyManager.doInvokeBindMethod(DependencyManager.java:1719)
-	at org.apache.felix.scr.impl.manager.DependencyManager.invokeBindMethod(DependencyManager.java:1704)
-	at org.apache.felix.scr.impl.manager.SingleComponentManager.invokeBindMethod(SingleComponentManager.java:372)
-	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.addedService(DependencyManager.java:320)
-	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.addedService(DependencyManager.java:291)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1216)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1137)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:944)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:880)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1168)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:144)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:270)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:500)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:903)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:890)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:132)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:957)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:741)
-	at org.apache.felix.scr.impl.manager.ExtendedServiceEvent.activateManagers(ExtendedServiceEvent.java:59)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:144)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:909)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:874)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:951)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:806)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:788)
-	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2225)
-	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1241)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1136)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:996)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1175)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:925)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:890)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:967)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:822)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:804)
-	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2230)
-	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1242)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1137)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:997)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1176)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:909)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:874)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:951)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:806)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:788)
-	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2225)
-	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1241)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1136)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:996)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1175)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:909)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:874)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:951)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:806)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:788)
-	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2225)
-	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1241)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1136)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:996)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1175)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:952)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:915)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:140)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:994)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:844)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:825)
-	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2636)
-	at org.apache.felix.scr.impl.manager.DependencyManager.access$400(DependencyManager.java:59)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1356)
-	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1225)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1258)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1152)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:1012)
-	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1192)
-	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:116)
-	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
-	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:952)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:915)
-	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:140)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:994)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:844)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:825)
-	at org.apache.felix.scr.impl.manager.AbstractComponentManager.dispose(AbstractComponentManager.java:589)
-	at org.apache.felix.scr.impl.manager.ConfigurableComponentHolder.disposeComponents(ConfigurableComponentHolder.java:722)
-	at org.apache.felix.scr.impl.BundleComponentActivator.dispose(BundleComponentActivator.java:492)
-	at org.apache.felix.scr.impl.Activator.disposeComponents(Activator.java:652)
-	at org.apache.felix.scr.impl.Activator.access$300(Activator.java:74)
-	at org.apache.felix.scr.impl.Activator$ScrExtension.destroy(Activator.java:490)
-	at org.apache.felix.scr.impl.AbstractExtender$1.run(AbstractExtender.java:216)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at org.apache.felix.scr.impl.AbstractExtender.destroyExtension(AbstractExtender.java:238)
-	at org.apache.felix.scr.impl.AbstractExtender.bundleChanged(AbstractExtender.java:132)
-	at org.apache.felix.scr.impl.Activator.bundleChanged(Activator.java:255)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:949)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
-	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEventPrivileged(EquinoxEventPublisher.java:229)
-	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEvent(EquinoxEventPublisher.java:138)
-	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEvent(EquinoxEventPublisher.java:130)
-	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor.publishModuleEvent(EquinoxContainerAdaptor.java:217)
-	at org.eclipse.osgi.container.Module.publishEvent(Module.java:499)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:658)
-	at org.eclipse.osgi.container.Module.stop(Module.java:521)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
-	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
-	at org.eclipse.osgi.container.Module.stop(Module.java:521)
-	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.109
-!MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
-!STACK 0
-java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
-	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -1383,12 +1154,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.113
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.414
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -1612,12 +1383,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.117
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.416
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -1841,12 +1612,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.119
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.417
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -2070,12 +1841,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.122
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.419
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -2299,12 +2070,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.131
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.428
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -2528,12 +2299,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.133
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.431
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -2757,12 +2528,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.135
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.434
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -2986,12 +2757,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.137
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.437
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -3215,12 +2986,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.138
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.440
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -3444,12 +3215,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.149
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.449
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -3673,12 +3444,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.151
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.451
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -3902,12 +3673,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.154
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.453
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -4131,12 +3902,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.156
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.456
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -4360,12 +4131,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.158
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.460
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -4589,12 +4360,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.163
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.469
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -4796,12 +4567,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.166
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.472
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -5003,12 +4774,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.168
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.475
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -5210,12 +4981,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.173
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.478
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -5417,12 +5188,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.175
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.480
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -5624,12 +5395,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.185
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.491
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -5853,12 +5624,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.186
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.495
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -6082,12 +5853,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.188
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.498
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -6311,12 +6082,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.191
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.501
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -6540,12 +6311,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.193
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.505
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -6769,12 +6540,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.195
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.508
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -6998,12 +6769,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.205
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.520
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -7227,12 +6998,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.208
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.524
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -7456,12 +7227,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.211
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.527
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -7685,12 +7456,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.213
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.530
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -7914,12 +7685,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.215
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.533
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -8143,12 +7914,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.216
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.536
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:224)
@@ -8372,12 +8143,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.222
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.545
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -8601,12 +8372,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.223
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.547
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -8830,12 +8601,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.225
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.549
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -9059,12 +8830,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.226
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.552
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -9288,12 +9059,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.227
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.555
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -9517,12 +9288,12 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY org.eclipse.m2e.core 4 0 2023-03-23 22:24:32.228
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.558
 !MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
 	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
-	at jdk.internal.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
@@ -9701,6 +9472,235 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.pro
 	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:1012)
 	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1192)
 	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:116)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:952)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:915)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:140)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:994)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:844)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:825)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.dispose(AbstractComponentManager.java:589)
+	at org.apache.felix.scr.impl.manager.ConfigurableComponentHolder.disposeComponents(ConfigurableComponentHolder.java:722)
+	at org.apache.felix.scr.impl.BundleComponentActivator.dispose(BundleComponentActivator.java:492)
+	at org.apache.felix.scr.impl.Activator.disposeComponents(Activator.java:652)
+	at org.apache.felix.scr.impl.Activator.access$300(Activator.java:74)
+	at org.apache.felix.scr.impl.Activator$ScrExtension.destroy(Activator.java:490)
+	at org.apache.felix.scr.impl.AbstractExtender$1.run(AbstractExtender.java:216)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.felix.scr.impl.AbstractExtender.destroyExtension(AbstractExtender.java:238)
+	at org.apache.felix.scr.impl.AbstractExtender.bundleChanged(AbstractExtender.java:132)
+	at org.apache.felix.scr.impl.Activator.bundleChanged(Activator.java:255)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:949)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEventPrivileged(EquinoxEventPublisher.java:229)
+	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEvent(EquinoxEventPublisher.java:138)
+	at org.eclipse.osgi.internal.framework.EquinoxEventPublisher.publishBundleEvent(EquinoxEventPublisher.java:130)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor.publishModuleEvent(EquinoxContainerAdaptor.java:217)
+	at org.eclipse.osgi.container.Module.publishEvent(Module.java:499)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:658)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.m2e.core 4 0 2023-03-24 18:10:09.922
+!MESSAGE [org.eclipse.m2e.core.internal.project.registry.MavenProjectManager(70)] The addMavenProjectChangedListener method has thrown an exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.addMavenProjectChangedListener(org.eclipse.m2e.core.project.IMavenProjectChangedListener)" because "this.manager" is null
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.addMavenProjectChangedListener(MavenProjectManager.java:95)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.felix.scr.impl.inject.BaseMethod.invokeMethod(BaseMethod.java:229)
+	at org.apache.felix.scr.impl.inject.BaseMethod.access$500(BaseMethod.java:39)
+	at org.apache.felix.scr.impl.inject.BaseMethod$Resolved.invoke(BaseMethod.java:650)
+	at org.apache.felix.scr.impl.inject.BaseMethod.invoke(BaseMethod.java:506)
+	at org.apache.felix.scr.impl.inject.BindMethod.invoke(BindMethod.java:658)
+	at org.apache.felix.scr.impl.manager.DependencyManager.doInvokeBindMethod(DependencyManager.java:1727)
+	at org.apache.felix.scr.impl.manager.DependencyManager.open(DependencyManager.java:1556)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createImplementationObject(SingleComponentManager.java:261)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createComponent(SingleComponentManager.java:109)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:907)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:880)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:824)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:218)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:215)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:568)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:542)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:660)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:72)
+	at org.apache.felix.scr.impl.inject.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:990)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2206)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.prebind(DependencyManager.java:1118)
+	at org.apache.felix.scr.impl.manager.DependencyManager.prebind(DependencyManager.java:1520)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.collectDependencies(AbstractComponentManager.java:1022)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:860)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:824)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse$1.run(ServiceFactoryUse.java:218)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.factoryGetService(ServiceFactoryUse.java:215)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceFactoryUse.getService(ServiceFactoryUse.java:114)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceConsumer$2.getService(ServiceConsumer.java:48)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.getService(ServiceRegistrationImpl.java:568)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.getService(ServiceRegistry.java:542)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.getService(BundleContextImpl.java:660)
+	at org.apache.felix.scr.impl.manager.SingleRefPair.getServiceObject(SingleRefPair.java:72)
+	at org.apache.felix.scr.impl.inject.FieldHandler$ReferenceMethodImpl.getServiceObject(FieldHandler.java:990)
+	at org.apache.felix.scr.impl.manager.DependencyManager.getServiceObject(DependencyManager.java:2206)
+	at org.apache.felix.scr.impl.manager.DependencyManager.doInvokeBindMethod(DependencyManager.java:1719)
+	at org.apache.felix.scr.impl.manager.DependencyManager.invokeBindMethod(DependencyManager.java:1704)
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.invokeBindMethod(SingleComponentManager.java:372)
+	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.addedService(DependencyManager.java:320)
+	at org.apache.felix.scr.impl.manager.DependencyManager$MultipleDynamicCustomizer.addedService(DependencyManager.java:291)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1216)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1137)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:944)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:880)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1168)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(ServiceRegistrationImpl.java:144)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(ServiceRegistry.java:270)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.registerService(BundleContextImpl.java:500)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:903)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:890)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:132)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:957)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:741)
+	at org.apache.felix.scr.impl.manager.ExtendedServiceEvent.activateManagers(ExtendedServiceEvent.java:59)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:144)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:909)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:874)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:951)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:806)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:788)
+	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2225)
+	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1241)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1136)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:996)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1175)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:925)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:890)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:967)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:822)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:804)
+	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2230)
+	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1242)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1137)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:997)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1176)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:925)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:890)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:967)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:822)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:804)
+	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2230)
+	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1242)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1137)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:997)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1176)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:925)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:890)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:967)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:822)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:804)
+	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2230)
+	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1242)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1137)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:997)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1176)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
+	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(ServiceRegistry.java:945)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(ServiceRegistry.java:882)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.unregister(ServiceRegistrationImpl.java:244)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:925)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.unregister(AbstractComponentManager.java:890)
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:139)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.unregisterService(AbstractComponentManager.java:967)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.doDeactivate(AbstractComponentManager.java:822)
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.deactivateInternal(AbstractComponentManager.java:804)
+	at org.apache.felix.scr.impl.manager.DependencyManager.deactivateComponentManager(DependencyManager.java:2230)
+	at org.apache.felix.scr.impl.manager.DependencyManager.access$500(DependencyManager.java:55)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:1082)
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.removedService(DependencyManager.java:968)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1242)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:1137)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.untrack(ServiceTracker.java:997)
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1176)
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:127)
 	at org.eclipse.osgi.internal.serviceregistry.FilteredServiceListener.serviceChanged(FilteredServiceListener.java:123)
 	at org.eclipse.osgi.internal.framework.BundleContextImpl.dispatchEvent(BundleContextImpl.java:961)
 	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)

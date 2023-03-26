@@ -378,7 +378,7 @@
     		
        	%>
           <div class="slide_content slide01">
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">

@@ -86,13 +86,32 @@ div.main {
 	height:  0px;
 }
 </style>
+<script type="text/javascript">
+$(function(){
+	   $.ajax({
+	      type:"get",
+	      dataType:"html",
+	      url:"cookie/cookieCreate.jsp",
+	      success:function(){
+	         console.log("실행");
+	      }
+	   })
+	})
+
+</script>
 </head>
 <%
    String mainPage = "layout/main.jsp";
 
+	//메인페이지인지 확인하는 변수(0이면 메인페이지, 1이면 다른페이지)
+   int ismain=0;
+   
+   
+
    if(request.getParameter("main")!=null)
    {
       mainPage = request.getParameter("main");
+      ismain=1;   //다른페이지일 경우
    }
    String root = request.getContextPath();
    
@@ -133,6 +152,7 @@ div.main {
 	$topBtn.onclick = () => {
 	window.scrollTo({ top: 0, behavior: "smooth" });  
 	}
+	
 </script>
 
 <!-- 사이드바 -->
@@ -147,7 +167,11 @@ div.main {
 			<span class="glyphicon glyphicon-chevron-up"></span>
 		</button>
 		<div class="preimg_content" style="text-align: center;">
-		<div class = "preshow preimg1">
+		
+		
+		
+		
+		<!-- <div class = "preshow preimg1">
 		<a><img src="image/goods01.jpg" style="height: 100%;"></a>
 		</div>
 		<div class = "prehide">
@@ -155,7 +179,9 @@ div.main {
 		</div>
 		<div class = "prehide preimg3">
 		<a><img src="image/goods03.jpg" style="height: 100%;"></a>
-		</div>
+		</div> -->
+		
+		
 		</div>
 		
 		<button
@@ -166,6 +192,41 @@ div.main {
 	</div>
 
 <script type="text/javascript">
+	//ajax로 최근에 읽은 상품 읽어오기
+	$.ajax({
+		type:"post",
+		dataType:"json",
+		url:"cookie/cookieGet.jsp",
+		success:function(){
+				var html = "";
+				
+				var img_arr = res.reverse();
+				
+				$.each(img_arr,function(i,ele){
+		            //console.log(ele.item);
+		            if(i==0&&i<res.length-1){
+		               html+="<div class = 'preshow preimg1'>";
+		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="</div>";
+		            }else if(i==0){
+		               html+="<div class = 'preshow preimg1 preimg3'>";
+		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="</div>";
+		            }else if(i<res.length-1){
+		               html+="<div class = 'prehide'>";
+		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="</div>";
+		            }else{
+		               html+="<div class = 'prehide preimg3'>";
+		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="</div>";
+		            }
+		         });
+		         
+		         $(".preimg_content").html(html);
+		}
+	});
+
 	$(".btnup").click(function(){
 		var cur=$(".preshow");
 		
@@ -196,18 +257,31 @@ div.main {
 	
 	var scrollPosition = window.scrollY || document.documentElement.scrollTop;
 	console.log(scrollPosition);
-	
-	window.addEventListener('scroll', function(){
-		//console.log('123');
-		scrollPosition = window.scrollY || document.documentElement.scrollTop;
-		if(scrollPosition<300){
-			//$(".sidebar").css("margin-top","300px");
-			$(".sidebar").hide();
-		}else{
-			//$(".sidebar").css("margin-top","0px");
-			$(".sidebar").show();
-		}
-	});
+	//최초 실행시 스크롤 위치가 위에 있으면 사이드바 없애기
+	   <%
+	   if(ismain==0){%>
+	      if(scrollPosition<300){
+	          //$(".sidebar").css("margin-top","300px");
+	          $(".sidebar").hide();
+	       }   
+	   <%}%>
+	   
+	   //스크롤 이벤트(사이드바)
+	   window.addEventListener('scroll', function(){
+	      //console.log('123');
+	      scrollPosition = window.scrollY || document.documentElement.scrollTop;
+	      
+	      <%if(ismain==0){%>
+	         if(scrollPosition<300){
+	               //$(".sidebar").css("margin-top","300px");
+	               $(".sidebar").hide();
+	           }else{
+	                //$(".sidebar").css("margin-top","0px");
+	                $(".sidebar").show();
+	           }
+	      <%}%>
+	      
+	   });
 
 	</script>
 </div>

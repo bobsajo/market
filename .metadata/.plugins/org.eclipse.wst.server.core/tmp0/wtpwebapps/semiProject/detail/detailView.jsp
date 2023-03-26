@@ -23,7 +23,20 @@
     ItemDto dto=dao.getItemData(item_num);
    
 %>
+<script type="text/javascript">
+$(function(){
+	   $.ajax({
+	      type:"get",
+	      dataType:"html",
+	      url:"cookie/cookieSet.jsp",
+	      data:{"item_num":<%=item_num %>},
+	      success:function(){
+	         console.log("전달");
+	      }
+	   })
+	})
 
+</script>	
 
 <body>
 <!-- 시작 -->

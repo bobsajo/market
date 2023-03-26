@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+	Cookie[] cookies = request.getCookies(); //client에서 쿠키를 받아옴
+	
+	Cookie cookie; //생성한 쿠키 변수
+	
+	if(cookies == null) //쿠키가 없으면 생성
+	{
+		cookie = new Cookie("recent_item" , "");
+		response.addCookie(cookie); // 생성한 쿠키 전달
+		cookie.setMaxAge(60*60*8);
+	}
+	
+	boolean isCookie = false;
+	
+	if(cookies!=null)
+	{
+		for(int i = 0; i<cookies.length; i++)
+		{
+			if(cookies[i].getName().equals("recent_item"))
+			{
+				
+			}
+		}
+	}
+	
+	
+
+
+%>
