@@ -81,11 +81,13 @@
 	}
 	
 	.icon-wrap{
-		display: flex;
+		display :flex;
 		flex-wrap: nowrap;
+		
 	}
 	
 	.icon-wrap img{
+		
 		width: 30px;
 		height: 30px;
 	}
@@ -156,7 +158,7 @@
      		%>
 
 				<img alt="장바구니 " src="image/cartlogo1.png"
-					onclick="#">
+					onclick="#" style="margin-top: 10px; margin-right: 10px;">
 
 			</div>
 		</div>
