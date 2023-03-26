@@ -81,9 +81,14 @@
 	}
 	
 	.icon-wrap{
-		display: flex;
-		flex-wrap: nowrap;
-	}
+      float:left;
+      flex:none;
+      flex-wrap: nowrap;
+      width: 100px;
+      
+      
+   }
+
 	
 	.icon-wrap img{
 		width: 30px;
@@ -106,7 +111,7 @@
 <div class="title2_inner">
 	<div class="header-login">
 
-	<button type="button" class="btn btn-primary btn-link" onclick="#">회원가입</button>
+	<button type="button" class="btn btn-primary btn-link" onclick="location.href='index.jsp?main=login/joinForm.jsp'">회원가입</button>
 	<%
      //로그인세션얻기
      String loginok=(String)session.getAttribute("loginok");
@@ -114,17 +119,18 @@
      String myid=(String)session.getAttribute("myid");
      MemberDao dao=new MemberDao();
      String name=dao.getName(myid);
+     String member_num=dao.getMemberNum(myid);
      
      if(loginok==null){%>
 
 			<button type="button" class="btn btn-primary btn-link"
-				onclick="location.href='index.jsp?main=login/loginmain.jsp'">로그인</button>
+				onclick="location.href='login/loginMain.jsp'">로그인</button>
 			<%}else{%>
 
 			<b style="font-size: 12pt;"><%=name %>님 로그인중...</b>
 			<!-- 로그아웃 잘못되면 수정할 곳 -->
 			<button type="button" class="btn btn-primary btn-link"
-				onclick="location.href='login/logoutaction.jsp?id=<%=myid%>'">로그아웃</button>
+				onclick="location.href='login/loginMain.jsp?'">로그아웃</button>
 			<%}
    	%>
 
@@ -133,7 +139,7 @@
 <div class="search-wrap">
 	<div class="header-search">
 		<a class="logo" onclick="location.href='index.jsp'"> <img alt="" src="image/uselogo.png"></a>
-		<form action="search/searchItem.jsp" method="post" name="search">
+		<form action="index.jsp?main=search/searchItem.jsp" method="post" name="search">
 			<div class="search">
 				<input type="text" placeholder="검색어 입력" name="searchText">
 				<button type="submit" style="border: 0px; background-color: white;">
@@ -146,25 +152,40 @@
 	<div class="icon-wrap">
 
 			<img class="heart" alt="" src="image/heart.png"
-				onclick="#" style="margin-top: 10px; margin-right: 10px;">
+				style="margin-top: 10px; margin-right: 10px;">
 
 			<!-- 카트 -->
-			<div class="cart">
-				<%
+			<%
      		ItemDao sdao=new ItemDao();
     		/*  int cartSize=sdao.getCartList(myid).size(); */
      		%>
+				<img alt="장바구니 " src="image/cartlogo1.png" class="cart" 
+				style="margin-top: 10px; margin-right: 10px;">
 
-				<img alt="장바구니 " src="image/cartlogo1.png"
-					onclick="#">
 
-			</div>
-		</div>
+	</div>
 	</div>
 </div>
 </div>
 
 </div>
-
+<script type="text/javascript">
+	$(".heart").click(function() {
+		<% if(loginok!=null) { %>
+			location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
+		<% } else{ %>
+			alert("회원 전용 서비스입니다. 로그인 해주세요.");
+			location.href='index.jsp?main=login/loginForm.jsp';
+		<% } %>
+	});
+	$(".cart").click(function() {
+		<% if(loginok!=null) { %>
+		location.href='index.jsp?main=cart/cartPage.jsp';
+		<% } else{ %>
+		alert("회원 전용 서비스입니다. 로그인 해주세요.");
+		location.href='index.jsp?main=login/loginForm.jsp';
+		<% } %>
+	});
+</script>
 </body>
 </html>

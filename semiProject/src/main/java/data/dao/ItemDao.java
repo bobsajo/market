@@ -44,7 +44,6 @@ public class ItemDao {
 			pstmt.setString(14, dto.getItem_category());
 			
 			pstmt.execute();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -464,4 +463,177 @@ public class ItemDao {
 
 			return item_name;
 		}
+		
+		
+		///예지
+		
+		//////////////////////////////
+		
+		 	
+			/*
+			 * //장바구니 추가 public void insertCart(CartDto dto) { Connection
+			 * conn=db.getConnection(); PreparedStatement pstmt=null;
+			 * 
+			 * String sql="insert into cart values(null,?,?,?,now())";
+			 * 
+			 * try { pstmt=conn.prepareStatement(sql);
+			 * 
+			 * 
+			 * pstmt.setInt(1, dto.getMember_num()); pstmt.setInt(2, dto.getItem_num());
+			 * pstmt.setInt(3, dto.getCart_cnt());
+			 * 
+			 * 
+			 * 
+			 * pstmt.execute();
+			 * 
+			 * } catch (SQLException e) { // TODO Auto-generated catch block
+			 * e.printStackTrace(); }finally { db.dbClose(pstmt, conn); }
+			 * 
+			 * }
+			 */
+	   
+	   
+	 		//장바구니 출력
+////	 		public List<HashMap<String, String>> getCartList(String id)
+////	 		{
+////	 			List<HashMap<String, String>> list=new ArrayList<>();
+////	 			
+////	 			Connection conn=db.getConnection();
+////	 			PreparedStatement pstmt=null;
+////	 			ResultSet rs=null;
+////	 			
+////	 			String sql="select c.cart_num,i.item_name,i.item_num,i.item_info_img,i.item_weight,i.item_price,c.cart_cnt"
+////	 					+ " from cart c,item i,member m"
+////	 					+ " where c.item_num=i.item_num and c.member_num=m.member_num and m.member_id=?";
+////	 			
+////	 			try {
+////	 				pstmt=conn.prepareStatement(sql);
+////	 				
+////	 				pstmt.setString(1, id);
+////	 				rs=pstmt.executeQuery();
+////	 				
+////	 				while(rs.next())
+////	 				{
+////	 					HashMap<String, String> map=new HashMap<>();
+////	 					
+////	 					map.put("cart_num", rs.getString("cart_num"));
+////	 					map.put("item_name", rs.getString("item_name"));
+////	 					map.put("item_num", rs.getString("item_num"));
+////	 					map.put("item_num", rs.getString("item_num"));
+////	 					map.put("item_info_img", rs.getString("item_info_img"));
+////	 					map.put("item_weight", rs.getString("item_weight"));
+////	 					map.put("item_price", rs.getString("item_price"));
+////	 					map.put("cart_cnt", rs.getString("cart_cnt"));
+////	 					
+////	 					
+////	 					list.add(map);
+////	 				}
+////	 				
+////	 			} catch (SQLException e) {
+////	 				// TODO Auto-generated catch block
+////	 				e.printStackTrace();
+////	 			}finally {
+////	 				db.dbClose(rs, pstmt, conn);
+////	 			}
+//	 			
+//	 			
+//	 			
+//	 			
+////	 			return list;
+////	 		}
+			
+			
+			///권예지 추가////
+			
+			//해당 아이템이 세일 목록에 해당하는지 확인
+			public boolean itemIsSale(String item_num) {
+				boolean issale=false;
+				
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				
+				String sql="select i.item_num from item i,timesale t where i.item_num=t.item_num and i.item_num=?";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					
+					pstmt.setString(1, item_num);
+					rs=pstmt.executeQuery();
+					
+					if(rs.next()){
+						//해당 아이템이 세일하는 아이템이라면
+						issale=true;
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs, pstmt, conn);
+				}
+				
+				return issale;
+			}
+			
+			
+			//세일값 가져오기
+			public int getSalePrice(String item_num) {
+				int sale_price=0;
+				
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				
+				String sql="select sale_price from timesale where item_num=?";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					
+					pstmt.setString(1, item_num);
+					rs=pstmt.executeQuery();
+					
+					if(rs.next()) {
+						sale_price=rs.getInt("sale_price");
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs, pstmt, conn); 
+				}
+				
+				return sale_price;
+			}
+			
+			
+			//////////////
+			
+			
+			//item_price만 불러오는 메소드
+			public int getItemPrice(String item_num) {
+				int item_price=0;
+
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+
+				String sql="select item_price from item where item_num=?";
+
+				try {
+					pstmt=conn.prepareStatement(sql);
+					pstmt.setString(1,item_num);
+					rs=pstmt.executeQuery();
+
+					if(rs.next()) {
+						item_price=rs.getInt("item_price");
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs,pstmt,conn);
+				}
+				return item_price;
+			}
 }

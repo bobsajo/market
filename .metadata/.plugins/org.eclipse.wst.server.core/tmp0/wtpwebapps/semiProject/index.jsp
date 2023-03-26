@@ -101,6 +101,9 @@ $(function(){
 </script>
 </head>
 <%
+	request.setCharacterEncoding("utf-8");
+	response.setCharacterEncoding("utf-8");
+
    String mainPage = "layout/main.jsp";
 
 	//메인페이지인지 확인하는 변수(0이면 메인페이지, 1이면 다른페이지)
@@ -197,7 +200,7 @@ $(function(){
 		type:"post",
 		dataType:"json",
 		url:"cookie/cookieGet.jsp",
-		success:function(){
+		success:function(res){
 				var html = "";
 				
 				var img_arr = res.reverse();

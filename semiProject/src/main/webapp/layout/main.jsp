@@ -1,3 +1,6 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
+<%@page import="data.dao.TimeSaleDao"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="data.dto.ItemDto"%>
@@ -201,6 +204,25 @@
 	div.slide_hide{
 		visibility: hidden;
 	}
+	 .timeSale-wrap {
+            display: inline-flex;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .saleItem {
+            margin-right: 18px;
+        }
+        #the-final-countdown {
+            font-family: 'Fira Sans', sans-serif;
+            text-align: center;
+            color: #434343;
+            font-size: 3rem;
+            display: inline-flex;
+            width: 100%;
+            align-content: center;
+        }
   </style>
   
   <script>
@@ -325,6 +347,41 @@
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
     </div>
+    
+     <!-- 특가 아이템 창 -->
+            <div>
+                <div>
+                    <h2>일일특가</h2>
+                    <h5 style="color: gray;">24시간 한정 특가</h5>
+                </div>
+
+                <div id="the-final-countdown">
+                    <p><%--<i class="fa-solid fa-clock" style="color: #4c62d3; white-space: nowrap; margin-right: 10px;"></i>--%>
+                    </p>
+                </div>
+
+                <div class="timeSale-wrap">
+                    <%
+                        TimeSaleDao tdao=new TimeSaleDao();
+                        List<String> random=tdao.randomItem();
+                        NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
+                        for(String arr:random) {
+//                        System.out.println(arr);
+                            ItemDto idto=tdao.selectItem(arr);
+                            int randomPercent=(int)(Math.floor(Math.random()*25)+10);
+                            int price= dao.getItemPrice(arr)*(100-randomPercent)/100;
+                            tdao.updateSalePrice(price,arr);
+                    %>
+                    <div class="saleItem">
+                        <a href="index.jsp?main=detail/detailView.jsp?item_num=<%=arr%>" style="color: black;"><img src="save-info-img/<%=idto.getItem_img()%>" width="275">
+                            <h5><%=idto.getItem_name()%></h5>
+                            <h4><span style="color: orangered; white-space: nowrap;"><%=randomPercent%>%&ensp;</span><%=nf.format(tdao.getPrice(arr))%>원&nbsp;<span style="color: gray; font-size: small;"><del><%=nf.format(dao.getItemPrice(arr))%>원</del></span></h4>
+                        </a>
+                    </div>
+                    <% }  %>
+                </div>
+            </div>
+    
    	<h2>카테고리별 상품 미리보기</h2>
     <h1 class="title">육류</h1>
     <a href="#" class="link" target="_blank"></a>
@@ -734,6 +791,7 @@
   	$(".cartbtn").each(function(i,ele){
   		$(ele).click(function(){
   			$('#myModal').modal(); //열기 
+  			$(".cart_cnt").text("1");
   			var item_num = $(ele).val();
   			$.ajax({
   				type:"get",

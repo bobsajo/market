@@ -29,13 +29,13 @@ if(cookies!=null){
                cookie=new Cookie("recent_item",vlaue);
                response.addCookie(cookie);
                cookie.setMaxAge(60*60*8); 
-               //System.out.println(cookies[i].getValue());
+               System.out.println(cookies[i].getValue());
           }else{
              String vlaue=cookies[i].getValue()+"&"+item_num;
                cookie=new Cookie("recent_item",vlaue);
                response.addCookie(cookie);
                cookie.setMaxAge(60*60*8); 
-               //System.out.println(cookies[i].getValue());
+               System.out.println(cookies[i].getValue());
           }
         }
        

@@ -1,0 +1,11 @@
+@charset "EUC-KR";
+
+.search-input-wrap{
+	width: 100%;
+}
+.search-id-inner{
+	width: 300px;
+	margin: 0 auto;
+}
+      .search-input-wrap3{ margin-left: 35%;}
+      .sbtn3{ margin-top: 10px;}

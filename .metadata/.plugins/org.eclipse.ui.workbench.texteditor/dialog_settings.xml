@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="text-align"/>
-		<item key="wrap" value="true"/>
+		<item key="selection" value=""/>
+		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="text-align"/>
-			<item value="sidebar"/>
-			<item value="right"/>
-			<item value="margin-left"/>
-			<item value="curSlide"/>
-			<item value="slideContents"/>
-			<item value="container"/>
-			<item value="새벽마켓"/>
-			<item value="href"/>
-			<item value="goods-view-infomation-board"/>
-			<item value="group"/>
-			<item value="getAllItem"/>
-			<item value="insert"/>
+			<item value="btn"/>
+			<item value="jdel"/>
+			<item value="jname"/>
+			<item value="jjim-img"/>
+			<item value=".."/>
+			<item value="../"/>
+			<item value="heart"/>
+			<item value="&lt;/"/>
+			<item value="/&gt;"/>
+			<item value="장바구니"/>
+			<item value="icon-wrap"/>
+			<item value="icon"/>
+			<item value="search"/>
+			<item value="price"/>
+			<item value="MemberDao"/>
 		</list>
 		<list key="replacehistory">
 			<item value="x"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1706"/>
-		<item key="DIALOG_Y_ORIGIN" value="130"/>
+		<item key="DIALOG_X_ORIGIN" value="-347"/>
+		<item key="DIALOG_Y_ORIGIN" value="112"/>
 		<item key="DIALOG_WIDTH" value="418"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

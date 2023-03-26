@@ -23,7 +23,7 @@ if(cookies!=null){
     if(!isCookie){
        System.out.println("쿠키생성");
        cookie=new Cookie("recent_item","");
-       cookie.setMaxAge(60*2); 
+       cookie.setMaxAge(60*60*8); 
        response.addCookie(cookie);
     }
 }

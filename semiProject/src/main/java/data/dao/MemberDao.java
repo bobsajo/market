@@ -330,4 +330,209 @@ public class MemberDao {
 		}
 		
 		
+		//예지
+
+		//id중복체크
+		public int checkId(String id) 
+		{
+			int idok=0;
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select count(*) from member where member_id=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, id);
+				rs=pstmt.executeQuery();
+				
+				//같은 아이디 개수
+				if(rs.next()){
+					idok=rs.getInt(1);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			
+			return idok;
+		}
+		
+		//email중복체크
+		public int checkEmail(String email) 
+			{
+				int emailok=0;
+				
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				
+				String sql="select count(*) from member where member_email=?";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					
+					pstmt.setString(1, email);
+					rs=pstmt.executeQuery();
+					
+					//같은 아이디 개수
+					if(rs.next()){
+						emailok=rs.getInt(1);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs, pstmt, conn);
+				}
+				
+				return emailok;
+			}
+		
+		
+		//id에 해당하는 dto가져오기
+		public MemberDto getMemberById(String id)
+		{
+			MemberDto dto=new MemberDto();
+		
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select * from member where member_id=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, id);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) 
+				{
+					dto.setMember_num(rs.getString("member_num"));
+					dto.setMember_id(rs.getString("member_id"));
+					dto.setMember_pass(rs.getString("member_pass"));
+					dto.setMember_name(rs.getString("member_name"));
+					dto.setMember_hp(rs.getString("member_hp"));
+					dto.setMember_email(rs.getString("member_email"));
+					dto.setMember_birth(rs.getString("member_birth"));
+					dto.setMember_addr(rs.getString("member_addr"));
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+		
+			return dto;
+		}
+		
+		//주소 변경(장바구니에서)
+		public void updateAddr(String member_num,String member_addr)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="update member set member_addr=? where member_num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, member_addr);
+				pstmt.setString(2, member_num);
+				pstmt.execute();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
+		
+		
+	     //아이디 찾기 메소드
+	      public String searchId(String member_name, String member_email) {
+	         String member_id="";
+
+	         Connection conn=db.getConnection();
+	         PreparedStatement pstmt=null;
+	         ResultSet rs=null;
+
+	         String sql="select member_id from member where member_name=? and member_email=?";
+
+	         try {
+	            pstmt=conn.prepareStatement(sql);
+	            pstmt.setString(1, member_name);
+	            pstmt.setString(2, member_email);
+	            rs=pstmt.executeQuery();
+
+	            if(rs.next()) {
+	               member_id=rs.getString("member_id");
+	            }
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         } finally {
+	            db.dbClose(rs,pstmt,conn);
+	         }
+	         return member_id;
+	      }
+
+	      //비밀번호 찾기 메소드
+	      public String searchPass(String member_id, String member_email) {
+	         String member_num="";
+
+	         Connection conn=db.getConnection();
+	         PreparedStatement pstmt=null;
+	         ResultSet rs=null;
+
+	         String sql="select member_num from member where member_id=? and member_email=?";
+
+	         try {
+	            pstmt=conn.prepareStatement(sql);
+	            pstmt.setString(1,member_id);
+	            pstmt.setString(2,member_email);
+	            rs=pstmt.executeQuery();
+
+	            if(rs.next()) {
+	               member_num=rs.getString("member_num");
+	            }
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         } finally {
+	            db.dbClose(rs,pstmt,conn);
+	         }
+	         return member_num;
+	      }
+
+	      
+	      public MemberDto updatePass(MemberDto dto) {
+	  		Connection conn=db.getConnection();
+	  		PreparedStatement pstmt=null;
+
+	  		String sql="update member set member_pass=? where member_num=?";
+
+	  		try {
+	  			pstmt=conn.prepareStatement(sql);
+	  			pstmt.setString(1,dto.getMember_pass());
+	  			pstmt.setString(2,dto.getMember_num());
+	  			pstmt.execute();
+	  		} catch (SQLException e) {
+	  			e.printStackTrace();
+	  		} finally {
+	  			db.dbClose(pstmt,conn);
+	  		}
+	  		return dto;
+	  	}
+		
+		
 }
