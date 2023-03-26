@@ -10,6 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/good_view.css">
 <style type="text/css">
 div.includewrap {
 	width: 100%;
@@ -192,40 +193,41 @@ $(function(){
 	</div>
 
 <script type="text/javascript">
-	//ajax로 최근에 읽은 상품 읽어오기
-	$.ajax({
-		type:"post",
-		dataType:"json",
-		url:"cookie/cookieGet.jsp",
-		success:function(){
-				var html = "";
-				
-				var img_arr = res.reverse();
-				
-				$.each(img_arr,function(i,ele){
-		            //console.log(ele.item);
-		            if(i==0&&i<res.length-1){
-		               html+="<div class = 'preshow preimg1'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
-		               html+="</div>";
-		            }else if(i==0){
-		               html+="<div class = 'preshow preimg1 preimg3'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
-		               html+="</div>";
-		            }else if(i<res.length-1){
-		               html+="<div class = 'prehide'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
-		               html+="</div>";
-		            }else{
-		               html+="<div class = 'prehide preimg3'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
-		               html+="</div>";
-		            }
-		         });
-		         
-		         $(".preimg_content").html(html);
-		}
-	});
+////ajax로 최근에 읽은 상품 읽어오기
+$.ajax({
+   type:"post",
+   dataType:"json",
+   url:"cookie/cookieGet.jsp",
+   success:function(res){
+      var html="";
+      console.log("실행2");
+      
+      var img_arr=res.reverse();
+      
+      $.each(img_arr,function(i,ele){
+         //console.log(ele.item);
+         if(i==0&&i<res.length-1){
+            html+="<div class = 'preshow preimg1'>";
+            html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+            html+="</div>";
+         }else if(i==0){
+            html+="<div class = 'preshow preimg1 preimg3'>";
+            html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+            html+="</div>";
+         }else if(i<res.length-1){
+            html+="<div class = 'prehide'>";
+            html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+            html+="</div>";
+         }else{
+            html+="<div class = 'prehide preimg3'>";
+            html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+            html+="</div>";
+         }
+      });
+      
+      $(".preimg_content").html(html);
+   }
+})
 
 	$(".btnup").click(function(){
 		var cur=$(".preshow");

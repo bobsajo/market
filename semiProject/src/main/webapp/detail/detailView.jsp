@@ -1,29 +1,38 @@
+<%@page import="java.util.Locale"%>
+<%@page import="data.dao.ReviewDao"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="data.dto.ItemDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.ItemDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-	  
-<link rel="stylesheet" href="../css/good_view.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="../review/review.css">
+<script type="text/javascript"></script>
+<link rel="stylesheet" href="css/good_view.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-<script src="../js/detail.js"></script>
-	
+  <script src="js/detailjs.js"></script>
+
 </head>
 <%
-	String item_num=request.getParameter("item_num");
-    ItemDao dao=new ItemDao();
-    ItemDto dto=dao.getItemData(item_num);
-   
+String item_num = request.getParameter("item_num");
+ItemDao dao = new ItemDao();
+ItemDto dto = dao.getItemData(item_num);
+ReviewDao rdao=new ReviewDao();
+int reviewSize=rdao.getTotalCount(item_num);
+NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
 %>
+
 <script type="text/javascript">
+
 $(function(){
 	   $.ajax({
 	      type:"get",
@@ -36,21 +45,353 @@ $(function(){
 	   })
 	})
 
-</script>	
+</script>
 
 <body>
-<!-- 시작 -->
+<!-- 과일 -->
+<script type="text/javascript">
+        $(function() {
+            $.ajax({
+                url:"detail/detail_img_encdoing_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        // console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                // console.log(chkImg.length);
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    // console.log(chkImg[i]);
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                           /* console.log(item.tip); */
+                            
+                            $(".tipimg").attr("src",item.tip_img);
+                            
+                            if(item.tip_img===""){
+                            	$(".goods_tip").hide();
+                            	
+                            	
+                            }else {
+                            	
+                            	var tipImg=item.tip_img;
+                            	var tipImg1=tipImg.split(",");
+                            	
+                            	for(var i=0; i<tipImg1.length; i++){
+                            		$(".tipImg").after("<img src='"+tipImg1[i]+"' style='width:100%'> <br><br><br>");
+                            	}
+                            		
+                            	
+                            }
+                            
+                            
+                         
+                            
+                            if(item.tip===""){
+                            	$(".tipcontext").hide();
+                            	
+                            	
+                            }else { 
+                            	
+                            	
+                            	var tipcontext=item.tip;
+                            	
+                           
+                            	var tipcontext1=tipcontext.split("\\n");
+                            	//console.log(tipcontext);
+                            	
+                            	for(var i=0; i<tipcontext1.length; i++){
+                            		
+                            									
+                            		 if(tipcontext1[i].startsWith("?",0)) {
+                            			 $(".tip_box .context").append("<ul>"+tipcontext1[i].substr(1)+"</ul>");
+                            		 }else {
+                            			 $(".tip_box .context").append("<h4>"+tipcontext1[i]+"</h4>");
+                            		 }
+                            	}
+                            }
+                      
+                        }
+                    });
+                }
+            });
+            
+            
+            <!-- 해산물 -->
+            
+            $.ajax({
+                url:"detail/detail_img2_encdoing_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        // console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                // console.log(chkImg.length);
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    // console.log(chkImg[i]);
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                           /* console.log(item.tip); */
+                            
+                            $(".tipimg").attr("src",item.tip_img);
+                            
+                            if(item.tip_img===""){
+                            	$(".goods_tip").hide();
+                            	
+                            	
+                            }else {
+                            	
+                            	var tipImg=item.tip_img;
+                            	var tipImg1=tipImg.split(",");
+                            	
+                            	for(var i=0; i<tipImg1.length; i++){
+                            		$(".tipImg").after("<img src='"+tipImg1[i]+"' style='width:100%'> <br><br><br>");
+                            	}
+                            }
+                            if(item.tip===""){
+                            	$(".tipcontext").hide();
+                            }else { 
+                            	var tipcontext=item.tip;
+                            	var tipcontext1=tipcontext.split("\\n");
+                            	//console.log(tipcontext);
+                            	
+                            	for(var i=0; i<tipcontext1.length; i++){
+                            						
+                            		 if(tipcontext1[i].startsWith("?",0)) {
+                            			 $(".tip_box .context").append("<ul>"+tipcontext1[i].substr(1)+"</ul>");
+                            		 }else {
+                            			 $(".tip_box .context").append("<h4>"+tipcontext1[i]+"</h4>");
+                            		 }
+                            	}
+                            }
+                        }
+                    });
+                }
+            });
+            
+            
+ <!-- 육류 -->
+            
+            $.ajax({
+                url:"detail/detail_img3_encoding_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                // console.log(chkImg.length);
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    // console.log(chkImg[i]);
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                           /* console.log(item.tip); */
+                            
+                            $(".tipimg").attr("src",item.tip_img);
+                            
+                            if(item.tip_img===""){
+                            	$(".goods_tip").hide();
+                            	
+                            }else {
+                            	
+                            	var tipImg=item.tip_img;
+                            	var tipImg1=tipImg.split(",");
+                            	
+                            	for(var i=0; i<tipImg1.length; i++){
+                            		$(".tipImg").after("<img src='"+tipImg1[i]+"' style='width:100%'> <br><br><br>");
+                            	}
+                            		
+                            }
+                            if(item.tip===""){
+                            	$(".tipcontext").hide();
+                            }else { 
+                            	var tipcontext=item.tip;
+                            	var tipcontext1=tipcontext.split("\\n");
+                            	//console.log(tipcontext);
+                            	
+                            	for(var i=0; i<tipcontext1.length; i++){				
+                            		 if(tipcontext1[i].startsWith("?",0)) {
+                            			 $(".tip_box .context").append("<ul>"+tipcontext1[i].substr(1)+"</ul>");
+                            		 }else {
+                            			 $(".tip_box .context").append("<h4>"+tipcontext1[i]+"</h4>");
+                            		 }
+                            	}
+                            }
+                        }
+                    });
+                }
+            });
+            
+            
+            
+            
+ <!-- 베이커리 -->
+            
+            $.ajax({
+                url:"detail/detail_img4_encoding_utf8.json",
+                dataType:"json",
+                type:"post",
+                success:function(res) {
+                    /*var s=res.title+"<br>";
+                    $(".words").html(s);*/
+                    $.each(res,function(idx,item) {
+                        var resNum=item.num;
+                        console.log(resNum);
+                        if(resNum==<%=item_num%>) {
+                            $(".desImg").attr("src",item.description_img);
+                            $(".itemName").append(item.item_name);
+                            $(".words").text(item.title);
+                            if(item.check_point_img==="") {
+                                $(".goods_point").hide();
+                            } else {
+                                var checkPointImg=item.check_point_img;
+                                var chkImg=checkPointImg.split(",");
+                                // console.log(chkImg.length);
+                                for(var i=0; i<chkImg.length; i++) {
+                                    $(".picChk").after("<img src='"+chkImg[i]+"'><br><br><br>");
+                                    // console.log(chkImg[i]);
+                                }
+                            }
+                            if(item.detail_img==="") {
+                                $(".detailSize").hide();
+                            } else {
+                                var detailSizeImg=item.detail_img;
+                                var detailImg=detailSizeImg.split(",");
+                                /*console.log(chkImg.length);*/
+                                for(var i=0; i<detailImg.length; i++) {
+                                    $(".detailSizeImg").after("<img src='"+detailImg[i]+"'><br><br><br>");
+                                    /*console.log(chkImg[i]);*/
+                                }
+                            }
+                           /* console.log(item.tip); */
+                            
+                            $(".tipimg").attr("src",item.tip_img);
+                            
+                            if(item.tip_img===""){
+                            	$(".goods_tip").hide();
+                            	
+                            }else {
+                            	
+                            	var tipImg=item.tip_img;
+                            	var tipImg1=tipImg.split(",");
+                            	
+                            	for(var i=0; i<tipImg1.length; i++){
+                            		$(".tipImg").after("<img src='"+tipImg1[i]+"' style='width:100%'> <br><br><br>");
+                            	}
+                            		
+                            }
+                            if(item.tip===""){
+                            	$(".tipcontext").hide();
+                            }else { 
+                            	var tipcontext=item.tip;
+                            	var tipcontext1=tipcontext.split("\\n");
+                            	//console.log(tipcontext);
+                            	
+                            	for(var i=0; i<tipcontext1.length; i++){				
+                            		 if(tipcontext1[i].startsWith("?",0)) {
+                            			 $(".tip_box .context").append("<ul>"+tipcontext1[i].substr(1)+"</ul>");
+                            		 }else {
+                            			 $(".tip_box .context").append("<h4>"+tipcontext1[i]+"</h4>");
+                            		 }
+                            	}
+                            }
+                        }
+                    });
+                }
+            });
+        });    
+    </script>
+
+
+
+
+
+	<!-- 시작 -->
 <div id="container" class="container">
-		
+        
+
         <div id="main">
             <div id="content" style="opacity: 1;">
                 <div class="section_view">
                     <div id="sectionView">
                         <div class="inner_view">
                             <div class="thumb" >
-                                <img src="../save-info-img/<%=dto.getItem_img()%>" alt="" class="bg">
+                                <img src="save-info-img/<%=dto.getItem_img()%>" alt="" class="bg">
+										
+										
                             </div>
                             <p class="goods_name">
+                             
                                
                                 <strong class="name"><%=dto.getItem_name() %></strong>
                                 <span class="short_desc"><%=dto.getItem_sub_title() %></span>
@@ -60,15 +401,22 @@ $(function(){
                                     <span class="dc">
                                       
                                         <span class="dc_price">
-                                            <input type="hidden" value=0><%=dto.getItem_price()%>
+                                          
+                                         
+                                            <input type="hidden" value="<%=dto.getItem_price()%>" class="price1">
+                                               <%=nf.format(dto.getItem_price()) %>
+                                            
                                         </span>
                                         <span class="won">원</span>
                                     </span>
+                                    
                                 </span>
+                                
                             </p>
                             <div class="goods_info">
                            
                                 <dl class="list fst">
+                                
                                     <dt class="tit">판매단위</dt>
                                     <dd class="desc"><%=dto.getItem_sell_unit() %></dd>
                                 </dl>
@@ -127,19 +475,19 @@ $(function(){
                                             <div class="price">
                                                 <strong class="tit">총 상품금액 :</strong>
                                                 <span class="sum">
-                                                    <span class="num"><%=dto.getItem_price() %></span>
-                                                    <span class="won">원</span>
+                                                    <span class="num"><%=nf.format(dto.getItem_price()) %></span>
+                                                    <span class="won"></span>
                                                 </span>
                                             </div>
                                             
                                         </div>
                                     </div>
                                     <div class="group_btn off">
-                                        <div class="view_function" >
-                                            <button type="button" class="btn btn_save"><img alt="찜 목록" src="/image/heart.png " style="width: 30px; margin-bottom: 10px ;"  ></button>
+                                        <div class="view_function">
+                                          <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="image/redheart.png "  ></a>
                                         </div>
                                         <span class="btn_type1">
-                                            <button type="submit" class="txt_type" style="background-color: #4B62D3;">장바구니 담기</button>
+                                            <button type="submit" class="txt_type" style="background-color: #4B62D3;" onclick="">장바구니 담기</button>
                                         </span>
                                     </div>
                                 </div>
@@ -151,7 +499,7 @@ $(function(){
                    
 
                     <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation">
-                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%;" >
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; ">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
                             </li>
@@ -162,7 +510,7 @@ $(function(){
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                          
@@ -171,17 +519,15 @@ $(function(){
                             <div class="goods_wrap">
                                 <div class="goods_intro">
                                     <div class="pic">
-                                        <img src="../save-img/<%=dto.getItem_img()%>" style="width:1010px; height:671px;">
+                                        <img src="" style="width:1010px; height:671px;" class="desImg">
                                     </div>
                                     <div class="context last">
-                                        <h3>
+                                        <h3 class="itemName">
                                             <small>
-                                                제목 부연설명
+                                                <%=dto.getItem_sub_title()%>
                                             </small>
-                                            제목
                                         </h3>
                                         <p class="words">
-                                            샬라샬라 설명
                                         </p>
 
                                     </div>
@@ -191,8 +537,8 @@ $(function(){
                                         <span>새벽마켓's Check Point</span>
                                     </h3>
                                     <div class="context last">
-                                        <div class="pic">
-                                            <img src="">
+                                        <div class="picChk"><%--
+                                            <img src="" class="checkImg">--%>
                                         </div>
                                     </div>
                                 </div>
@@ -203,17 +549,19 @@ $(function(){
                                     <div class="tip_box">
                                         <div class="context last">
                                             <div class="pic">
-                                                <img src="">
+                                                <img src="" class="tipImg">
                                             </div>
+                                            
                                         </div>
+                                         
+                                            
                                     </div>
                                 </div>
-                                <div class="goods_pick">
+                              <%--  <div class="goods_pick">
                                     <h3>
-                                        <span>새벽마켓`s Pick</span>
+                                        <span>새벽마켓`s Tip</span>
                                     </h3>
-
-                                    <div class="context last">
+                                    <div class="context last" style="background-color: yellow;">
                                         <p class="words">
                                             <strong class="sub_tit">
                                                 <span class="option_tit">상품명</span>
@@ -231,69 +579,22 @@ $(function(){
                                             : 조리법샬라샬라
                                         </p>
                                     </div>
-                                </div>
-                                <div class="goods_tip">
-                                    <h3>
-                                        <span>Kurly's Tip</span>
-                                    </h3>
-                                    <div class="tip_box">
-                                        <div class="context">
-                                            <div class="pic">
-                                                <img src="">
-                                            </div>
-                                            <p class="words">
-                                                <strong>요리 어떻게하는지 적는칸</strong>
-                                                
-                                                자세한설명 적는칸
-                                                
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="about_brand">
-                                    <h3>
-                                        <span>About Brand</span>
-                                    </h3>
+                                </div>--%>
+                                <div class="goods_tip detailSize">
                                     <div class="context last">
                                         <div class="context_about">
                                             <div class="pic">
-                                                <img src="">
+                                                <img src="" class="detailSizeImg">
                                             </div>
-                                            <p class="words">
-                                                
-                                              브랜드 설명 적는칸
-                                            </p>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
-                            </li>
-                            
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-infomation" class="goods-view-infomation-tab-anchor">상세정보</a>
-                            </li>
-                            <li class="goods-view-infomation-tab">
-                                <a href="#goods-review" class="goods-view-infomation-tab-anchor">
-                                    고객후기
-                                    <span class="count_review">(0)</span>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                        <div class="goods-view-infomation-content" id="goods-image">
-                            <div id="goods_pi">
-                                <p class="pic">
-                                    <img src="">
-                                </p>
-                            </div>
+
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%;">
                             <li class="goods-view-infomation-tab">
-                                <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
+                                <a href="#goods-description" class="goods-view-infomation-tab-anchor" >상품설명</a>
                             </li>
                            
                             <li class="goods-view-infomation-tab">
@@ -302,19 +603,19 @@ $(function(){
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                             
                         </ul>
-                        <div class="goods-view-infomation-content" id="goods-infomation">
-                            <table class="extra-information">
+                        <div class="goods-view-infomation-content" id="goods-infomation" >
+                            <table class="extra-information" style="margin-left: 10%;">
                                 <tbody>
                                     <tr>
                                         <th scope="row" class="goods-view-form-table-heading">포장단위별 용량(중량), 수량, 크기</th>
                                         <td><%=dto.getItem_weight() %></td>
                                         <th scope="row" class="goods-view-form-table-heading">관련법상 표시사항</th>
-                                        <td>GAP, 무농약 인증</td>
+                                        <td>제품 별도 라벨 표기 참조</td>
                                     </tr>
                                     <tr>
                                         <th scope="row" class="goods-view-form-table-heading">생산자, 수입품의 경우 수입자를 함께 표기</th>
@@ -343,7 +644,7 @@ $(function(){
                                         <div class="why-kurly">
                                             <div class="col">
                                                 <div class="icon">
-                                                    <img src="../detailimg/check.png">
+                                                    <img src="detailimg/check.png">
                                                 </div>
                                                 <div class="info">
                                                     <div class="title">깐깐한 상품위원회</div>
@@ -362,7 +663,7 @@ $(function(){
                                             </div>
                                             <div class="col">
                                                 <div class="icon">
-                                                    <img src="../detailimg/only.png" >
+                                                    <img src="detailimg/only.png" >
                                                 </div>
                                                 <div class="info">
                                                     <div class="title">차별화된 상품</div>
@@ -384,7 +685,7 @@ $(function(){
                                             </div>
                                             <div class="col">
                                                 <div class="icon">
-                                                    <img src="../detailimg/truck.png">
+                                                    <img src="detailimg/truck.png">
                                                 </div>
                                                 <div class="info">
                                                     <div class="title">신선한 풀콜드체인 배송</div>
@@ -405,7 +706,7 @@ $(function(){
                                             </div>
                                             <div class="col">
                                                 <div class="icon">
-                                                    <img src="../detailimg/price.png">
+                                                    <img src="detailimg/price.png">
                                                 </div>
                                                 <div class="info">
                                                     <div class="title">고객, 생산자를 위한 최선의 가격</div>
@@ -426,7 +727,7 @@ $(function(){
                                             </div>
                                             <div class="col">
                                                 <div class="icon">
-                                                    <img src="../detailimg/eco.png">
+                                                    <img src="detailimg/eco.png">
                                                 </div>
                                                 <div class="info">
                                                     <div class="title">환경을 생각하는 지속 가능한 유통</div>
@@ -452,7 +753,7 @@ $(function(){
                             </div>
                             <div class="happy_center fst">
                                 <div class="happy">
-                                    <h4 class="tit">고객행복센터</h4>
+                                    <h4 class="tit"  style="color:#4B62D3;">고객행복센터</h4>
                                     <p class="sub">
                                         <span class="emph">궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요?</span>
                                         <span class="bar"></span>
@@ -462,16 +763,19 @@ $(function(){
                                 <ul class="list">
                                     <li>
                                         <div  >
-                                        <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|</b>
-                                            전화 문의 
+                                        <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|&nbsp;전화 문의 </b>
+                                         
                                         </div>
-                                        <div class="sub">오전 7시~오후 7시 (연중무휴)</div>
+                                        <div class="sub">오전 8시~오후 4시 (평일) <br>
+                                        (점심시간 오후 12시 - 오후 1시)</div>
                                     </li>
                                     <li style="list-style: none;">
-                                        <div><b style="font-weight:bolder; color:#4B62D3; font-size:14pt;" >|</b>
-                                            카카오톡 문의
+                                        <div><b style="font-weight:bolder; color:#4B62D3; font-size:14pt;" >|&nbsp;카카오톡 문의</b>
+                                       
                                         </div>
-                                        <div class="sub">오전 7시~오후 7시 (연중무휴)</div>
+                                        <div class="sub">오전 8시~오후 4시 (평일)
+                                        <br>
+                                        (점심시간 오후 12시 - 오후 1시)</div>
                                         <div class="expend" style="">
                                             카카오톡에서 '새벽마켓'를 검색 후
                                             <br>
@@ -482,7 +786,7 @@ $(function(){
                                     </li>
                                     <li style="list-style: none;">
                                         <div>
-                                           <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|</b> 홈페이지 문의
+                                           <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|&nbsp;홈페이지 문의</b> 
                                         </div>
                                         <div class="sub">
                                             24시간 접수 가능
@@ -497,11 +801,11 @@ $(function(){
                             </div>
                             <div class="happy_center order">
                                 <div class="happy unfold">
-                                    <h4 class="tit">주문 취소 안내</h4>
-                                    <ul class="sub" style="list-style: none;">
+                                    <h4 class="tit" style="color:#4B62D3; " >주문 취소 안내</h4>
+                                    <ul class="sub" style="list-style: none; position:s relative; bottom: -10px;" >
                                         <li >
                                             <strong class="emph" >[입금 확인] 단계</strong>                                            
-                                            마이컬리 > 주문 내역 상세페이지에서 직접 취소하실 수 있습니다.
+                                            마이마켓 > 주문 내역 상세페이지에서 직접 취소하실 수 있습니다.
                                         </li>
                                         <li>
                                             <strong class="emph">[입금 확인] 이후 단계</strong>                                                                                        
@@ -517,13 +821,13 @@ $(function(){
                             </div>
                             <div class="happy_center lst">
                                 <div class="happy unfold">
-                                    <h4 class="tit">교환 및 환불 안내</h4>
-                                    <p class="sub">
+                                    <h4 class="tit" style="color:#4B62D3;">교환 및 환불 안내</h4>
+                                    <p class="sub" style="position: relative; bottom: -10px;" >
                                         고객님의 단순 변심으로 인한 반품은 어려울 수 있으니 양해 부탁드립니다.</p>
                                 </div>
                             </div>
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%;">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
                             </li>
@@ -534,14 +838,14 @@ $(function(){
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-review" class="goods-view-infomation-tab-anchor __active">
                                     고객후기
-                                    <span class="count_review">(0)</span>
+                                    <span class="count_review">(<%=reviewSize%>)</span>
                                 </a>
                             </li>
                             
                         </ul>
                         <div class="goods-view-infomation-content" id="goods-review"> <!-- 아래 주소창에 good_review_list.html url 넣어주면 됩니당-->
-                             <iframe src="../review/reviewList.jsp?item_num=<%=item_num %>" id="inreview" frameborder="0" class="goods-view-infomation-board" height="4000"></iframe>
-                            <%-- <jsp:include page="../review/reviewList.jsp?item_num=<%=item_num %>"></jsp:include> --%>
+                             <iframe src="review/reviewList.jsp?item_num=<%=item_num %>" id="inreview" frameborder="0" class="goods-view-infomation-board" width="100%" height="1000"></iframe>
+                            <%-- <jsp:include page="review/reviewList.jsp?item_num=<%=item_num %>"></jsp:include> --%>
                         </div>
                         
                     </div>
@@ -549,7 +853,7 @@ $(function(){
             </div>
 
         </div>
+        </div>
 
-    </div>
 </body>
 </html>

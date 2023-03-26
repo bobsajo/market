@@ -1,5 +1,48 @@
 @charset "EUC-KR";
 
+a{
+  text-decoration:none; color:inherit; cursor: pointer;
+}
+ .view_function .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw * (60 / 1920));
+    height: calc(100vw * (50 / 1920));
+	float:right;
+    border: solid 2px #eaeaea;
+    background-color: #fff;
+    margin-right: 10px;
+    border: 1px solid #4B62D3;
+}
+ .view_function{
+ 
+ }
+
+
+.icon.heart img{
+    width: calc(100vw * (30 / 1920));
+    height: calc(100vw * (30 / 1920));
+}
+
+.icon.heart.fas{
+  color:red
+}
+.heart{
+    transform-origin: center;
+}
+.heart.active img{
+    animation: animateHeart .3s linear forwards;
+}
+
+@keyframes animateHeart{
+    0%{transform:scale(.2);}
+    40%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+  }
+  
+  
+  
 #header, #container, #content {
     position: relative;
 }
@@ -44,18 +87,6 @@
     position: relative;
 }
 
-#sectionView #btnShare {
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    border: 0;
-    background: url(https://res.kurly.com/mobile/service/goodsview/1910/ico_view_sns.png) no-repeat 50% 50%;
-    font-size: 0;
-    text-indent: -9999px;
-}
 
 
 #sectionView .goods_name .name {
@@ -256,7 +287,7 @@
 #cartPut .cart_option .list .count {
     overflow: hidden;
     float: left;
-    width: 88px;
+    width: 90px;
     height: 30px;
     border: 1px solid #dddfe1;
     border-radius: 3px;
@@ -390,16 +421,22 @@
     height: 56px;
     margin-right: 12px;
     padding-bottom: 2px;
-    border: 1px solid #5f0080;
+    border: 3px solid #4B62D3;
     border-radius: 3px;
     background: #fff;
     font-weight: 700;
     font-size: 16px;
-    color: #5f0080;
     line-height: 52px;
     letter-spacing: -.1px;
     text-align: center;
+   
 }
+#cartPut .cart_option .view_function .btn :focus{
+   background: yellow;
+
+}
+
+
 
 #cartPut .cart_option .group_btn .btn_type1 {
     width: auto;
@@ -422,8 +459,8 @@
 }
 
 .btn_type1 {
-    border: 1px solid #5f0081;
-    background-color: #5f0080;
+    border: 1px solid white;
+    background-color:white;
 }
 
 .btn_type1, .btn_type2 {
@@ -602,12 +639,13 @@ h3 {
 
 .goods-view-infomation {
     margin-top: 50px;
+    
 }
 
 .goods-view-infomation-tab-group {
-    border-bottom: 1px solid #bfbfbf;
-    float:left;
+    border-bottom: 10px solid yellow;
     list-style: none;
+    float: left;
 }
 
 .goods-view-infomation-tab {
@@ -651,6 +689,7 @@ h3 {
     display: block;
     content: '';
     clear: both;
+    
 }
 
 
@@ -1102,7 +1141,7 @@ table.extra-information th {
 }
 
 .whykurly_area .why-kurly .col .info .title {
-    color: #5f0080;
+    color:#4B62D3;
     font-weight: 600;
     display: block;
     font-size: 18px;
@@ -1260,7 +1299,7 @@ table.extra-information th {
 }
 
 .inp{
-    
+    text-align:center;
     position: relative;
     left: 8px;
     
