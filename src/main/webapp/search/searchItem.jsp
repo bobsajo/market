@@ -11,7 +11,7 @@
 
     SearchDao dao = new SearchDao();
     String searchText=request.getParameter("searchText");
-	/* System.out.println(searchText); */
+	System.out.println(searchText);
 
     //검색 메소드에 사용자가 입력한 값 넣기
     ArrayList<SearchDto> list = dao.getSearch(searchText);
@@ -35,7 +35,7 @@
     for (int i = 0; i < list.size(); i++) {
 %>
     <!--사진과 타이틀 중 아무거나 클릭하면 상세 페이지로 넘어가도록-->
-    <a href="index.jsp?itemNum=<%=list.get(i).getItem_num()%>">
+    <a href="index.jsp?main=detail/detailView.jsp?item_num=<%=list.get(i).getItem_num()%>">
     <tr>
         <!--현재 상품 이미지가 안들어가 있어서 null로 떠요-->
         <td><%=list.get(i).getItem_img()%></td>

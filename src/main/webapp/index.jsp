@@ -66,6 +66,9 @@ div.main{
 </style>
 </head>
 <%
+    request.setCharacterEncoding("utf-8");
+    response.setCharacterEncoding("utf-8");
+
    String mainPage = "layout/main.jsp";
 
    if(request.getParameter("main")!=null)

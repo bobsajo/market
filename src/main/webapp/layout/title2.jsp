@@ -103,6 +103,8 @@
 <%
  //프로젝트 경로구하기
  String root=request.getContextPath();
+ request.setCharacterEncoding("utf-8");
+ response.setCharacterEncoding("utf-8");
 %>
 <body>
 <div class="title2">
@@ -138,7 +140,7 @@
 <div class="search-wrap">
 	<div class="header-search">
 		<a class="logo" onclick="location.href='index.jsp'"> <img alt="" src="image/uselogo.png"></a>
-		<form action="search/searchItem.jsp" method="post" name="search">
+		<form action="index.jsp?main=search/searchItem.jsp" method="post" name="search">
 			<div class="search">
 				<input type="text" placeholder="검색어 입력" name="searchText">
 				<button type="submit" style="border: 0px; background-color: white;">
