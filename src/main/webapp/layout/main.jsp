@@ -208,6 +208,10 @@
 
         .timeSale-wrap {
             display: inline-flex;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
         }
         .saleItem {
             margin-right: 18px;
@@ -422,7 +426,7 @@
                             tdao.updateSalePrice(price,arr);
                     %>
                     <div class="saleItem">
-                        <a href="index.jsp?main=detail/detailView.jsp?item_num=<%=idto.getItem_num()%>" style="color: black;"><img src="../save-info-img/<%=idto.getItem_img()%>" width="275">
+                        <a href="index.jsp?main=detail/detailView.jsp?item_num=<%=arr%>" style="color: black;"><img src="../save-info-img/<%=idto.getItem_img()%>" width="275">
                             <h5><%=idto.getItem_name()%></h5>
                             <h4><span style="color: orangered; white-space: nowrap;"><%=randomPercent%>%&ensp;</span><%=nf.format(tdao.getPrice(arr))%>원&nbsp;<span style="color: gray; font-size: small;"><del><%=nf.format(dao.getItemPrice(arr))%>원</del></span></h4>
                         </a>
@@ -848,9 +852,7 @@
         $()
         $(".add").click(function(){
             //임시로그인
-            <%
-            session.setAttribute("myid", "yezi");
-            %>
+
             var item_num = $(".add").val();
             var cart_cnt = $(".cart_cnt").text();
             $.ajax({

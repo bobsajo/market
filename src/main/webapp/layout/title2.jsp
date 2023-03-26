@@ -94,6 +94,9 @@
 		width: 30px;
 		height: 30px;
 	}
+	.heart {
+		cursor: pointer;
+	}
 </style>
 
 </head>
@@ -115,6 +118,7 @@
      String myid=(String)session.getAttribute("myid");
      MemberDao dao=new MemberDao();
      String name=dao.getName(myid);
+	 String member_num=dao.getMemberNum(myid);
      
      if(loginok==null){%>
 
@@ -147,7 +151,7 @@
 	<div class="icon-wrap">
 
 			<img class="heart" alt="" src="image/heart.png"
-				onclick="" style="margin-top: 10px; margin-right: 10px;">
+				style="margin-top: 10px; margin-right: 10px;">
 
 			<!-- 카트 -->
 			<div class="cart">
@@ -167,7 +171,16 @@
 </div>
 
 </div>
-
+<script type="text/javascript">
+	$(".heart").click(function() {
+		<% if(loginok!=null) { %>
+			location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
+		<% } else{ %>
+			alert("회원 전용 서비스입니다. 로그인 해주세요.");
+			location.href='index.jsp?main=login/loginForm.jsp';
+		<% } %>
+	});
+</script>
 
 </body>
 </html>

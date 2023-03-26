@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="data.dao.ItemDao"%>
 <%@ page import="data.dao.ReviewDao" %>
+<%@ page import="data.dao.MemberDao" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -20,6 +21,13 @@
     <script src="../js/detail.js"></script>
 </head>
 <%
+    MemberDao mdao=new MemberDao();
+    //로그인 상태와 아이디 가져오기
+    String loginok=(String)session.getAttribute("loginok");
+    String myid=(String)session.getAttribute("myid");
+
+    String member_num=mdao.getMemberNum(myid);
+
 	String item_num=request.getParameter("item_num");
     ItemDao dao=new ItemDao();
     ItemDto dto=dao.getItemData(item_num);
@@ -123,6 +131,11 @@
                     });
                 }
             });
+
+            $(".btn_save").click(function() {
+                location.href='../jjim/jjimInsert.jsp?item_num=<%=item_num%>&member_num=<%=member_num%>';
+                alert("찜 목록에 추가 되었습니다.");
+            });
         });
     </script>
 <!-- 시작 -->
@@ -151,7 +164,15 @@
                                         <span class="dc_price">
                                           
                                          
-                                            <input type="hidden" value=0>    <%=dto.getItem_price()%>
+                                            <input type="hidden" value=0>
+                                            <%
+                                                if(!dao.itemIsSale(dto.getItem_num())) { %>
+                                                    <%=dto.getItem_price()%>
+                                               <% } else { %>
+                                                    <%=dao.getSalePrice(dto.getItem_num())%>
+                                              <% }
+                                            %>
+
                                             
                                         </span>
                                         <span class="won">원</span>
@@ -222,7 +243,14 @@
                                             <div class="price">
                                                 <strong class="tit">총 상품금액 :</strong>
                                                 <span class="sum">
-                                                    <span class="num"><%=dto.getItem_price() %></span>
+                                                    <span class="num">
+                                                        <%
+                                                            if(!dao.itemIsSale(dto.getItem_num())) { %>
+                                                                <%=dto.getItem_price()%>
+                                                            <% } else { %>
+                                                                <%=dao.getSalePrice(dto.getItem_num())%>
+                                                        <% } %>
+                                                    </span>
                                                     <span class="won">원</span>
                                                 </span>
                                             </div>
@@ -594,30 +622,6 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
 
     </div>
 </div>

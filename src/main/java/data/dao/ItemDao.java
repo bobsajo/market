@@ -276,4 +276,66 @@ public class ItemDao {
 		}
 		return item_price;
 	}
+
+	//해당 아이템이 세일 목록에 해당하는지 확인
+	public boolean itemIsSale(String item_num) {
+		boolean issale=false;
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select i.item_num from item i,timesale t where i.item_num=t.item_num and i.item_num=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1, item_num);
+			rs=pstmt.executeQuery();
+
+			if(rs.next()){
+				//해당 아이템이 세일하는 아이템이라면
+				issale=true;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return issale;
+	}
+
+
+	//세일값 가져오기
+	public int getSalePrice(String item_num) {
+		int sale_price=0;
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+
+		String sql="select sale_price from timesale where item_num=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1, item_num);
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				sale_price=rs.getInt("sale_price");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return sale_price;
+	}
 }

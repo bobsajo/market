@@ -86,16 +86,15 @@ public class JjimDao {
         return dto;
     }
 
-    public void insertJjim(String jjim_num, String member_num, String item_num) {
+    public void insertJjim(String member_num, String item_num) {
         Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
-        String sql = "insert into jjim values(?,?,?)";
+        String sql = "insert into jjim values(null,?,?)";
 
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, jjim_num);
-            pstmt.setString(2, member_num);
-            pstmt.setString(3, item_num);
+            pstmt.setString(1, member_num);
+            pstmt.setString(2, item_num);
             pstmt.execute();
         } catch (SQLException e) {
             e.getMessage();
