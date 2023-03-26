@@ -7454,3 +7454,12 @@ org.eclipse.core.commands.common.NotDefinedException: Cannot get the parent iden
 
 !ENTRY org.eclipse.lsp4e 1 0 2023-03-23 16:00:52.396
 !MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-23 17:44:09.591
+!MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-23 17:44:10.156
+!MESSAGE [Info]	[lspserver] Using Typescript version (bundled) 4.9.3 from path "C:\Users\Seo\.p2\pool\plugins\org.eclipse.wildwebdeveloper_1.0.1.202211171559\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-24 12:24:51.308
+!MESSAGE [Info]	ESLint server running in node v18.12.1

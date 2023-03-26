@@ -378,6 +378,7 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
 										
                             </div>
                             <p class="goods_name">
+                             
                                
                                 <strong class="name"><%=dto.getItem_name() %></strong>
                                 <span class="short_desc"><%=dto.getItem_sub_title() %></span>
@@ -469,8 +470,8 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                                         </div>
                                     </div>
                                     <div class="group_btn off">
-                                        <div class="view_function" >
-                                            <button  type="button" class="btn btn_save"><img alt="찜 목록" src="/image/heart.png " style="width: 30px; margin-bottom: 10px ;"  ></button>
+                                        <div class="view_function">
+                                          <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="/image/heart.png "  ></a>
                                         </div>
                                         <span class="btn_type1">
                                             <button type="submit" class="txt_type" style="background-color: #4B62D3;" onclick="">장바구니 담기</button>
@@ -485,7 +486,7 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                    
 
                     <div class="goods-view-infomation detail_wrap_outer" id="goods-view-infomation" style="margin-left: 10%;">
-                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; margin-bottom: 5%;">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; ">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor __active">상품설명</a>
                             </li>
@@ -602,7 +603,7 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                                         <th scope="row" class="goods-view-form-table-heading">포장단위별 용량(중량), 수량, 크기</th>
                                         <td><%=dto.getItem_weight() %></td>
                                         <th scope="row" class="goods-view-form-table-heading">관련법상 표시사항</th>
-                                        <td>GAP, 무농약 인증</td>
+                                        <td>제품 별도 라벨 표기 참조</td>
                                     </tr>
                                     <tr>
                                         <th scope="row" class="goods-view-form-table-heading">생산자, 수입품의 경우 수입자를 함께 표기</th>
@@ -740,7 +741,7 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                             </div>
                             <div class="happy_center fst">
                                 <div class="happy">
-                                    <h4 class="tit">고객행복센터</h4>
+                                    <h4 class="tit"  style="color:#4B62D3;">고객행복센터</h4>
                                     <p class="sub">
                                         <span class="emph">궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요?</span>
                                         <span class="bar"></span>
@@ -750,16 +751,19 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                                 <ul class="list">
                                     <li>
                                         <div  >
-                                        <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|</b>
-                                            전화 문의 
+                                        <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|&nbsp;전화 문의 </b>
+                                         
                                         </div>
-                                        <div class="sub">오전 7시~오후 7시 (연중무휴)</div>
+                                        <div class="sub">오전 8시~오후 4시 (평일) <br>
+                                        (점심시간 오후 12시 - 오후 1시)</div>
                                     </li>
                                     <li style="list-style: none;">
-                                        <div><b style="font-weight:bolder; color:#4B62D3; font-size:14pt;" >|</b>
-                                            카카오톡 문의
+                                        <div><b style="font-weight:bolder; color:#4B62D3; font-size:14pt;" >|&nbsp;카카오톡 문의</b>
+                                       
                                         </div>
-                                        <div class="sub">오전 7시~오후 7시 (연중무휴)</div>
+                                        <div class="sub">오전 8시~오후 4시 (평일)
+                                        <br>
+                                        (점심시간 오후 12시 - 오후 1시)</div>
                                         <div class="expend" style="">
                                             카카오톡에서 '새벽마켓'를 검색 후
                                             <br>
@@ -770,7 +774,7 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                                     </li>
                                     <li style="list-style: none;">
                                         <div>
-                                           <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|</b> 홈페이지 문의
+                                           <b style="font-weight:bolder; color:#4B62D3; font-size:14pt;">|&nbsp;홈페이지 문의</b> 
                                         </div>
                                         <div class="sub">
                                             24시간 접수 가능
@@ -785,11 +789,11 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                             </div>
                             <div class="happy_center order">
                                 <div class="happy unfold">
-                                    <h4 class="tit">주문 취소 안내</h4>
-                                    <ul class="sub" style="list-style: none;">
+                                    <h4 class="tit" style="color:#4B62D3; " >주문 취소 안내</h4>
+                                    <ul class="sub" style="list-style: none; position:s relative; bottom: -10px;" >
                                         <li >
                                             <strong class="emph" >[입금 확인] 단계</strong>                                            
-                                            마이컬리 > 주문 내역 상세페이지에서 직접 취소하실 수 있습니다.
+                                            마이마켓 > 주문 내역 상세페이지에서 직접 취소하실 수 있습니다.
                                         </li>
                                         <li>
                                             <strong class="emph">[입금 확인] 이후 단계</strong>                                                                                        
@@ -805,8 +809,8 @@ NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
                             </div>
                             <div class="happy_center lst">
                                 <div class="happy unfold">
-                                    <h4 class="tit">교환 및 환불 안내</h4>
-                                    <p class="sub">
+                                    <h4 class="tit" style="color:#4B62D3;">교환 및 환불 안내</h4>
+                                    <p class="sub" style="position: relative; bottom: -10px;" >
                                         고객님의 단순 변심으로 인한 반품은 어려울 수 있으니 양해 부탁드립니다.</p>
                                 </div>
                             </div>

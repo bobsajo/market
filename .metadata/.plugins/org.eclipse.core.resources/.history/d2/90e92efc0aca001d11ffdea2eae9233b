@@ -1,0 +1,74 @@
+@charset "EUC-KR";
+
+
+
+.jhr1{
+	width:90%;
+	border: solid 1px black; 
+	margin-left: 5%;
+
+}
+.jtitle{
+	margin-top:5%;
+	font-size: 2em;
+	margin-left: 10%;	
+}
+
+
+
+ .jbtn{
+	float: right;
+	margin-right: 10%;
+	margin-top:-100px;
+	
+
+}
+.jbtn button{
+	width: 200px;
+ 	height: 50px;
+ 	background-color: #4B62D3;
+ 	border: 0;
+ 	font-size: 20px; 
+ 	font-weight: bold;
+ 	color: white;
+ 		float: right;
+}
+ .jdel {
+	margin-bottom: 5px;
+}
+.jitem-wrap {
+	margin-left: 100px;
+	font-size: 1.5em;
+	width: 100%;
+	line-height: 40px;
+}
+.jitem{
+	
+}
+
+
+
+
+/* ********∆‰¿Ã¬°******** */
+
+.pagination1 {
+	display: inline-block;
+	display: flex;
+	justify-content: center;
+}
+
+.pagination1 a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.pagination1 a.active {
+	background-color: #4B62D3;
+	color: white;
+	border-radius: 5px;
+}
+
+.pagination1 a:hover:not(.active) {background-color: #ddd;}

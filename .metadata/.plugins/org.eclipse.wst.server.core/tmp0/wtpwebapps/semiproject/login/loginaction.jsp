@@ -1,45 +1,37 @@
 <%@page import="data.Dao.MemberDao"%>
+<%@page import="data.Dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Insert title here</title>
-<link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
-        rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-</head>
-<body>
 <%
-	String id=request.getParameter("id");
-	String pass=request.getParameter("pass");
-	String cbsave=request.getParameter("cbsave");  //체크안하면 null
+
+//아이디와 비밀번호 받아오기
+String id=request.getParameter("id");
+String pass=request.getParameter("pass");
+String item_num=request.getParameter("item_num");
+System.out.println(item_num);
+
+//dao
+MemberDao dao=new MemberDao();
+
+//아이디,비밀번호 일치 검사
+boolean check=dao.checkLogin(id, pass);
+
+//일치한다면
+if(check){
+	//session 설정
+	session.setAttribute("myid", id);
+	session.setAttribute("loginok", "yes");
+
+	//만약 상품을 보고 있던 게 아니라면(즉, 메인 페이지에서 로그인 했을 때) 메인페이지로 이동
+	if(item_num.equals("null")) { 
+		response.sendRedirect("../index.jsp");
+	} else {
+		//상품을 보고 있었다면(즉,item_num이 있다면 상품 페이지로 다시 돌아가도록)
+		response.sendRedirect("../detail/detailView.jsp?item_num="+item_num);
+	}
 	
-	MemberDao dao=new MemberDao();
-	boolean b=dao.isIdPassCheck(id, pass);
+}else{
 	
-	//아이디와 비번이 맞으면 3개의 세션을 저장하고
-	//로그인메인으로 이동
-	if(b){
-		
-		//세션유지시간(생략시 30분)
-		session.setMaxInactiveInterval(60*60*8);
-		session.setAttribute("loginok", "yes");
-		session.setAttribute("myid", id);
-		session.setAttribute("saveok", cbsave==null?null:"yes");
-		
-		//로그인메인이동
-		response.sendRedirect("../index.jsp?main=login/loginmain.jsp");
-	}else{%>
-		
-		<script type="text/javascript">
-		   alert("아이디와 비번이 맞지않습니다");
-		   history.back();
-		</script>
-	<%}
+}
+
 %>
-</body>
-</html>

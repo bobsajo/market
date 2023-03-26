@@ -265,5 +265,112 @@ public class MemberDao {
 	        }
 	        return memberNum;
 	    }
+	  //아이디 찾기 메소드
+		public String searchId(String member_name, String member_email) {
+			String member_id="";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+
+			String sql="select member_id from member where member_name=? and member_email=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, member_name);
+				pstmt.setString(2, member_email);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()) {
+					member_id=rs.getString("member_id");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+			return member_id;
+		}
+
+		//비밀번호 찾기 메소드
+		public String searchPass(String member_id, String member_email) {
+			String member_num="";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+
+			String sql="select member_num from member where member_id=? and member_email=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1,member_id);
+				pstmt.setString(2,member_email);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()) {
+					member_num=rs.getString("member_num");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs,pstmt,conn);
+			}
+			return member_num;
+		}
+
+		public MemberDto updatePass(MemberDto dto,String member_num) {
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+
+			String sql="update member set pass=? where member_num=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1,dto.getMember_pass());
+				pstmt.setString(1,member_num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt,conn);
+			}
+			return dto;
+		}
+		
+		//회원정보 일치 검사
+				public boolean checkLogin(String id,String pass)
+				{
+					boolean check=false;
+					
+					Connection conn=db.getConnection();
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					
+					//아이디와 비밀번호가 일치하는 데이터가 존재하는지
+					String sql="select * from member where member_id=? and member_pass=?";
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						
+						pstmt.setString(1, id);
+						pstmt.setString(2, pass);
+						
+						rs=pstmt.executeQuery();
+						
+						//일치하는 데이터가 존재한다면
+						if(rs.next())
+						{
+							check=true;
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						db.dbClose(rs,pstmt,conn);
+					}
+					
+					return check;
+				}
 	
 }

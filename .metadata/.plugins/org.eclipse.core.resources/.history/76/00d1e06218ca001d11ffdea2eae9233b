@@ -1,0 +1,105 @@
+@charset "EUC-KR";
+
+
+
+.jhr1{
+	width:90%;
+	border: solid 1px black; 
+	margin-left: 5%;
+
+}
+.jhr2{
+	width:90%;
+	border-top: 3px dotted #bbb;
+	border-bottom: 3px dotted #fff;
+	margin-right: 10%;
+
+	
+}
+.jtitle{
+	margin-top:5%;
+	font-size: 2.5em;
+	margin-left: 5%;	
+	
+}
+
+
+
+
+.jbtn{
+	float: right;
+	margin-right: 10%;
+	margin-top:-100px;
+	position: relative;
+	top: -45px;
+
+}
+.jbtn button{
+	width: 200px;
+ 	height: 50px;
+ 	background-color: white;
+ 
+ 	font-size: 20px; 
+ 	font-weight: bold;
+ 	color: #4B62D3;
+ 	float: right;
+}
+ .jdel{
+	margin-bottom: 5px;
+	border: 3px solid #bbb; 
+	color: black;
+}
+.jcart{
+	border: 3px solid #4B62D3; 
+}
+.jitem-wrap {
+	margin-left: 100px;
+	font-size: 1.5em;
+	width: 100%;
+	line-height: 40px;
+	
+}
+.jcontext{
+	margin-left: 18%;
+	position: relative;
+	bottom: 40%;
+	font-size: 30px;
+	font-weight: 550;
+	
+}
+
+
+.jitem{
+	height: 500px;
+	
+}
+.jjim-img{
+	height: 400px;
+	width:  300px;
+		top: 10%;
+		position: relative;
+}
+
+/* ********∆‰¿Ã¬°******** */
+
+.pagination1 {
+	display: inline-block;
+	display: flex;
+	justify-content: center;
+}
+
+.pagination1 a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.pagination1 a.active {
+	background-color: #4B62D3;
+	color: white;
+	border-radius: 5px;
+}
+
+.pagination1 a:hover:not(.active) {background-color: #ddd;}
