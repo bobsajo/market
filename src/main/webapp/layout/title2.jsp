@@ -94,7 +94,7 @@
 		width: 30px;
 		height: 30px;
 	}
-	.heart {
+	.heart, .cart {
 		cursor: pointer;
 	}
 </style>
@@ -156,17 +156,13 @@
 				style="margin-top: 10px; margin-right: 10px;">
 
 			<!-- 카트 -->
-			<div class="cart">
-				<%
+			<%
      		ItemDao sdao=new ItemDao();
     		/*  int cartSize=sdao.getCartList(myid).size(); */
      		%>
-
-				<img alt="장바구니 " src="image/cartlogo.png"
-					onclick="">
+				<img alt="장바구니 " src="image/cartlogo.png" class="cart">
 				<%--  <div class="count"><%=cartSize %></div> --%>
 
-			</div>
 	</div>
 </div>
 
@@ -180,6 +176,15 @@
 		<% } else{ %>
 			alert("회원 전용 서비스입니다. 로그인 해주세요.");
 			location.href='index.jsp?main=login/loginForm.jsp';
+		<% } %>
+	});
+
+	$(".cart").click(function() {
+		<% if(loginok!=null) { %>
+		location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
+		<% } else{ %>
+		alert("회원 전용 서비스입니다. 로그인 해주세요.");
+		location.href='index.jsp?main=login/loginForm.jsp';
 		<% } %>
 	});
 </script>

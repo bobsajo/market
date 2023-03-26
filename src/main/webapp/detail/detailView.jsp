@@ -136,6 +136,15 @@
                 location.href='../jjim/jjimInsert.jsp?item_num=<%=item_num%>&member_num=<%=member_num%>';
                 alert("찜 목록에 추가 되었습니다.");
             });
+
+            $(".txt_type").click(function() {
+                <% if(loginok!=null) { %>
+                location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
+                <% } else{ %>
+                alert("회원 전용 서비스입니다. 로그인 해주세요.");
+                location.href='index.jsp?main=login/loginForm.jsp';
+                <% } %>
+            });
         });
     </script>
 <!-- 시작 -->
