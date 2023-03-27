@@ -8,9 +8,6 @@ System.out.print("쿠키 실행: ");
 Cookie[] cookies = request.getCookies(); //client에서 쿠키를 받아옴
 Cookie cookie;
 
-ItemDao dao = new ItemDao();
-item_num = dao.getItemData(item_num).getItem_img();
-
 if(cookies!=null){
     for(int i=0;i<cookies.length;i++){
        if(cookies[i].getName().equals("recent_item")){

@@ -1,83 +1,100 @@
 @charset "utf-8";
 
+.jjim_container{
+	width: 100%;
+}
 
+.jjim_inner{
+	width: 800px;
+	margin: 0 auto;
+}
+
+.jjim_inner a{
+	color: black;
+	text-decoration: none;
+}
+
+.jjim_inner a:hover{
+	color: black;
+	text-decoration: none;
+}
 
 .jhr1{
-	width:90%;
+	width:100%;
 	border: solid 1px black; 
-	margin-left: 5%;
 
 }
 .jhr2{
-	width:90%;
-	border-top: 3px dotted #bbb;
-	border-bottom: 3px dotted #fff;
-	margin-right: 10%;
-
-	
+	width:100%;
+	border-bottom: 3px solid #fff;
+	float: left;
 }
+
 .jtitle{
 	margin-top:5%;
-	font-size: 2.5em;
-	margin-left: 5%;	
+	font-size: 1.5em;
+	margin-left: 2%;	
 	
 }
 
-
-
-
 .jbtn{
-	float: right;
 	margin-right: 10%;
-	margin-top:-100px;
-	position: relative;
-	top: -45px;
 
 }
-.jbtn button{
-	width: 200px;
- 	height: 50px;
+.jbtn{
+	
+ 	width: 100px;
+ 	height: 35px;
  	background-color: white;
+ 	border-radius: 5px;
  
- 	font-size: 20px; 
+ 	font-size: 10pt; 
  	font-weight: bold;
  	
  	float: right;
 }
+
+.jbtnAll{
+	float:right;	
+}
+
  .jdel{
 	margin-bottom: 5px;
-	border: 3px solid #bbb; 
+	border: 1px solid #bbb; 
 	color: #2E2E2E;
 }
 .jcart{
-	border: 3px solid #4B62D3; 
+	border: 1px solid #4B62D3; 
 	color: #4B62D3;
 }
-.jitem-wrap {
-	margin-left: 100px;
-	font-size: 1.5em;
-	width: 100%;
-	line-height: 40px;
-	
-}
+
 .jcontext{
-	margin-left: 18%;
-	position: relative;
-	bottom: 40%;
-	font-size: 15pt;
+	margin-left: 5%;
+	font-size: 13pt;
+	float: left;
+	text-align: left;
+}
+
+.jprice{
 	font-weight: 550;
-	
 }
 
 
-.jitem{
-	height: 500px;
-	
-}
 .jjim-img{
-	width:  200px;
-		top: 10%;
-		position: relative;
+	width:  60px;
+	float: left;
+	margin-left: 2%;
+}
+
+.jprice_orin strike{
+	font-size: 9pt;
+	color: lightgray;
+}
+
+.off{
+	font: 10pt;
+	color: red;
+	font-weight: bold;
 }
 
 /* ********페이징******** */

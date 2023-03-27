@@ -19,6 +19,16 @@
   <title>Slide Project</title>
   
   <style>
+  	@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+	
+	body{
+    	font-family: 'Gothic A1', sans-serif;
+	}
+	
+	a:hover{
+		color: black;
+	}
+  
     html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center;  min-height: 100vh;}
     *, *:before, *:after { box-sizing: inherit; }
     .clearfix:after { content: ''; display: block; clear: both; float: none; }
@@ -399,7 +409,7 @@
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price()%>원</p>
           	</a>
@@ -438,7 +448,7 @@
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -477,7 +487,7 @@
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -518,7 +528,7 @@
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
-          	<a href = "detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           	<p>상품명 : <%=dto.getItem_name()%></p>
           	<p>가격 : <%=dto.getItem_price() %>원</p>
           	</a>
@@ -815,10 +825,6 @@
   
   	$()
   	$(".add").click(function(){
-  		//임시로그인
-  		<%
-  		session.setAttribute("myid", "yezi");
-  		%>
   		var item_num = $(".add").val();
   		var cart_cnt = $(".cart_cnt").text();
   		$.ajax({

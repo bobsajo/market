@@ -40,6 +40,10 @@
 	{
 		JSONObject ob = new JSONObject();
 		ob.put("item_num", r);
+		
+		String item_img = dao.getItemData(r).getItem_img();
+		ob.put("item_img", item_img);
+		
 		jArr.add(ob);
 	}
 %>

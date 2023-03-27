@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="heart"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="btn"/>
-			<item value="jdel"/>
-			<item value="jname"/>
-			<item value="jjim-img"/>
-			<item value=".."/>
-			<item value="../"/>
 			<item value="heart"/>
-			<item value="&lt;/"/>
-			<item value="/&gt;"/>
 			<item value="장바구니"/>
-			<item value="icon-wrap"/>
-			<item value="icon"/>
-			<item value="search"/>
-			<item value="price"/>
-			<item value="MemberDao"/>
+			<item value="detail_cart_in"/>
+			<item value="txt"/>
+			<item value="inp"/>
+			<item value="i"/>
+			<item value="구매수량"/>
+			<item value="특가"/>
+			<item value="일일"/>
+			<item value="삭제"/>
+			<item value="down"/>
+			<item value="Number"/>
+			<item value="Num"/>
+			<item value="sidebar_right"/>
+			<item value="preimg_content"/>
 		</list>
 		<list key="replacehistory">
 			<item value="x"/>

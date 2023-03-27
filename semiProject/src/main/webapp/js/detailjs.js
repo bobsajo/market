@@ -67,7 +67,7 @@ window.addEventListener('DOMContentLoaded',function(){
             $(".num").text(new Intl.NumberFormat('ko-KR').format(parseInt(number*cost))+"원");
     
     
-    i
+
             
            
             

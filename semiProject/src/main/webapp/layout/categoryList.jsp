@@ -214,10 +214,6 @@
   
   	$()
   	$(".add").click(function(){
-  		//임시로그인
-  		<%
-  		session.setAttribute("myid", "yezi");
-  		%>
   		var item_num = $(".add").val();
   		var cart_cnt = $(".cart_cnt").text();
   		$.ajax({

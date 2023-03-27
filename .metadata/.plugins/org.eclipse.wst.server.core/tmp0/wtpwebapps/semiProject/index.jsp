@@ -11,6 +11,12 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+
+body{
+    font-family: 'Gothic A1', sans-serif;
+}
+
 div.includewrap {
 	width: 100%;
 	/* margin:0 auto; */
@@ -85,6 +91,21 @@ div.main {
 	visibility: hidden;
 	height:  0px;
 }
+
+.sidebar{
+	z-index: 999;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
 </style>
 <script type="text/javascript">
 $(function(){
@@ -208,20 +229,33 @@ $(function(){
 				$.each(img_arr,function(i,ele){
 		            //console.log(ele.item);
 		            if(i==0&&i<res.length-1){
+			            //첫번째
 		               html+="<div class = 'preshow preimg1'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="<a href='index.jsp?main=detail/detailView.jsp?item_num="+ele.item_num
+            		   		+"'><img src='itemImg/"+ele.item_img+"' style='height: 100%;'></a>"
 		               html+="</div>";
 		            }else if(i==0){
-		               html+="<div class = 'preshow preimg1 preimg3'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
-		               html+="</div>";
+		            	//첫번째이자 마지막
+		            	if(ele.item_num!=""){
+			               html+="<div class = 'preshow preimg1 preimg3'>";
+			               html+="<a href='index.jsp?main=detail/detailView.jsp?item_num="+ele.item_num
+			            		   +"'><img src='itemImg/"+ele.item_img+"' style='height: 100%;'></a>"
+			               html+="</div>";
+		            	}else{
+		            		html+="<div class = 'preshow preimg1 preimg3'>";
+				            html+="</div>";
+		            	}
 		            }else if(i<res.length-1){
+		            	//가운데
 		               html+="<div class = 'prehide'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="<a href='index.jsp?main=detail/detailView.jsp?item_num="+ele.item_num
+            		   		+"'><img src='itemImg/"+ele.item_img+"' style='height: 100%;'></a>"
 		               html+="</div>";
-		            }else{
+		            }else if(i=res.length-1){
+		            	//마지막
 		               html+="<div class = 'prehide preimg3'>";
-		               html+="<a><img src='itemImg/"+ele.item_num+"' style='height: 100%;'></a>"
+		               html+="<a href='index.jsp?main=detail/detailView.jsp?item_num="+ele.item_num
+            		   		+"'><img src='itemImg/"+ele.item_img+"' style='height: 100%;'></a>"
 		               html+="</div>";
 		            }
 		         });

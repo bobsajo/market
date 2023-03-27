@@ -23,10 +23,9 @@
 //로그인 상태와 아이디 가져오기
 String loginok=(String)session.getAttribute("loginok");
 String myid=(String)session.getAttribute("myid");
-MemberDao mdao=new MemberDao();
 
 //상품이 들어갈때 member_num 받아서 들어오기
-	String member_num=mdao.getMemberNum(myid);
+	String member_num=request.getParameter("member_num");
 
 //dao 선언
 JjimDao db= new JjimDao();
@@ -78,8 +77,6 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 	List<ItemDto> ilist=db.getJjimItem(member_num,start,perPage);
 %>
 <body>
-<div class="jjim_container">
-<div class="jjim_inner">
 	<div class="jtitle"><b> 찜한 목록 (<%=list.size()%>)</b></div>
 	<hr class="jhr1">
 	<div class="jitem-wrap">
@@ -87,59 +84,44 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 
 	for(int i=0; i<ilist.size(); i++){ %>
 		<div class="jitem">
-			<a href="index.jsp?main=detail/detailView.jsp?item_num=<%=ilist.get(i).getItem_num()%>">
-			<img src="save-info-img/<%=ilist.get(i).getItem_img()%>" class="jjim-img"></a>
+			<img src="save-info-img/<%=ilist.get(i).getItem_img()%>" class="jjim-img" width="130">
 			<div class="jcontext">
-				<a href="index.jsp?main=detail/detailView.jsp?item_num=<%=ilist.get(i).getItem_num()%>">
-				<span class="jname"><%=ilist.get(i).getItem_name()%></span><br></a>
-				<% if(!idao.itemIsSale(ilist.get(i).getItem_num())){%>
-					<span class="jprice"><%=nf.format(ilist.get(i).getItem_price())%>원</span>
-				<%}else{ 
-					int ori=ilist.get(i).getItem_price();
-					int sal=idao.getSalePrice(ilist.get(i).getItem_num());
-					int off=(int)((ori-sal)/(ori*1.0)*100);
-				%>
-					<span class="off"><%=off %>%</span>
-					<span class="jprice"><%=nf.format(idao.getSalePrice(ilist.get(i).getItem_num()))%>원</span>
-					<span class="jprice_orin"><strike><%=nf.format(ilist.get(i).getItem_price())%>원</strike></span>
-				<%} %>
+				<span class="jname"><%=ilist.get(i).getItem_name()%></span><br>
+				<span class="jprice"><%=nf.format(ilist.get(i).getItem_price())%></span>
 			</div>
-			<div class="jbtnAll">
+			<div>
 				<button class="jdel jbtn" type="button" item_num="<%=ilist.get(i).getItem_num()%>" member_num="<%=list.get(i).getMember_num()%>">삭제</button> <br>
-				<button class="jcart jbtn" value="<%=ilist.get(i).getItem_num()%>">담기</button>
+				<button class="jcart jbtn" value="<%=ilist.get(i).getItem_num()%>">장바구니 담기</button>
 			</div>
+		<br>
 		<hr class="jhr2">
 		</div>
 		<% } %>
 	</div>
-	
-	<div style="clear: both;"></div>
-	
+	</div>
 	<%-- 페이징 기법 --%>
 	<div class="pagination1">
 		<%
 			//블록 이전 버튼
 			if(startPage>1) { %>
-		<a href="index.jsp?main=jjim/jjimList.jsp?currentPage=<%=startPage-1%>&member_num=<%=member_num%>" class="p-left">&laquo;</a>
+		<a href="jjimList.jsp?currentPage=<%=startPage-1%>&member_num=<%=member_num%>" class="p-left">&laquo;</a>
 		<% }
 
 			//밑에 블럭 설정
 			for(int pp=startPage; pp<=endPage; pp++) {
 				if(pp==currentPage) { %>
-		<a href="index.jsp?main=jjim/jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>" class="active"><%=pp%></a>
+		<a href="jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>" class="active"><%=pp%></a>
 		<% } else { %>
-		<a href="index.jsp?main=jjim/jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>"><%=pp%></a>
+		<a href="jjimList.jsp?currentPage=<%=pp%>&member_num=<%=member_num%>"><%=pp%></a>
 		<% }
 		}
 
 			//블록 다음 버튼
 			if(endPage<totalPage) { %>
-		<a href="index.jsp?main=jjim/jjimList.jsp?currentPage=<%=endPage+1%>&member_num=<%=member_num%>">&raquo;</a>
+		<a href="jjimList.jsp?currentPage=<%=endPage+1%>&member_num=<%=member_num%>">&raquo;</a>
 		<% }
 		%>
 	</div>
-</div>
-</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -229,7 +211,6 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 			$(ele).click(function(){
 				$("#myModal").modal(); //열기
 				var item_num = $(ele).val();
-				$(".cart_cnt").text(1);
 				// console.log(item_num);
 				$.ajax({
 					type:"get",
@@ -267,8 +248,11 @@ NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 		});
 
 		$(".jdel").click(function() {
+
 			var item_num=$(this).attr("item_num");
-			location.href="jjim/jjimDelete.jsp?item_num="+item_num;
+			var member_num=$(this).attr("member_num");
+
+			location.href="jjim/jjimDelete.jsp?item_num="+item_num+"&member_num="+member_num;
 		});
 	</script>
 </body>

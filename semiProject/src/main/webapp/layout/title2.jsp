@@ -111,7 +111,6 @@
 <div class="title2_inner">
 	<div class="header-login">
 
-	<button type="button" class="btn btn-primary btn-link" onclick="location.href='index.jsp?main=login/joinForm.jsp'">회원가입</button>
 	<%
      //로그인세션얻기
      String loginok=(String)session.getAttribute("loginok");
@@ -120,9 +119,11 @@
      MemberDao dao=new MemberDao();
      String name=dao.getName(myid);
      String member_num=dao.getMemberNum(myid);
+     System.out.println(name);
      
      if(loginok==null){%>
 
+			<button type="button" class="btn btn-primary btn-link" onclick="location.href='index.jsp?main=login/joinForm.jsp'">회원가입</button>
 			<button type="button" class="btn btn-primary btn-link"
 				onclick="location.href='login/loginMain.jsp'">로그인</button>
 			<%}else{%>
@@ -171,8 +172,9 @@
 </div>
 <script type="text/javascript">
 	$(".heart").click(function() {
-		<% if(loginok!=null) { %>
-			location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
+		<% 
+			if(loginok!=null) { %>
+			location.href='index.jsp?main=jjim/jjimList.jsp';
 		<% } else{ %>
 			alert("회원 전용 서비스입니다. 로그인 해주세요.");
 			location.href='index.jsp?main=login/loginForm.jsp';

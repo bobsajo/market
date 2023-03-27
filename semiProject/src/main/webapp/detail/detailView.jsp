@@ -55,7 +55,8 @@ $(function(){
         location.href='../jjim/jjimInsert.jsp?item_num=<%=item_num%>&member_num=<%=member_num%>';
         alert("찜 목록에 추가 되었습니다.");
     });
-    $(".txt_type").click(function() {
+	
+    $(".heart").click(function() {
         <% if(loginok!=null) { %>
         location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
         <% } else{ %>
@@ -63,6 +64,19 @@ $(function(){
         location.href='index.jsp?main=login/loginForm.jsp';
         <% } %>
     });
+ 
+    $(".detail_cart_in").click(function(){
+    	$.ajax({
+    		type:"get",
+    		dataType:"html",
+    		data:{"item_num":<%=item_num %>,"cart_cnt":$(".inp").val()},
+    		url:"cart/cartSearchItem.jsp",
+    		success:function(res){
+    			alert("장바구니에 상품을 추가하였습니다.")
+    		}
+    	})
+    });
+    
 });
 
 </script>
@@ -424,14 +438,14 @@ $(function(){
                                     <span class="dc">
                                       
                                         <span class="dc_price">
-                                          
                                          
-                                            <input type="hidden" value="<%=dto.getItem_price()%>" class="price1">
                                              <%
                                                 if(!dao.itemIsSale(dto.getItem_num())) { %>
-                                                    <%=dto.getItem_price()%>
+                                                	 <input type="hidden" value="<%=dto.getItem_price()%>" class="price1">
+                                                    <%=nf.format(dto.getItem_price())%>
                                                <% } else { %>
-                                                    <%=dao.getSalePrice(dto.getItem_num())%>
+                                               		 <input type="hidden" value="<%=dao.getSalePrice(dto.getItem_num())%>" class="price1">
+                                                    <%=nf.format(dao.getSalePrice(dto.getItem_num()))%>
                                               <% }
                                             %>
                                             
@@ -517,7 +531,7 @@ $(function(){
                                           <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="image/heart.png "  ></a>
                                         </div>
                                         <span class="btn_type1">
-                                            <button type="submit" class="txt_type" style="background-color: #4B62D3;" onclick="">장바구니 담기</button>
+                                            <button type="button" class="detail_cart_in" style="background-color: #4B62D3;">장바구니 담기</button>
                                         </span>
                                     </div>
                                 </div>
