@@ -81,8 +81,11 @@
 	}
 	
 	.icon-wrap{
-		display :flex;
+		float:left;
+		flex:none;
 		flex-wrap: nowrap;
+		width: 100px;
+		
 		
 	}
 	
@@ -110,6 +113,8 @@
 
 	<button type="button" class="btn btn-primary btn-link" onclick="#">회원가입</button>
 	<%
+	response.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
      //로그인세션얻기
      String loginok=(String)session.getAttribute("loginok");
      //아이디얻기
@@ -135,11 +140,11 @@
 <div class="search-wrap">
 	<div class="header-search">
 		<a class="logo" onclick="location.href='index.jsp'"> <img alt="" src="image/uselogo.png"></a>
-		<form action="search/searchItem.jsp" method="post" name="search">
+		<form action="index.jsp?main=search/searchItem.jsp" method="post" name="search">
 			<div class="search">
 				<input type="text" placeholder="검색어 입력" name="searchText">
 				<button type="submit" style="border: 0px; background-color: white;">
-					<img src="image/searchicon.png" style="width: 10%; margin-right: 10px;" align="right">
+					<img src="image/searchicon.png" style="width: 10%; margin-right: 8px;" align="right">
 				</button>
 			</div>
 		</form>
@@ -148,19 +153,19 @@
 	<div class="icon-wrap">
 
 			<img class="heart" alt="" src="image/heart.png"
-				onclick="#" style="margin-top: 10px; margin-right: 10px;">
+				onclick="#"  >
 
 			<!-- 카트 -->
-			<div class="cart">
-				<%
+			<!-- <div class="cart"> -->
+			<%
      		ItemDao sdao=new ItemDao();
     		/*  int cartSize=sdao.getCartList(myid).size(); */
      		%>
 
 				<img alt="장바구니 " src="image/cartlogo1.png"
-					onclick="#" style="margin-top: 10px; margin-right: 10px;">
-
-			</div>
+					onclick="#">
+<!-- 
+			</div> -->
 		</div>
 	</div>
 </div>

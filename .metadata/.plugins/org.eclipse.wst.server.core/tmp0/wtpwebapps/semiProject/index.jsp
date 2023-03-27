@@ -103,6 +103,8 @@ $(function(){
 </head>
 <%
    String mainPage = "layout/main.jsp";
+	request.setCharacterEncoding("utf-8");
+	response.setCharacterEncoding("utf-8");
 
 	//메인페이지인지 확인하는 변수(0이면 메인페이지, 1이면 다른페이지)
    int ismain=0;

@@ -484,7 +484,7 @@ $(function(){
                                     </div>
                                     <div class="group_btn off">
                                         <div class="view_function">
-                                          <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="image/redheart.png "  ></a>
+                                          <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="image/heart.png "  ></a>
                                         </div>
                                         <span class="btn_type1">
                                             <button type="submit" class="txt_type" style="background-color: #4B62D3;" onclick="">장바구니 담기</button>
