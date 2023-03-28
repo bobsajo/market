@@ -69,14 +69,24 @@
 						
 						%>
 	                	<td>
-	                	<div style="margin:0px 30px 30px 0px; height: 500px;">
+	                	<div style="margin:0px 30px 30px 0px; height: 550px;">
 	                      <a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
 	                      <img src="itemImg/<%=dto.getItem_img()%>" class="photo" style="width: 300px;"></a>
 	                      <button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           				  <a href="detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
           				  <div style="color: black; font-size: 16px; text-align: left;">
-	                         <p>상품명: <%=dto.getItem_name() %></p>
-	                         <p>가격: <%=nf.format(dto.getItem_price())%>원</p>
+	                         <p><%=dto.getItem_name()%></p>
+				          	<%	
+				          	if(!dao.itemIsSale(dto.getItem_num())) {%>
+				          		<p><b><%=nf.format(dto.getItem_price())%>원</b></p>
+				          	<%}else{ 
+				          		int ori=dto.getItem_price();
+								int sal=dao.getSalePrice(dto.getItem_num());
+								int off=(int)((ori-sal)/(ori*1.0)*100);
+				          	%>
+				          		<p><font style="color: red"><%=off %>% &nbsp;</font><b><%=nf.format(dao.getSalePrice(dto.getItem_num()))%>원</b></p>
+				          		<p style="color: gray; font-size: small;"><strike><%=nf.format(dto.getItem_price())%>원</strike></p>
+				          	<%} %>
 	                      </div>
 	                      </a> 
 	                      </div>
