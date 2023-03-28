@@ -1,3 +1,4 @@
+<%@page import="data.dao.JjimDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@page import="java.util.Locale"%>
 <%@page import="data.dao.ReviewDao"%>
@@ -36,11 +37,14 @@ ItemDto dto = dao.getItemData(item_num);
 ReviewDao rdao=new ReviewDao();
 int reviewSize=rdao.getTotalCount(item_num);
 NumberFormat nf=NumberFormat.getInstance(Locale.KOREA);
+JjimDao jdao=new JjimDao();
 %>
 
 <script type="text/javascript">
 
 $(function(){
+	var a=<%=jdao.hasJjim(member_num,item_num)%>;
+	
 	$.ajax({
 		type:"get",
 		dataType:"html",
@@ -51,18 +55,51 @@ $(function(){
 		}
 	});
 	
-	$(".btn_save").click(function() {
-        location.href='../jjim/jjimInsert.jsp?item_num=<%=item_num%>&member_num=<%=member_num%>';
-        alert("찜 목록에 추가 되었습니다.");
+	$.ajax({
+
+        url:"jjim/hasJjim.jsp",
+        data:{"item_num":<%=item_num%>},
+        dataType:"json",
+        success:function(res) {
+            if(res.has) {
+                $(".btn_save img").attr({
+                    'src': 'image/redheart.png',
+                    alt:'찜하기 완료'
+                });
+            } else {
+                $(this).find('img').attr({
+                    'src': 'image/heart.png',
+                    alt:"찜하기"
+                });
+            }
+        }
     });
-	
-    $(".heart").click(function() {
+
+    $(".btn_save").click(function() {
         <% if(loginok!=null) { %>
-        location.href='index.jsp?main=jjim/jjimList.jsp?member_num=<%=member_num%>';
-        <% } else{ %>
-        alert("회원 전용 서비스입니다. 로그인 해주세요.");
-        location.href='index.jsp?main=login/loginForm.jsp';
-        <% } %>
+            if(!a) {
+                alert("찜 목록에 추가 되었습니다");
+                $(".icon.heart").addClass('active');
+                $(this).find('img').attr({
+                    'src': 'image/redheart.png',
+                    alt:'찜하기 완료'
+                });
+                location.href='jjim/jjimInsert.jsp?item_num=<%=item_num%>';
+             } else {
+                $(this).find('i').removeClass('fas').addClass('far')
+                $(this).find('img').attr({
+                    'src': 'image/heart.png',
+                    alt:"찜하기"
+                });
+                location.href='jjim/jjimDelete.jsp?item_num=<%=item_num%>';
+            }
+           <% } else { %>
+                alert("회원 전용 서비스입니다. 로그인 해주세요.");
+                location.href='index.jsp?main=login/loginForm.jsp&item_num=<%=item_num%>';
+        <%
+        }
+
+        %>
     });
  
     $(".detail_cart_in").click(function(){
@@ -72,7 +109,10 @@ $(function(){
     		data:{"item_num":<%=item_num %>,"cart_cnt":$(".inp").val()},
     		url:"cart/cartSearchItem.jsp",
     		success:function(res){
-    			alert("장바구니에 상품을 추가하였습니다.")
+    			var cartGo = confirm("장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠어요?");
+                if (cartGo) {
+                    location.href = 'index.jsp?main=cart/cartPage.jsp';
+                }
     		}
     	})
     });
@@ -528,7 +568,7 @@ $(function(){
                                     </div>
                                     <div class="group_btn off">
                                         <div class="view_function">
-                                          <a  href="javascript:;" class="icon heart"><img alt="찜 목록" src="image/heart.png "  ></a>
+                                          <a  href="javascript:;" class="icon heart btn_save"><img alt="찜 목록" src="image/heart.png "  ></a>
                                         </div>
                                         <span class="btn_type1">
                                             <button type="button" class="detail_cart_in" style="background-color: #4B62D3;">장바구니 담기</button>
@@ -637,7 +677,7 @@ $(function(){
                         </div>
 
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; ">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
                             </li>
@@ -653,8 +693,8 @@ $(function(){
                             </li>
                             
                         </ul>
-                        <div class="goods-view-infomation-content" id="goods-infomation">
-                            <table class="extra-information">
+                        <div class="goods-view-infomation-content" id="goods-infomation" >
+                            <table class="extra-information" style="margin-left: 10%; ">
                                 <tbody>
                                     <tr>
                                         <th scope="row" class="goods-view-form-table-heading">포장단위별 용량(중량), 수량, 크기</th>
@@ -682,7 +722,7 @@ $(function(){
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="whykurly_area">
+                            <div class="whykurly_area" style="margin-right: 10%; ">
                                 <div class="row">
                                     <strong class="tit_whykurly">WHY 새벽마켓</strong>
                                     <div id="why_kurly" class="txt_area">
@@ -872,7 +912,7 @@ $(function(){
                                 </div>
                             </div>
                         </div>
-                        <ul class="goods-view-infomation-tab-group">
+                        <ul class="goods-view-infomation-tab-group" style="margin-left: 20%; ">
                             <li class="goods-view-infomation-tab">
                                 <a href="#goods-description" class="goods-view-infomation-tab-anchor">상품설명</a>
                             </li>

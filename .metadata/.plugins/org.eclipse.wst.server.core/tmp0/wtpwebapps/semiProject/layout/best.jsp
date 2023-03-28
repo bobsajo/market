@@ -1,3 +1,4 @@
+<%@page import="java.util.Locale"%>
 <%@page import="data.dto.ItemDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.ItemDao"%>
@@ -14,6 +15,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
+.title{
+	display: flex;
+	margin: 0 20px;
+	
+}
+.tb1{
+	margin:50px 25px;
+	
+}
 .cartbtn{
 	 	background-color:#4B62D3;
 		opacity : 0.8;
@@ -25,7 +35,7 @@
 	}
 </style>
 <body>
-	<div class = "container">
+	<div class = "container" style= "margin-right: 25%;">
 		<div class = "tab-content">
 			<div id = "tabs-1" class = "tab-pane fade in active">
 			<p>
@@ -37,7 +47,7 @@
 					
 					String category=request.getParameter("category");
 					
-					NumberFormat nf=NumberFormat.getCurrencyInstance();
+					NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);
 					ItemDao dao = new ItemDao();
 					List<ItemDto> list = dao.getAllBest();
 					
@@ -54,7 +64,7 @@
 	                      <img src="itemImg/<%=dto.getItem_img()%>" class="photo" style="width: 300px;"></a>
 	                      <button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           				  <a href="detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-	                        <div style="color: black; font-size: 16px; text-align: left;">
+	                        <div style="color: black; font-size: 16px; text-align: left; margin-top: -15%;">
 	                          <p><%=dto.getItem_name()%></p>
 				          	<%	
 				          	if(!dao.itemIsSale(dto.getItem_num())) {%>
@@ -177,26 +187,36 @@
 	  });
 	});
   
-  	$(".cartbtn").each(function(i,ele){
-  		$(ele).click(function(){
-  			$('#myModal').modal(); //열기 
-  			var item_num = $(ele).val();
-  			$.ajax({
-  				type:"get",
-  				dataType:"json",
-  				data:{"item_num":item_num},
-  				url:"common/itemInfo.jsp",
-  				success:function(res){
-  					$(".add").val(item_num);
-  					$('.modal-header').html(res.item_name);
-  					
-  					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
-  					$('.total_price').attr("total", res.item_price);
-  				}
-  			});
-  			
-  		});
-  	});
+	  $(".cartbtn").each(function(i,ele){
+
+	  		$(ele).click(function(){
+	            <% 
+	            String loginok=(String)session.getAttribute("loginok");
+	            if(loginok==null) { %>
+	                alert("회원 전용 서비스입니다. 로그인 해주세요.");
+	                location.href='index.jsp?main=login/loginForm.jsp';
+	            <% } else { %>
+	  			$('#myModal').modal(); //열기 
+	  			$(".cart_cnt").text("1");
+	  			var item_num = $(ele).val();
+	  			$.ajax({
+	  				type:"get",
+	  				dataType:"json",
+	  				data:{"item_num":item_num},
+	  				url:"common/itemInfo.jsp",
+	  				success:function(res){
+	  					$(".add").val(item_num);
+	  					$('.modal-header').html(res.item_name);
+	  					
+	  					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
+	  					$('.total_price').attr("total", res.item_price);
+	  				}
+	  			});
+	            <% } %>
+	  		});
+
+	  	});
+  	
   	$(".cancel").click(function(){
   		$('#myModal').modal("hide"); //닫기 
   	});
@@ -211,7 +231,10 @@
   			data:{"item_num":item_num, "cart_cnt":cart_cnt},
   			url:"cart/cartSearchItem.jsp",
   			success:function(res){
-  				
+  				var cartGo = confirm("장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠어요?");
+                if (cartGo) {
+                    location.href = 'index.jsp?main=cart/cartPage.jsp';
+                }
   			}
   		});
   	});

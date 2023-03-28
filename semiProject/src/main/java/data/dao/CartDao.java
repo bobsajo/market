@@ -250,5 +250,33 @@ public class CartDao {
 				db.dbClose(pstmt, conn);
 			}
 		}
+		
+		//사용자 카트 총개수
+		public int getSumcnt(String member_num) {
+			int SumCnt=0;
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select count(*) from cart where member_num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, member_num);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					SumCnt=rs.getInt(1);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return SumCnt;
+		}
 
 }

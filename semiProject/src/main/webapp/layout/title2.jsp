@@ -1,3 +1,4 @@
+<%@page import="data.dao.CartDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@page import="data.dao.ItemDao"%>
 
@@ -37,7 +38,7 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: nowrap;
-		justify-content: center;
+		justify-content: space-between;
 	}
 	
 	.search-wrap form{
@@ -48,6 +49,7 @@
 		display: flex;
 		flex-wrap: nowrap;
 		width: 70%;
+		margin-left: 13%;
 	}
 	
 	.logo{
@@ -69,10 +71,10 @@
 		margin: 7px 0px 0px 20px;
 	}
 	
-	.search>input{
+	.search input{
 		width: 70%;
 		border: 0px solid gray;
-		padding: 10px;
+		padding-left: 10px;
 		font-size: 10pt;
 	}
 	
@@ -81,12 +83,10 @@
 	}
 	
 	.icon-wrap{
-      float:left;
       flex:none;
       flex-wrap: nowrap;
       width: 100px;
-      
-      
+      margin-right: 1%;
    }
 
 	
@@ -123,14 +123,17 @@
      
      if(loginok==null){%>
 
-			<button type="button" class="btn btn-primary btn-link" onclick="location.href='index.jsp?main=login/joinForm.jsp'">회원가입</button>
-			<button type="button" class="btn btn-primary btn-link"
+			<button type="button" style="font-size: 10pt; background-color: white; border: 0px; color: black;" onclick="location.href='index.jsp?main=login/joinForm.jsp'">회원가입</button>
+			<b class='v-line' style="  border-left : 2px solid gray;  font-size: 13px;   margin-right: 10px; "></b>
+			<button type="button" style="font-size: 10pt; background-color: white; border: 0px; color: black;"
 				onclick="location.href='login/loginMain.jsp'">로그인</button>
+				
 			<%}else{%>
 
-			<b style="font-size: 12pt;"><%=name %>님 로그인중...</b>
+			<b style="font-size: 10pt; margin-right: 10px; " ><%=name %> 님 </b>
+			<b class='v-line' style="  border-left : 2px solid gray;  font-size: 13px;    margin-right: 10px; "></b>
 			<!-- 로그아웃 잘못되면 수정할 곳 -->
-			<button type="button" class="btn btn-primary btn-link"
+			<button type="button" style="font-size: 10pt; background-color: white; border: 0px; color: black;"
 				onclick="location.href='login/loginMain.jsp?'">로그아웃</button>
 			<%}
    	%>
@@ -143,15 +146,28 @@
 		<form action="index.jsp?main=search/searchItem.jsp" method="post" name="search">
 			<div class="search">
 				<input type="text" placeholder="검색어 입력" name="searchText">
-				<button type="submit" style="border: 0px; background-color: white;">
-					<img src="image/searchicon.png" style="width: 10%; margin-right: 10px;" align="right">
+				<button type="submit" style="border: 0px; background-color: white; width: 30%">
+					<img src="image/searchicon.png" style="width: 20%; margin-right: 10px;" align="right">
 				</button>
 			</div>
 		</form>
 	</div>
 
 	<div class="icon-wrap">
-
+			<%
+			String id=(String)session.getAttribute("myid");
+			CartDao cdao=new CartDao();
+			
+			if(loginok!=null && cdao.getSumcnt(member_num)!=0){
+			%>
+			<div style="width: 25px; height: 25px; background-color:#4B62D3; position:relative; z-index: 5; 
+			border-radius: 100px; top: 40%; right: -70%; border: 1px solid white; text-align: center; line-height: 25px">
+			<p style="color: white; font-size: 10pt">
+				<%=cdao.getSumcnt(member_num) %>
+			</p>
+			</div>
+			<%} %>
+			
 			<img class="heart" alt="" src="image/heart.png"
 				style="margin-top: 10px; margin-right: 10px;">
 

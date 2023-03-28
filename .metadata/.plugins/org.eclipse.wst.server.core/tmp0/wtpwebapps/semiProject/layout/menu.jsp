@@ -23,6 +23,7 @@
     height: 50px;
     background: white;
 	text-align: center;
+	margin-left: 7%;
 	
 }
 

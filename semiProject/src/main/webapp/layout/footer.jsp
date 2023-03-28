@@ -26,7 +26,7 @@
 			<div class="col-md-6 pull-left" style = "text-align:left;">
 				<h1 class="panel-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고객행복센터</h1>
 				<div class="footer1">
-				<ul>
+				<ul style="list-style: none;">
 					<li>
 						<h4>전화문의 (1644 - 1607)</h4>
 						<div class="line1">
@@ -61,7 +61,7 @@
 			</div>
 			<div class="col-md-6 pull-right" style = "text-align:left;">
 			<div class="lastLeft">
-				<ul>
+				<ul style="list-style: none;">
 					<li><a href="#">컬리소개 &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 					<li><a href="#">컬리영상소개 &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 					<li><a href="#">이용안내 &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
@@ -71,10 +71,10 @@
 				</ul>
 			</div>
 			<div class="lastRight">
-				<h5>법인명(상호) : 주식회사 새벽마켓|사업자등록번호 : 아직 사업자 등록을 못했습니다</h5>
-				<h5>통신판매업 : 제 2023-서울강남-0000호| 개인정보보호책임자:이지영</h5>
-				<h5>주소 : 서울시 강남구 역삼동 쌍용교육센터 8층 | 대표이사 : 권예지</h5>
-				<h5>입점문의 : 입점문의하기 | 제휴문의 :gns3967@naver.com</h5>
+				<h5>법인명(상호) : 주식회사 새벽마켓 &nbsp;| &nbsp;사업자등록번호 : 아직 사업자 등록을 못했습니다</h5>
+				<h5>통신판매업 : 제 2023-서울강남-0000호&nbsp;| &nbsp; 개인정보보호책임자:이지영</h5>
+				<h5>주소 : 서울시 강남구 역삼동 쌍용교육센터 8층&nbsp;| &nbsp;대표이사 : 권예지</h5>
+				<h5>입점문의 : 입점문의하기&nbsp;| &nbsp;제휴문의 :gns3967@naver.com</h5>
 				<h5>채용문의 : recruit@saebyuk.com</h5>
 				<br><br>
 				<br><br><br>
@@ -98,7 +98,7 @@
 				</ul>
 				
 				<img src="image/saebyuk.png" alt="로고" width = "200">
-					<p>MARKET KURLY ALL RIGHT RESERVED</p></div>
+					<p>ALL RIGHT RESERVED</p></div>
 					<br><br><br><br>
 					
 		</div>

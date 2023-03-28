@@ -47,7 +47,7 @@
 
 </head>
 <body>
-	<div class = "container">
+	<div class = "container" style= "margin-right: 25%;">
     <div class = "tab-content">
      	<div id = "tabs-1" class = "tab-pane fade in active">
 		<p>
@@ -74,9 +74,11 @@
 	                      <img src="itemImg/<%=dto.getItem_img()%>" class="photo" style="width: 300px;"></a>
 	                      <button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           				  <a href="detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-	                        <div style="color: black; font-size: 16px; text-align: left; ">
-	                          <span>상품명: <%=dto.getItem_name() %></span>
-	                          <span>가격: <%=nf.format(dto.getItem_price())%>원</span>
+	                        <div style="color: black; font-size: 16px; text-align: left; margin-top: -15%;">
+	                          <span><%=dto.getItem_name() %></span>
+	                          <br>
+	                          <br>
+	                          <span style = "font-weight:bold;"><%=nf.format(dto.getItem_price())%>원</span>
 	                        </div>
 	                      </a> 
 	                      </div>

@@ -162,11 +162,10 @@ $(function(){
 		</div>
 
 		<div class="btns">
-			<div class="moveTopBtn">
-				<span class="glyphicon glyphicon-triangle-top"></span>&nbsp;&nbsp;맨
-				위로
-			</div>
-		</div>
+         <div class="moveTopBtn" style = "background-color:white;">
+            <img src = "image/top.png" alt = "" style = "width: 80px; height: 80px; margin-right: 10px; margin-bottom:10px;">
+         </div>
+      </div>
 	</div>
 
 	<script>
@@ -302,7 +301,9 @@ $(function(){
 	          $(".sidebar").hide();
 	       }   
 	   <%}%>
-	   
+	      if(scrollPosition<500){
+	          $(".moveTopBtn").fadeOut("slow");
+	       }
 	   //스크롤 이벤트(사이드바)
 	   window.addEventListener('scroll', function(){
 	      //console.log('123');
@@ -317,6 +318,11 @@ $(function(){
 	                $(".sidebar").show();
 	           }
 	      <%}%>
+	      if(scrollPosition<500){
+              $(".moveTopBtn").fadeOut("slow");
+           }else{
+              $(".moveTopBtn").fadeIn("fast");
+           }
 	      
 	   });
 

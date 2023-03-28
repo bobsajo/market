@@ -127,7 +127,7 @@ public class JjimDao {
         Connection conn = db.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "select count(*) from jjim where member_num=? and item_num=?";
+        String sql = "select * from jjim where member_num=? and item_num=?";
 
         try {
             pstmt = conn.prepareStatement(sql);

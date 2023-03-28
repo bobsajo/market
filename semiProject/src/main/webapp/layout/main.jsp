@@ -152,20 +152,51 @@
 	}
 	
 	.s_fade {
-	  -webkit-animation-name: fade;
+	  /* -webkit-animation-name: fade;
 	  -webkit-animation-duration: 1.5s;
 	  animation-name: fade;
+	  animation-duration: 2.0s; */
+	  -webkit-animation-name: slide;
+	  -webkit-animation-duration: 1.5s;
+	  
+	  animation-name: slide;
 	  animation-duration: 2.0s;
 	}
 	
-	@-webkit-keyframes fade {
-	  from {opacity: .1} 
-	  to {opacity: 2}
+	@-webkit-keyframes slide {
+	  /* from {opacity: .1} 
+	  to {opacity: 2} */
+	  from {transform: translateX(100%);} 
+	  to {transform: translateX(0%);}
 	}
 	
-	@keyframes fade {
-	  from {opacity: .2} 
-	  to {opacity: 1}
+	@keyframes slide {
+	  from {transform: translateX(100%);} 
+	  to {transform: translateX(0%);}
+	}
+	
+	.s_fade_out {
+	  /* -webkit-animation-name: fade;
+	  -webkit-animation-duration: 1.5s;
+	  animation-name: fade;
+	  animation-duration: 2.0s; */
+	  -webkit-animation-name: slide2;
+	  -webkit-animation-duration: 1.5s;
+	  
+	  animation-name: slide2;
+	  animation-duration: 2.0s;
+	}
+	
+	@-webkit-keyframes slide2 {
+	  /* from {opacity: .1} 
+	  to {opacity: 2} */
+	  from {transform: translateX(0%);} 
+	  to {transform: translateX(-100%);}
+	}
+	
+	@keyframes slide2 {
+	  from {transform: translateX(0%);} 
+	  to {transform: translateX(-100%);}
 	}
 	
 	.main_1>h1{
@@ -237,7 +268,12 @@
   
   <script>
    $(function(){
-      
+	  setTimeout(function(){
+		  $(".banner_container").css("visibility","visible");
+		  $(".slide_wrap").css("visibility","visible");
+	  }, 1000);
+	   
+	   
       var slideIndex = 0;
       showSlides();
 
@@ -248,9 +284,12 @@
           for (i = 0; i < slides.length; i++) {
              slides[i].style.display = "none";  
           }
+
           slideIndex++;
           if (slideIndex > slides.length) {slideIndex = 1}
-          slides[slideIndex-1].style.display = "block"; 
+          slides[slideIndex-1].style.display = "block";
+          
+          //////////////////////////
           
           /*
           var slides = $(".slide");
@@ -261,7 +300,7 @@
           if (slideIndex > slides.length) {slideIndex = 1}
           slides.eq(slideIndex-1).fadeIn('fast');*/
           
-          setTimeout(showSlides, 2000); // Change image every 2 seconds
+          setTimeout(showSlides, 5000); // Change image every 2 seconds
       }
    });
 </script>
@@ -269,7 +308,7 @@
 </head>
 <body>
 	<!-- 메인배너 -->
-	<div class="banner_container">
+	<div class="banner_container" style="visibility: hidden;">
    
     <section class="visual">
     <div class = "slideshow-container">
@@ -298,13 +337,7 @@
    </section>
    </div>
    
-   <div>
-   		<section>
-			<div class = "ban">
-				<img src = "image3/그림1.jpg" width = "1300px;">
-			</div>   		
-   		</section>	
-   </div>
+  
    <div>
    	<a href ="#"></a>
    </div>
@@ -315,7 +348,7 @@
   <a href="#" class="link" target="_blank"></a>
   
   <div id="container">
-    <div class="slide_wrap slide1">
+    <div class="slide_wrap slide1" style="visibility: hidden;">
    	<div class="flex-slide">
       <div class="slide_box">
         <div class="slide_list clearfix">
@@ -333,7 +366,7 @@
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           	<a href = "#" class = "a" style = "text-decoration: none;">
-          	<div style="text-align: left; margin-left: 4%; margin-right: 4%;">
+          	<div style="text-align: left; margin-left: 4%; margin-right: 4%; margin-top: -15%;">
           	<p><%=dto.getItem_name()%></p>
           	<%
           	NumberFormat nf = NumberFormat.getInstance(Locale.KOREA);	
@@ -371,6 +404,14 @@
       <!-- // .slide_pagination -->
     </div>
     
+     <div>
+   		<section>
+			<div class = "ban">
+				<img src = "image3/그림1.jpg" width = "1300px;">
+			</div>   		
+   		</section>	
+   </div>
+    <br><br><br><br>
      <!-- 특가 아이템 창 -->
             <div>
                 <div>
@@ -404,9 +445,12 @@
                     <% }  %>
                 </div>
             </div>
+             <br><br><br><br><br><br>
     
-   	<h2>카테고리별 상품 미리보기</h2>
-    <h1 class="title">육류</h1>
+
+  
+    <h2 class="title" >육류,달걀</h2>
+    <h5 style=" color: gray;">단백질 보충 어때요??</h5>
     <a href="#" class="link" target="_blank"></a>
    	<div class="slide_wrap slide2">
       <div class="slide_box">
@@ -418,63 +462,12 @@
     	for(ItemDto dto: list2){
     		
        	%>
-          <div class="slide_content slide01">
+          <div class="slide_content slide01" >
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" style="cursor: pointer;" class="godetail">
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-          	<div style="text-align: left; margin-left: 4%; margin-right: 4%;">
-          	<p><%=dto.getItem_name()%></p>
-          	<%	
-          	if(!dao.itemIsSale(dto.getItem_num())) {%>
-          		<p><b><%=nf.format(dto.getItem_price())%>원</b></p>
-          	<%}else{ 
-          		int ori=dto.getItem_price();
-				int sal=dao.getSalePrice(dto.getItem_num());
-				int off=(int)((ori-sal)/(ori*1.0)*100);
-          	%>
-          		<p><font style="color: red"><%=off %>% &nbsp;</font><b><%=nf.format(dao.getSalePrice(dto.getItem_num()))%>원</b></p>
-          		<p style="color: gray; font-size: small;"><strike><%=nf.format(dto.getItem_price())%>원</strike></p>
-          	<%} %>
-          	</div>
-          	</a>
-          </div>
-         <% 
-    	}
-          %>
-          <!-- 임시해결법 -->
-          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
-          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
-          <!-- 임시해결법 -->
-        </div>
-        <!-- // .slide_list -->
-      </div>
-      <!-- // .slide_box -->
-      <div class="slide_btn_box">
-        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
-        <button type="button" class="slide_btn_next" style = "top:-4opx;"><img src="image/arrow_right14.png" width="70"></button>
-      </div>
-      <!-- // .slide_btn_box -->
-      <!-- // .slide_pagination -->
-    </div>
-    <h1 class="title">해산물</h1>
-    <a href="#" class="link" target="_blank"></a>
-   	<div class="slide_wrap slide3">
-      <div class="slide_box">
-        <div class="slide_list clearfix">
-       	<% 
-    	ItemDao dao3 = new ItemDao();
-    	List<ItemDto> list3 = dao.getListCategory("seafood", 0, 8);
-    	
-    	for(ItemDto dto: list3){
-    		
-       	%>
-          <div class="slide_content slide01">
-          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
-          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
-          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
-          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-          	<div style="text-align: left; margin-left: 4%; margin-right: 4%;">
+          	<div style="text-align: left; margin-left: 4%; margin-right: 4%; margin-top: -15%;" >
           	<p><%=dto.getItem_name()%></p>
           	<%	
           	if(!dao.itemIsSale(dto.getItem_num())) {%>
@@ -508,7 +501,60 @@
       <!-- // .slide_btn_box -->
       <!-- // .slide_pagination -->
     </div>
-  <h1 class="title">과일</h1>
+    <h2 class="title">해산물</h2>
+    <h5 style=" color: gray;">신선한 해산물을 즐기세요</h5>
+    <a href="#" class="link" target="_blank"></a>
+   	<div class="slide_wrap slide3">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+       	<% 
+    	ItemDao dao3 = new ItemDao();
+    	List<ItemDto> list3 = dao.getListCategory("seafood", 0, 8);
+    	
+    	for(ItemDto dto: list3){
+    		
+       	%>
+          <div class="slide_content slide01">
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a">
+          	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
+          	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
+          	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
+          	<div style="text-align: left; margin-left: 4%; margin-right: 4%; margin-top: -15%;"  >
+          	<p><%=dto.getItem_name()%></p>
+          	<%	
+          	if(!dao.itemIsSale(dto.getItem_num())) {%>
+          		<p><b><%=nf.format(dto.getItem_price())%>원</b></p>
+          	<%}else{ 
+          		int ori=dto.getItem_price();
+				int sal=dao.getSalePrice(dto.getItem_num());
+				int off=(int)((ori-sal)/(ori*1.0)*100);
+          	%>
+          		<p><font style="color: red"><%=off %>% &nbsp;</font><b><%=nf.format(dao.getSalePrice(dto.getItem_num()))%>원</b></p>
+          		<p style="color: gray; font-size: small;"><strike><%=nf.format(dto.getItem_price())%>원</strike></p>
+          	<%} %>
+          	</div>
+          	</a>
+          </div>
+         <% 
+    	}
+          %>
+          <!-- 임시해결법 -->
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <div class="slide_content slide01 slide_hide" style="width: 0px;"></div>
+          <!-- 임시해결법 -->
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev" style = "top:-40px;"><img src="image/arrow_left.png" width="70"></button>
+        <button type="button" class="slide_btn_next" style = "top:-40px;"><img src="image/arrow_right14.png" width="70"></button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <!-- // .slide_pagination -->
+    </div>
+  <h2 class="title">과일</h2>
+   <h5 style=" color: gray;">산뜻한 과일로 비타민 충전하세요</h5>
     <a href="#" class="link" target="_blank"></a>
    	<div class="slide_wrap slide4">
       <div class="slide_box">
@@ -525,7 +571,7 @@
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-          	<div style="text-align: left; margin-left: 4%; margin-right: 4%;">
+          	<div style="text-align: left; margin-left: 4%; margin-right: 4%; margin-top: -15%;">
           	<p><%=dto.getItem_name()%></p>
           	<%	
           	if(!dao.itemIsSale(dto.getItem_num())) {%>
@@ -561,7 +607,8 @@
     </div>
     
   
-  <h1 class="title">베이커리</h1>
+  <h2 class="title">베이커리</h2>
+   <h5 style="font-size: 15pt; color: gray;">고소한 베이커리 추천드려요</h5>
     <a href="#" class="link" target="_blank"></a>
    	<div class="slide_wrap slide5">
       <div class="slide_box">
@@ -578,7 +625,7 @@
           	<img src="itemImg/<%=dto.getItem_img() %>" width="275"></a>
           	<button type = "button" class = "cartbtn" value="<%=dto.getItem_num()%>"><img src="image/cart.png" width="50";></button>
           	<a href = "index.jsp?main=detail/detailView.jsp?item_num=<%=dto.getItem_num() %>" class = "a" style = "text-decoration: none;">
-          	<div style="text-align: left; margin-left: 4%; margin-right: 4%;">
+          	<div style="text-align: left; margin-left: 4%; margin-right: 4%; margin-top: -15%;">
           	<p><%=dto.getItem_name()%></p>
           	<%	
           	if(!dao.itemIsSale(dto.getItem_num())) {%>
@@ -859,27 +906,36 @@
 	  });
 	});
   
-  	$(".cartbtn").each(function(i,ele){
-  		$(ele).click(function(){
-  			$('#myModal').modal(); //열기 
-  			$(".cart_cnt").text("1");
-  			var item_num = $(ele).val();
-  			$.ajax({
-  				type:"get",
-  				dataType:"json",
-  				data:{"item_num":item_num},
-  				url:"common/itemInfo.jsp",
-  				success:function(res){
-  					$(".add").val(item_num);
-  					$('.modal-header').html(res.item_name);
-  					
-  					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
-  					$('.total_price').attr("total", res.item_price);
-  				}
-  			});
-  			
-  		});
-  	});
+	  $(".cartbtn").each(function(i,ele){
+
+	  		$(ele).click(function(){
+	            <% 
+	            String loginok=(String)session.getAttribute("loginok");
+	            if(loginok==null) { %>
+	                alert("회원 전용 서비스입니다. 로그인 해주세요.");
+	                location.href='index.jsp?main=login/loginForm.jsp';
+	            <% } else { %>
+	  			$('#myModal').modal(); //열기 
+	  			$(".cart_cnt").text("1");
+	  			var item_num = $(ele).val();
+	  			$.ajax({
+	  				type:"get",
+	  				dataType:"json",
+	  				data:{"item_num":item_num},
+	  				url:"common/itemInfo.jsp",
+	  				success:function(res){
+	  					$(".add").val(item_num);
+	  					$('.modal-header').html(res.item_name);
+	  					
+	  					$('.total_price').text(res.item_price.toLocaleString('ko-KR') + "원");
+	  					$('.total_price').attr("total", res.item_price);
+	  				}
+	  			});
+	            <% } %>
+	  		});
+
+	  	});
+  	
   	$(".cancel").click(function(){
   		$('#myModal').modal("hide"); //닫기 
   	});
@@ -894,7 +950,10 @@
   			data:{"item_num":item_num, "cart_cnt":cart_cnt},
   			url:"cart/cartSearchItem.jsp",
   			success:function(res){
-  				
+  				var cartGo = confirm("장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠어요?");
+                if (cartGo) {
+                    location.href = 'index.jsp?main=cart/cartPage.jsp';
+                }
   			}
   		});
   	});

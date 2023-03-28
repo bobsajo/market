@@ -1,30 +1,5 @@
 window.addEventListener('DOMContentLoaded',function(){ 
 
-	 var $likeBtn =$('.icon.heart');
-
-        $likeBtn.click(function(){
-        $likeBtn.toggleClass('active');
-
-        if($likeBtn.hasClass('active')){          
-           $(this).find('img').attr({
-              'src': 'image/redheart.png',
-               alt:'찜하기 완료'
-                });
-          
-          
-         }else{
-            $(this).find('i').removeClass('fas').addClass('far')
-           $(this).find('img').attr({
-              'src': 'image/heart.png',
-              alt:"찜하기"
-           })
-         }
-     })
-
-
-
-
-
     $(document).ready(function() {
 
        

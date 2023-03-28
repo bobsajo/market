@@ -4,9 +4,9 @@
     <fullyQualifiedTypeName name="mysql.db.DbConnect"/>
     <fullyQualifiedTypeName name="data.dto.JjimDto"/>
     <fullyQualifiedTypeName name="data.dao.ItemDao"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="data.dto.CartDto"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="data.dto.CartDto"/>
 </qualifiedTypeNameHistroy>
