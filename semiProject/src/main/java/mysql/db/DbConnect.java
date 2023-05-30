@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 public class DbConnect { //얘 생성해야 connection이랑 close 메소드 갖다 쓸 수 있음
     static final String MYSQLDRIVER="com.mysql.cj.jdbc.Driver";
-    static final String MYSQL_URL="jdbc:mysql://bobsajo.cjbatwltjkt8.ap-northeast-2.rds.amazonaws.com:3306/bobsajo?serverTimezone=Asia/Seoul";
+    static final String MYSQL_URL="jdbc:mysql://localhost:3306/market?serverTimezone=Asia/Seoul";
 
     //생성자
     public DbConnect() {
@@ -24,7 +24,7 @@ public class DbConnect { //얘 생성해야 connection이랑 close 메소드 갖
     public Connection getConnection() {
         Connection conn=null;
         try {
-            conn= DriverManager.getConnection(MYSQL_URL,"bobsajo","a4Pff4JorngVDyd");
+            conn= DriverManager.getConnection(MYSQL_URL,"market","1234");
         } catch (SQLException e) {
             System.out.println("mysql 연결 실패: "+e.getMessage());
         }

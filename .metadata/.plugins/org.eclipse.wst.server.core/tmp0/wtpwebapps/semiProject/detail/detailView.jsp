@@ -491,12 +491,25 @@ $(function(){
                                             
                                             
                                         </span>
-                                        <span class="won">원</span>
+                                       <%	
+							          	if(!dao.itemIsSale(dto.getItem_num())) {%>
+							          		<span class="won">원</span>
+							          	<%}else{ 
+							          		int ori=dto.getItem_price();
+											int sal=dao.getSalePrice(dto.getItem_num());
+											int off=(int)((ori-sal)/(ori*1.0)*100);
+							          	%>
+							          		<span class="won">원</span>
+							          		<br>
+							          		<span style="font-size: 15pt"><font style="color: red"><%=off %>% &nbsp;</font></span>
+							          		<span style="color: gray; font-size: small;"><strike><%=nf.format(dto.getItem_price())%>원</strike></span>
+							          	<%} %>
                                     </span>
-                                    
+                                     
                                 </span>
                                 
                             </p>
+                            
                             <div class="goods_info">
                            
                                 <dl class="list fst">
@@ -560,7 +573,7 @@ $(function(){
                                                 <strong class="tit">총 상품금액 :</strong>
                                                 <span class="sum">
                                                     <span class="num"><%=nf.format(dto.getItem_price()) %></span>
-                                                    <span class="won"></span>
+                                                    
                                                 </span>
                                             </div>
                                             

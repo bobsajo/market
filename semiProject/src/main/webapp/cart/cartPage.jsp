@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <%
 
@@ -803,8 +804,8 @@ function amount(){
       }
    });
    
-   $(".item_amount").attr("item_amount",item_amount);
-   $(".item_amount").text(item_amount.toLocaleString('ko-KR')+"원");
+   $(".item_amount").attr("item_amount",item_amount+off);
+   $(".item_amount").text((item_amount+off).toLocaleString('ko-KR')+"원");
    
    $(".off").attr("off",off);
    $(".off").text(off.toLocaleString('ko-KR')+"원");
@@ -813,7 +814,7 @@ function amount(){
    $(".delivery").attr("delivery",2500);
    $(".delivery").text(delivery.toLocaleString('ko-KR')+"원");
    
-   var amount=item_amount-off+delivery;
+   var amount=item_amount+delivery;
    $(".buying_amount").attr("buying_amount",amount);
    $(".buying_amount b").text(amount.toLocaleString('ko-KR'));
    
@@ -860,7 +861,7 @@ function sample6_execDaumPostcode() {
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             $("#bying_addr").text(addr);
-            var popup=window.open( "detailAddrWindow.jsp", "detailAddr", "width=600, height=500, top=50, left=50" );
+            var popup=window.open( "cart/detailAddrWindow.jsp", "detailAddr", "width=600, height=500, top=50, left=50" );
             
             //팜업창 닫았을 때 사용자 주소(멤버테이블)변경
             popup.onbeforeunload = function() {
@@ -1264,7 +1265,7 @@ function sample6_execDaumPostcode() {
             </div>
             
             <div class="delivery_div">
-               <button id="delivery_btn">주문하기</button>
+               <button id="delivery_btn" onclick="sample6_execDaumPostcode()">주문하기</button> 
             </div>
          </div>
       </div>

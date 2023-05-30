@@ -78,7 +78,17 @@
 	                          <span><%=dto.getItem_name() %></span>
 	                          <br>
 	                          <br>
-	                          <span style = "font-weight:bold;"><%=nf.format(dto.getItem_price())%>원</span>
+	                          <%	
+					          	if(!dao.itemIsSale(dto.getItem_num())) {%>
+					          		<span style = "font-weight:bold;"><%=nf.format(dto.getItem_price())%>원</span>
+					          	<%}else{ 
+					          		int ori=dto.getItem_price();
+									int sal=dao.getSalePrice(dto.getItem_num());
+									int off=(int)((ori-sal)/(ori*1.0)*100);
+					          	%>
+					          		<p><font style="color: red"><%=off %>% &nbsp;</font><span style = "font-weight:bold;"><%=nf.format(dao.getSalePrice(dto.getItem_num()))%></span>
+					          		<p style="color: gray; font-size: small;"><strike><%=nf.format(dto.getItem_price())%>원</strike></p>
+					          	<%} %>
 	                        </div>
 	                      </a> 
 	                      </div>

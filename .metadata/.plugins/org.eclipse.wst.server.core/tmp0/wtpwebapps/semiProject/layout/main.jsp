@@ -254,6 +254,7 @@
         }
         .saleItem {
             margin-right: 18px;
+            margin-top: 60px;
         }
         #the-final-countdown {
             font-family: 'Fira Sans', sans-serif;
@@ -263,6 +264,12 @@
             display: inline-flex;
             width: 100%;
             align-content: center;
+            position: absolute;
+            left: 46%;
+        }
+        #the-final-countdown p {
+            margin-bottom: 50px;
+            padding-bottom: 50px;
         }
   </style>
   
@@ -303,6 +310,24 @@
           setTimeout(showSlides, 5000); // Change image every 2 seconds
       }
    });
+   
+   function randSale() {
+       var randSale=Math.floor(Math.random()*16)+10;
+       return randSale;
+   }
+   setInterval(function time(){
+       var d = new Date();
+       var hours = 24 - d.getHours();
+       var min = 60 - d.getMinutes();
+       if((min + '').length == 1){
+           min = '0' + min;
+       }
+       var sec = 60 - d.getSeconds();
+       if((sec + '').length == 1){
+           sec = '0' + sec;
+       }
+       jQuery('#the-final-countdown p').html("<i class='fa-solid fa-clock' style='color: #4c62d3; white-space: nowrap; margin-right: 10px; align-content: center; align-items: center'></i>"+hours+':'+min+':'+sec)
+   }, 1000);
 </script>
   
 </head>

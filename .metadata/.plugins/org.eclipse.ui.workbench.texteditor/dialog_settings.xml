@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="heart"/>
+		<item key="selection" value="detail_addr"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="detail_addr"/>
+			<item value="bying_addr"/>
+			<item value="sendValue"/>
+			<item value="total_price"/>
 			<item value="heart"/>
 			<item value="sum"/>
 			<item value="검색어"/>
@@ -19,18 +23,14 @@
 			<item value="s_fade"/>
 			<item value="title"/>
 			<item value="ban"/>
-			<item value="ben"/>
-			<item value="img3"/>
-			<item value="menu"/>
-			<item value="btndown"/>
 		</list>
 		<list key="replacehistory">
 			<item value="x"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1671"/>
-		<item key="DIALOG_Y_ORIGIN" value="354"/>
+		<item key="DIALOG_X_ORIGIN" value="425"/>
+		<item key="DIALOG_Y_ORIGIN" value="368"/>
 		<item key="DIALOG_WIDTH" value="418"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

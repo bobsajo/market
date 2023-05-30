@@ -265,6 +265,8 @@ $(function(){
 			$("#pass_check").val("");
 		}else if(regex.test($("#email").val()) === false){
 			alert("잘못된 이메일 형식입니다.");  
+		}else if(isNaN($("#hp").val())){
+			alert("잘못된 번호입니다.");  
 		}else{
 
 			var year=$("#year").val();
