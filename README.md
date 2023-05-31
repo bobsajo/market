@@ -69,7 +69,7 @@
     <h4>회원가입</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/7c1c7f82-ec81-4ae9-81b5-7ab6f3bd42b7' alt='join' width='450'>
     <h4>로그인</h4>
-    <img src='https://github.com/bobsajo/market/assets/124232240/031e7152-0def-4006-9a42-8c65b3726fff' alt='join' height='650'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/031e7152-0def-4006-9a42-8c65b3726fff' alt='login' height='450'>
     <h4>아이디/비밀번호 찾기</h4>
     <h4>비밀번호 변경</h4>
     <h4>메인페이지</h4>
