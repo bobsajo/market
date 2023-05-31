@@ -85,9 +85,10 @@
     <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='recentitem' width='300'>
     <h4>상세페이지</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/0d404d2d-ca5a-4575-bb7f-bf7850e66cf2' alt='join' width='500'>
-
     <h4>후기</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/8407c308-ede0-48e6-b7f1-b5c99c9d54bd' alt='join' width='500'>
     <h4>장바구니</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/6a21721a-97be-4855-8387-e2e943287627' alt='findid' width='700'>
   <hr>
   
 </div>
