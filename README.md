@@ -66,6 +66,7 @@
   <img src='https://github.com/bobsajo/market/assets/124232240/7ece673e-65ef-4b8d-a3eb-ac84f2e33763' alt='role' width='450'>
   <br>
   <h3>6.프로젝트 산출물</h3>
+  <hr>
     <h4>회원가입</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/7c1c7f82-ec81-4ae9-81b5-7ab6f3bd42b7' alt='join' width='450'>
     <h4>로그인</h4>
@@ -89,6 +90,5 @@
     <img src='https://github.com/bobsajo/market/assets/124232240/8407c308-ede0-48e6-b7f1-b5c99c9d54bd' alt='join' width='500'>
     <h4>장바구니</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/6a21721a-97be-4855-8387-e2e943287627' alt='findid' width='700'>
-  <hr>
   
 </div>
