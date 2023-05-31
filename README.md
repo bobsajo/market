@@ -63,10 +63,12 @@
   <br>
   <h3>5.역할</h3>
   <hr>
-  <img src='https://github.com/bobsajo/market/assets/124232240/7ece673e-65ef-4b8d-a3eb-ac84f2e33763' alt='erd' width='450'>
+  <img src='https://github.com/bobsajo/market/assets/124232240/7ece673e-65ef-4b8d-a3eb-ac84f2e33763' alt='role' width='450'>
   <br>
   <h3>6.프로젝트 산출물</h3>
     <h4>회원가입</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/7c1c7f82-ec81-4ae9-81b5-7ab6f3bd42b7' alt='join' width='450'>
+
     <h4>로그인</h4>
     <h4>아이디/비밀번호 찾기</h4>
     <h4>비밀번호 변경</h4>
