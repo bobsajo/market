@@ -71,6 +71,10 @@
     <h4>로그인</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/031e7152-0def-4006-9a42-8c65b3726fff' alt='login' width='700'>
     <h4>아이디/비밀번호 찾기</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/b0e026ec-d10f-4875-ab0f-d15b3b10339a' alt='findid' width='700'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/5d224892-81b8-48b1-b98d-cf7565948605' alt='findid' width='700'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/61a2d8b9-60e0-47e9-803d-9163be46a9fd' alt='findid' width='700'>
+
     <h4>비밀번호 변경</h4>
     <h4>메인페이지</h4>
     <h4>일일특가</h4>
