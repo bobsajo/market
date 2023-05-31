@@ -79,7 +79,11 @@
     <h4>일일특가</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/9fd8ec76-7378-4265-8018-e95ce3d8cbed' alt='findid' width='700'>
     <h4>카테고리</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/a8a89d9d-8c55-41cf-a72d-fbc71de4f12b' alt='findid' width='700'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/a80781dd-e7fe-42ef-bf1a-6953b108dba2' alt='join' width='450'>
     <h4>최근 본 상품</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='join' width='600'>
+
     <h4>상세페이지</h4>
     <h4>후기</h4>
     <h4>장바구니</h4>
