@@ -36,6 +36,11 @@
     <li>html</li>
     <li>css</li>
   </ul>
+  <h4>백엔드</h4>
+  <ul>
+    <li>jsp</li>
+    <li>jquery</li>
+  </ul>
   <h4>데이터베이스</h4>
   <ul>
     <li>AWS</li>
