@@ -63,7 +63,7 @@
   <br>
   <h3>5.역할</h3>
   <hr>
-  <img src='https://github.com/bobsajo/market/assets/124232240/7ece673e-65ef-4b8d-a3eb-ac84f2e33763' alt='erd' width='650'>
+  <img src='https://github.com/bobsajo/market/assets/124232240/7ece673e-65ef-4b8d-a3eb-ac84f2e33763' alt='erd' width='450'>
 
   
 </div>
