@@ -48,6 +48,6 @@
   </ul>
   <br>
   <h3>ERD</h3>
-  <img src='https://github.com/bobsajo/market/assets/124232240/d5c35000-a90d-4947-bbca-d8dfb5291bcf' alt='erd' width='850'>
+  <img src='https://github.com/bobsajo/market/assets/124232240/d5c35000-a90d-4947-bbca-d8dfb5291bcf' alt='erd' width='750'>
   
 </div>
