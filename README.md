@@ -82,7 +82,7 @@
     <img src='https://github.com/bobsajo/market/assets/124232240/a8a89d9d-8c55-41cf-a72d-fbc71de4f12b' alt='findid' width='700'>
     <img src='https://github.com/bobsajo/market/assets/124232240/a80781dd-e7fe-42ef-bf1a-6953b108dba2' alt='join' width='450'>
     <h4>최근 본 상품</h4>
-    <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='join' width='600'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='join' width='400'>
 
     <h4>상세페이지</h4>
     <h4>후기</h4>
