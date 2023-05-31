@@ -77,14 +77,15 @@
     <h4>메인페이지</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/6e388ba1-2b4e-4928-8e7c-b57a9186a221' alt='join' width='500'>
     <h4>일일특가</h4>
-    <img src='https://github.com/bobsajo/market/assets/124232240/9fd8ec76-7378-4265-8018-e95ce3d8cbed' alt='findid' width='700'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/9fd8ec76-7378-4265-8018-e95ce3d8cbed' alt='daysale' width='700'>
     <h4>카테고리</h4>
-    <img src='https://github.com/bobsajo/market/assets/124232240/a8a89d9d-8c55-41cf-a72d-fbc71de4f12b' alt='findid' width='700'>
-    <img src='https://github.com/bobsajo/market/assets/124232240/a80781dd-e7fe-42ef-bf1a-6953b108dba2' alt='join' width='450'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/a8a89d9d-8c55-41cf-a72d-fbc71de4f12b' alt='categorymenu' width='700'>
+    <img src='https://github.com/bobsajo/market/assets/124232240/a80781dd-e7fe-42ef-bf1a-6953b108dba2' alt='categorypage' width='450'>
     <h4>최근 본 상품</h4>
-    <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='join' width='400'>
-
+    <img src='https://github.com/bobsajo/market/assets/124232240/efce1104-3e53-495e-b0e8-fb691b6fb4b3' alt='recentitem' width='300'>
     <h4>상세페이지</h4>
+    <img src='https://github.com/bobsajo/market/assets/124232240/0d404d2d-ca5a-4575-bb7f-bf7850e66cf2' alt='join' width='500'>
+
     <h4>후기</h4>
     <h4>장바구니</h4>
   <hr>
