@@ -12,7 +12,7 @@
     <li>프로젝트 개요</li>
     <li>기술스택</li>
     <li>ERD</li>
-    <li>주요 기능</li>
+    <li>주요기능</li>
     <li>역할</li>
     <li>프로젝트 산출물</li>
   </ol>
@@ -47,8 +47,18 @@
     <li>MySql</li>
   </ul>
   <br>
-  <h3>ERD</h3>
+  <h3>3.ERD</h3>
   <hr>
   <img src='https://github.com/bobsajo/market/assets/124232240/d5c35000-a90d-4947-bbca-d8dfb5291bcf' alt='erd' width='750'>
+  <br>
+  <h3>4.주요기능</h3>
+  <hr>
+  <ul>
+    <li>상품 찜하기</li>
+    <li>장바구니</li>
+    <li>일일특가</li>
+    <li>후기작성</li>
+    <li>최근 본 상품</li>
+  </ul>  
   
 </div>
