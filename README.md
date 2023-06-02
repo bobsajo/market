@@ -68,6 +68,7 @@
   <h3>6.프로젝트 산출물</h3>
   <hr>
     <h4>회원가입</h4>
+    <p>간단한 입력을 통해 회원가입이 가능합니다.</p>
     <img src='https://github.com/bobsajo/market/assets/124232240/7c1c7f82-ec81-4ae9-81b5-7ab6f3bd42b7' alt='join' width='450'>
     <h4>로그인</h4>
     <img src='https://github.com/bobsajo/market/assets/124232240/031e7152-0def-4006-9a42-8c65b3726fff' alt='login' width='700'>
